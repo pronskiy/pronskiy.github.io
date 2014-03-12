@@ -1,0 +1,18 @@
+{
+    "name": "pronskiy/homepage",
+    "description": "A Skeleton for a Sculpin Based Blog",
+    "authors": [
+        {
+            "name": "Roman Pronskiy",
+            "email": "roman@pronskiy.com",
+            "homepage": "http://pronskiy.com"
+        }
+    ],
+    "require": {
+        "components/bootstrap": "~3.1",
+        "components/jquery": "~1.9"
+    },
+    "config": {
+        "component-dir": "source/vendor"
+    }
+}
