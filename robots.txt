@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://pronskiy.com/sitemap.xml
