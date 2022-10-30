@@ -1,0 +1,8 @@
+/.sculpin/
+/app/cache/*
+/app/config/sculpin_kernel_*.yml
+/app/logs/*
+/output_*/
+/node_modules/
+/source/assets/css/
+/vendor/

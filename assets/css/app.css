@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-sans text-zinc-600 box-border;
+    }
+
+    html {
+        @apply min-h-screen;
+    }
+
+    h1, h2, h3, h4 {
+        @apply mb-8 mt-8 text-zinc-800;
+    }
+
+    h1 {
+        @apply leading-tight font-bold text-5xl text-center;
+    }
+
+    h2 {
+        @apply font-bold text-3xl text-center;
+    }
+
+    h3 {
+        @apply font-bold text-2xl;
+    }
+
+    h4 {
+        @apply font-bold text-xl;
+    }
+
+    p, ol, ul {
+        @apply pb-8;
+    }
+
+    p, li {
+        @apply font-normal text-zinc-800 text-base leading-relaxed;
+    }
+
+    ul {
+        @apply list-disc list-outside mb-4 ml-5;
+    }
+
+    ol {
+        @apply list-decimal list-outside mb-4 ml-5;
+    }
+
+    blockquote {
+        @apply bg-yellow-50 ;
+    }
+
+    blockquote p {
+        @apply p-4 pl-8;
+    }
+
+    a {
+        @apply text-blue-600 underline
+    }
+
+    a:hover, a:visited:hover {
+        @apply text-zinc-400;
+    }
+
+    figure {
+        @apply text-center mx-auto content-center;
+    }
+    figure img {
+        @apply inline-block;
+    }
+    figcaption, figcaption a {
+        @apply text-zinc-400;
+    }
+
+    figure, code, iframe {
+        @apply mb-12;
+    }
+}
+
+@layer components {
+    .btn-foundation {
+        @apply lg:pl-[calc(25% + 16px)];
+    }
+
+    .form-inp, .form-btn {
+        @apply border border-slate-300 hover:border-indigo-300;
+    }
+
+    .form-btn {
+        @apply pl-4 pr-4 rounded;
+    }
+
+
+    .li-item {
+        @apply mr-8 last:mr-0;
+    }
+
+    .group-link {
+        @apply text-slate-700/70;
+    }
+
+    .group-link:hover {
+        @apply text-slate-700;
+    }
+
+    .btn {
+        @apply text-slate-900/70 text-base tracking-tighter leading-6;
+    }
+
+    .nav-org {
+        @apply text-slate-900/70 hover:text-slate-900 hover:border-b hover:border-solid hover:border-slate-900 hover:no-underline after:content-["\2197"] after:mx-0.5 after:duration-300 hover:after:text-slate-900 hover:after:ml-1 hover:after:mr-0;
+    }
+
+    .footer-li {
+        @apply after:border-r after:border-solid after:border-white/50 after:content-[""] after:inline-block after:h-3 after:my-0 after:mx-4 after:w-0 last-of-type:after:hidden;
+    }
+
+    .index-module {
+        @apply relative rounded-lg overflow-hidden md:rounded-2xl;
+    }
+
+    .button-prev {
+        @apply absolute right-9 rounded;
+    }
+
+    .button-prev:hover {
+        @apply bg-slate-900 opacity-10 text-slate-900
+    }
+
+    .button-next {
+        @apply absolute right-0 rounded-lg;
+    }
+
+    .button-next:hover {
+        @apply bg-slate-900 opacity-10 text-slate-900
+    }
+}
+
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url("../fonts/JetBrainsMono-Regular.woff2");
+}
+
+:target {
+    scroll-margin-top: 64px;
+}
+
+:target::before {
+    content: "";
+    display: block;
+    margin-top: -64px;
+    height: 64px;
+    width: 1px;
+}
+
+.footer-link {
+    background-image: linear-gradient(180deg, #fff 100%, transparent 0);
+    background-size: auto 0;
+    background-repeat: repeat-x;
+    transition: background-size .3s,color .3s;
+}
+
+.footer-link:hover {
+    background-size: auto calc(100% + 4px);
+}
+
+footer > ul, footer > p {
+    padding: 0;
+}
+
+code {
+    /*font-family: Consolas, "PT Mono", "Liberation Mono", Courier, monospace;*/
+    line-height: normal;
+    background: rgba(135,131,120,0.15);
+    color: #EB5757;
+    border-radius: 3px;
+    font-size: 85%;
+    padding: 0.2em 0.4em;
+}

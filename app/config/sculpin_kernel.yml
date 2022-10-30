@@ -1,0 +1,20 @@
+sculpin_content_types:
+    # Static pages at the top-level
+    pages:
+        type: path
+        path: _pages
+        singular_name: page
+        layout: page
+        enabled: true
+
+    posts:
+        permalink: blog/:filename/
+
+sculpin:
+  ignore: ["**/draft-*"]
+
+# To disable posts (e.g., if you aren't planning on having any posts and Sculpin's watch mode complains):
+#sculpin_content_types:
+#    posts:
+#        enabled: false
+
