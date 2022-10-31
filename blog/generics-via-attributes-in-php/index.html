@@ -1,17 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <title><![CDATA[Roman Pronskiy]]></title>
-    <link href="https://pronskiy.com/atom.xml" rel="self"/>
-    <link href="https://pronskiy.com/"/>
-    <updated>2022-10-31T10:39:19+00:00</updated>
-    <id>https://pronskiy.com/</id>
-        <generator uri="http://sculpin.io/">Sculpin</generator>
-            <entry>
-            <title type="html"><![CDATA[Generics via Attributes in PHP ? Can We Have Them?]]></title>
-            <link href="https://pronskiy.com/blog/generics-via-attributes-in-php/"/>
-            <updated>2022-10-31T00:00:00+00:00</updated>
-            <id>https://pronskiy.com/blog/generics-via-attributes-in-php/</id>
-            <content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Generics via Attributes in PHP ? Can We Have Them? &mdash; Roman Pronskiy</title>
+    <meta name="description" content="Roman Pronskiy">
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="https://pronskiy.com/assets/css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/base16/darcula.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <meta property="og:url" content="https://pronskiy.com/blog/generics-via-attributes-in-php/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Generics via Attributes in PHP ? Can We Have Them?">
+    <meta property="og:description" content="Roman Pronskiy &mdash;  ">
+    <meta property="og:image" content="https://pronskiy.com/assets/share/2022-10-31-generics-via-attributes-in-php.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="https://pronskiy.com">
+    <meta property="twitter:url" content="https://pronskiy.com/blog/generics-via-attributes-in-php/">
+    <meta name="twitter:title" content="Generics via Attributes in PHP ? Can We Have Them?">
+    <meta name="twitter:description" content="Roman Pronskiy">
+    <meta name="twitter:image" content="https://pronskiy.com/assets/share/2022-10-31-generics-via-attributes-in-php.png">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="alternate" type="application/atom+xml" href="https://pronskiy.com/atom.xml" title="Roman Pronskiy activity feed" />
+            <script src="//cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+</head>
+<body>
+    <header class="wrapper w-full">
+    </header>
+    
+    <main class="flex flex-row justify-center min-w-[320px] min-h-[100vh] w-full pt-4">
+    <article class="max-w-2xl w-full bg-white px-4 md:px-0">
+        <header class="mb-8">
+            <h1 class="">Generics via Attributes in PHP ? Can We Have Them?</h1>
+
+                        <div class="text-s text-center">
+				Published on <span>Oct 31, 2022</span>
+				by <a href="https://twitter.com/pronskiy">Roman Pronskiy</a>
+            </div>
+            
+                        <div class="mt-3 space-x-1">
+                            </div>
+                    </header>
+
+        <section class="main_body mt-24">
+            <p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
 
 <pre><code class="php">#[&lt;T&gt;]
 class Stack
@@ -168,6 +210,44 @@ class Stack
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It seems PHP generics is a hot topic at the moment. <a href="https://twitter.com/pronskiy?ref_src=twsrc%5Etfw">@pronskiy</a> following on from our conversation at IPC, has the syntax #&lt;&gt; been suggested? <br><br>Would this work for adding type information for static analysis?<br><br>See more in gist: <a href="https://t.co/IOzSGgt1Xo">https://t.co/IOzSGgt1Xo</a><br><br>1/n <a href="https://t.co/BHkqP3cr07">https://t.co/BHkqP3cr07</a> <a href="https://t.co/g2eIzm1ndT">pic.twitter.com/g2eIzm1ndT</a></p>&mdash; Dave Liddament (@DaveLiddament) <a href="https://twitter.com/DaveLiddament/status/1586726336961339392?ref_src=twsrc%5Etfw">October 30, 2022</a></blockquote>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-]]></content>
-        </entry>
-    </feed>
+
+        </section>
+
+        <div class="border-t pt-5 my-5">
+            
+<!--            <div>-->
+<!--                <a href="https://github.com/ThePHPF/thephp.foundation/edit/main/source/_posts/2022-10-31-generics-via-attributes-in-php.md" class="nav-org" rel="noopener noreferrer" target="_blank">Edit this page on GitHub</a>-->
+<!--            </div>-->
+        </div>
+    </article>
+</main>
+    
+    <footer class="text-center">
+        <p>
+            Follow me:
+            <a href="https://twitter.com/pronskiy" target="_blank" rel="noopener noreferrer me">Twitter</a> —
+<!--            <a href="/rss" target="_blank" rel="noopener noreferrer">RSS</a> —-->
+            <a href="https://github.com/pronskiy" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
+        <p class="font-normal">
+            &copy; Roman Pronskiy
+        </p>
+    </footer>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const anchors = new AnchorJS()
+    anchors.add()
+
+    for (const element of document.getElementsByClassName('anchorjs-link')) {
+      element.addEventListener('click', function () {
+        navigator.clipboard.writeText(window.location.origin + window.location.pathname + element.getAttribute('href'))
+      })
+    }
+  })
+</script>
+
+        
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

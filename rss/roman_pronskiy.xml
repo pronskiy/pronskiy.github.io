@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <title><![CDATA[Roman Pronskiy]]></title>
-    <link href="https://pronskiy.com/atom.xml" rel="self"/>
-    <link href="https://pronskiy.com/"/>
-    <updated>2022-10-31T10:39:19+00:00</updated>
-    <id>https://pronskiy.com/</id>
-        <generator uri="http://sculpin.io/">Sculpin</generator>
-            <entry>
-            <title type="html"><![CDATA[Generics via Attributes in PHP ? Can We Have Them?]]></title>
-            <link href="https://pronskiy.com/blog/generics-via-attributes-in-php/"/>
-            <updated>2022-10-31T00:00:00+00:00</updated>
-            <id>https://pronskiy.com/blog/generics-via-attributes-in-php/</id>
-            <content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[ ]]></description><updated>2022-10-31T10:39:19+00:00</updated><entry><title type="html"><![CDATA[Generics via Attributes in PHP ? Can We Have Them?]]></title><content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
 
 <pre><code class="php">#[&lt;T&gt;]
 class Stack
@@ -168,6 +156,4 @@ class Stack
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It seems PHP generics is a hot topic at the moment. <a href="https://twitter.com/pronskiy?ref_src=twsrc%5Etfw">@pronskiy</a> following on from our conversation at IPC, has the syntax #&lt;&gt; been suggested? <br><br>Would this work for adding type information for static analysis?<br><br>See more in gist: <a href="https://t.co/IOzSGgt1Xo">https://t.co/IOzSGgt1Xo</a><br><br>1/n <a href="https://t.co/BHkqP3cr07">https://t.co/BHkqP3cr07</a> <a href="https://t.co/g2eIzm1ndT">pic.twitter.com/g2eIzm1ndT</a></p>&mdash; Dave Liddament (@DaveLiddament) <a href="https://twitter.com/DaveLiddament/status/1586726336961339392?ref_src=twsrc%5Etfw">October 30, 2022</a></blockquote>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-]]></content>
-        </entry>
-    </feed>
+]]></content><link href="https://pronskiy.com/blog/generics-via-attributes-in-php/"/><id>https://pronskiy.com/blog/generics-via-attributes-in-php/</id><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry></feed>
