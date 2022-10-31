@@ -3,11 +3,11 @@
     <title><![CDATA[Roman Pronskiy]]></title>
     <link href="https://pronskiy.com/atom.xml" rel="self"/>
     <link href="https://pronskiy.com/"/>
-    <updated>2022-10-31T10:39:19+00:00</updated>
+    <updated>2022-10-31T10:47:53+00:00</updated>
     <id>https://pronskiy.com/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
-            <title type="html"><![CDATA[Generics via Attributes in PHP ? Can We Have Them?]]></title>
+            <title type="html"><![CDATA[Generics via Attributes in PHP &amp;mdash; Can We Have Them?]]></title>
             <link href="https://pronskiy.com/blog/generics-via-attributes-in-php/"/>
             <updated>2022-10-31T00:00:00+00:00</updated>
             <id>https://pronskiy.com/blog/generics-via-attributes-in-php/</id>
@@ -147,7 +147,7 @@ class Stack
 
 <p>That means you can have early runtime checks in your local and test environments. For production you can disable such runtime checks and get performance boost there.</p>
 
-<h2 id="static-analysis-poc-wip">Static Analysis PoC (WIP)</h2>
+<h2 id="%F0%9F%9A%A7-static-analysis-poc">🚧 Static Analysis PoC</h2>
 
 <p><strike>Here is a fork of Nikita's PHP parser that demonstrates this concept. And here is the PHPStan fork with the ability to use this syntax.</strike></p>
 
