@@ -34,8 +34,8 @@ jobs:
     - name: Install PHP deps
       uses: ramsey/composer-install@v2
 
-    - name: Setup upterm session
-      uses: lhotari/action-upterm@v1
+#    - name: Setup upterm session
+#      uses: lhotari/action-upterm@v1
 
     - name: Build production site
       run: ./vendor/bin/sculpin generate --env=prod

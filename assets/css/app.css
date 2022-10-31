@@ -20,7 +20,7 @@
     }
 
     h2 {
-        @apply font-bold text-3xl text-center;
+        @apply font-bold text-3xl text-center mt-16;
     }
 
     h3 {

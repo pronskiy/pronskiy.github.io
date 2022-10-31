@@ -1,5 +1,5 @@
 ---
-title: 'Generics via Attributes in PHP ? Can We Have Them?'
+title: 'Generics via Attributes in PHP &mdash; Can We Have Them?'
 layout: post
 tags:
 author:
@@ -141,7 +141,7 @@ Since generics information is contained in attributes, it is available at runtim
 That means you can have early runtime checks in your local and test environments. For production you can disable such runtime checks and get performance boost there.
 
 
-## Static Analysis PoC (WIP)
+## 🚧 Static Analysis PoC
 
 <strike>Here is a fork of Nikita's PHP parser that demonstrates this concept. And here is the PHPStan fork with the ability to use this syntax.</strike>
 
