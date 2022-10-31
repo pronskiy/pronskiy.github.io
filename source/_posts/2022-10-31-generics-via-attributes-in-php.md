@@ -1,5 +1,5 @@
 ---
-title: 'Generics via Attributes in PHP — Can We Have Them?'
+title: 'Generics via Attributes in PHP ? Can We Have Them?'
 layout: post
 tags:
 author:
@@ -51,7 +51,7 @@ What prevents people from using generics via annotations? I just posed this ques
 
 There were some constructive and substantive concerns raised in the replies:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Nothing stops me from using phpdoc generics, &amp; I use them, but without native language support, I can’t enforce them on downstream users of my libraries, so I still have to write a lot of validation code to check types.<br><br>I think this would also be a problem with erased generics.</p>&mdash; Ben Ramsey @ramsey@phpc.social (@ramsey) <a href="https://twitter.com/ramsey/status/1582461944401133568?ref_src=twsrc%5Etfw">October 18, 2022</a></blockquote>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Nothing stops me from using phpdoc generics, &amp; I use them, but without native language support, I can?t enforce them on downstream users of my libraries, so I still have to write a lot of validation code to check types.<br><br>I think this would also be a problem with erased generics.</p>&mdash; Ben Ramsey @ramsey@phpc.social (@ramsey) <a href="https://twitter.com/ramsey/status/1582461944401133568?ref_src=twsrc%5Etfw">October 18, 2022</a></blockquote>
 
 There were also comments about the usability of such generics. But what annoys me, and what the Twitter mob didn't note, is that in modern PHP code you have to use both attributes and PHPDoc annotations simultaneously.
 
@@ -141,9 +141,9 @@ Since generics information is contained in attributes, it is available at runtim
 That means you can have early runtime checks in your local and test environments. For production you can disable such runtime checks and get performance boost there.
 
 
-## Static Analysis PoC
+## Static Analysis PoC (WIP)
 
-🚧 WIP 🚧 <strike>Here is a fork of Nikita's PHP parser that demonstrates this concept. And here is the PHPStan fork with the ability to use this syntax.</strike>
+<strike>Here is a fork of Nikita's PHP parser that demonstrates this concept. And here is the PHPStan fork with the ability to use this syntax.</strike>
 
 ## What do you think?
 - How do you like this syntax? 
