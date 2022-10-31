@@ -1,3 +1,3 @@
-title: Roman Pronskiy
-subtitle: 
+imports:
+  - sculpin_site.yml
 url: https://pronskiy.com
