@@ -1,5 +1,5 @@
 ---
-title: 'Generic via Attributes in PHP today — we can have them'
+title: 'Generics via Attributes in PHP — Can We Have Them?'
 layout: post
 tags:
 author:

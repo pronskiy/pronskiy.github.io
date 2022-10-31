@@ -107,13 +107,13 @@ class SharingImageGenerator
             );
         }
 
-        if ($this->inverse) {
-            $logo = imagecreatefrompng(__DIR__.'/../../../assets/img/logo.png');
-        } else {
-            $logo = imagecreatefrompng(__DIR__.'/../../../assets/img/logo_inverse.png');
-        }
-
-        imagecopy($image, $logo, 40, 490, 0, 0, 100, 100);
+//        if ($this->inverse) {
+//            $logo = imagecreatefrompng(__DIR__.'/../../../assets/img/logo.png');
+//        } else {
+//            $logo = imagecreatefrompng(__DIR__.'/../../../assets/img/logo_inverse.png');
+//        }
+//
+//        imagecopy($image, $logo, 40, 490, 0, 0, 100, 100);
 
         return $image;
     }
