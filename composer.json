@@ -17,24 +17,27 @@
     "ext-dom": "*"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "veewee/composer-run-parallel": "^1.2.0"
   },
   "scripts": {
-    "publish": [
-      "./publish.sh"
-    ],
     "sculpin-watch": [
       "Composer\\Config::disableProcessTimeout",
       "sculpin generate --watch --server"
     ],
-    "yarn-watch": [
+    "tailwind-watch": [
       "Composer\\Config::disableProcessTimeout",
-      "yarn encore dev --watch"
+      "npx tailwind -i assets/css/app.css -o source/assets/css/app.css --watch"
+    ],
+    "serve": [
+      "Composer\\Config::disableProcessTimeout",
+      "@parallel sculpin-watch tailwind-watch"
     ]
   },
   "config": {
     "allow-plugins": {
-      "sculpin/sculpin-theme-composer-plugin": true
+      "sculpin/sculpin-theme-composer-plugin": true,
+      "veewee/composer-run-parallel": true
     }
   },
   "autoload": {
