@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="robots" content="noindex, follow">
+    <link rel="shortcut icon" href="/favicon.png"/>
+        <meta name="robots" content="index, follow">
         <link rel="stylesheet" href="https://pronskiy.com/assets/css/app.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,19 +32,36 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link rel="alternate" type="application/atom+xml" href="https://pronskiy.com/atom.xml" title="Roman Pronskiy activity feed" />
+    <link rel="alternate" type="application/atom+xml" href="https://pronskiy.com/atom.xml" title="Roman Pronskiy activity feed"/>
                 </head>
 <body>
-    <header class="wrapper w-full">
-    </header>
-    
-    <main class="flex flex-row justify-center min-w-[320px] min-h-[100vh] w-full pt-4">
-	<section class="max-w-2xl w-full bg-white px-4 md:px-0">
-		<header class="mb-16">
-            <h1>Roman Pronskiy</h1>
-        </header>
 
+
+<header class="flex lg:flex items-center max-w-full justify-center min-w-2xl w-full pt-4">
+        <div class="mb-0 md:mb-4 lg:mb-0 flex flex-no-shrink pr-4 md:pr-6 lg:pr-12">
+            <a href="/" class="flex items-center no-underline">
+                <img src="https://pronskiy.com/assets/img/roman_pronskiy_.jpg" alt="Roman Pronskiy" class="shadow-lg rounded-full max-w-full h-auto align-middle border-none" width="140">
+            </a>
+        </div>
+        <div class="">
+            <a href="/" class="block text-black no-underline font-bold text-xl lg:text-3xl font-extrabold leading-none lg:leading-tight">Roman Pronskiy</a>
+            <div class=" mt-3 lg:mt-4 uppercase tracking-wide text-xs spaced-x-6"> <!--hidden md:flex-->
+                <a href="/"             class="text-grey-dark  lg:mr-4 md:mr-3 mr-2 font-semibold no-underline hover:text-black">About</a>
+                <a href="/blog"         class="text-grey-dark  lg:mr-4 md:mr-3 mr-2 font-semibold no-underline hover:text-black">Blog</a>
+<!--                <a href="/talks"        class="text-black  lg:mr-4 md:mr-3 mr-2 font-semibold no-underline hover:text-black">Talks</a>-->
+<!--                <a href="/projects"     class="text-grey-dark  lg:mr-4 md:mr-3 mr-2 font-semibold no-underline hover:text-black">Projects</a>-->
+<!--                <a href="/courses"      class="text-grey-dark  lg:mr-4 md:mr-3 mr-2 font-semibold no-underline hover:text-black">Music</a>-->
+<!--                <a href="/journal"      class="text-grey-dark  lg:mr-4 md:mr-3 mr-2 font-semibold no-underline hover:text-black">Uses</a>-->
+            </div>
+        </div>
+</header>
+
+<main class="flex flex-row justify-center min-w-[320px] min-h-[100vh] w-full pt-4">
+	<section class="max-w-2xl w-full bg-white px-4 md:px-0">
+        <hr class="mt-5">
+        <h1 class="text-2xl font-extrabold mb-4 text-left">Blog</h1>
                 <section class="mb-4">
+            
             <header>
                 <h4 class="mb-1"><a href="https://pronskiy.com/blog/generics-via-attributes-in-php/">Generics via Attributes in PHP &mdash; Can We Have Them?</a></h4>
 								<div class="text-xs mb-2">
@@ -67,21 +85,31 @@ class Stack
         </section>
         
             </section>
-</main>    
-    <footer class="text-center">
-        <p>
-            Follow me:
-            <a href="https://twitter.com/pronskiy" target="_blank" rel="noopener noreferrer me">Twitter</a> —
-<!--            <a href="/rss" target="_blank" rel="noopener noreferrer">RSS</a> —-->
-            <a href="https://github.com/pronskiy" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </p>
-        <p class="font-normal">
-            &copy; Roman Pronskiy
-        </p>
-    </footer>
+</main>
+<footer class="text-center">
+    <p>
+        Follow me:
+        <a href="https://twitter.com/pronskiy" target="_blank" rel="noopener noreferrer me">Twitter</a> —
+        <!--            <a href="/rss" target="_blank" rel="noopener noreferrer">RSS</a> —-->
+        <a href="https://github.com/pronskiy" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </p>
+    <p class="font-normal">
+        &copy; Roman Pronskiy
+    </p>
+</footer>
 
-        
-        
-    <script>hljs.highlightAll();</script>
+
+
+<script>hljs.highlightAll();</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-22346462-1', 'pronskiy.com');
+    ga('send', 'pageview');
+
+</script>
 </body>
 </html>
