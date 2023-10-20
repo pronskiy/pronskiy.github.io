@@ -1,6 +1,6 @@
 {
   "name": "pronskiy/pronskiy.github.io",
-  "description": "pronsriy.com website",
+  "description": "pronskiy.com website",
   "type": "project",
   "license": "MIT",
   "authors": [
@@ -10,9 +10,9 @@
     }
   ],
   "require": {
-    "php": "^8.0",
-    "sculpin/sculpin": "^3.1",
-    "twig/twig": "2.15.3",
+    "php": "^8.2",
+    "sculpin/sculpin": "3.3.0-alpha",
+    "twig/twig": "v3.4.3",
     "ext-gd": "*",
     "ext-dom": "*"
   },
