@@ -32,11 +32,8 @@ class TwigSharingImageGeneratorExtension extends AbstractExtension
         $filesystem = new Filesystem();
 
         $env = $this->configuration->get('env') ?? 'dev';
+        
         $filename = str_replace('.md', '.jpg', $filename);
-        if ($filesystem->exists("output_$env/assets/share/$filename")) {
-            return "/assets/share/$filename";
-        }
-        $filename = str_replace('.jpg', '.png', $filename);
         if ($filesystem->exists("output_$env/assets/share/$filename")) {
             return "/assets/share/$filename";
         }

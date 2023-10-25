@@ -52,10 +52,8 @@ class SharingImageGenerator implements EventSubscriberInterface
 
             $filename = str_replace('.md', '.jpg', $source->file()->getFilename());
             if ($filesystem->exists("assets/share/$filename")) {
-                return;
+                continue;
             }
-
-            $filename = str_replace('.md', '.png', $source->file()->getFilename());
 
             $image = new \App\Seo\SharingImageGenerator();
             if ($title = $source->data()->get('title')) {

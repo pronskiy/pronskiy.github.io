@@ -47,8 +47,8 @@ class SharingImageGenerator
     {
         $image = $this->prepare();
 
-        header('Content-type: image/png');
-        imagepng($image);
+        header('Content-type: image/jpeg');
+        imagejpeg($image);
         imagedestroy($image);
     }
 
@@ -56,7 +56,7 @@ class SharingImageGenerator
     {
         $image = $this->prepare();
 
-        imagepng($image, $path);
+        imagejpeg($image, $path);
         imagedestroy($image);
     }
 
