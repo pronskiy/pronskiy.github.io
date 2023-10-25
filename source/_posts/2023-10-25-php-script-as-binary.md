@@ -87,6 +87,6 @@ On a side note, pooling resources in a single repository to fund micro-php build
 
 ## Future prospects of this method?
 
-Ideally, all of this can be organized as a ready-made GitHub Action, which you simply add to your repository and for each release of your CLI-app you will get binaries for all platforms. Users would be able to download and use your CLI binaries without additional dependencies.
+Ideally, all of this can be organized as a ready-made GitHub Action, which you simply add to your repository, and for each release of your CLI-app you will get binaries for all platforms. Users would be able to download and use your CLI binaries without additional dependencies.
 
-[Static-php-cli](https://github.com/crazywhalecc/static-php-cli) is already used in [FrankenPHP](https://github.com/dunglas/frankenphp). Notably, Kevin Dunglas, the author of FrankenPHP, actively contributes to static-php-cli.
+> [Static-php-cli](https://github.com/crazywhalecc/static-php-cli) is [used](https://twitter.com/dunglas/status/1696448021234438518) in [FrankenPHP](https://github.com/dunglas/frankenphp). Notably, Kevin Dunglas, the author of FrankenPHP, actively contributes to static-php-cli.
