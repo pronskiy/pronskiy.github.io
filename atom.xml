@@ -3,7 +3,7 @@
     <title><![CDATA[Roman Pronskiy]]></title>
     <link href="https://pronskiy.com/atom.xml" rel="self"/>
     <link href="https://pronskiy.com/"/>
-    <updated>2023-10-25T13:22:17+00:00</updated>
+    <updated>2023-10-25T16:16:11+00:00</updated>
     <id>https://pronskiy.com/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -88,9 +88,11 @@ Abort trap: 6
 
 <h2 id="future-prospects-of-this-method%3F">Future prospects of this method?</h2>
 
-<p>Ideally, all of this can be organized as a ready-made GitHub Action, which you simply add to your repository and for each release of your CLI-app you will get binaries for all platforms. Users would be able to download and use your CLI binaries without additional dependencies.</p>
+<p>Ideally, all of this can be organized as a ready-made GitHub Action, which you simply add to your repository, and for each release of your CLI-app you will get binaries for all platforms. Users would be able to download and use your CLI binaries without additional dependencies.</p>
 
-<p><a href="https://github.com/crazywhalecc/static-php-cli">Static-php-cli</a> is already used in <a href="https://github.com/dunglas/frankenphp">FrankenPHP</a>. Notably, Kevin Dunglas, the author of FrankenPHP, actively contributes to static-php-cli.</p>
+<blockquote>
+  <p><a href="https://github.com/crazywhalecc/static-php-cli">Static-php-cli</a> is <a href="https://twitter.com/dunglas/status/1696448021234438518">used</a> in <a href="https://github.com/dunglas/frankenphp">FrankenPHP</a>. Notably, Kevin Dunglas, the author of FrankenPHP, actively contributes to static-php-cli.</p>
+</blockquote>
 ]]></content>
         </entry>
             <entry>

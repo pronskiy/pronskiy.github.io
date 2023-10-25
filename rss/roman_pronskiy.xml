@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[ ]]></description><updated>2023-10-25T13:22:17+00:00</updated><entry><title type="html"><![CDATA[Turn Any PHP Script into a Native Single-File Binary]]></title><content type="html"><![CDATA[<p>For years, I've dreamed of being able to create PHP CLI scripts that can be easily distributed without requiring users to have PHP installed on their machines.</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[ ]]></description><updated>2023-10-25T16:16:11+00:00</updated><entry><title type="html"><![CDATA[Turn Any PHP Script into a Native Single-File Binary]]></title><content type="html"><![CDATA[<p>For years, I've dreamed of being able to create PHP CLI scripts that can be easily distributed without requiring users to have PHP installed on their machines.</p>
 
 <p>But a scripting language needs an interpreter, they said. Not anymore! PHP still can't be compiled for real, there is a trick you can use.</p>
 
@@ -76,9 +76,11 @@ Abort trap: 6
 
 <h2 id="future-prospects-of-this-method%3F">Future prospects of this method?</h2>
 
-<p>Ideally, all of this can be organized as a ready-made GitHub Action, which you simply add to your repository and for each release of your CLI-app you will get binaries for all platforms. Users would be able to download and use your CLI binaries without additional dependencies.</p>
+<p>Ideally, all of this can be organized as a ready-made GitHub Action, which you simply add to your repository, and for each release of your CLI-app you will get binaries for all platforms. Users would be able to download and use your CLI binaries without additional dependencies.</p>
 
-<p><a href="https://github.com/crazywhalecc/static-php-cli">Static-php-cli</a> is already used in <a href="https://github.com/dunglas/frankenphp">FrankenPHP</a>. Notably, Kevin Dunglas, the author of FrankenPHP, actively contributes to static-php-cli.</p>
+<blockquote>
+  <p><a href="https://github.com/crazywhalecc/static-php-cli">Static-php-cli</a> is <a href="https://twitter.com/dunglas/status/1696448021234438518">used</a> in <a href="https://github.com/dunglas/frankenphp">FrankenPHP</a>. Notably, Kevin Dunglas, the author of FrankenPHP, actively contributes to static-php-cli.</p>
+</blockquote>
 ]]></content><link href="https://pronskiy.com/blog/php-script-as-binary/"/><id>https://pronskiy.com/blog/php-script-as-binary/</id><pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry><entry><title type="html"><![CDATA[Generics via Attributes in PHP &mdash; Can We Have Them?]]></title><content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
 
 <pre><code class="php">#[&lt;T&gt;]
