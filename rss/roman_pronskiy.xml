@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[ ]]></description><updated>2023-10-25T16:16:11+00:00</updated><entry><title type="html"><![CDATA[Turn Any PHP Script into a Native Single-File Binary]]></title><content type="html"><![CDATA[<p>For years, I've dreamed of being able to create PHP CLI scripts that can be easily distributed without requiring users to have PHP installed on their machines.</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[ ]]></description><updated>2023-11-23T15:01:26+00:00</updated><entry><title type="html"><![CDATA[Turn Any PHP Script into a Native Single-File Binary]]></title><content type="html"><![CDATA[<p>For years, I've dreamed of being able to create PHP CLI scripts that can be easily distributed without requiring users to have PHP installed on their machines.</p>
 
 <p>But a scripting language needs an interpreter, they said. Not anymore! PHP still can't be compiled for real, there is a trick you can use.</p>
 
