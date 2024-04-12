@@ -3,7 +3,7 @@ layout: page
 permalink: music
 ---
 
-I'm passionate about electronic music. And I occasionally do DJ sets at my friends' parties, corporate events, and other gigs. I'm not a pro DJ, I just enjoy making people dance and creating awesome mood with the music.
+I'm passionate about electronic music. And I occasionally do DJ sets at my friends' parties, corporate events, and other gigs. I just enjoy making people dance and creating awesome mood with the music.
 
 <img src="/assets/img/music/sugar_factory_1.jpg" alt="" width="375" style="float: left; margin-right: 10px;"/> <img src="/assets/img/music/klara_1.jpg" alt="" width="300"/>
 
