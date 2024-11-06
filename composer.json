@@ -12,7 +12,7 @@
   "require": {
     "php": "^8.3",
     "sculpin/sculpin": "3.3.0-alpha3",
-    "twig/twig": "v3.14.0",
+    "twig/twig": "v3.14.1",
     "ext-gd": "*",
     "ext-dom": "*"
   },
