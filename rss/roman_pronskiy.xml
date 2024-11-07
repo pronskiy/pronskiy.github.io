@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[ ]]></description><updated>2024-11-04T18:43:09+00:00</updated><entry><title type="html"><![CDATA[Running PHP 1.0 in 2024]]></title><content type="html"><![CDATA[<p>To celebrate PHP's 29th birthday, I decided to try running PHP 1.0.</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[ ]]></description><updated>2024-11-07T14:18:47+00:00</updated><entry><title type="html"><![CDATA[Running PHP 1.0 in 2024]]></title><content type="html"><![CDATA[<p>To celebrate PHP's 29th birthday, I decided to try running PHP 1.0.</p>
 
 <p>So I downloaded the source code, compiled it on my MacBook, wrote a simple CGI server using PHP 8.3, and tried to understand what was PHP 1.0 actually capable of doing. Spoiler alert: not much.</p>
 
