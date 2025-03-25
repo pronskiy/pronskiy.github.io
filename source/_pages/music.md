@@ -1,6 +1,7 @@
 ---
 layout: page
 permalink: music
+title: Music
 ---
 
 I'm passionate about electronic music. And I occasionally do DJ sets at my friends' parties, corporate events, and other gigs. I just enjoy making people dance and creating awesome mood with the music.
@@ -18,7 +19,7 @@ I'm passionate about electronic music. And I occasionally do DJ sets at my frien
 --- 
 <br>
 
-Check out my _old_ mixes from various parties below:
+Check out my mixes from various parties below:
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633060930&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 
@@ -26,7 +27,6 @@ Check out my _old_ mixes from various parties below:
 <br>
 
 These are my old projects if you would like to check my background.
-
 ## Bitches And Nike Shoes
 
 In 2010, my mates and I started an electronic band and we even had an official release on Subtribe Records in 2011.
