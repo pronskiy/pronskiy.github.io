@@ -35,7 +35,6 @@ I regularly speak at tech conferences, participate in podcasts, and live streams
 - **[PHP Digest Live #200](https://www.youtube.com/watch?v=Y4KH_2TjRrE)**
 - **[PHP Digest Live #201](https://www.youtube.com/watch?v=HHyv4AObhm0)**
 - **[Релиз PHP 8.1, запуск PHP Foundation и истории переезда на 8.0](https://www.youtube.com/watch?v=5D337gaVPa4)** (PHP 8.1 release, PHP Foundation launch and stories of moving to 8.0)
-- **[]()**
 - **[PHP и Laravel дайджест декабрь 2021](https://www.youtube.com/watch?v=fR4YoyHjFwk)** (PHP Digest, December 2021)
 - **[PHP и Laravel дайджест ноябрь 2021](https://www.youtube.com/watch?v=6em31j_LrSo)** (PHP Digest, November 2021)
 
@@ -48,12 +47,16 @@ I regularly speak at tech conferences, participate in podcasts, and live streams
 - **[PHP Digest Live #196](https://www.youtube.com/watch?v=DEV3K_Tf5Do)**
 - **[Podlodka Podcast #180 – PHP](https://soundcloud.com/podlodka/podlodka-180-php)**
 
+### 2019
+- **[How to upgrade to PHP 7.4 with PhpStorm](https://www.youtube.com/watch?v=ia1KSZCG2Bs)**
+
 ### 2018
 - **[PHP-Дайджест № 146](https://www.youtube.com/watch?v=KEn6t3HJ5L4)**
 - **[PHP-Дайджест № 145](https://www.youtube.com/watch?v=qnbn9RiOkuU)**
+- **[Quickstart with Docker in PhpStorm](https://www.youtube.com/watch?v=bWbXMy_mxxE)**
 
 ### 2017
-- **[Асинхронный PHP](https://www.youtube.com/watch?v=n6Iasl6bx4M)** (Async PHP) at ThinkPHP, Ukraine 
+- **[Асинхронный PHP](https://www.youtube.com/watch?v=n6Iasl6bx4M)** (Async PHP) at ThinkPHP, Ukraine
 
 ---
 
