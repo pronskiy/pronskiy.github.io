@@ -6,6 +6,11 @@ title: Talks, Podcasts, Videos
 
 I regularly speak at tech conferences, participate in podcasts, and live streams about PHP, development tools, and open source.
 
+### 2025
+- **[The PHP Foundation and What’s Next for PHP](https://youtu.be/2qTJgx2QF9M)** at PHPTalks, Barcelona, Spain
+- **[Growing PHP for the Future](https://youtu.be/zxTMzygBt7s)** at PHPverse 2025
+- **[PHP Web Frameworks | Django Chat Podcast](https://djangochat.com/episodes/php-web-frameworks-roman-pronskiy)**
+
 ### 2024
 - **[The PHP Foundation](https://www.youtube.com/watch?v=XE4g1Tl6RQw)** at Laracon EU, Amsterdam, Netherlands
 - **[Let's talk about Pecl](https://www.youtube.com/watch?v=uWsGDUCxbT0)**
@@ -54,10 +59,11 @@ I regularly speak at tech conferences, participate in podcasts, and live streams
 - **[PHP-Дайджест № 146](https://www.youtube.com/watch?v=KEn6t3HJ5L4)**
 - **[PHP-Дайджест № 145](https://www.youtube.com/watch?v=qnbn9RiOkuU)**
 - **[Quickstart with Docker in PhpStorm](https://www.youtube.com/watch?v=bWbXMy_mxxE)**
+- **[PHP Development in PhpStorm](https://www.youtube.com/watch?v=bjg5UWcl_oo)**
 
 ### 2017
 - **[Асинхронный PHP](https://www.youtube.com/watch?v=n6Iasl6bx4M)** (Async PHP) at ThinkPHP, Ukraine
 
 ---
 
-Feel free to [contact me](mailto:roman@pronskiy.com) if you'd like me to speak at your conference or appear on your podcast.
+Happy to speak at conferences or podcasts — just drop [me](mailto:roman@pronskiy.com) a line.
