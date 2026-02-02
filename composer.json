@@ -25,13 +25,13 @@
       "Composer\\Config::disableProcessTimeout",
       "sculpin generate --watch --server"
     ],
-    "tailwind-watch": [
+    "npx-watch": [
       "Composer\\Config::disableProcessTimeout",
       "npx tailwind -i assets/css/app.css -o source/assets/css/app.css --watch"
     ],
     "serve": [
       "Composer\\Config::disableProcessTimeout",
-      "@parallel sculpin-watch tailwind-watch"
+      "@parallel sculpin-watch npx-watch"
     ]
   },
   "config": {

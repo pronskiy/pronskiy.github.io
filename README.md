@@ -29,11 +29,7 @@ $ npm install
 ```
 
 ```bash
-$ npx tailwind -i assets/css/app.css -o source/assets/css/app.css --watch
-```
-
-```bash
-$ ./vendor/bin/sculpin generate --watch --server
+$ composer run npx-watch & composer run sculpin-watch
 ```
 
 This will launch the server at https://localhost:8000
