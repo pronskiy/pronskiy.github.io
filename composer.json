@@ -17,8 +17,7 @@
     "ext-dom": "*"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest",
-    "veewee/composer-run-parallel": "^1.2.0"
+    "roave/security-advisories": "dev-latest"
   },
   "scripts": {
     "sculpin-watch": [
@@ -31,13 +30,12 @@
     ],
     "serve": [
       "Composer\\Config::disableProcessTimeout",
-      "@parallel sculpin-watch npx-watch"
+      "bash serve.sh"
     ]
   },
   "config": {
     "allow-plugins": {
-      "sculpin/sculpin-theme-composer-plugin": true,
-      "veewee/composer-run-parallel": true
+      "sculpin/sculpin-theme-composer-plugin": true
     }
   },
   "autoload": {
