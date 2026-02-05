@@ -2,7 +2,22 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "WebFetch(domain:ncase.me)",
+      "Bash(head:*)",
+      "mcp__jetbrains__list_directory_tree",
+      "Bash(composer run:*)",
+      "Bash(lsof:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "Bash(npx tailwindcss:*)",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "Bash(xargs kill:*)",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "mcp__plugin_playwright_playwright__browser_click"
     ]
   }
 }
