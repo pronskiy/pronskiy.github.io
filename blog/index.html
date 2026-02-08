@@ -49,7 +49,7 @@
 
         <!-- Breadcrumb-style navigation -->
         <div class="flex items-center flex-wrap">
-            <a href="/" class="text-notion-text no-underline hover:bg-notion-hover px-1.5 py-0.5 rounded transition-colors">
+            <a href="/" class="text-notion-text no-underline hover:bg-notion-hover px-1.5 py-0.5 rounded transition-colors" data-scramble>
                 Roman Pronskiy
             </a>
             <span class="nav-separator text-notion-text-secondary">/</span>
@@ -118,6 +118,61 @@
 
 
 <script>hljs.highlightAll();</script>
+<script>
+(function() {
+  var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+  document.querySelectorAll('[data-scramble]').forEach(function(el) {
+    var original = el.textContent.trim();
+    var queue = [];
+    var frame = 0;
+    var rafId = null;
+
+    el.addEventListener('mouseenter', function() {
+      if (rafId) cancelAnimationFrame(rafId);
+      queue = [];
+      for (var i = 0; i < original.length; i++) {
+        var from = original[i];
+        var to = original[i];
+        var start = Math.floor(Math.random() * 20);
+        var end = start + Math.floor(Math.random() * 20) + 10;
+        queue.push({ from: from, to: to, start: start, end: end, char: null });
+      }
+      frame = 0;
+      update();
+    });
+
+    function randomChar() {
+      return chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    function update() {
+      var output = '';
+      var complete = 0;
+      for (var i = 0; i < queue.length; i++) {
+        var item = queue[i];
+        if (frame >= item.end) {
+          complete++;
+          output += item.to;
+        } else if (frame >= item.start) {
+          if (!item.char || Math.random() < 0.28) {
+            item.char = randomChar();
+          }
+          output += item.char;
+        } else {
+          output += item.from;
+        }
+      }
+      el.textContent = output;
+      if (complete < queue.length) {
+        frame++;
+        rafId = requestAnimationFrame(update);
+      } else {
+        rafId = null;
+      }
+    }
+  });
+})();
+</script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
