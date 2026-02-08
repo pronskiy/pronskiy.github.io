@@ -20,7 +20,12 @@
       "mcp__plugin_playwright_playwright__browser_click",
       "Bash(./vendor/bin/sculpin generate:*)",
       "Bash(magick identify:*)",
-      "Bash(magick source/assets/img/roman_pronskiy.jpg -gravity North -crop 500x500+0+50 +repage -resize 180x180 source/favicon.png)"
+      "Bash(magick source/assets/img/roman_pronskiy.jpg -gravity North -crop 500x500+0+50 +repage -resize 180x180 source/favicon.png)",
+      "Bash(magick source/assets/img/roman_pronskiy.jpg -gravity North -crop 500x500+0+50 +repage \\\\\\( +clone -resize 16x16 \\\\\\) \\\\\\( +clone -resize 32x32 \\\\\\) \\\\\\( +clone -resize 48x48 \\\\\\) -delete 0 source/assets/img/favicon.ico)",
+      "Bash(~/.claude/statusline-command.sh)",
+      "Bash(__NEW_LINE_a208d438fe3182ec__ echo -e \"\\\\n\\\\nTesting yellow \\(60%\\):\")",
+      "Bash(__NEW_LINE_2f0b561dd9d70ab6__ echo -e \"\\\\n\\\\nTesting red \\(85%\\):\")",
+      "Bash(magick:*)"
     ]
   }
 }
