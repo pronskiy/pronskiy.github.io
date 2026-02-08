@@ -17,7 +17,10 @@
       "mcp__plugin_playwright_playwright__browser_close",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "mcp__plugin_playwright_playwright__browser_click"
+      "mcp__plugin_playwright_playwright__browser_click",
+      "Bash(./vendor/bin/sculpin generate:*)",
+      "Bash(magick identify:*)",
+      "Bash(magick source/assets/img/roman_pronskiy.jpg -gravity North -crop 500x500+0+50 +repage -resize 180x180 source/favicon.png)"
     ]
   }
 }

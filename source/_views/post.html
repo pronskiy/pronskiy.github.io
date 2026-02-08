@@ -1,49 +1,53 @@
 {% extends "blog" %}
 
 {% block content_wrapper %}
-<main class="flex flex-row justify-center min-w-[320px] min-h-[100vh] w-full pt-4">
-    <article class="max-w-2xl w-full bg-white px-4 md:px-0">
-        <hr class="mt-5">
-        <header class="mb-8">
-            <h1 class=""><a class="no-underline text-inherit" href="{{ page.url }}" >{{ page.title | raw }}</a></h1>
-            
-            {% if page.tags is defined%}
-            <div class="mt-3 space-x-1">
+<main class="max-w-notion mx-auto px-4 pb-12">
+    <article>
+        <!-- Notion-style post header -->
+        <header class="mb-8 pt-4">
+            <h1 class="text-notion-text mb-3">
+                <a class="no-underline text-inherit hover:text-inherit" href="{{ page.url }}">{{ page.title | raw }}</a>
+            </h1>
+
+            <!-- Date and tags in muted secondary text -->
+            <div class="flex flex-wrap items-center gap-2 text-sm text-notion-text-secondary">
+                <time datetime="{{ page.date|date('Y-m-d') }}">{{ page.date|date('F j, Y') }}</time>
+
+                {% if page.tags is defined and page.tags|length > 0 %}
+                <span class="text-notion-border">·</span>
                 {% for tag in page.tags %}
-                <a href="{{ site.url }}/blog/tag/{{ tag|url_encode(true) }}" class="bg-[#7f52ff] hover:bg-[rgba(127,82,255,.8)] !text-white px-2 py-1 rounded no-underline text-sm">
+                <a href="{{ site.url }}/blog/tag/{{ tag|url_encode(true) }}" class="notion-tag">
                     {{ constant('App\\Blog\\Tag::ALLOWED_TAGS')[tag] ?? tag }}
                 </a>
                 {% endfor %}
+                {% endif %}
             </div>
-            {% endif %}
         </header>
 
-        <section class="main_body mt-24">
+        <!-- Content -->
+        <section class="notion-content">
             {{ page.blocks.content|raw }}
         </section>
 
-        <div class="border-t pt-5 my-5">
+        <!-- Notion-style previous/next navigation -->
+        <div class="border-t border-notion-border pt-8 mt-12">
             {% if page.previous_post or page.next_post %}
-            <nav class="flex flex-row justify-between article -mx-2 mb-5">
+            <nav class="flex flex-col sm:flex-row gap-3">
                 {% if page.previous_post %}
-                <a href="{{ site.url }}{{ page.previous_post.url }}" class="flex flex-col w-1/2 border p-2 mx-2 rounded hover:border-[#7f52ff] transition-all no-underline">
-                    <div class="mb-1 text-sm text-gray-600 font-medium">Previous</div>
-                    <div class="font-bold text-blue-500">{{ page.previous_post.title }}</div>
+                <a href="{{ site.url }}{{ page.previous_post.url }}" class="notion-nav-link flex-1">
+                    <span class="notion-nav-label">← Previous</span>
+                    <span class="notion-nav-title">{{ page.previous_post.title }}</span>
                 </a>
                 {% endif %}
 
                 {% if page.next_post %}
-                <a href="{{ site.url }}{{ page.next_post.url }}" class="flex flex-col w-1/2 border p-2 mx-2 rounded hover:border-[rgba(127,82,255,.8)] transition-all no-underline">
-                    <div class="mb-1 text-sm text-gray-600 font-medium">Next</div>
-                    <div class="font-bold text-blue-500">{{ page.next_post.title }}</div>
+                <a href="{{ site.url }}{{ page.next_post.url }}" class="notion-nav-link flex-1 sm:text-right">
+                    <span class="notion-nav-label">Next →</span>
+                    <span class="notion-nav-title">{{ page.next_post.title }}</span>
                 </a>
                 {% endif %}
             </nav>
             {% endif %}
-
-<!--            <div>-->
-<!--                <a href="https://github.com/ThePHPF/thephp.foundation/edit/main/source/_posts/{{ page.filename }}" class="nav-org" rel="noopener noreferrer" target="_blank">Edit this page on GitHub</a>-->
-<!--            </div>-->
         </div>
     </article>
 </main>

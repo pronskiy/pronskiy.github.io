@@ -13,9 +13,6 @@
     <meta name="robots" content="index, follow">
     {% endblock %}
     <link rel="stylesheet" href="{{ site.url }}/assets/css/app.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/base16/darcula.min.css">
     <script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
@@ -42,28 +39,45 @@
     {% block head_scripts %}
     {% endblock %}
 </head>
-<body>
+<body class="bg-notion-bg">
 
+<!-- Notion-style minimal header for blog posts -->
+<header class="max-w-notion mx-auto px-4 py-6">
+    <nav class="flex items-center text-sm">
+        <!-- Small avatar/icon -->
+        <a href="/" class="flex-shrink-0 mr-3 no-underline">
+            <img src="{{ site.url }}/assets/img/roman_pronskiy_.jpg"
+                 alt="Roman Pronskiy"
+                 class="rounded-full w-8 h-8 object-cover"
+                 width="32"
+                 height="32">
+        </a>
 
-<header class="flex lg:flex items-center max-w-full justify-center min-w-2xl w-full pt-4">
-    <div class="">
-        Written by <a href="{{ page.author.url }}">{{ page.author.name }}</a> on <span>{{ page.published_at|date("M d, Y") }}</span>
-        | <a href="/" class="">About</a> | <a href="/blog" class="">Blog</a>
-    </div>
+        <!-- Breadcrumb-style navigation with author info -->
+        <div class="flex items-center flex-wrap">
+            <a href="/" class="text-notion-text no-underline hover:bg-notion-hover px-1.5 py-0.5 rounded transition-colors">
+                Roman Pronskiy
+            </a>
+            <span class="nav-separator text-notion-text-secondary">/</span>
+            <a href="/blog" class="text-notion-text-secondary no-underline hover:bg-notion-hover px-1.5 py-0.5 rounded transition-colors">
+                Blog
+            </a>
+        </div>
+    </nav>
 </header>
 
 {%block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
 
-<footer class="text-center">
-    <p>
-        Follow me:
-        <a href="https://twitter.com/pronskiy" target="_blank" rel="noopener noreferrer me">Twitter</a> |
-        <a href="https://github.com/pronskiy" target="_blank" rel="noopener noreferrer">GitHub</a> |
-        <a href="https://www.linkedin.com/in/pronskiy/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </p>
-    <p class="font-normal">
-        &copy; Roman Pronskiy
-    </p>
+<!-- Notion-style minimal footer -->
+<footer class="max-w-notion mx-auto px-4 py-8 text-center text-sm text-notion-text-secondary">
+    <div class="flex justify-center items-center space-x-4 mb-2">
+        <a href="https://twitter.com/pronskiy" target="_blank" rel="noopener noreferrer me" class="text-notion-text-secondary hover:text-notion-text no-underline">Twitter</a>
+        <span class="text-notion-border">·</span>
+        <a href="https://github.com/pronskiy" target="_blank" rel="noopener noreferrer" class="text-notion-text-secondary hover:text-notion-text no-underline">GitHub</a>
+        <span class="text-notion-border">·</span>
+        <a href="https://www.linkedin.com/in/pronskiy/" target="_blank" rel="noopener noreferrer" class="text-notion-text-secondary hover:text-notion-text no-underline">LinkedIn</a>
+    </div>
+    <p class="m-0">&copy; Roman Pronskiy</p>
 </footer>
 
 {% block scripts %}
