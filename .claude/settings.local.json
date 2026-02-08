@@ -25,7 +25,10 @@
       "Bash(~/.claude/statusline-command.sh)",
       "Bash(__NEW_LINE_a208d438fe3182ec__ echo -e \"\\\\n\\\\nTesting yellow \\(60%\\):\")",
       "Bash(__NEW_LINE_2f0b561dd9d70ab6__ echo -e \"\\\\n\\\\nTesting red \\(85%\\):\")",
-      "Bash(magick:*)"
+      "Bash(magick:*)",
+      "mcp__plugin_playwright_playwright__browser_hover",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_run_code"
     ]
   }
 }
