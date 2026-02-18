@@ -158,3 +158,5 @@ Many thanks to Dave Liddament whose talk at the [International PHP Conference](h
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It seems PHP generics is a hot topic at the moment. <a href="https://twitter.com/pronskiy?ref_src=twsrc%5Etfw">@pronskiy</a> following on from our conversation at IPC, has the syntax #&lt;&gt; been suggested? <br><br>Would this work for adding type information for static analysis?<br><br>See more in gist: <a href="https://t.co/IOzSGgt1Xo">https://t.co/IOzSGgt1Xo</a><br><br>1/n <a href="https://t.co/BHkqP3cr07">https://t.co/BHkqP3cr07</a> <a href="https://t.co/g2eIzm1ndT">pic.twitter.com/g2eIzm1ndT</a></p>&mdash; Dave Liddament (@DaveLiddament) <a href="https://twitter.com/DaveLiddament/status/1586726336961339392?ref_src=twsrc%5Etfw">October 30, 2022</a></blockquote> 
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+{{ include('redditify.html', { subreddit: 'PHP' }) }}
