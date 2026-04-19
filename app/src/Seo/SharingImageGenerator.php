@@ -57,7 +57,7 @@ class SharingImageGenerator
         $image = $this->prepare();
 
         imagejpeg($image, $path);
-        imagedestroy($image);
+//        imagedestroy($image);
     }
 
     protected function prepare(): GdImage

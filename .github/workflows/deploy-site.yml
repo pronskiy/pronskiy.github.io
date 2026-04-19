@@ -13,17 +13,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
 
-    - name: Setup Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16
-
-    - name: Install asset deps
-      run: npm install
-
-    - name: Build production assets
-      run: npx tailwind -i assets/css/app.css -o source/assets/css/app.css --minify
-
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -33,9 +22,6 @@ jobs:
 
     - name: Install PHP deps
       uses: ramsey/composer-install@v2
-
-#    - name: Setup upterm session
-#      uses: lhotari/action-upterm@v1
 
     - name: Build production site
       run: ./vendor/bin/sculpin generate --env=prod
