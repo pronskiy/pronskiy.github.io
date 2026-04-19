@@ -4,13 +4,20 @@
     <title>Talks, Podcasts, Videos &mdash; Roman Pronskiy</title>
     <meta name="description" content="Roman Pronskiy">
     <meta charset="utf-8">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f5f2ec" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/favicon.png"/>
     <link href="mailto:roman@pronskiy.com" rel="me">
     <link rel="webmention" href="https://webmention.io/pronskiy.com/webmention" />
         <meta name="robots" content="index, follow">
-        <link rel="stylesheet" href="https://pronskiy.com/assets/css/app.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pronskiy.com/assets/css/app.css">
     <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/base16/darcula.min.css">
     <script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
@@ -32,48 +39,29 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <link rel="alternate" type="application/atom+xml" href="https://pronskiy.com/atom.xml" title="Roman Pronskiy activity feed"/>
-                </head>
-<body class="bg-notion-bg">
+        </head>
+<body>
 
-<!-- Notion-style minimal header -->
-<header class="max-w-notion mx-auto px-4 py-6">
-    <nav class="flex items-center text-sm">
-        <!-- Small avatar/icon -->
-        <a href="/" class="flex-shrink-0 mr-3 no-underline">
-            <img src="https://pronskiy.com/assets/img/roman_pronskiy.jpg"
-                 alt="Roman Pronskiy"
-                 class="rounded-full w-8 h-8 object-cover"
-                 width="32"
-                 height="32">
-        </a>
+<nav class="site-nav">
+    <div class="nav-inner">
+        <a href="/" class="brand">RP //</a>
+        <ul>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/#writing">Writing</a></li>
+            <li><a href="/#videos">Videos</a></li>
+            <li><a href="/#talks">Talks</a></li>
+        </ul>
+    </div>
+</nav>
 
-        <!-- Breadcrumb-style navigation -->
-        <div class="flex items-center flex-wrap">
-            <a href="/" class="text-notion-text no-underline hover:bg-notion-hover px-1.5 py-0.5 rounded transition-colors" data-scramble>
-                Roman Pronskiy
-            </a>
-            <span class="nav-separator text-notion-text-secondary">/</span>
-            <a href="/blog" class="text-notion-text-secondary no-underline hover:bg-notion-hover px-1.5 py-0.5 rounded transition-colors">
-                Blog
-            </a>
-            <span class="nav-separator text-notion-text-secondary">/</span>
-            <a href="/videos" class="text-notion-text-secondary no-underline hover:bg-notion-hover px-1.5 py-0.5 rounded transition-colors">
-                Videos
-            </a>
-        </div>
-    </nav>
-</header>
+<main>
+<article class="page">
+    <header class="page-header">
+        <h1>Talks, Podcasts, Videos</h1>
+            </header>
 
-<main class="max-w-notion mx-auto px-4 pb-12">
-    <article>
-        <!-- Notion-style page header -->
-        <header class="mb-8 pt-4">
-            <h1 class="text-notion-text">Talks, Podcasts, Videos</h1>
-                    </header>
-
-        <!-- Content -->
-        <section class="notion-content">
-            <p>I regularly speak at tech conferences, participate in podcasts, and live streams about PHP, development tools, and open source.</p>
+    <div class="prose">
+        <p>I regularly speak at tech conferences, participate in podcasts, and live streams about PHP, development tools, and open source.</p>
 
 <h3 id="2025">2025</h3>
 
@@ -164,22 +152,14 @@
 
 <p>Happy to speak at conferences or podcasts — just drop <a href="&#x6d;&#x61;&#105;&#108;t&#x6f;&#x3a;&#114;&#111;&#109;&#x61;&#x6e;&#64;&#112;&#114;&#x6f;&#x6e;&#x73;&#107;&#105;y&#x2e;&#x63;&#111;&#109;">me</a> a line.</p>
 
-        </section>
-    </article>
+    </div>
+</article>
 </main>
 
-<!-- Notion-style minimal footer -->
-<footer class="max-w-notion mx-auto px-4 py-8 text-center text-sm text-notion-text-secondary">
-    <div class="flex justify-center items-center space-x-4 mb-2">
-        <a href="https://twitter.com/pronskiy" target="_blank" rel="noopener noreferrer me" class="text-notion-text-secondary hover:text-notion-text no-underline">Twitter</a>
-        <span class="text-notion-border">·</span>
-        <a href="https://github.com/pronskiy" target="_blank" rel="noopener noreferrer" class="text-notion-text-secondary hover:text-notion-text no-underline">GitHub</a>
-        <span class="text-notion-border">·</span>
-        <a href="https://www.linkedin.com/in/pronskiy/" target="_blank" rel="noopener noreferrer" class="text-notion-text-secondary hover:text-notion-text no-underline">LinkedIn</a>
-    </div>
-    <p class="m-0">&copy; Roman Pronskiy</p>
+<footer class="site-footer">
+    <span>© Roman Pronskiy</span>
+    <span class="version" id="version">v2026.1 — built with coffee</span>
 </footer>
-
 
 
 <script>hljs.highlightAll();</script>
@@ -196,45 +176,59 @@
       if (rafId) cancelAnimationFrame(rafId);
       queue = [];
       for (var i = 0; i < original.length; i++) {
-        var from = original[i];
-        var to = original[i];
         var start = Math.floor(Math.random() * 20);
         var end = start + Math.floor(Math.random() * 20) + 10;
-        queue.push({ from: from, to: to, start: start, end: end, char: null });
+        queue.push({ from: original[i], to: original[i], start: start, end: end, char: null });
       }
       frame = 0;
       update();
     });
 
-    function randomChar() {
-      return chars[Math.floor(Math.random() * chars.length)];
-    }
+    function randomChar() { return chars[Math.floor(Math.random() * chars.length)]; }
 
     function update() {
       var output = '';
       var complete = 0;
       for (var i = 0; i < queue.length; i++) {
         var item = queue[i];
-        if (frame >= item.end) {
-          complete++;
-          output += item.to;
-        } else if (frame >= item.start) {
-          if (!item.char || Math.random() < 0.28) {
-            item.char = randomChar();
-          }
+        if (frame >= item.end) { complete++; output += item.to; }
+        else if (frame >= item.start) {
+          if (!item.char || Math.random() < 0.28) item.char = randomChar();
           output += item.char;
-        } else {
-          output += item.from;
-        }
+        } else { output += item.from; }
       }
       el.textContent = output;
-      if (complete < queue.length) {
-        frame++;
-        rafId = requestAnimationFrame(update);
-      } else {
-        rafId = null;
-      }
+      if (complete < queue.length) { frame++; rafId = requestAnimationFrame(update); }
+      else { rafId = null; }
     }
+  });
+})();
+</script>
+<script>
+(function() {
+  var versions = [
+    'v2026.1 — built with coffee',
+    'v2026.1 — now with 30% more opinions',
+    'v2026.1 — no frameworks were harmed',
+    'v2026.1 — the PHP was harmed, actually',
+    'v2026.1 — suspiciously fast',
+    'v2026.1 — powered by stroopwafels',
+    'v2026.1 — yes, it works on mobile',
+    'v2026.1 — hand-typed, slightly imperfect',
+    'v2026.1 — ships when it ships',
+    'v2026.1 — runs on good vibes',
+    'v2026.1 — one developer, no meetings',
+    'v2026.1 — deployed via vibes and git push',
+    'v2026.1 — tested in production, bravely',
+    'v2026.1 — fewer dependencies than your package.json has',
+    'v2026.1 — written between calls'
+  ];
+  var vi = 0;
+  var v = document.getElementById('version');
+  if (!v) return;
+  v.addEventListener('click', function() {
+    vi = (vi + 1) % versions.length;
+    v.textContent = versions[vi];
   });
 })();
 </script>
