@@ -248,6 +248,26 @@ section {
     50% { opacity: 0.5; transform: scale(1.4); }
 }
 
+/* ---------- wrap-shifter easter egg (pretext-driven) ---------- */
+.ws-word {
+    display: inline-block;
+    transition: color 0.1s;
+    white-space: pre-wrap;
+}
+.ws-glitch {
+    color: var(--accent);
+    text-shadow: 1px 0 0 #00e7ff, -1px 0 0 #ff2d8f, 0 0 12px rgba(255,45,143,0.35);
+    animation: ws-jitter 0.06s steps(3) infinite;
+    font-family: var(--mono);
+    letter-spacing: -0.02em;
+}
+@keyframes ws-jitter {
+    0%   { transform: translate(0, 0)    skew(0deg); }
+    33%  { transform: translate(1px, -1px) skew(-0.5deg); }
+    66%  { transform: translate(-1px, 1px) skew(0.5deg); }
+    100% { transform: translate(0, 0) skew(0deg); }
+}
+
 /* ---------- past-list (shared list component) ---------- */
 .past-list {
     list-style: none;

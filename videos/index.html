@@ -232,6 +232,128 @@
   });
 })();
 </script>
+<script type="module">
+// Wrap-shifter: when the window resizes and the hero-intro paragraphs re-wrap,
+// the words that jump to a different line briefly glitch before settling.
+// pretext predicts the new line count without triggering a reflow, so we only
+// run the effect when the wrap actually changes.
+import { prepare, layout } from 'https://esm.sh/@chenglou/pretext@0.0.5';
+
+const intros = document.querySelectorAll('.hero-intro');
+if (intros.length) {
+  const GLITCH_CHARS = '░▒▓█◆◇○●#@!*%&?+<>/\\';
+  const state = new Map();
+
+  function wrapWords(root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) => n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+    });
+    const textNodes = [];
+    let t;
+    while ((t = walker.nextNode())) textNodes.push(t);
+    const words = [];
+    for (const node of textNodes) {
+      const frag = document.createDocumentFragment();
+      const parts = node.nodeValue.split(/(\s+)/);
+      for (const part of parts) {
+        if (!part) continue;
+        if (/^\s+$/.test(part)) {
+          frag.appendChild(document.createTextNode(part));
+        } else {
+          const span = document.createElement('span');
+          span.className = 'ws-word';
+          span.textContent = part;
+          span.dataset.original = part;
+          frag.appendChild(span);
+          words.push(span);
+        }
+      }
+      node.replaceWith(frag);
+    }
+    return words;
+  }
+
+  function snapshotTops(words) {
+    return words.map((w) => Math.round(w.getBoundingClientRect().top));
+  }
+
+  function predictedLineCount(intro) {
+    const cs = getComputedStyle(intro);
+    const font = `${cs.fontSize} ${cs.fontFamily}`;
+    const lineHeight = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.5;
+    const width = intro.clientWidth - parseFloat(cs.paddingLeft || 0) - parseFloat(cs.paddingRight || 0);
+    try {
+      const prepared = prepare(intro.textContent, font);
+      const { lineCount } = layout(prepared, width, lineHeight);
+      return lineCount;
+    } catch (e) {
+      return -1;
+    }
+  }
+
+  function glitch(span) {
+    const original = span.dataset.original || span.textContent;
+    if (span._glitchRaf) cancelAnimationFrame(span._glitchRaf);
+    span.classList.add('ws-glitch');
+    let frame = 0;
+    const duration = 18 + Math.floor(Math.random() * 8);
+    const tick = () => {
+      if (frame >= duration) {
+        span.textContent = original;
+        span.classList.remove('ws-glitch');
+        span._glitchRaf = null;
+        return;
+      }
+      let out = '';
+      const progress = frame / duration;
+      for (let i = 0; i < original.length; i++) {
+        // reveal characters from left to right as we progress
+        if (i / original.length < progress && Math.random() < 0.7) {
+          out += original[i];
+        } else {
+          out += GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+        }
+      }
+      span.textContent = out;
+      frame++;
+      span._glitchRaf = requestAnimationFrame(tick);
+    };
+    tick();
+  }
+
+  // initialize
+  for (const intro of intros) {
+    const words = wrapWords(intro);
+    state.set(intro, {
+      words,
+      tops: snapshotTops(words),
+      lines: predictedLineCount(intro)
+    });
+  }
+
+  let timer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      for (const intro of intros) {
+        const s = state.get(intro);
+        const newLines = predictedLineCount(intro);
+        // bail out cheaply if pretext says the wrap didn't change
+        if (newLines === s.lines) {
+          s.tops = snapshotTops(s.words);
+          continue;
+        }
+        s.lines = newLines;
+        const newTops = snapshotTops(s.words);
+        for (let i = 0; i < s.words.length; i++) {
+          if (newTops[i] !== s.tops[i]) glitch(s.words[i]);
+        }
+        s.tops = newTops;
+      }
+    }, 90);
+  });
+}
+</script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
