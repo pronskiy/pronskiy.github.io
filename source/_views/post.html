@@ -1,5 +1,39 @@
 {% extends "blog" %}
 
+{% macro prevLink(post, site_url) %}
+{%- if post -%}
+{%- if post.unlisted -%}
+{{ _self.prevLink(post.previous_post, site_url) }}
+{%- else -%}
+<a href="{{ site_url }}{{ post.url }}" class="post-nav-link">
+    <span class="post-nav-label">← Previous</span>
+    <span class="post-nav-title">{{ post.title }}</span>
+</a>
+{%- endif -%}
+{%- endif -%}
+{% endmacro %}
+
+{% macro nextLink(post, site_url) %}
+{%- if post -%}
+{%- if post.unlisted -%}
+{{ _self.nextLink(post.next_post, site_url) }}
+{%- else -%}
+<a href="{{ site_url }}{{ post.url }}" class="post-nav-link post-nav-link--next">
+    <span class="post-nav-label">Next →</span>
+    <span class="post-nav-title">{{ post.title }}</span>
+</a>
+{%- endif -%}
+{%- endif -%}
+{% endmacro %}
+
+{% block head_meta %}
+{% if page.unlisted %}
+<meta name="robots" content="noindex, nofollow">
+{% else %}
+<meta name="robots" content="index, follow">
+{% endif %}
+{% endblock %}
+
 {% block content_wrapper %}
 <article class="page">
     <header class="page-header">
@@ -25,18 +59,8 @@
 
     {% if page.previous_post or page.next_post %}
     <nav class="post-nav">
-        {% if page.previous_post %}
-        <a href="{{ site.url }}{{ page.previous_post.url }}" class="post-nav-link">
-            <span class="post-nav-label">← Previous</span>
-            <span class="post-nav-title">{{ page.previous_post.title }}</span>
-        </a>
-        {% endif %}
-        {% if page.next_post %}
-        <a href="{{ site.url }}{{ page.next_post.url }}" class="post-nav-link post-nav-link--next">
-            <span class="post-nav-label">Next →</span>
-            <span class="post-nav-title">{{ page.next_post.title }}</span>
-        </a>
-        {% endif %}
+        {{ _self.prevLink(page.previous_post, site.url) }}
+        {{ _self.nextLink(page.next_post, site.url) }}
     </nav>
     {% endif %}
 </article>

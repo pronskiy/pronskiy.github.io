@@ -12,12 +12,14 @@ title: Sitemap
     <priority>0.8</priority>
   </url>
   {% for post in data.posts %}
+  {% if not post.unlisted %}
   <url>
     <loc>{{ site.url }}{{ post.url }}</loc>
     <lastmod>{{ post.date|date('c') }}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  {% endif %}
   {% endfor %}
   {% for page in data.pages %}
   <url>

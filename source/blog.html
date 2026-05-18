@@ -16,6 +16,7 @@ use:
 
     <ul class="past-list">
         {% for post in page.pagination.items %}
+        {% if not post.unlisted %}
         <li>
             <span class="past-year">{{ post.date|date('Y · m') }}</span>
             <span class="past-body"><a class="past-name" href="{{ site.url }}{{ post.url }}">{{ post.title|raw }}</a></span>
@@ -27,6 +28,7 @@ use:
                 {%- endif -%}
             </span>
         </li>
+        {% endif %}
         {% endfor %}
     </ul>
 
