@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The IDE Is Becoming a Token Machine &mdash; Roman Pronskiy</title>
+    <meta name="description" content="Roman Pronskiy">
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f5f2ec" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.png"/>
+    <link href="mailto:roman@pronskiy.com" rel="me">
+    <link rel="webmention" href="https://webmention.io/pronskiy.com/webmention" />
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pronskiy.com/assets/css/app.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/base16/darcula.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <meta property="og:url" content="https://pronskiy.com/blog/ide-becoming-token-machine/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The IDE Is Becoming a Token Machine">
+    <meta property="og:description" content="Roman Pronskiy &mdash;  ">
+    <meta property="og:image" content="https://pronskiy.com/assets/share/2026-05-18-ide-becoming-token-machine.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="https://pronskiy.com">
+    <meta property="twitter:url" content="https://pronskiy.com/blog/ide-becoming-token-machine/">
+    <meta name="twitter:title" content="The IDE Is Becoming a Token Machine">
+    <meta name="twitter:description" content="Roman Pronskiy">
+    <meta name="twitter:image" content="https://pronskiy.com/assets/share/2026-05-18-ide-becoming-token-machine.jpg">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="alternate" type="application/atom+xml" href="https://pronskiy.com/atom.xml" title="Roman Pronskiy activity feed"/>
+        <script src="//cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+</head>
+<body>
+
+<nav class="site-nav">
+    <div class="nav-inner">
+        <a href="/" class="brand">RP //</a>
+        <ul>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/#writing">Writing</a></li>
+            <li><a href="/#videos">Videos</a></li>
+            <li><a href="/#talks">Talks</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+<article class="page">
+    <header class="page-header">
+        <h1>
+            <a href="/blog/ide-becoming-token-machine/" style="color: inherit; text-decoration: none;">The IDE Is Becoming a Token Machine</a>
+        </h1>
+        <div class="page-meta">
+            <time datetime="2026-05-18">May 18, 2026</time>
+                    </div>
+    </header>
+
+    <div class="prose">
+        <p>Or: what software development looks like after coding stops being the bottleneck.</p>
+
+<hr />
+
+<p>For most of software history, programming looked something like this:</p>
+
+<p>Tiny human.</p>
+
+<p>Big keyboard.</p>
+
+<p>Millions of tiny painful decisions.</p>
+
+<p>You sat in front of a glowing rectangle for eight hours and slowly converted caffeine into syntax.</p>
+
+<p><img src="/assets/img/blog/2026-token-machine/tiny-human-big-keyboard.png" alt="Tiny human, big keyboard" /></p>
+
+<p>And because of this, the IDE evolved around one core assumption:</p>
+
+<blockquote>
+  <p>Humans manually produce code.</p>
+</blockquote>
+
+<p>Everything made sense around that assumption.</p>
+
+<p>Autocomplete helped humans type faster.</p>
+
+<p>Refactorings helped humans avoid mistakes.</p>
+
+<p>Navigation helped humans understand giant codebases.</p>
+
+<p>Syntax highlighting prevented humans from accidentally destroying production with one missing bracket.</p>
+
+<p>The editor was the center of gravity because the editor was where the work happened.</p>
+
+<p>The IDE was basically a power tool for token-producing monkeys.</p>
+
+<p>And honestly?</p>
+
+<p>It worked pretty well.</p>
+
+<hr />
+
+<h2 id="%2A%2A2015-software-engineering%2A%2A"><strong>2015 software engineering</strong></h2>
+
+<pre><code> Human brain
+     ↓
+  Fingers
+     ↓
+  Keyboard
+     ↓
+    Code
+</code></pre>
+
+<hr />
+
+<h2 id="%2A%2Athen-ai-happened%2A%2A"><strong>Then AI happened</strong></h2>
+
+<p>And suddenly the entire equation broke.</p>
+
+<p>Not because AI became “pretty good”.</p>
+
+<p>But because tokens became cheap.</p>
+
+<p>Historically, tokens were expensive.</p>
+
+<p>Every line of code required: attention, memory, effort, frustration, context switching, debugging, emotional damage, 14 Stack Overflow tabs.</p>
+
+<p>Generating 1000 lines of code used to cost actual human life force.</p>
+
+<p>Now it costs approximately: 14 cents. one prompt. and a slightly reckless amount of confidence.</p>
+
+<p>This changes everything.</p>
+
+<p>And I think most people still underestimate how fundamental this shift is.</p>
+
+<p>Because the important thing is not:</p>
+
+<blockquote>
+  <p>“AI can code”</p>
+</blockquote>
+
+<p>That’s the shallow version.</p>
+
+<p>The real thing is:</p>
+
+<blockquote>
+  <p><strong>Software development is becoming a token allocation problem.</strong></p>
+</blockquote>
+
+<p>That’s the actual earthquake.</p>
+
+<hr />
+
+<h2 id="%2A%2Aold-world%2A%2A"><strong>Old world</strong></h2>
+
+<pre><code>Human → code
+</code></pre>
+
+<h2 id="%2A%2Anew-world%2A%2A"><strong>New world</strong></h2>
+
+<pre><code>Human → AI swarm → infinite tokens → code
+</code></pre>
+
+<p>The bottleneck moved.</p>
+
+<p>That’s the whole story.</p>
+
+<p>For decades, the bottleneck was “token” generation.</p>
+
+<p>Now the bottleneck is:</p>
+
+<ul>
+<li>intent</li>
+<li>taste</li>
+<li>prioritization</li>
+<li>direction</li>
+<li>judgment</li>
+<li>coordination</li>
+<li><strong>knowing what not to build</strong></li>
+</ul>
+
+<p>In other words:</p>
+
+<p>The bottleneck became human thinking itself.</p>
+
+<p>Which means the IDE can no longer fundamentally revolve around editing text.</p>
+
+<p>Because text generation is no longer scarce.</p>
+
+<hr />
+
+<h1 id="%2A%2Athe-economics-changed%2A%2A"><strong>The Economics Changed</strong></h1>
+
+<p>Every generation of developer tooling optimized around the scarcest resource.</p>
+
+<p>Early programming optimized around hardware scarcity.</p>
+
+<p>Later IDEs optimized around human productivity.</p>
+
+<p>AI-era tooling optimizes around intelligence throughput.</p>
+
+<p>And when tokens become abundant, the winning systems are the ones that help humans consume and direct more of them.</p>
+
+<p>This is important because many people still think AI tooling is fundamentally about replacing developers.</p>
+
+<p>I don’t think that’s quite right.</p>
+
+<p>The more interesting thing is that software development itself changes shape once intelligence becomes cheap.</p>
+
+<hr />
+
+<h1 id="%2A%2A%E2%80%9Cwill-ai-replace-software-engineers%3F%E2%80%9D%2A%2A"><strong>“Will AI Replace Software Engineers?”</strong></h1>
+
+<p>This is where discussions usually become weird.</p>
+
+<p>One side says:</p>
+
+<blockquote>
+  <p>“AI will replace all programmers”</p>
+</blockquote>
+
+<p>The other side says:</p>
+
+<blockquote>
+  <p>“AI is just a tool”</p>
+</blockquote>
+
+<p>Both are missing what’s actually happening.</p>
+
+<p>Developers are not disappearing.</p>
+
+<p>But the nature of development is changing.</p>
+
+<p>A lot.</p>
+
+<p><img src="/assets/img/blog/2026-token-machine/hackers-vs-foremen.png" alt="From hackers to foremen" /></p>
+
+<p>Historically, programmers looked like hackers.</p>
+
+<p>People who manually manipulated systems at a low level.</p>
+
+<p>Modern software engineers increasingly look less like hackers and more like construction foremen.</p>
+
+<p>Or renovation specialists.</p>
+
+<p>The best builders are not the people who can personally manufacture every brick.</p>
+
+<p>They’re the people who know:</p>
+
+<ul>
+<li>where walls should go</li>
+<li>which shortcuts become disasters later</li>
+<li>which foundations are unsafe</li>
+<li>how to coordinate ten specialists simultaneously</li>
+<li>what “good” looks like before it exists</li>
+</ul>
+
+<p>AI can generate a house.</p>
+
+<p>Experienced engineers know whether the house collapses six months later.</p>
+
+<p>That difference still matters enormously.</p>
+
+<p>But notice what changed:</p>
+
+<p>The valuable skill is increasingly not typing.</p>
+
+<hr />
+
+<h2 id="%2A%2Athe-new-developer%2A%2A"><strong>The New Developer</strong></h2>
+
+<pre><code>Old:
+human writes software
+
+New:
+human directs intelligence
+</code></pre>
+
+<p>And once you realize this, another strange thing becomes obvious.</p>
+
+<hr />
+
+<h1 id="%2A%2Amaybe-ides-are-not-about-correctness-either%2A%2A"><strong>Maybe IDEs Are Not About Correctness Either</strong></h1>
+
+<p>A lot of people assume the future IDE exists to keep AI under control.</p>
+
+<p>Like a giant safety harness.</p>
+
+<p>The IDE verifies things.<br />
+Checks AI.<br />
+Protects humans.<br />
+Guarantees correctness.</p>
+
+<p>Maybe temporarily.</p>
+
+<p>But long term?</p>
+
+<p>Probably not.</p>
+
+<p>Humans currently verify AI because humans are still more reliable in certain domains.</p>
+
+<p>That advantage may not survive.</p>
+
+<p>Eventually AI systems will likely:</p>
+
+<ul>
+<li>write code better than humans</li>
+<li>test code better than humans</li>
+<li>review code better than humans</li>
+<li>benchmark code better than humans</li>
+<li>debug code better than humans</li>
+<li>reason across giant systems better than humans</li>
+</ul>
+
+<p>Which creates a very uncomfortable question.</p>
+
+<p>If IDEs are no longer fundamentally about:</p>
+
+<ul>
+<li>writing code</li>
+<li>navigating code</li>
+<li>verifying code</li>
+</ul>
+
+<p>…then what are they?</p>
+
+<hr />
+
+<h1 id="%2A%2Athe-ide-becomes-a-token-machine%2A%2A"><strong>The IDE Becomes a Token Machine</strong></h1>
+
+<p>I think the answer is surprisingly simple.</p>
+
+<p>The IDE becomes <strong>a medium for spending intelligence</strong>.</p>
+
+<p>Or more specifically:</p>
+
+<blockquote>
+  <p>A machine for converting human intention into deployed reality through massive token consumption.</p>
+</blockquote>
+
+<p>Which sounds ridiculous.</p>
+
+<p>Until it doesn't.</p>
+
+<p>Until you realize that modern civilization repeatedly evolves in exactly this direction.</p>
+
+<p>Once something becomes abundant, interfaces reorganize around consuming more of it.</p>
+
+<p>Cheap electricity changed factories.</p>
+
+<p>Cheap bandwidth changed media.</p>
+
+<p>Cheap cloud compute changed software architecture.</p>
+
+<p>And now cheap intelligence changes software creation.</p>
+
+<hr />
+
+<h1 id="%2A%2Athe-editor-stops-being-the-center%2A%2A"><strong>The Editor Stops Being the Center</strong></h1>
+
+<p>For 30 years, the editor was the center of software creation.</p>
+
+<p>Everything revolved around manipulating text.</p>
+
+<p>But in an agentic world, editing increasingly becomes an implementation detail rather than the core activity.</p>
+
+<p>The center of gravity shifts:</p>
+
+<ul>
+<li>from syntax to intent</li>
+<li>from files to systems</li>
+<li>from editing to orchestration</li>
+</ul>
+
+<p>The editor does not disappear.</p>
+
+<p>It just stops being the sun around which everything else rotates.</p>
+
+<p>Many AI IDEs today still look like:</p>
+
+<ul>
+<li>traditional IDE</li>
+<li>plus sidebar chatbot</li>
+</ul>
+
+<p>But that may eventually feel as outdated as attaching a jet engine to a horse carriage.</p>
+
+<p><strong>The future IDE probably looks more like… TikTok.</strong></p>
+
+<hr />
+
+<h1 id="%2A%2Await-what%3F%2A%2A"><strong>Wait what?</strong></h1>
+
+<p>The point is that products increasingly optimize for:</p>
+
+<ul>
+<li>immediacy</li>
+<li>low friction</li>
+<li>instant feedback</li>
+<li>infinite interaction loops</li>
+</ul>
+
+<p>And AI development tools are drifting in the same direction.</p>
+
+<p>The interaction loop becomes optimized for throughput and continuous generation.</p>
+
+<p>Old IDEs were books.</p>
+
+<p>You sat quietly.<br />
+You concentrated deeply.<br />
+You manually traversed systems.</p>
+
+<p>The interaction loop was slow.</p>
+
+<p>Modern AI tools feel closer to TikTok.</p>
+
+<p>Fast.<br />
+Addictive.<br />
+High-frequency.<br />
+Infinite feed of generated possibilities.</p>
+
+<p>You no longer slowly carve software from stone.</p>
+
+<p>You steer an avalanche.</p>
+
+<p>Not because software engineering becomes stupid.</p>
+
+<p>Because the economics and latency changed.</p>
+
+<p>Once software generation becomes nearly instant, the interaction model changes too.</p>
+
+<p>Eat.<br />
+Sleep.<br />
+Claude.<br />
+Repeat.</p>
+
+<p>The feedback loop compresses so aggressively that software creation starts resembling a continuous stream rather than a careful drafting process.</p>
+
+<p><img src="/assets/img/blog/2026-token-machine/tiktok-feed.png" alt="TikTok-style feed" />
+<a href="https://www.tiktok.com/@openai/video/7636197889714244877">https://www.tiktok.com/@openai/video/7636197889714244877</a></p>
+
+<hr />
+
+<h1 id="%2A%2Amaybe-we-misunderstood-programming%2A%2A"><strong>Maybe We Misunderstood Programming</strong></h1>
+
+<p>Maybe programming was never fundamentally about writing code.</p>
+
+<p>Maybe code was just the temporary compression format for human intent.</p>
+
+<p>Maybe code was always just a side effect.</p>
+
+<p>A weird bridge language between:</p>
+
+<ul>
+<li>imagination</li>
+<li>logic</li>
+<li>machines</li>
+</ul>
+
+<p>And now we are building a much better compiler for intent itself.</p>
+
+<p>Which means the IDE of the AI era is probably not really an Integrated Development Environment anymore.</p>
+
+<p>It’s something stranger.</p>
+
+<p>An intelligence refinery.</p>
+
+<p>A system designed to maximize the conversion rate between:
+human intention → machine execution</p>
+
+<p>Because once intelligence becomes infrastructure, the most important software category is no longer the one that helps humans write code.</p>
+
+<p>It’s the one that helps humans direct enormous amounts of machine cognition.</p>
+
+<p>And economically, the incentives are obvious.</p>
+
+<p>Cloud companies wanted more compute.</p>
+
+<p>Social networks wanted more engagement.</p>
+
+<p>Streaming companies wanted more watch time.</p>
+
+<p><img src="/assets/img/blog/2026-token-machine/token-flow.png" alt="Token flow" /></p>
+
+<h2 id="%2A%2Aand-llm-providers%3F%2A%2A"><strong>And LLM providers?</strong></h2>
+
+<p>They want more token flow.</p>
+
+<p>Not necessarily maliciously.</p>
+
+<p>Economically.</p>
+
+<p>Once intelligence becomes metered infrastructure, the ecosystem naturally evolves toward tools optimized for continuous intelligence consumption.</p>
+
+<p>More generation.
+More iteration.
+More retries.
+More autonomous loops.
+More context.
+More execution.</p>
+
+<p>Not because developers became shallow.</p>
+
+<p>Because the economics changed.</p>
+
+<p><strong>IDE will follow.</strong></p>
+
+    </div>
+
+        <nav class="post-nav">
+        <a href="https://pronskiy.com/blog/running-php-1-in-2024/" class="post-nav-link">
+    <span class="post-nav-label">← Previous</span>
+    <span class="post-nav-title">Running PHP 1.0 in 2024</span>
+</a>
+        
+    </nav>
+    </article>
+</main>
+
+<footer class="site-footer">
+    <span>© Roman Pronskiy</span>
+    <span class="version" id="version">v2026.1 — 💜</span>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const anchors = new AnchorJS()
+    anchors.add()
+
+    for (const element of document.getElementsByClassName('anchorjs-link')) {
+      element.addEventListener('click', function () {
+        navigator.clipboard.writeText(window.location.origin + window.location.pathname + element.getAttribute('href'))
+      })
+    }
+  })
+</script>
+
+<script>hljs.highlightAll();</script>
+<script>
+(function() {
+  var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+  document.querySelectorAll('[data-scramble]').forEach(function(el) {
+    var original = el.textContent.trim();
+    var queue = [];
+    var frame = 0;
+    var rafId = null;
+
+    el.addEventListener('mouseenter', function() {
+      if (rafId) cancelAnimationFrame(rafId);
+      queue = [];
+      for (var i = 0; i < original.length; i++) {
+        var start = Math.floor(Math.random() * 20);
+        var end = start + Math.floor(Math.random() * 20) + 10;
+        queue.push({ from: original[i], to: original[i], start: start, end: end, char: null });
+      }
+      frame = 0;
+      update();
+    });
+
+    function randomChar() { return chars[Math.floor(Math.random() * chars.length)]; }
+
+    function update() {
+      var output = '';
+      var complete = 0;
+      for (var i = 0; i < queue.length; i++) {
+        var item = queue[i];
+        if (frame >= item.end) { complete++; output += item.to; }
+        else if (frame >= item.start) {
+          if (!item.char || Math.random() < 0.28) item.char = randomChar();
+          output += item.char;
+        } else { output += item.from; }
+      }
+      el.textContent = output;
+      if (complete < queue.length) { frame++; rafId = requestAnimationFrame(update); }
+      else { rafId = null; }
+    }
+  });
+})();
+</script>
+<script>
+(function() {
+  var versions = [
+    'v2026.1 — built with coffee',
+    'v2026.1 — now with 30% more opinions',
+    'v2026.1 — no frameworks were harmed',
+    'v2026.1 — PHP was harmed, actually',
+    'v2026.1 — suspiciously fast',
+    'v2026.1 — powered by stroopwafels',
+    'v2026.1 — yes, it works on mobile',
+    'v2026.1 — hand-typed, slightly imperfect',
+    'v2026.1 — ships when it ships',
+    'v2026.1 — runs on good vibes',
+    'v2026.1 — one developer, no meetings',
+    'v2026.1 — deployed via vibes and git push',
+    'v2026.1 — tested in production, bravely',
+    'v2026.1 — fewer dependencies than your package.json has',
+    'v2026.1 — written between calls'
+  ];
+  var vi = 0;
+  var v = document.getElementById('version');
+  if (!v) return;
+  v.addEventListener('click', function() {
+    vi = (vi + 1) % versions.length;
+    v.textContent = versions[vi];
+  });
+})();
+</script>
+<script type="module">
+// Wrap-shifter: when the window resizes and the hero-intro paragraphs re-wrap,
+// the words that jump to a different line briefly glitch before settling.
+// pretext predicts the new line count without triggering a reflow, so we only
+// run the effect when the wrap actually changes.
+import { prepare, layout } from 'https://esm.sh/@chenglou/pretext@0.0.5';
+
+const intros = document.querySelectorAll('.hero-intro');
+if (intros.length) {
+  const GLITCH_CHARS = '░▒▓█◆◇○●#@!*%&?+<>/\\';
+  const state = new Map();
+
+  function wrapWords(root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) => n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+    });
+    const textNodes = [];
+    let t;
+    while ((t = walker.nextNode())) textNodes.push(t);
+    const words = [];
+    for (const node of textNodes) {
+      const frag = document.createDocumentFragment();
+      const parts = node.nodeValue.split(/(\s+)/);
+      for (const part of parts) {
+        if (!part) continue;
+        if (/^\s+$/.test(part)) {
+          frag.appendChild(document.createTextNode(part));
+        } else {
+          const span = document.createElement('span');
+          span.className = 'ws-word';
+          span.textContent = part;
+          span.dataset.original = part;
+          frag.appendChild(span);
+          words.push(span);
+        }
+      }
+      node.replaceWith(frag);
+    }
+    return words;
+  }
+
+  function snapshotTops(words) {
+    return words.map((w) => Math.round(w.getBoundingClientRect().top));
+  }
+
+  function predictedLineCount(intro) {
+    const cs = getComputedStyle(intro);
+    const font = `${cs.fontSize} ${cs.fontFamily}`;
+    const lineHeight = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.5;
+    const width = intro.clientWidth - parseFloat(cs.paddingLeft || 0) - parseFloat(cs.paddingRight || 0);
+    try {
+      const prepared = prepare(intro.textContent, font);
+      const { lineCount } = layout(prepared, width, lineHeight);
+      return lineCount;
+    } catch (e) {
+      return -1;
+    }
+  }
+
+  function glitch(span) {
+    const original = span.dataset.original || span.textContent;
+    if (span._glitchRaf) cancelAnimationFrame(span._glitchRaf);
+    span.classList.add('ws-glitch');
+    let frame = 0;
+    const duration = 18 + Math.floor(Math.random() * 8);
+    const tick = () => {
+      if (frame >= duration) {
+        span.textContent = original;
+        span.classList.remove('ws-glitch');
+        span._glitchRaf = null;
+        return;
+      }
+      let out = '';
+      const progress = frame / duration;
+      for (let i = 0; i < original.length; i++) {
+        // reveal characters from left to right as we progress
+        if (i / original.length < progress && Math.random() < 0.7) {
+          out += original[i];
+        } else {
+          out += GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+        }
+      }
+      span.textContent = out;
+      frame++;
+      span._glitchRaf = requestAnimationFrame(tick);
+    };
+    tick();
+  }
+
+  // initialize
+  for (const intro of intros) {
+    const words = wrapWords(intro);
+    state.set(intro, {
+      words,
+      tops: snapshotTops(words),
+      lines: predictedLineCount(intro)
+    });
+  }
+
+  let timer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      for (const intro of intros) {
+        const s = state.get(intro);
+        const newLines = predictedLineCount(intro);
+        // bail out cheaply if pretext says the wrap didn't change
+        if (newLines === s.lines) {
+          s.tops = snapshotTops(s.words);
+          continue;
+        }
+        s.lines = newLines;
+        const newTops = snapshotTops(s.words);
+        for (let i = 0; i < s.words.length; i++) {
+          if (newTops[i] !== s.tops[i]) glitch(s.words[i]);
+        }
+        s.tops = newTops;
+      }
+    }, 90);
+  });
+}
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-22346462-1', 'pronskiy.com');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>

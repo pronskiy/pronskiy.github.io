@@ -1,10 +1,538 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[ ]]></description><updated>2026-04-20T08:33:06+00:00</updated><entry><title type="html"><![CDATA[Running PHP 1.0 in 2024]]></title><content type="html"><![CDATA[<p>To celebrate PHP's 29th birthday, I decided to try running PHP 1.0.</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[ ]]></description><updated>2026-05-18T22:16:32+00:00</updated><entry><title type="html"><![CDATA[The IDE Is Becoming a Token Machine]]></title><content type="html"><![CDATA[<p>Or: what software development looks like after coding stops being the bottleneck.</p>
+
+<hr />
+
+<p>For most of software history, programming looked something like this:</p>
+
+<p>Tiny human.</p>
+
+<p>Big keyboard.</p>
+
+<p>Millions of tiny painful decisions.</p>
+
+<p>You sat in front of a glowing rectangle for eight hours and slowly converted caffeine into syntax.</p>
+
+<p><img src="/assets/img/blog/2026-token-machine/tiny-human-big-keyboard.png" alt="Tiny human, big keyboard" /></p>
+
+<p>And because of this, the IDE evolved around one core assumption:</p>
+
+<blockquote>
+  <p>Humans manually produce code.</p>
+</blockquote>
+
+<p>Everything made sense around that assumption.</p>
+
+<p>Autocomplete helped humans type faster.</p>
+
+<p>Refactorings helped humans avoid mistakes.</p>
+
+<p>Navigation helped humans understand giant codebases.</p>
+
+<p>Syntax highlighting prevented humans from accidentally destroying production with one missing bracket.</p>
+
+<p>The editor was the center of gravity because the editor was where the work happened.</p>
+
+<p>The IDE was basically a power tool for token-producing monkeys.</p>
+
+<p>And honestly?</p>
+
+<p>It worked pretty well.</p>
+
+<hr />
+
+<h2 id="%2A%2A2015-software-engineering%2A%2A"><strong>2015 software engineering</strong></h2>
+
+<pre><code> Human brain
+     ↓
+  Fingers
+     ↓
+  Keyboard
+     ↓
+    Code
+</code></pre>
+
+<hr />
+
+<h2 id="%2A%2Athen-ai-happened%2A%2A"><strong>Then AI happened</strong></h2>
+
+<p>And suddenly the entire equation broke.</p>
+
+<p>Not because AI became “pretty good”.</p>
+
+<p>But because tokens became cheap.</p>
+
+<p>Historically, tokens were expensive.</p>
+
+<p>Every line of code required: attention, memory, effort, frustration, context switching, debugging, emotional damage, 14 Stack Overflow tabs.</p>
+
+<p>Generating 1000 lines of code used to cost actual human life force.</p>
+
+<p>Now it costs approximately: 14 cents. one prompt. and a slightly reckless amount of confidence.</p>
+
+<p>This changes everything.</p>
+
+<p>And I think most people still underestimate how fundamental this shift is.</p>
+
+<p>Because the important thing is not:</p>
+
+<blockquote>
+  <p>“AI can code”</p>
+</blockquote>
+
+<p>That’s the shallow version.</p>
+
+<p>The real thing is:</p>
+
+<blockquote>
+  <p><strong>Software development is becoming a token allocation problem.</strong></p>
+</blockquote>
+
+<p>That’s the actual earthquake.</p>
+
+<hr />
+
+<h2 id="%2A%2Aold-world%2A%2A"><strong>Old world</strong></h2>
+
+<pre><code>Human → code
+</code></pre>
+
+<h2 id="%2A%2Anew-world%2A%2A"><strong>New world</strong></h2>
+
+<pre><code>Human → AI swarm → infinite tokens → code
+</code></pre>
+
+<p>The bottleneck moved.</p>
+
+<p>That’s the whole story.</p>
+
+<p>For decades, the bottleneck was “token” generation.</p>
+
+<p>Now the bottleneck is:</p>
+
+<ul>
+<li>intent</li>
+<li>taste</li>
+<li>prioritization</li>
+<li>direction</li>
+<li>judgment</li>
+<li>coordination</li>
+<li><strong>knowing what not to build</strong></li>
+</ul>
+
+<p>In other words:</p>
+
+<p>The bottleneck became human thinking itself.</p>
+
+<p>Which means the IDE can no longer fundamentally revolve around editing text.</p>
+
+<p>Because text generation is no longer scarce.</p>
+
+<hr />
+
+<h1 id="%2A%2Athe-economics-changed%2A%2A"><strong>The Economics Changed</strong></h1>
+
+<p>Every generation of developer tooling optimized around the scarcest resource.</p>
+
+<p>Early programming optimized around hardware scarcity.</p>
+
+<p>Later IDEs optimized around human productivity.</p>
+
+<p>AI-era tooling optimizes around intelligence throughput.</p>
+
+<p>And when tokens become abundant, the winning systems are the ones that help humans consume and direct more of them.</p>
+
+<p>This is important because many people still think AI tooling is fundamentally about replacing developers.</p>
+
+<p>I don’t think that’s quite right.</p>
+
+<p>The more interesting thing is that software development itself changes shape once intelligence becomes cheap.</p>
+
+<hr />
+
+<h1 id="%2A%2A%E2%80%9Cwill-ai-replace-software-engineers%3F%E2%80%9D%2A%2A"><strong>“Will AI Replace Software Engineers?”</strong></h1>
+
+<p>This is where discussions usually become weird.</p>
+
+<p>One side says:</p>
+
+<blockquote>
+  <p>“AI will replace all programmers”</p>
+</blockquote>
+
+<p>The other side says:</p>
+
+<blockquote>
+  <p>“AI is just a tool”</p>
+</blockquote>
+
+<p>Both are missing what’s actually happening.</p>
+
+<p>Developers are not disappearing.</p>
+
+<p>But the nature of development is changing.</p>
+
+<p>A lot.</p>
+
+<p><img src="/assets/img/blog/2026-token-machine/hackers-vs-foremen.png" alt="From hackers to foremen" /></p>
+
+<p>Historically, programmers looked like hackers.</p>
+
+<p>People who manually manipulated systems at a low level.</p>
+
+<p>Modern software engineers increasingly look less like hackers and more like construction foremen.</p>
+
+<p>Or renovation specialists.</p>
+
+<p>The best builders are not the people who can personally manufacture every brick.</p>
+
+<p>They’re the people who know:</p>
+
+<ul>
+<li>where walls should go</li>
+<li>which shortcuts become disasters later</li>
+<li>which foundations are unsafe</li>
+<li>how to coordinate ten specialists simultaneously</li>
+<li>what “good” looks like before it exists</li>
+</ul>
+
+<p>AI can generate a house.</p>
+
+<p>Experienced engineers know whether the house collapses six months later.</p>
+
+<p>That difference still matters enormously.</p>
+
+<p>But notice what changed:</p>
+
+<p>The valuable skill is increasingly not typing.</p>
+
+<hr />
+
+<h2 id="%2A%2Athe-new-developer%2A%2A"><strong>The New Developer</strong></h2>
+
+<pre><code>Old:
+human writes software
+
+New:
+human directs intelligence
+</code></pre>
+
+<p>And once you realize this, another strange thing becomes obvious.</p>
+
+<hr />
+
+<h1 id="%2A%2Amaybe-ides-are-not-about-correctness-either%2A%2A"><strong>Maybe IDEs Are Not About Correctness Either</strong></h1>
+
+<p>A lot of people assume the future IDE exists to keep AI under control.</p>
+
+<p>Like a giant safety harness.</p>
+
+<p>The IDE verifies things.<br />
+Checks AI.<br />
+Protects humans.<br />
+Guarantees correctness.</p>
+
+<p>Maybe temporarily.</p>
+
+<p>But long term?</p>
+
+<p>Probably not.</p>
+
+<p>Humans currently verify AI because humans are still more reliable in certain domains.</p>
+
+<p>That advantage may not survive.</p>
+
+<p>Eventually AI systems will likely:</p>
+
+<ul>
+<li>write code better than humans</li>
+<li>test code better than humans</li>
+<li>review code better than humans</li>
+<li>benchmark code better than humans</li>
+<li>debug code better than humans</li>
+<li>reason across giant systems better than humans</li>
+</ul>
+
+<p>Which creates a very uncomfortable question.</p>
+
+<p>If IDEs are no longer fundamentally about:</p>
+
+<ul>
+<li>writing code</li>
+<li>navigating code</li>
+<li>verifying code</li>
+</ul>
+
+<p>…then what are they?</p>
+
+<hr />
+
+<h1 id="%2A%2Athe-ide-becomes-a-token-machine%2A%2A"><strong>The IDE Becomes a Token Machine</strong></h1>
+
+<p>I think the answer is surprisingly simple.</p>
+
+<p>The IDE becomes <strong>a medium for spending intelligence</strong>.</p>
+
+<p>Or more specifically:</p>
+
+<blockquote>
+  <p>A machine for converting human intention into deployed reality through massive token consumption.</p>
+</blockquote>
+
+<p>Which sounds ridiculous.</p>
+
+<p>Until it doesn't.</p>
+
+<p>Until you realize that modern civilization repeatedly evolves in exactly this direction.</p>
+
+<p>Once something becomes abundant, interfaces reorganize around consuming more of it.</p>
+
+<p>Cheap electricity changed factories.</p>
+
+<p>Cheap bandwidth changed media.</p>
+
+<p>Cheap cloud compute changed software architecture.</p>
+
+<p>And now cheap intelligence changes software creation.</p>
+
+<hr />
+
+<h1 id="%2A%2Athe-editor-stops-being-the-center%2A%2A"><strong>The Editor Stops Being the Center</strong></h1>
+
+<p>For 30 years, the editor was the center of software creation.</p>
+
+<p>Everything revolved around manipulating text.</p>
+
+<p>But in an agentic world, editing increasingly becomes an implementation detail rather than the core activity.</p>
+
+<p>The center of gravity shifts:</p>
+
+<ul>
+<li>from syntax to intent</li>
+<li>from files to systems</li>
+<li>from editing to orchestration</li>
+</ul>
+
+<p>The editor does not disappear.</p>
+
+<p>It just stops being the sun around which everything else rotates.</p>
+
+<p>Many AI IDEs today still look like:</p>
+
+<ul>
+<li>traditional IDE</li>
+<li>plus sidebar chatbot</li>
+</ul>
+
+<p>But that may eventually feel as outdated as attaching a jet engine to a horse carriage.</p>
+
+<p><strong>The future IDE probably looks more like… TikTok.</strong></p>
+
+<hr />
+
+<h1 id="%2A%2Await-what%3F%2A%2A"><strong>Wait what?</strong></h1>
+
+<p>The point is that products increasingly optimize for:</p>
+
+<ul>
+<li>immediacy</li>
+<li>low friction</li>
+<li>instant feedback</li>
+<li>infinite interaction loops</li>
+</ul>
+
+<p>And AI development tools are drifting in the same direction.</p>
+
+<p>The interaction loop becomes optimized for throughput and continuous generation.</p>
+
+<p>Old IDEs were books.</p>
+
+<p>You sat quietly.<br />
+You concentrated deeply.<br />
+You manually traversed systems.</p>
+
+<p>The interaction loop was slow.</p>
+
+<p>Modern AI tools feel closer to TikTok.</p>
+
+<p>Fast.<br />
+Addictive.<br />
+High-frequency.<br />
+Infinite feed of generated possibilities.</p>
+
+<p>You no longer slowly carve software from stone.</p>
+
+<p>You steer an avalanche.</p>
+
+<p>Not because software engineering becomes stupid.</p>
+
+<p>Because the economics and latency changed.</p>
+
+<p>Once software generation becomes nearly instant, the interaction model changes too.</p>
+
+<p>Eat.<br />
+Sleep.<br />
+Claude.<br />
+Repeat.</p>
+
+<p>The feedback loop compresses so aggressively that software creation starts resembling a continuous stream rather than a careful drafting process.</p>
+
+<p><img src="/assets/img/blog/2026-token-machine/tiktok-feed.png" alt="TikTok-style feed" />
+<a href="https://www.tiktok.com/@openai/video/7636197889714244877">https://www.tiktok.com/@openai/video/7636197889714244877</a></p>
+
+<hr />
+
+<h1 id="%2A%2Amaybe-we-misunderstood-programming%2A%2A"><strong>Maybe We Misunderstood Programming</strong></h1>
+
+<p>Maybe programming was never fundamentally about writing code.</p>
+
+<p>Maybe code was just the temporary compression format for human intent.</p>
+
+<p>Maybe code was always just a side effect.</p>
+
+<p>A weird bridge language between:</p>
+
+<ul>
+<li>imagination</li>
+<li>logic</li>
+<li>machines</li>
+</ul>
+
+<p>And now we are building a much better compiler for intent itself.</p>
+
+<p>Which means the IDE of the AI era is probably not really an Integrated Development Environment anymore.</p>
+
+<p>It’s something stranger.</p>
+
+<p>An intelligence refinery.</p>
+
+<p>A system designed to maximize the conversion rate between:
+human intention → machine execution</p>
+
+<p>Because once intelligence becomes infrastructure, the most important software category is no longer the one that helps humans write code.</p>
+
+<p>It’s the one that helps humans direct enormous amounts of machine cognition.</p>
+
+<p>And economically, the incentives are obvious.</p>
+
+<p>Cloud companies wanted more compute.</p>
+
+<p>Social networks wanted more engagement.</p>
+
+<p>Streaming companies wanted more watch time.</p>
+
+<p><img src="/assets/img/blog/2026-token-machine/token-flow.png" alt="Token flow" /></p>
+
+<h2 id="%2A%2Aand-llm-providers%3F%2A%2A"><strong>And LLM providers?</strong></h2>
+
+<p>They want more token flow.</p>
+
+<p>Not necessarily maliciously.</p>
+
+<p>Economically.</p>
+
+<p>Once intelligence becomes metered infrastructure, the ecosystem naturally evolves toward tools optimized for continuous intelligence consumption.</p>
+
+<p>More generation.
+More iteration.
+More retries.
+More autonomous loops.
+More context.
+More execution.</p>
+
+<p>Not because developers became shallow.</p>
+
+<p>Because the economics changed.</p>
+
+<p><strong>IDE will follow.</strong></p>
+]]></content><link href="https://pronskiy.com/blog/ide-becoming-token-machine/"/><id>https://pronskiy.com/blog/ide-becoming-token-machine/</id><pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry><entry><title type="html"><![CDATA[Running PHP 1.0 in 2024]]></title><content type="html"><![CDATA[<p>To celebrate PHP's 29th birthday, I decided to try running PHP 1.0.</p>
 
 <p>So I downloaded the source code, compiled it on my MacBook, wrote a simple CGI server using PHP 8.3, and tried to understand what was PHP 1.0 actually capable of doing. Spoiler alert: not much.</p>
 
 <iframe width="100%" height="400" src="https://www.youtube-nocookie.com/embed/0BPExYh5Anw?si=vUBt1wWjppUpB0A6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-]]></content><link href="https://pronskiy.com/blog/running-php-1-in-2024/"/><id>https://pronskiy.com/blog/running-php-1-in-2024/</id><pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry><entry><title type="html"><![CDATA[Generics via Attributes in PHP &mdash; Can We Have Them?]]></title><content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
+]]></content><link href="https://pronskiy.com/blog/running-php-1-in-2024/"/><id>https://pronskiy.com/blog/running-php-1-in-2024/</id><pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry><entry><title type="html"><![CDATA[Turn Any PHP Script into a Native Single-File Binary]]></title><content type="html"><![CDATA[<p>For years, I've dreamed of being able to create PHP CLI scripts that can be easily distributed without requiring users to have PHP installed on their machines.</p>
+
+<p>But a scripting language needs an interpreter, they said. Not anymore! PHP still can't be compiled for real, there is a trick you can use.</p>
+
+<h2 id="tl%3Bdr">TL;DR</h2>
+
+<ul>
+<li>There is a project <a href="https://github.com/crazywhalecc/static-php-cli">crazywhalecc/static-php-cli</a>  that allows you to compile PHP statically.</li>
+<li>Under the hood it uses <a href="https://github.com/dixyes/phpmicro">dixyes/phpmicro</a> – it is a special static PHP binary which you can “glue” to any PHP script.</li>
+<li>What remains is to build the application in PHAR and attach a statically-compiled interpreter binary to it.</li>
+</ul>
+
+<h2 id="show-me-the-code%21">Show me the code!</h2>
+
+<p>Here's a minimal PoC.</p>
+
+<p>First, let’s download a pre-built <em>phpmicro</em> binary from the <em>static-php-cli</em> website. Since I’m on macOS, I’m using the following link:</p>
+
+<pre><code class="Bash">curl -O https://dl.static-php.dev/static-php-cli/common/php-8.2.10-micro-macos-aarch64.tar.gz
+
+tar -xvf php-8.2.10-micro-macos-aarch64.tar.gz
+</code></pre>
+
+<p>Now let’s create a simple application in <code>index.php</code>:</p>
+
+<pre><code class="php">&lt;?php
+
+echo "hello world";
+</code></pre>
+
+<p>And we are ready to glue it with a PHP binary:</p>
+
+<pre><code class="Bash">cat ./micro.sfx index.php &gt; indexbin &amp;&amp; chmod 0755 ./indexbin
+</code></pre>
+
+<p>And voilà! Run it:</p>
+
+<pre><code class="Bash">./indexbin
+</code></pre>
+
+<figure>
+  <img src="/assets/img/blog/phin.gif" alt=""/>
+  <figcaption></figcaption>
+</figure>
+
+<h2 id="poc-is-nice%2C-but-will-this-work-for-real-cli-applications%3F">PoC is nice, but will this work for real CLI applications?</h2>
+
+<p>Yes, but there may be challenges.</p>
+
+<p>For a real CLI app, you would most likely need to pack the app in a PHAR file. For this, you'd typically use <a href="https://github.com/box-project/box">box-project/box</a>.</p>
+
+<p>I successfully created a basic "hello world" application with this method. You can find it in this repo:
+<a href="https://github.com/pronskiy/phin">github.com/pronskiy/phin</a></p>
+
+<p>However, when I attempted to integrate something more substantial like <code>symfony/console</code>, I encountered an error:</p>
+
+<pre><code>zend_mm_heap corrupted
+Abort trap: 6
+</code></pre>
+
+<p>It looks fixable, but I haven't looked into exactly what causes it yet.</p>
+
+<p>There will probably be other difficulties with more complex applications.</p>
+
+<h2 id="what-about-platform-support%3F-linux-%2F-macos-%2F-windows-%3F">What about platform support? Linux / macOS / Windows ?</h2>
+
+<p>In the PoC above, I just download the <em>phpmicro</em> archive from here:
+<a href="https://dl.static-php.dev/static-php-cli/common/">https://dl.static-php.dev/static-php-cli/common/</a></p>
+
+<p>But for real-world applications, you would want to build it on a CI for all platforms at once.</p>
+
+<p>Micro-php is compatible with the popular Linux, macOS, and Windows platforms. Yet, as of now, GitHub Actions doesn't offer free builds for the ARM architecture, like macOS on M1/M2. But alternative CI/CD providers are available, or you could opt for a paid solution.</p>
+
+<p>On a side note, pooling resources in a single repository to fund micro-php builds might be a viable solution. ;-).</p>
+
+<h2 id="future-prospects-of-this-method%3F">Future prospects of this method?</h2>
+
+<p>Ideally, all of this can be organized as a ready-made GitHub Action, which you simply add to your repository, and for each release of your CLI-app you will get binaries for all platforms. Users would be able to download and use your CLI binaries without additional dependencies.</p>
+
+<blockquote>
+  <p><a href="https://github.com/crazywhalecc/static-php-cli">Static-php-cli</a> is <a href="https://twitter.com/dunglas/status/1696448021234438518">used</a> in <a href="https://github.com/dunglas/frankenphp">FrankenPHP</a>. Notably, Kevin Dunglas, the author of FrankenPHP, actively contributes to static-php-cli.</p>
+</blockquote>
+]]></content><link href="https://pronskiy.com/blog/php-script-as-binary/"/><id>https://pronskiy.com/blog/php-script-as-binary/</id><pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry><entry><title type="html"><![CDATA[Generics via Attributes in PHP &mdash; Can We Have Them?]]></title><content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
 
 <pre><code class="php">#[&lt;T&gt;]
 class Stack
@@ -172,86 +700,4 @@ class Stack
 <script>window.REDDITIFY_PROXY_URL = 'https://redditify-proxy.root-8f3.workers.dev';</script>
 <link rel="stylesheet" href="https://unpkg.com/redditify/dist/redditify.css">
 <script src="https://unpkg.com/redditify/dist/redditify.min.js"></script>
-]]></content><link href="https://pronskiy.com/blog/generics-via-attributes-in-php/"/><id>https://pronskiy.com/blog/generics-via-attributes-in-php/</id><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry><entry><title type="html"><![CDATA[Turn Any PHP Script into a Native Single-File Binary]]></title><content type="html"><![CDATA[<p>For years, I've dreamed of being able to create PHP CLI scripts that can be easily distributed without requiring users to have PHP installed on their machines.</p>
-
-<p>But a scripting language needs an interpreter, they said. Not anymore! PHP still can't be compiled for real, there is a trick you can use.</p>
-
-<h2 id="tl%3Bdr">TL;DR</h2>
-
-<ul>
-<li>There is a project <a href="https://github.com/crazywhalecc/static-php-cli">crazywhalecc/static-php-cli</a>  that allows you to compile PHP statically.</li>
-<li>Under the hood it uses <a href="https://github.com/dixyes/phpmicro">dixyes/phpmicro</a> – it is a special static PHP binary which you can “glue” to any PHP script.</li>
-<li>What remains is to build the application in PHAR and attach a statically-compiled interpreter binary to it.</li>
-</ul>
-
-<h2 id="show-me-the-code%21">Show me the code!</h2>
-
-<p>Here's a minimal PoC.</p>
-
-<p>First, let’s download a pre-built <em>phpmicro</em> binary from the <em>static-php-cli</em> website. Since I’m on macOS, I’m using the following link:</p>
-
-<pre><code class="Bash">curl -O https://dl.static-php.dev/static-php-cli/common/php-8.2.10-micro-macos-aarch64.tar.gz
-
-tar -xvf php-8.2.10-micro-macos-aarch64.tar.gz
-</code></pre>
-
-<p>Now let’s create a simple application in <code>index.php</code>:</p>
-
-<pre><code class="php">&lt;?php
-
-echo "hello world";
-</code></pre>
-
-<p>And we are ready to glue it with a PHP binary:</p>
-
-<pre><code class="Bash">cat ./micro.sfx index.php &gt; indexbin &amp;&amp; chmod 0755 ./indexbin
-</code></pre>
-
-<p>And voilà! Run it:</p>
-
-<pre><code class="Bash">./indexbin
-</code></pre>
-
-<figure>
-  <img src="/assets/img/blog/phin.gif" alt=""/>
-  <figcaption></figcaption>
-</figure>
-
-<h2 id="poc-is-nice%2C-but-will-this-work-for-real-cli-applications%3F">PoC is nice, but will this work for real CLI applications?</h2>
-
-<p>Yes, but there may be challenges.</p>
-
-<p>For a real CLI app, you would most likely need to pack the app in a PHAR file. For this, you'd typically use <a href="https://github.com/box-project/box">box-project/box</a>.</p>
-
-<p>I successfully created a basic "hello world" application with this method. You can find it in this repo:
-<a href="https://github.com/pronskiy/phin">github.com/pronskiy/phin</a></p>
-
-<p>However, when I attempted to integrate something more substantial like <code>symfony/console</code>, I encountered an error:</p>
-
-<pre><code>zend_mm_heap corrupted
-Abort trap: 6
-</code></pre>
-
-<p>It looks fixable, but I haven't looked into exactly what causes it yet.</p>
-
-<p>There will probably be other difficulties with more complex applications.</p>
-
-<h2 id="what-about-platform-support%3F-linux-%2F-macos-%2F-windows-%3F">What about platform support? Linux / macOS / Windows ?</h2>
-
-<p>In the PoC above, I just download the <em>phpmicro</em> archive from here:
-<a href="https://dl.static-php.dev/static-php-cli/common/">https://dl.static-php.dev/static-php-cli/common/</a></p>
-
-<p>But for real-world applications, you would want to build it on a CI for all platforms at once.</p>
-
-<p>Micro-php is compatible with the popular Linux, macOS, and Windows platforms. Yet, as of now, GitHub Actions doesn't offer free builds for the ARM architecture, like macOS on M1/M2. But alternative CI/CD providers are available, or you could opt for a paid solution.</p>
-
-<p>On a side note, pooling resources in a single repository to fund micro-php builds might be a viable solution. ;-).</p>
-
-<h2 id="future-prospects-of-this-method%3F">Future prospects of this method?</h2>
-
-<p>Ideally, all of this can be organized as a ready-made GitHub Action, which you simply add to your repository, and for each release of your CLI-app you will get binaries for all platforms. Users would be able to download and use your CLI binaries without additional dependencies.</p>
-
-<blockquote>
-  <p><a href="https://github.com/crazywhalecc/static-php-cli">Static-php-cli</a> is <a href="https://twitter.com/dunglas/status/1696448021234438518">used</a> in <a href="https://github.com/dunglas/frankenphp">FrankenPHP</a>. Notably, Kevin Dunglas, the author of FrankenPHP, actively contributes to static-php-cli.</p>
-</blockquote>
-]]></content><link href="https://pronskiy.com/blog/php-script-as-binary/"/><id>https://pronskiy.com/blog/php-script-as-binary/</id><pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry></feed>
+]]></content><link href="https://pronskiy.com/blog/generics-via-attributes-in-php/"/><id>https://pronskiy.com/blog/generics-via-attributes-in-php/</id><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry></feed>
