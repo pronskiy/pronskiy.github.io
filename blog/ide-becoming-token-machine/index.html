@@ -41,7 +41,11 @@
     <link rel="alternate" type="application/atom+xml" href="https://pronskiy.com/atom.xml" title="Roman Pronskiy activity feed"/>
         <script src="//cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
 </head>
-<body>
+<body class="has-unlisted-banner">
+
+<div class="unlisted-banner" role="note">
+    <span>Unlisted post — accessible only by direct link</span>
+</div>
 
 <nav class="site-nav">
     <div class="nav-inner">
@@ -73,11 +77,9 @@
 
 <p>For most of software history, programming looked something like this:</p>
 
-<p>Tiny human.</p>
-
-<p>Big keyboard.</p>
-
-<p>Millions of tiny painful decisions.</p>
+<p>Tiny human.<br />
+Big keyboard.<br />
+Millions of tiny painful decisions.</p>
 
 <p>You sat in front of a glowing rectangle for eight hours and slowly converted caffeine into syntax.</p>
 
@@ -91,36 +93,18 @@
 
 <p>Everything made sense around that assumption.</p>
 
-<p>Autocomplete helped humans type faster.</p>
-
-<p>Refactorings helped humans avoid mistakes.</p>
-
-<p>Navigation helped humans understand giant codebases.</p>
-
-<p>Syntax highlighting prevented humans from accidentally destroying production with one missing bracket.</p>
+<p>Autocomplete helped humans type faster.<br />
+Refactorings helped humans avoid mistakes.<br />
+Navigation helped humans understand giant codebases.<br />
+Syntax highlighting prevented humans from accidentally destroying production with one missing bracket.</p>
 
 <p>The editor was the center of gravity because the editor was where the work happened.</p>
 
-<p>The IDE was basically a power tool for token-producing monkeys.</p>
+<p>And honestly?<br />
+It worked pretty well.</p>
 
-<p>And honestly?</p>
-
-<p>It worked pretty well.</p>
-
-<hr />
-
-<h2 id="%2A%2A2015-software-engineering%2A%2A"><strong>2015 software engineering</strong></h2>
-
-<pre><code> Human brain
-     ↓
-  Fingers
-     ↓
-  Keyboard
-     ↓
-    Code
+<pre><code> Human brain -&gt; Keyboard -&gt; Code
 </code></pre>
-
-<hr />
 
 <h2 id="%2A%2Athen-ai-happened%2A%2A"><strong>Then AI happened</strong></h2>
 
@@ -136,7 +120,7 @@
 
 <p>Generating 1000 lines of code used to cost actual human life force.</p>
 
-<p>Now it costs approximately: 14 cents. one prompt. and a slightly reckless amount of confidence.</p>
+<p>Now it costs approximately: 14 cents, one prompt, and a bit of confidence.</p>
 
 <p>This changes everything.</p>
 
@@ -158,13 +142,6 @@
 
 <p>That’s the actual earthquake.</p>
 
-<hr />
-
-<h2 id="%2A%2Aold-world%2A%2A"><strong>Old world</strong></h2>
-
-<pre><code>Human → code
-</code></pre>
-
 <h2 id="%2A%2Anew-world%2A%2A"><strong>New world</strong></h2>
 
 <pre><code>Human → AI swarm → infinite tokens → code
@@ -174,31 +151,25 @@
 
 <p>That’s the whole story.</p>
 
-<p>For decades, the bottleneck was “token” generation.</p>
+<p>For decades, the bottleneck was “token” generation. As in, typing charachters.</p>
 
 <p>Now the bottleneck is:</p>
 
 <ul>
 <li>intent</li>
 <li>taste</li>
-<li>prioritization</li>
-<li>direction</li>
-<li>judgment</li>
-<li>coordination</li>
+<li>...</li>
 <li><strong>knowing what not to build</strong></li>
 </ul>
 
-<p>In other words:</p>
-
-<p>The bottleneck became human thinking itself.</p>
+<p>In other words:<br />
+The bottleneck became human thinking itself.</p>
 
 <p>Which means the IDE can no longer fundamentally revolve around editing text.</p>
 
 <p>Because text generation is no longer scarce.</p>
 
-<hr />
-
-<h1 id="%2A%2Athe-economics-changed%2A%2A"><strong>The Economics Changed</strong></h1>
+<h2 id="%2A%2Athe-economics-changed%2A%2A"><strong>The Economics Changed</strong></h2>
 
 <p>Every generation of developer tooling optimized around the scarcest resource.</p>
 
@@ -206,9 +177,9 @@
 
 <p>Later IDEs optimized around human productivity.</p>
 
-<p>AI-era tooling optimizes around intelligence throughput.</p>
+<p>AI-era tooling optimizes around <strong>intelligence throughput</strong>.</p>
 
-<p>And when tokens become abundant, the winning systems are the ones that help humans consume and direct more of them.</p>
+<p>And when tokens become abundant, the winning systems are the ones that <strong>help humans consume and direct more of them</strong>.</p>
 
 <p>This is important because many people still think AI tooling is fundamentally about replacing developers.</p>
 
@@ -216,9 +187,7 @@
 
 <p>The more interesting thing is that software development itself changes shape once intelligence becomes cheap.</p>
 
-<hr />
-
-<h1 id="%2A%2A%E2%80%9Cwill-ai-replace-software-engineers%3F%E2%80%9D%2A%2A"><strong>“Will AI Replace Software Engineers?”</strong></h1>
+<h2 id="%2A%2A%E2%80%9Cwill-ai-replace-software-engineers%3F%E2%80%9D%2A%2A"><strong>“Will AI Replace Software Engineers?”</strong></h2>
 
 <p>This is where discussions usually become weird.</p>
 
@@ -248,9 +217,7 @@
 
 <p>People who manually manipulated systems at a low level.</p>
 
-<p>Modern software engineers increasingly look less like hackers and more like construction foremen.</p>
-
-<p>Or renovation specialists.</p>
+<p>Modern software engineers increasingly look less like hackers and more like construction foremen. Or renovation specialists.</p>
 
 <p>The best builders are not the people who can personally manufacture every brick.</p>
 
@@ -270,12 +237,6 @@
 
 <p>That difference still matters enormously.</p>
 
-<p>But notice what changed:</p>
-
-<p>The valuable skill is increasingly not typing.</p>
-
-<hr />
-
 <h2 id="%2A%2Athe-new-developer%2A%2A"><strong>The New Developer</strong></h2>
 
 <pre><code>Old:
@@ -287,9 +248,7 @@ human directs intelligence
 
 <p>And once you realize this, another strange thing becomes obvious.</p>
 
-<hr />
-
-<h1 id="%2A%2Amaybe-ides-are-not-about-correctness-either%2A%2A"><strong>Maybe IDEs Are Not About Correctness Either</strong></h1>
+<h2 id="%2A%2Amaybe-ides-are-not-about-correctness-either%2A%2A"><strong>Maybe IDEs Are Not About Correctness Either</strong></h2>
 
 <p>A lot of people assume the future IDE exists to keep AI under control.</p>
 
@@ -333,9 +292,7 @@ Guarantees correctness.</p>
 
 <p>…then what are they?</p>
 
-<hr />
-
-<h1 id="%2A%2Athe-ide-becomes-a-token-machine%2A%2A"><strong>The IDE Becomes a Token Machine</strong></h1>
+<h2 id="%2A%2Athe-ide-becomes-a-token-machine%2A%2A"><strong>The IDE Becomes a Token Machine</strong></h2>
 
 <p>I think the answer is surprisingly simple.</p>
 
@@ -351,21 +308,7 @@ Guarantees correctness.</p>
 
 <p>Until it doesn't.</p>
 
-<p>Until you realize that modern civilization repeatedly evolves in exactly this direction.</p>
-
-<p>Once something becomes abundant, interfaces reorganize around consuming more of it.</p>
-
-<p>Cheap electricity changed factories.</p>
-
-<p>Cheap bandwidth changed media.</p>
-
-<p>Cheap cloud compute changed software architecture.</p>
-
-<p>And now cheap intelligence changes software creation.</p>
-
-<hr />
-
-<h1 id="%2A%2Athe-editor-stops-being-the-center%2A%2A"><strong>The Editor Stops Being the Center</strong></h1>
+<h2 id="%2A%2Athe-editor-stops-being-the-center%2A%2A"><strong>The Editor Stops Being the Center</strong></h2>
 
 <p>For 30 years, the editor was the center of software creation.</p>
 
@@ -396,9 +339,7 @@ Guarantees correctness.</p>
 
 <p><strong>The future IDE probably looks more like… TikTok.</strong></p>
 
-<hr />
-
-<h1 id="%2A%2Await-what%3F%2A%2A"><strong>Wait what?</strong></h1>
+<h2 id="%2A%2Await-what%3F%2A%2A"><strong>Wait what?</strong></h2>
 
 <p>The point is that products increasingly optimize for:</p>
 
@@ -413,7 +354,7 @@ Guarantees correctness.</p>
 
 <p>The interaction loop becomes optimized for throughput and continuous generation.</p>
 
-<p>Old IDEs were books.</p>
+<p><strong>Old IDEs were books.</strong></p>
 
 <p>You sat quietly.<br />
 You concentrated deeply.<br />
@@ -421,7 +362,7 @@ You manually traversed systems.</p>
 
 <p>The interaction loop was slow.</p>
 
-<p>Modern AI tools feel closer to TikTok.</p>
+<p><strong>Modern AI tools feel closer to TikTok.</strong></p>
 
 <p>Fast.<br />
 Addictive.<br />
@@ -434,7 +375,7 @@ Infinite feed of generated possibilities.</p>
 
 <p>Not because software engineering becomes stupid.</p>
 
-<p>Because the economics and latency changed.</p>
+<p><strong>Because the economics and latency changed.</strong></p>
 
 <p>Once software generation becomes nearly instant, the interaction model changes too.</p>
 
@@ -448,9 +389,7 @@ Repeat.</p>
 <p><img src="/assets/img/blog/2026-token-machine/tiktok-feed.png" alt="TikTok-style feed" />
 <a href="https://www.tiktok.com/@openai/video/7636197889714244877">https://www.tiktok.com/@openai/video/7636197889714244877</a></p>
 
-<hr />
-
-<h1 id="%2A%2Amaybe-we-misunderstood-programming%2A%2A"><strong>Maybe We Misunderstood Programming</strong></h1>
+<h2 id="%2A%2Amaybe-we-misunderstood-programming%2A%2A"><strong>Maybe We Misunderstood Programming</strong></h2>
 
 <p>Maybe programming was never fundamentally about writing code.</p>
 
