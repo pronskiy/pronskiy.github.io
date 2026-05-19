@@ -85,7 +85,7 @@ The bottleneck moved.
 
 That’s the whole story.
 
-For decades, the bottleneck was “token” generation. As in, typing charachters.
+For decades, the bottleneck was “token generation”.
 
 Now the bottleneck is:
 
@@ -94,12 +94,8 @@ Now the bottleneck is:
 * ...
 * **knowing what not to build**
 
-In other words:  
-The bottleneck became human thinking itself.
-
-Which means the IDE can no longer fundamentally revolve around editing text.
-
-Because text generation is no longer scarce.
+In other words:
+Code is no longer scarce.
 
 ## **The Economics Changed**
 
@@ -161,8 +157,6 @@ AI can generate a house.
 
 Experienced engineers know whether the house collapses six months later.
 
-That difference still matters enormously.
-
 ## **The New Developer**
 
 ```
@@ -207,11 +201,7 @@ Eventually AI systems will likely:
 
 Which creates a very uncomfortable question.
 
-If IDEs are no longer fundamentally about:
-
-* writing code
-* navigating code
-* verifying code
+If IDEs are no longer fundamentally about writing, navigating, debugging code.
 
 …then what are they?
 
@@ -235,15 +225,9 @@ For 30 years, the editor was the center of software creation.
 
 Everything revolved around manipulating text.
 
-But in an agentic world, editing increasingly becomes an implementation detail rather than the core activity.
+Now, the center of gravity shifts. 
 
-The center of gravity shifts:
-
-* from syntax to intent
-* from files to systems
-* from editing to orchestration
-
-The editor does not disappear.
+The editor does not disappear. 
 
 It just stops being the sun around which everything else rotates.
 
@@ -313,10 +297,7 @@ Maybe code was just the temporary compression format for human intent.
 Maybe code was always just a side effect.
 
 A weird bridge language between:
-
-* imagination
-* logic
-* machines
+`imagination <-> logic <-> machines`
 
 And now we are building a much better compiler for intent itself.
 
@@ -324,7 +305,7 @@ Which means the IDE of the AI era is probably not really an Integrated Developme
 
 It’s something stranger.
 
-An intelligence refinery.
+An intelligence consumption mechanism.
 
 A system designed to maximize the conversion rate between:
 human intention → machine execution
