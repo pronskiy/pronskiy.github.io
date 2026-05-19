@@ -15,11 +15,9 @@ Or: what software development looks like after coding stops being the bottleneck
 
 For most of software history, programming looked something like this:
 
-Tiny human.
-
-Big keyboard.
-
-Millions of tiny painful decisions.
+Tiny human.  
+Big keyboard.  
+Millions of tiny painful decisions.  
 
 You sat in front of a glowing rectangle for eight hours and slowly converted caffeine into syntax.
 
@@ -31,37 +29,19 @@ And because of this, the IDE evolved around one core assumption:
 
 Everything made sense around that assumption.
 
-Autocomplete helped humans type faster.
+Autocomplete helped humans type faster.  
+Refactorings helped humans avoid mistakes.  
+Navigation helped humans understand giant codebases.  
+Syntax highlighting prevented humans from accidentally destroying production with one missing bracket.  
 
-Refactorings helped humans avoid mistakes.
+The editor was the center of gravity because the editor was where the work happened.  
 
-Navigation helped humans understand giant codebases.
-
-Syntax highlighting prevented humans from accidentally destroying production with one missing bracket.
-
-The editor was the center of gravity because the editor was where the work happened.
-
-The IDE was basically a power tool for token-producing monkeys.
-
-And honestly?
-
+And honestly?  
 It worked pretty well.
 
----
-
-## **2015 software engineering**
-
 ```
- Human brain
-     ↓
-  Fingers
-     ↓
-  Keyboard
-     ↓
-    Code
+ Human brain -> Keyboard -> Code
 ```
-
----
 
 ## **Then AI happened**
 
@@ -77,7 +57,7 @@ Every line of code required: attention, memory, effort, frustration, context swi
 
 Generating 1000 lines of code used to cost actual human life force.
 
-Now it costs approximately: 14 cents. one prompt. and a slightly reckless amount of confidence.
+Now it costs approximately: 14 cents, one prompt, and a bit of confidence.
 
 This changes everything.
 
@@ -95,14 +75,6 @@ The real thing is:
 
 That’s the actual earthquake.
 
----
-
-## **Old world**
-
-```
-Human → code
-```
-
 ## **New world**
 
 ```
@@ -113,29 +85,23 @@ The bottleneck moved.
 
 That’s the whole story.
 
-For decades, the bottleneck was “token” generation.
+For decades, the bottleneck was “token” generation. As in, typing charachters.
 
 Now the bottleneck is:
 
 * intent
 * taste
-* prioritization
-* direction
-* judgment
-* coordination
+* ...
 * **knowing what not to build**
 
-In other words:
-
+In other words:  
 The bottleneck became human thinking itself.
 
 Which means the IDE can no longer fundamentally revolve around editing text.
 
 Because text generation is no longer scarce.
 
----
-
-# **The Economics Changed**
+## **The Economics Changed**
 
 Every generation of developer tooling optimized around the scarcest resource.
 
@@ -143,9 +109,9 @@ Early programming optimized around hardware scarcity.
 
 Later IDEs optimized around human productivity.
 
-AI-era tooling optimizes around intelligence throughput.
+AI-era tooling optimizes around **intelligence throughput**.
 
-And when tokens become abundant, the winning systems are the ones that help humans consume and direct more of them.
+And when tokens become abundant, the winning systems are the ones that **help humans consume and direct more of them**.
 
 This is important because many people still think AI tooling is fundamentally about replacing developers.
 
@@ -153,9 +119,7 @@ I don’t think that’s quite right.
 
 The more interesting thing is that software development itself changes shape once intelligence becomes cheap.
 
----
-
-# **“Will AI Replace Software Engineers?”**
+## **“Will AI Replace Software Engineers?”**
 
 This is where discussions usually become weird.
 
@@ -181,9 +145,7 @@ Historically, programmers looked like hackers.
 
 People who manually manipulated systems at a low level.
 
-Modern software engineers increasingly look less like hackers and more like construction foremen.
-
-Or renovation specialists.
+Modern software engineers increasingly look less like hackers and more like construction foremen. Or renovation specialists.
 
 The best builders are not the people who can personally manufacture every brick.
 
@@ -201,12 +163,6 @@ Experienced engineers know whether the house collapses six months later.
 
 That difference still matters enormously.
 
-But notice what changed:
-
-The valuable skill is increasingly not typing.
-
----
-
 ## **The New Developer**
 
 ```
@@ -219,9 +175,7 @@ human directs intelligence
 
 And once you realize this, another strange thing becomes obvious.
 
----
-
-# **Maybe IDEs Are Not About Correctness Either**
+## **Maybe IDEs Are Not About Correctness Either**
 
 A lot of people assume the future IDE exists to keep AI under control.
 
@@ -261,9 +215,7 @@ If IDEs are no longer fundamentally about:
 
 …then what are they?
 
----
-
-# **The IDE Becomes a Token Machine**
+## **The IDE Becomes a Token Machine**
 
 I think the answer is surprisingly simple.
 
@@ -277,21 +229,7 @@ Which sounds ridiculous.
 
 Until it doesn't.
 
-Until you realize that modern civilization repeatedly evolves in exactly this direction.
-
-Once something becomes abundant, interfaces reorganize around consuming more of it.
-
-Cheap electricity changed factories.
-
-Cheap bandwidth changed media.
-
-Cheap cloud compute changed software architecture.
-
-And now cheap intelligence changes software creation.
-
----
-
-# **The Editor Stops Being the Center**
+## **The Editor Stops Being the Center**
 
 For 30 years, the editor was the center of software creation.
 
@@ -318,9 +256,7 @@ But that may eventually feel as outdated as attaching a jet engine to a horse ca
 
 **The future IDE probably looks more like… TikTok.**
 
----
-
-# **Wait what?**
+## **Wait what?**
 
 The point is that products increasingly optimize for:
 
@@ -333,7 +269,7 @@ And AI development tools are drifting in the same direction.
 
 The interaction loop becomes optimized for throughput and continuous generation.
 
-Old IDEs were books.
+**Old IDEs were books.**
 
 You sat quietly.  
 You concentrated deeply.  
@@ -341,7 +277,7 @@ You manually traversed systems.
 
 The interaction loop was slow.
 
-Modern AI tools feel closer to TikTok.
+**Modern AI tools feel closer to TikTok.**
 
 Fast.  
 Addictive.  
@@ -354,7 +290,7 @@ You steer an avalanche.
 
 Not because software engineering becomes stupid.
 
-Because the economics and latency changed.
+**Because the economics and latency changed.**
 
 Once software generation becomes nearly instant, the interaction model changes too.
 
@@ -368,9 +304,7 @@ The feedback loop compresses so aggressively that software creation starts resem
 ![TikTok-style feed](/assets/img/blog/2026-token-machine/tiktok-feed.png)
 <https://www.tiktok.com/@openai/video/7636197889714244877>
 
----
-
-# **Maybe We Misunderstood Programming**
+## **Maybe We Misunderstood Programming**
 
 Maybe programming was never fundamentally about writing code.
 

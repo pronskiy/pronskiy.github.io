@@ -44,7 +44,13 @@
     {% block head_styles %}{% endblock %}
     {% block head_scripts %}{% endblock %}
 </head>
-<body>
+<body{% if page.unlisted %} class="has-unlisted-banner"{% endif %}>
+
+{% if page.unlisted %}
+<div class="unlisted-banner" role="note">
+    <span>Unlisted post — accessible only by direct link</span>
+</div>
+{% endif %}
 
 {% set nav_prefix = page.url == '/' ? '' : '/' %}
 <nav class="site-nav">
