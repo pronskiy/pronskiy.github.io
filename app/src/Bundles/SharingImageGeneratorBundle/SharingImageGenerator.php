@@ -64,6 +64,19 @@ class SharingImageGenerator implements EventSubscriberInterface
                 $image->setAuthor("by $author");
             }
 
+            if (preg_match('/^(\d{4}-\d{2}-\d{2})/', $source->file()->getFilename(), $m)) {
+                try {
+                    $image->setDate(new \DateTimeImmutable($m[1]));
+                } catch (\Exception $e) {
+                    // skip
+                }
+            }
+
+            $tags = $source->data()->get('tags');
+            if (is_array($tags) && !empty($tags)) {
+                $image->setTag((string) reset($tags));
+            }
+
             $image->save("output_$env/assets/share/$filename");
         }
     }
