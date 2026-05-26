@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ page.title }} &mdash; {{ site.title }}</title>
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f5f2ec" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.png"/>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:image" content="{{ site.url }}{{ sharing_image(page.filename) }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:image" content="{{ site.url }}{{ sharing_image(page.filename) }}">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --ink: #0a0a0a;
+            --muted: #767673;
+            --line: rgba(10, 10, 10, 0.12);
+            --accent: #FF2D20;
+            --display: 'Host Grotesk', system-ui, sans-serif;
+            --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #17140f;
+                --ink: #f5f2ec;
+                --muted: #8a847c;
+                --line: rgba(245, 242, 236, 0.15);
+            }
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--display);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        .linktree {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .linktree-title {
+            font-family: var(--display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .linktree-subtitle {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: center;
+        }
+        .linktree-links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        .linktree-link {
+            display: block;
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--line);
+            text-decoration: none;
+            color: var(--ink);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+            transition: border-color .15s, color .15s, transform .15s;
+        }
+        .linktree-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .linktree-footer {
+            margin-top: 1rem;
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .linktree-footer a {
+            color: inherit;
+            text-decoration: none;
+            transition: color .15s;
+        }
+        .linktree-footer a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <div class="linktree">
+        <h1 class="linktree-title">{{ page.title }}</h1>
+        {% if page.subtitle %}
+        <p class="linktree-subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+        {{ page.blocks.content|raw }}
+        <p class="linktree-footer"><a href="/">Roman Pronskiy</a></p>
+    </div>
+</body>
+</html>
