@@ -132,12 +132,15 @@ nav.site-nav a:hover { color: var(--ink); }
 .profile-line a { color: inherit; text-decoration: none; transition: color .15s; }
 .profile-line a:hover { color: var(--ink); }
 
-/* pronunciation tooltip */
-.profile-name .pronskiy { position: relative; display: inline-block; }
-.profile-name .pronskiy::after {
-    content: '/prɔn-skee/';
+/* tooltips: a dark pill centred above the element, text from data-tip.
+   The pronunciation hint on the name and the contact icons share it. */
+[data-tip] { position: relative; }
+[data-tip]::after {
+    content: attr(data-tip);
     position: absolute;
-    bottom: 100%; left: 0;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translate(-50%, 4px);
     font-size: 0.8125rem;
     font-weight: 400;
     letter-spacing: 0;
@@ -145,14 +148,16 @@ nav.site-nav a:hover { color: var(--ink); }
     white-space: nowrap;
     color: var(--paper);
     background: var(--ink);
-    padding: 0.25rem 0.55rem;
+    padding: 0.3rem 0.6rem;
     border-radius: 6px;
     opacity: 0;
-    transform: translateY(6px);
-    transition: opacity .25s ease, transform .25s ease;
+    transition: opacity .2s ease, transform .2s ease;
     pointer-events: none;
+    z-index: 2;
 }
-.profile-name .pronskiy:hover::after { opacity: 1; transform: translateY(-4px); }
+[data-tip]:hover::after,
+[data-tip]:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+.profile-name .pronskiy { display: inline-block; }
 
 .contacts {
     list-style: none;
@@ -172,7 +177,12 @@ nav.site-nav a:hover { color: var(--ink); }
 }
 .contacts a:hover { color: var(--ink); }
 .contacts .contacts-email { color: var(--ink); font-weight: 600; }
-.contacts svg { width: 18px; height: 18px; fill: currentColor; }
+/* Each item is a flex box so an icon's box is just the icon: as an inline
+   box it would carry the strut's descender space beneath it and centre
+   3px too high. The 1px nudge then puts the icon on the x-height centre
+   of the email (it is lowercase) rather than the box centre. */
+.contacts li { display: flex; align-items: center; }
+.contacts svg { width: 18px; height: 18px; transform: translateY(1px); }   /* stroke icons: colour comes from the svg attrs */
 
 .masthead-intro {
     margin-top: 2rem;
