@@ -86,5 +86,5 @@ use:
 
 <section class="block" id="archive">
     <h2 class="block-head">Everything <span class="block-count">{{ listed_posts + site.archive|length + site.articles|default([])|length }}</span></h2>
-    {% include 'archive-list.html' %}
+    {% include 'archive-list.html' with { fold_before: 2022 } %}
 </section>

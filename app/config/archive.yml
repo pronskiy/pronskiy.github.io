@@ -238,8 +238,8 @@ archive:
     youtube: VWryF035B6U
 
   - type: video
-    date: 2022-01-15
-    date_display: 2022
+    date: 2021-12-31   # YouTube says 2022-01-31; filed under 2021 on purpose
+    date_display: 2021
     title: "PHP и Laravel дайджест январь 2022"
     url: https://www.youtube.com/watch?v=KZC4b5MqSTg
     youtube: KZC4b5MqSTg

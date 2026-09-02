@@ -6,6 +6,8 @@
       with_posts  merge in data.posts. Requires `use: [posts]` on the page.
       minimal     drop the "where" and "type" columns (used by the Writing block).
       limit       cap the number of rows.
+      fold_before hide rows dated before this year behind a "See older" row
+                  (a native <details>, no JS). Used by the homepage only.
 
     Sorting relies on both sides exposing `date` as a UNIX timestamp:
     Sculpin gives a DateTime-ish value, archive.yml dates are parsed to ints.
@@ -45,11 +47,30 @@
 
 {% if limit is defined %}{% set feed = feed|slice(0, limit) %}{% endif %}
 
+{% set fold_before = fold_before|default(null) %}
+{% set older       = fold_before ? feed|filter(i => i.date|date('Y') < fold_before)|length : 0 %}
+{% set oldest_year = older ? (feed|last).date|date('Y') : null %}
+
 <ol class="index{{ minimal ? ' index--minimal' }}">
     {% set seen_year = null %}
+    {% set folded = false %}
     {% for item in feed %}
         {% set year = item.date|date('Y') %}
         {% set external = item.url starts with 'http' %}
+        {% if older and not folded and year < fold_before %}
+            {% set folded = true %}
+</ol>
+<details class="index-fold{{ minimal ? ' index--minimal' }}">
+    <summary class="index-row index-fold-summary">
+        <span class="index-year"></span>
+        <span class="index-title"><span class="index-fold-closed">See older</span><span class="index-fold-open">Hide older</span></span>
+        {% if not minimal %}
+            <span class="index-where">{{ oldest_year }} to {{ fold_before - 1 }}</span>
+            <span class="index-type">{{ older }} entries</span>
+        {% endif %}
+    </summary>
+    <ol class="index{{ minimal ? ' index--minimal' }}">
+        {% endif %}
         <li class="index-row index-row--{{ item.type }}{{ year != seen_year ? ' is-year-start' }}">
             <span class="index-year">{{ year != seen_year ? year }}</span>
             <a class="index-title"
@@ -63,3 +84,4 @@
         {% set seen_year = year %}
     {% endfor %}
 </ol>
+{% if older %}</details>{% endif %}
