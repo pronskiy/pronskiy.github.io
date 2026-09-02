@@ -87,17 +87,59 @@
   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
   document.querySelectorAll('[data-scramble]').forEach(function(el) {
     var original = el.textContent.trim();
+    var box = el.closest('h1, h2, h3, p') || el.parentElement;
     var queue = [];
+    var cells = [];
     var frame = 0;
     var rafId = null;
 
+    // Random glyphs have random widths, so swapping them into the text used to
+    // re-wrap the heading mid-effect and shove the whole page up or down.
+    // freeze() rebuilds the text as fixed-width cells (one per glyph, sized
+    // from the original text, words unbreakable, whitespace untouched) and
+    // locks the heading's height; thaw() restores the plain text afterwards
+    // so the resting heading renders exactly as before, kerning included.
+    function freeze() {
+      el.textContent = original;
+      var node = el.firstChild, range = document.createRange(), widths = [];
+      for (var i = 0; i < original.length; i++) {
+        range.setStart(node, i);
+        range.setEnd(node, i + 1);
+        widths.push(range.getBoundingClientRect().width);
+      }
+      box.style.height = box.getBoundingClientRect().height + 'px';
+      var frag = document.createDocumentFragment(), word = null;
+      cells = [];
+      for (var j = 0; j < original.length; j++) {
+        var ch = original[j];
+        if (/\s/.test(ch)) { frag.appendChild(document.createTextNode(ch)); cells.push(null); word = null; continue; }
+        if (!word) { word = document.createElement('span'); word.style.whiteSpace = 'nowrap'; frag.appendChild(word); }
+        var cell = document.createElement('span');
+        cell.style.display = 'inline-block';
+        cell.style.width = widths[j] + 'px';
+        cell.style.textAlign = 'center';
+        cell.textContent = ch;
+        word.appendChild(cell);
+        cells.push(cell);
+      }
+      el.textContent = '';
+      el.appendChild(frag);
+    }
+
+    function thaw() {
+      el.textContent = original;
+      box.style.height = '';
+      cells = [];
+    }
+
     el.addEventListener('mouseenter', function() {
       if (rafId) cancelAnimationFrame(rafId);
+      freeze();
       queue = [];
       for (var i = 0; i < original.length; i++) {
         var start = Math.floor(Math.random() * 20);
         var end = start + Math.floor(Math.random() * 20) + 10;
-        queue.push({ from: original[i], to: original[i], start: start, end: end, char: null });
+        queue.push({ to: original[i], start: start, end: end, char: null });
       }
       frame = 0;
       update();
@@ -106,19 +148,18 @@
     function randomChar() { return chars[Math.floor(Math.random() * chars.length)]; }
 
     function update() {
-      var output = '';
       var complete = 0;
       for (var i = 0; i < queue.length; i++) {
-        var item = queue[i];
-        if (frame >= item.end) { complete++; output += item.to; }
+        var item = queue[i], cell = cells[i];
+        if (!cell) { complete++; continue; }           // whitespace never scrambles
+        if (frame >= item.end) { complete++; cell.textContent = item.to; }
         else if (frame >= item.start) {
           if (!item.char || Math.random() < 0.28) item.char = randomChar();
-          output += item.char;
-        } else { output += item.from; }
+          cell.textContent = item.char;
+        }
       }
-      el.textContent = output;
       if (complete < queue.length) { frame++; rafId = requestAnimationFrame(update); }
-      else { rafId = null; }
+      else { rafId = null; thaw(); }
     }
   });
 })();
