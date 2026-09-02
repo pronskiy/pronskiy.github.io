@@ -26,7 +26,7 @@
     --body:    'Host Grotesk', system-ui, sans-serif;
     --mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-    --container: 1180px;   /* the index */
+    --container: 1040px;   /* the index */
     --measure:   680px;    /* anything you actually read */
     --gutter:    2rem;
     --radius:    2px;
