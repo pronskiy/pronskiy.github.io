@@ -201,13 +201,14 @@ nav.site-nav a:hover { color: var(--ink); }
 .reel-strip {
     --fade-l: 0px;
     --fade-r: 4rem;
-    margin-top: 1.25rem;
+    --inset: 0.5rem;           /* how far the hover tint sits proud of a thumbnail */
+    margin: 1.25rem calc(-1 * var(--inset)) 0;
     list-style: none;
     display: flex;
     gap: 0.75rem;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    padding-bottom: 0.5rem;
+    padding: var(--inset);     /* room inside the scroll box for the tint, so it is not clipped */
     scrollbar-width: thin;
     -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent);
     mask-image: linear-gradient(to right, transparent, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent);
@@ -216,7 +217,17 @@ nav.site-nav a:hover { color: var(--ink); }
 .reel-strip.is-scrolled { --fade-l: 3rem; }
 .reel-strip.is-at-end  { --fade-r: 0px; }
 .reel-strip li { flex: 0 0 auto; width: 168px; }
-.reel-strip a { display: block; text-decoration: none; position: relative; }
+/* Like a project card: the link sits --inset proud of its cell so the hover tint has an inset. */
+.reel-strip a {
+    display: block;
+    position: relative;
+    padding: var(--inset);
+    margin: calc(-1 * var(--inset));
+    border-radius: calc(var(--radius) + var(--inset));
+    text-decoration: none;
+    transition: background-color .12s ease;
+}
+.reel-strip a:hover { background: var(--ink-06); }
 .reel-strip img {
     width: 168px; height: 94px;
     object-fit: cover;
@@ -225,7 +236,7 @@ nav.site-nav a:hover { color: var(--ink); }
 }
 .reel-time {
     position: absolute;
-    top: 94px; right: 6px;
+    top: calc(94px + var(--inset)); right: calc(6px + var(--inset));   /* offsets are from the padded link */
     transform: translateY(-100%) translateY(-6px);
     font-size: 0.6875rem;
     font-weight: 500;
