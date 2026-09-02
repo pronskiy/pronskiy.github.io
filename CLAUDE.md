@@ -51,8 +51,10 @@ Rules worth keeping:
   single strongest "generated" tell; do not reintroduce them.
 - **Hover inverts a row** (`background: var(--ink); color: var(--paper)`). That is
   the interaction vocabulary in place of colour.
-- Everything hangs off one left edge: nav, masthead, index and article body all
-  align to the `--container` gutter. Prose is capped at `--measure`, not centred.
+- The homepage and the blog listing hang off one left edge: nav, masthead and
+  index all align to the `--container` gutter. Article and page bodies are the
+  exception: they read in a column capped at `--measure` and centred in the
+  container, with the nav and footer still on the container grid.
 
 ## Content
 

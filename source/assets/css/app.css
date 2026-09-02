@@ -363,9 +363,9 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
 .site-footer a:hover { color: var(--ink); }
 
 /* ---------- pages & posts ---------- */
-/* Articles share the container's left edge with the nav and the index,
-   rather than floating in a centred column, so the whole site hangs off
-   one alignment. The reading measure is applied to the content inside. */
+/* Articles and pages read in a centred column capped at the measure. The
+   nav and footer stay on the container grid above and below it. The blog
+   listing opts out further down because its index runs full width. */
 .page {
     max-width: var(--container);
     margin: 0 auto;
@@ -373,7 +373,11 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
 }
 .page-header,
 .page > .prose,
-.page > .post-nav { max-width: var(--measure); }
+.page > .post-nav {
+    max-width: var(--measure);
+    margin-left: auto;
+    margin-right: auto;
+}
 .page-header { margin-bottom: 2rem; }
 .page-header h1 {
     font-family: var(--display);
@@ -498,6 +502,7 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
 /* ---------- blog index ---------- */
 .blog-index .index { margin-top: 1.5rem; }
 .blog-index .index, .blog-index .blog-pagination { max-width: none; }
+.blog-index .page-header { margin-left: 0; }
 .blog-pagination {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
