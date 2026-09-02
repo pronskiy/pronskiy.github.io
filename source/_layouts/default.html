@@ -85,6 +85,20 @@
 
 <script>hljs.highlightAll();</script>
 <script>
+// Video strip: retract the edge fades at whichever end of the scroll you reach.
+(function() {
+  var strip = document.querySelector('.reel-strip');
+  if (!strip) return;
+  function update() {
+    strip.classList.toggle('is-scrolled', strip.scrollLeft > 4);
+    strip.classList.toggle('is-at-end', strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4);
+  }
+  strip.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+<script>
 (function() {
   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
   document.querySelectorAll('[data-scramble]').forEach(function(el) {

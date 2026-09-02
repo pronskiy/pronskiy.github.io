@@ -185,32 +185,43 @@ nav.site-nav a:hover { color: var(--ink); }
 
 /* ---------- section rhythm ----------
    Every section opens with one hairline on the text column: 2.5rem of air
-   above the rule, 2rem below it. The reel draws its own because the strip
-   itself is full-bleed; the blocks put theirs on the heading. */
+   above the rule, 2rem below it. The reel has no heading, so it draws its
+   own; the blocks put theirs on the heading. */
 
 /* ---------- video strip ---------- */
-.reel { margin-top: 2.5rem; }
+/* Clipped to the text column like everything else. It still scrolls
+   sideways; a fade at each edge makes a cut-off frame read as "more this
+   way". The layout script retracts the fade at whichever end you reach. */
+.reel {
+    max-width: var(--container);
+    margin: 2.5rem auto 0;
+    padding: 0 var(--gutter);
+}
 .reel::before {
     content: '';
     display: block;
     height: 1px;
     background: var(--line);
-    width: min(100% - 2 * var(--gutter), var(--container) - 2 * var(--gutter));
-    margin: 0 auto 2rem;
+    margin-bottom: 2rem;
 }
+@property --fade-l { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@property --fade-r { syntax: '<length>'; inherits: false; initial-value: 0px; }
 .reel-strip {
-    /* Full-bleed strip whose first frame still lines up with the container.
-       No scroll snapping: `scroll-snap-align: start` makes the browser scroll
-       past the leading padding on load, which hides the first thumbnail. */
-    --bleed: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+    --fade-l: 0px;
+    --fade-r: 4rem;
     list-style: none;
     display: flex;
     gap: 0.75rem;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    padding: 0 var(--bleed) 0.5rem;
+    padding-bottom: 0.5rem;
     scrollbar-width: thin;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent);
+    transition: --fade-l .2s ease, --fade-r .2s ease;
 }
+.reel-strip.is-scrolled { --fade-l: 3rem; }
+.reel-strip.is-at-end  { --fade-r: 0px; }
 .reel-strip li { flex: 0 0 auto; width: 168px; }
 .reel-strip a { display: block; text-decoration: none; position: relative; }
 .reel-strip img {
