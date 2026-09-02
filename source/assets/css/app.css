@@ -95,12 +95,7 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
     margin: 0 auto;
     padding: 3.5rem var(--gutter) 0;
 }
-.masthead-id {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 2rem;
-}
+.masthead-id { position: relative; }   /* the portrait is sized against this row */
 .masthead-name {
     font-family: var(--display);
     font-size: clamp(2.5rem, 8.5vw, 5.25rem);
@@ -109,12 +104,21 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
     font-weight: 700;
     max-width: 12ch;
 }
+/* The portrait is sized from the name block: positioned against the row,
+   130% of its height and centred on it so it stands a little proud of the
+   type, width from the aspect ratio. (A flex row cannot size a square from
+   its sibling in an auto-height container.) The 4rem floor covers widths
+   where the name is a single short line. */
 .masthead-photo {
-    width: 96px; height: 96px;
+    position: absolute;
+    top: 50%; right: 0;
+    transform: translateY(-50%);
+    height: max(130%, 4rem);
+    width: auto;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     object-fit: cover;
     filter: grayscale(1) contrast(1.05);
-    flex-shrink: 0;
 }
 
 /* pronunciation tooltip */
@@ -583,8 +587,8 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
     :root { --gutter: 1.25rem; }
 
     .masthead { padding-top: 2.5rem; }
-    .masthead-photo { width: 64px; height: 64px; }
-    .masthead-name { font-size: clamp(2.1rem, 11vw, 3rem); }
+    /* keep the two-line name clear of the portrait (2.44em = 130% of two lines) */
+    .masthead-name { font-size: clamp(2.1rem, 11vw, 3rem); margin-right: calc(2.44em + 2rem); }
 
     /* index collapses to: year (first row of a year only), title, then one
        meta line with the venue on the left and the type on the right. */
