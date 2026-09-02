@@ -33,7 +33,8 @@ use:
     </p>
 </header>
 
-<section class="reel" id="video" aria-label="Videos">
+<section class="block" id="video">
+    <h2 class="block-head">Videos <span class="block-count">{{ reel|length }}</span></h2>
     <ol class="reel-strip">
         {% for v in reel %}
         <li>
@@ -62,11 +63,6 @@ use:
         </li>
         {% endfor %}
     </ul>
-</section>
-
-<section class="block" id="writing">
-    <h2 class="block-head">Writing <span class="block-count">{{ listed_posts }}</span></h2>
-    {% include 'archive-list.html' with { types: ['post'], minimal: true } %}
 </section>
 
 <section class="block" id="archive">

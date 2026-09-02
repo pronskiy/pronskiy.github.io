@@ -184,31 +184,19 @@ nav.site-nav a:hover { color: var(--ink); }
 .masthead-intro a:hover { text-decoration-color: var(--ink); }
 
 /* ---------- section rhythm ----------
-   Every section opens with one hairline on the text column: 2.5rem of air
-   above the rule, 2rem below it. The reel has no heading, so it draws its
-   own; the blocks put theirs on the heading. */
+   Every section is a .block: 2.5rem of air, then one hairline on the text
+   column carried by the heading, then the content. */
 
 /* ---------- video strip ---------- */
 /* Clipped to the text column like everything else. It still scrolls
    sideways; a fade at each edge makes a cut-off frame read as "more this
    way". The layout script retracts the fade at whichever end you reach. */
-.reel {
-    max-width: var(--container);
-    margin: 2.5rem auto 0;
-    padding: 0 var(--gutter);
-}
-.reel::before {
-    content: '';
-    display: block;
-    height: 1px;
-    background: var(--line);
-    margin-bottom: 2rem;
-}
 @property --fade-l { syntax: '<length>'; inherits: false; initial-value: 0px; }
 @property --fade-r { syntax: '<length>'; inherits: false; initial-value: 0px; }
 .reel-strip {
     --fade-l: 0px;
     --fade-r: 4rem;
+    margin-top: 1.25rem;
     list-style: none;
     display: flex;
     gap: 0.75rem;
