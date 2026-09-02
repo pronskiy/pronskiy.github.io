@@ -260,20 +260,10 @@ nav.site-nav a:hover { color: var(--ink); }
     font-size: 1.125rem;
     font-weight: 600;
     letter-spacing: -0.01em;
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
     padding-top: 2rem;
     border-top: 1px solid var(--line);
     margin-bottom: 0.25rem;
 }
-.block-count {
-    font-weight: 400;
-    font-size: 0.875rem;
-    color: var(--ink-60);
-}
-
 /* ---------- the index ---------- */
 /* .index-fold carries the same columns so its summary lays out as a row */
 .index, .index-fold { --cols: 4.5rem minmax(0, 1fr) 11rem 6.5rem; }

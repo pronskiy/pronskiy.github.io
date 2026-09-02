@@ -4,7 +4,6 @@ layout: default
 use:
     - posts
 ---
-{% set listed_posts = data.posts|filter(p => not p.unlisted)|length %}
 {% set reel = site.archive|filter(e => e.youtube is defined and e.youtube)|sort((a, b) => b.date <=> a.date) %}
 
 <header class="masthead">
@@ -38,7 +37,7 @@ use:
 </header>
 
 <section class="block" id="video">
-    <h2 class="block-head">Videos <span class="block-count">{{ reel|length }}</span></h2>
+    <h2 class="block-head">Videos</h2>
     <ol class="reel-strip">
         {% for v in reel %}
         <li>
@@ -70,6 +69,6 @@ use:
 </section>
 
 <section class="block" id="archive">
-    <h2 class="block-head">Everything <span class="block-count">{{ listed_posts + site.archive|length + site.articles|default([])|length }}</span></h2>
+    <h2 class="block-head">Everything</h2>
     {% include 'archive-list.html' with { fold_before: 2022 } %}
 </section>
