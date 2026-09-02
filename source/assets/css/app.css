@@ -32,7 +32,7 @@
     --body:    'Host Grotesk', system-ui, sans-serif;
     --mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-    --container: 1040px;   /* the index */
+    --container: 880px;    /* the index */
     --measure:   680px;    /* anything you actually read */
     --gutter:    2rem;
     --radius:    8px;      /* thumbnails, row hover, code blocks */
