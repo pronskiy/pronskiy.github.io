@@ -4,6 +4,7 @@
 
 imports:
     - archive.yml
+    - articles.yml
 
 title: Roman Pronskiy
 subtitle: 'I lead PhpStorm at JetBrains and founded The PHP Foundation.'

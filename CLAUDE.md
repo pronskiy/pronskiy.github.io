@@ -61,13 +61,20 @@ Rules worth keeping:
 - **Posts**: `source/_posts/YYYY-MM-DD-slug.md`, permalink `blog/:filename/`.
   `unlisted: true` hides a post from the index, `/blog`, the feed and the sitemap,
   and adds a `noindex` banner. Files prefixed `draft-` are ignored entirely.
-- **Pages**: `source/_pages/` (talks.md, music.md, larajp.html).
+- **Pages**: `source/_pages/` (talks.md, articles.md, music.md, larajp.html). `wide: true`
+  in a page's front matter lets its index run the full container width; `talks.md`
+  and `articles.md` use it.
 - **Archive**: `app/config/archive.yml` — talks, podcasts and videos. Imported into
   `sculpin_site.yml` and exposed to Twig as `site.archive`. **Read the rules at the
   top of that file before editing it**; in particular a `date:` must be a full
   `YYYY-MM-DD` or the entry silently sinks to the bottom of the page.
-- `source/_partials/archive-list.html` merges `data.posts` with `site.archive` into
-  one reverse-chronological feed. Both the homepage and `/videos` render through it.
+- **Articles**: `app/config/articles.yml`: Roman's posts on the PhpStorm blog and The
+  PHP Foundation blog, exposed as `site.articles`. It is a generated snapshot; its
+  header records both sources, the selection regexes and how to regenerate it. The
+  same date rule applies.
+- `source/_partials/archive-list.html` merges `data.posts`, `site.archive` and
+  `site.articles` into one reverse-chronological feed. The homepage, `/videos` and
+  `/articles` all render through it.
 - **Projects**: the `projects:` list in the same `archive.yml`. Each has an `image`
   that is a local snapshot of the project's own `og:image`, resized to 960px wide
   and saved as JPEG in `source/assets/img/projects/`. They are snapshots on purpose
@@ -82,9 +89,9 @@ Rules worth keeping:
 - **Twig is 3.19**: `{% for x in y if cond %}` was removed — use `|filter(...)`.
   `|filter` also throws on `null`, so guard with `|default([])` where a value may
   be undefined on Sculpin's first pass (e.g. `page.pagination.items`).
-- **`source/_pages/talks.md` must stay `.md`.** `SharingImageGenerator` filters on
-  the file extension, so renaming it to `.html` silently stops generating its OG
-  image.
+- **`source/_pages/talks.md` and `articles.md` must stay `.md`.** `SharingImageGenerator`
+  filters on the file extension, so renaming them to `.html` silently stops generating
+  their OG images.
 - **Two posts have hand-made OG images** in `source/assets/share/`. They are real
   artwork that intentionally overrides the generator — do not delete them.
 

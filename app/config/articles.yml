@@ -1,0 +1,785 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Roman's articles on other blogs, rendered into the homepage index and /articles
+# by source/_partials/archive-list.html (exposed to Twig as `site.articles`).
+#
+# This file is a GENERATED SNAPSHOT (fetched 2026-09-02). Hand-edits are fine, but
+# note the provenance so it can be regenerated:
+#
+#   PhpStorm blog   WordPress REST API, author id 869 (slug rpronskiy):
+#                   https://blog.jetbrains.com/wp-json/wp/v2/posts?author=869&per_page=100&page=N
+#                   Titles are HTML-entity decoded. Selection: keep a title if it
+#                   matches /\b(Video|Episode)\b/i; otherwise drop it if it matches
+#                   /\bEAP\b|Early Access|\bBeta\b|\bPreview\b|\bRC\s?\d*\b|Release Candidate|\b(?:is|are)\s+(?:now\s+)?(?:released|available|out)\b|Has Been Released|\bReleased:|^PhpStorm \d{4}\.\d|What.s New In PhpStorm/i
+#                   (release notices are out: EAP, beta, preview, RC, patch and
+#                   x.y release announcements); keep everything else.
+#   PHP Foundation  https://github.com/ThePHPF/thephp.foundation, source/_posts/*.md
+#                   whose front matter lists `roman-pronskiy` under `author`. Date and
+#                   slug come from the filename; URL is /blog/YYYY/MM/DD/slug/.
+#
+# Same rules as archive.yml: `date` MUST be a full YYYY-MM-DD (unquoted, so YAML
+# parses it to a timestamp that sorts against post dates), and `articles:` must
+# be defined in THIS FILE ONLY. Newest first.
+# ─────────────────────────────────────────────────────────────────────────────
+
+articles:
+  - type: article
+    date: 2026-01-26
+    title: "Meet team.blue: A PHP Foundation Sponsor supporting the language at the core of its ecosystem"
+    url: https://thephp.foundation/blog/2026/01/26/meet-team-blue-php-foundation-sponsor/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-11-05
+    title: "Design Contest Results and Lessons Learned"
+    url: https://thephp.foundation/blog/2025/11/05/design-contest-results/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-11-04
+    title: "PhpStorm Plugins You Might Not Know About"
+    url: https://blog.jetbrains.com/phpstorm/2025/11/phpstorm-plugins-you-might-not-know/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2025-10-01
+    title: "Call for Designs: Refresh the PHP 8.5 Release Page"
+    url: https://thephp.foundation/blog/2025/10/01/design-contest/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-09-30
+    title: "The PHP Foundation application form for 2026 is now open"
+    url: https://thephp.foundation/blog/2025/09/30/application-form-2026/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-09-25
+    title: "Welcoming Joe Watkins as a PHP Foundation Developer"
+    url: https://thephp.foundation/blog/2025/09/25/joe-watkins/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-09-05
+    title: "Announcing the Official PHP SDK for MCP"
+    url: https://thephp.foundation/blog/2025/09/05/php-mcp-sdk/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-06-08
+    title: "30 years of PHP: FrankenPHP is now part of the PHP organisation"
+    url: https://thephp.foundation/blog/2025/06/08/php-30/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-05-30
+    title: "PHP Annotated – May 2025"
+    url: https://blog.jetbrains.com/phpstorm/2025/05/php-annotated-may-2025/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2025-05-15
+    title: "FrankenPHP Is Now Officially Supported by The PHP Foundation"
+    url: https://thephp.foundation/blog/2025/05/15/frankenphp/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-05-09
+    title: "Meet Manychat: A PHP Foundation Sponsor Sharing Their PHP Scaling Journey"
+    url: https://thephp.foundation/blog/2025/05/09/manychat-powered-by-php/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-04-10
+    title: "PHP Core Security Audit Results"
+    url: https://thephp.foundation/blog/2025/04/10/php-core-security-audit-results/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-04-03
+    title: "Welcoming Passbolt to the PHP Foundation"
+    url: https://thephp.foundation/blog/2025/04/03/welcoming-passbolt-to-the-php-foundation/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-03-31
+    title: "The PHP Foundation: Impact and Transparency Report 2024"
+    url: https://thephp.foundation/blog/2025/03/31/transparency-and-impact-report-2024/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-01-31
+    title: "Proud to Be Community Sponsors of Laracon EU and Laracon India"
+    url: https://thephp.foundation/blog/2025/01/31/laracons/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2025-01-29
+    title: "PHP Annotated – January 2025"
+    url: https://blog.jetbrains.com/phpstorm/2025/01/php-annotated-january-2025/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2024-12-23
+    title: "Happy Holidays from The PHP Foundation!"
+    url: https://thephp.foundation/blog/2024/12/23/happy-holidays-from-the-php-foundation/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2024-11-22
+    title: "The PHP Foundation Turns Three!"
+    url: https://thephp.foundation/blog/2024/11/22/php-foundation-turns-three/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2024-10-31
+    title: "PHP Annotated – October 2024"
+    url: https://blog.jetbrains.com/phpstorm/2024/10/php-annotated-october-2024/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2024-10-08
+    title: "The PHP Foundation Supports The Open Source Pledge"
+    url: https://thephp.foundation/blog/2024/10/08/open-source-pledge/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2024-09-12
+    title: "PHP Foundation Update, September 2024"
+    url: https://thephp.foundation/blog/2024/09/12/php-foundation-update-september-2024/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2024-09-09
+    title: "PHP Annotated – September 2024"
+    url: https://blog.jetbrains.com/phpstorm/2024/09/php-annotated-september-2024/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2024-07-05
+    title: "PHP Annotated – June 2024"
+    url: https://blog.jetbrains.com/phpstorm/2024/07/php-annotated-june-2024/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2024-06-04
+    title: "PHP Annotated – May 2024"
+    url: https://blog.jetbrains.com/phpstorm/2024/06/php-annotated-may-2024/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2024-04-29
+    title: "PHP Annotated – April 2024"
+    url: https://blog.jetbrains.com/phpstorm/2024/04/php-annotated-april-2024/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2024-04-02
+    title: "Joining Forces for Open Source Cybersecurity Standards"
+    url: https://thephp.foundation/blog/2024/04/02/open-source-community-cra-compliance-initiative/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2024-03-11
+    title: "PHP Annotated – February-March 2024"
+    url: https://blog.jetbrains.com/phpstorm/2024/03/php-annotated-february-march-2024/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2024-02-26
+    title: "The PHP Foundation: Impact and Transparency Report 2023"
+    url: https://thephp.foundation/blog/2024/02/26/transparency-and-impact-report-2023/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2024-01-25
+    title: "PHP Annotated – January 2024"
+    url: https://blog.jetbrains.com/phpstorm/2024/01/php-annotated-january-2024/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2024-01-03
+    title: "The PHP Foundation Team Update 2024"
+    url: https://thephp.foundation/blog/2024/01/03/the-php-foundation-team-update-2024/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2023-12-29
+    title: "PHP Annotated – December 2023"
+    url: https://blog.jetbrains.com/phpstorm/2023/12/php-annotated-december-2023/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2023-12-04
+    title: "PHP Annotated – November 2023"
+    url: https://blog.jetbrains.com/phpstorm/2023/12/php-annotated-november-2023/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2023-11-27
+    title: "PHP Foundation Update, November 2023"
+    url: https://thephp.foundation/blog/2023/11/27/php-foundation-update-november-2023/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2023-10-30
+    title: "PHP Annotated – October 2023"
+    url: https://blog.jetbrains.com/phpstorm/2023/10/php-annotated-october-2023/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2023-10-23
+    title: "The Pest Plugin Is Now Maintained by JetBrains"
+    url: https://blog.jetbrains.com/phpstorm/2023/10/the-pest-plugin-is-now-maintained-by-jetbrains/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2023-09-27
+    title: "PHP Annotated – September 2023"
+    url: https://blog.jetbrains.com/phpstorm/2023/09/php-annotated-september-2023/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2023-08-01
+    title: "PHP Annotated – July 2023"
+    url: https://blog.jetbrains.com/phpstorm/2023/08/php-annotated-july-2023/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2023-06-14
+    title: "PHP Annotated – June 2023"
+    url: https://blog.jetbrains.com/phpstorm/2023/06/php-annotated-june-2023/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2023-06-06
+    title: "PHP Core Roundup #13"
+    url: https://thephp.foundation/blog/2023/06/06/php-core-roundup-13/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2023-04-21
+    title: "PHP Annotated – April 2023"
+    url: https://blog.jetbrains.com/phpstorm/2023/04/php-annotated-april-2023/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2023-03-31
+    title: "PHP Foundation Update, March 2023"
+    url: https://thephp.foundation/blog/2023/03/31/php-foundation-update-march-2023/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2023-02-28
+    title: "PHP Annotated – February 2023"
+    url: https://blog.jetbrains.com/phpstorm/2023/02/php-annotated-february-2023/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2023-01-19
+    title: "PHP Annotated – January 2023"
+    url: https://blog.jetbrains.com/phpstorm/2023/01/php-annotated-january-2023/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2023-01-09
+    title: "What’s Next in PhpStorm: The 2023.1 Public Roadmap"
+    url: https://blog.jetbrains.com/phpstorm/2023/01/what-s-next-in-phpstorm-the-2023-1-public-roadmap/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-12-20
+    title: "PHP Annotated – December 2022"
+    url: https://blog.jetbrains.com/phpstorm/2022/12/php-annotated-december-2022/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-11-02
+    title: "PHP Annotated – October 2022"
+    url: https://blog.jetbrains.com/phpstorm/2022/11/php-annotated-october-2022/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-10-03
+    title: "PHP Annotated – September 2022"
+    url: https://blog.jetbrains.com/phpstorm/2022/10/php-annotated-september-2022/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-08-24
+    title: "PHP Annotated – August 2022"
+    url: https://blog.jetbrains.com/phpstorm/2022/08/php-annotated-august-2022/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-08-23
+    title: "What’s Next: PhpStorm 2022.3 Roadmap"
+    url: https://blog.jetbrains.com/phpstorm/2022/08/what-s-next-phpstorm-2022-3-roadmap/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-08-04
+    title: "PHP Foundation Update, July 2022"
+    url: https://thephp.foundation/blog/2022/08/04/php-foundation-update-july-2022/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2022-07-20
+    title: "PHP Annotated – July 2022"
+    url: https://blog.jetbrains.com/phpstorm/2022/07/php-annotated-july-2022/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-07-04
+    title: "PHP Foundation Update, June 2022"
+    url: https://thephp.foundation/blog/2022/07/04/php-foundation-update-june-2022/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2022-06-16
+    title: "PHP Annotated – June 2022"
+    url: https://blog.jetbrains.com/phpstorm/2022/06/php-annotated-june-2022/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-06-01
+    title: "PHP Foundation Update, May 2022"
+    url: https://thephp.foundation/blog/2022/06/01/php-foundation-update-may-2022/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2022-05-26
+    title: "PHP Annotated – May 2022"
+    url: https://blog.jetbrains.com/phpstorm/2022/05/php-annotated-may-2022/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-05-06
+    title: "PHP Annotated — 2022 Spring Catch-up"
+    url: https://blog.jetbrains.com/phpstorm/2022/05/php-annotated-2022-spring-catch-up/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-05-02
+    title: "PHP Foundation Update, April 2022"
+    url: https://thephp.foundation/blog/2022/05/02/the-php-foundation-update-april-2022/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2022-03-31
+    title: "The PHP Foundation Update, March 2022"
+    url: https://thephp.foundation/blog/2022/03/31/the-php-foundation-update-march-2022/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2022-01-27
+    title: "PHP Annotated — January 2022"
+    url: https://blog.jetbrains.com/phpstorm/2022/01/php-annotated-january-2022/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2022-01-21
+    title: "The PHP Foundation Update, January 2022"
+    url: https://thephp.foundation/blog/2022/01/21/the-php-foundation-update-january-2022/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2021-11-26
+    title: "New Video: What’s New in PHP 8.1"
+    url: https://blog.jetbrains.com/phpstorm/2021/11/new-video-what-s-new-in-php-8-1/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-11-22
+    title: "The New Life of PHP – The PHP Foundation"
+    url: https://blog.jetbrains.com/phpstorm/2021/11/the-php-foundation/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-10-14
+    title: "PHP Annotated — October 2021"
+    url: https://blog.jetbrains.com/phpstorm/2021/10/php-annotated-october-2021/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-09-15
+    title: "PHP Annotated — September 2021"
+    url: https://blog.jetbrains.com/phpstorm/2021/09/php-annotated-september-2021/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-08-18
+    title: "New Video Series: Refactoring With PhpStorm by Matthew Setter"
+    url: https://blog.jetbrains.com/phpstorm/2021/08/new-video-series-refactoring-with-phpstorm-by-matthew-setter/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-08-18
+    title: "PHP Annotated — August 2021"
+    url: https://blog.jetbrains.com/phpstorm/2021/08/php-annotated-august-2021/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-05-19
+    title: "PHP Annotated — May 2021"
+    url: https://blog.jetbrains.com/phpstorm/2021/05/php-annotated-may-2021/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-03-29
+    title: "Video: What’s Coming in PhpStorm 2021.1 – Episode 2"
+    url: https://blog.jetbrains.com/phpstorm/2021/03/video-what-s-coming-in-phpstorm-2021-1-episode-2/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-03-18
+    title: "PHP Annotated – March 2021"
+    url: https://blog.jetbrains.com/phpstorm/2021/03/php-annotated-march-2021/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-02-23
+    title: "What’s Coming in PhpStorm 2021.1 – Episode 1"
+    url: https://blog.jetbrains.com/phpstorm/2021/02/video-what-s-coming-in-phpstorm-2021-1-episode-1/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-02-10
+    title: "PHP Annotated – February 2021"
+    url: https://blog.jetbrains.com/phpstorm/2021/02/php-annotated-february-2021/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-01-26
+    title: "Video: Refactoring Code With PhpStorm"
+    url: https://blog.jetbrains.com/phpstorm/2021/01/video-refactoring-code-with-phpstorm/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-01-18
+    title: "Video: Using the Terminal in PhpStorm"
+    url: https://blog.jetbrains.com/phpstorm/2021/01/video-using-the-terminal-in-nbsp-phpstorm/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2021-01-13
+    title: "PHP Annotated – January 2021"
+    url: https://blog.jetbrains.com/phpstorm/2021/01/php-annotated-january-2021/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-11-25
+    title: "Video: What’s Coming in PhpStorm 2020.3 – Episode 3"
+    url: https://blog.jetbrains.com/phpstorm/2020/11/video-what-s-coming-in-phpstorm-2020-3-episode-3/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-11-05
+    title: "Video: What’s Coming in PhpStorm 2020.3 – Episode 2"
+    url: https://blog.jetbrains.com/phpstorm/2020/11/video-what-s-coming-in-phpstorm-2020-3-episode-2/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-10-21
+    title: "PHP Annotated – October 2020"
+    url: https://blog.jetbrains.com/phpstorm/2020/10/php-annotated-october-2020/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-10-20
+    title: "Video: What’s Coming in PhpStorm 2020.3 – Episode 1"
+    url: https://blog.jetbrains.com/phpstorm/2020/10/video-what-s-coming-in-phpstorm-2020-3-episode-1/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-10-06
+    title: "Ask Me Anything Session on Reddit with the PhpStorm Team"
+    url: https://blog.jetbrains.com/phpstorm/2020/10/ask-me-anything-session-on-reddit-with-the-phpstorm-team/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-09-23
+    title: "PHP Annotated – September 2020"
+    url: https://blog.jetbrains.com/phpstorm/2020/09/php-annotated-september-2020/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-09-10
+    title: "New Video From Christoph Rumpel: Code Snippets with PhpStorm Live Templates"
+    url: https://blog.jetbrains.com/phpstorm/2020/09/new-video-from-christoph-rumpel-code-snippets-with-phpstorm-live-nbsp-templates/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-09-08
+    title: "Video: Nikita Popov and Nikolas Grekas on Symfony PHP 8 Compatibility"
+    url: https://blog.jetbrains.com/phpstorm/2020/09/video-nikita-popov-and-nikolas-grekas-on-symfony-php-8-compatibility/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-08-19
+    title: "PHP Annotated – August 2020"
+    url: https://blog.jetbrains.com/phpstorm/2020/08/php-annotated-august-2020/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-07-17
+    title: "Episode 5 – What’s Coming in PhpStorm 2020.2 – EAP Video Series"
+    url: https://blog.jetbrains.com/phpstorm/2020/07/episode-5-what-s-coming-in-phpstorm-2020-2-eap-video-series/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-07-14
+    title: "New Video From Christoph Rumpel: PhpStorm Plugins for Laravel"
+    url: https://blog.jetbrains.com/phpstorm/2020/07/new-video-from-christoph-rumpel-phpstorm-plugins-for-laravel/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-07-10
+    title: "What’s Coming in PhpStorm 2020.2 – EAP Video Series | Episode 4"
+    url: https://blog.jetbrains.com/phpstorm/2020/07/what-s-coming-in-phpstorm-2020-2-eap-video-series-episode-4/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-07-08
+    title: "PHPStan and Psalm Support Coming to PhpStorm Soon"
+    url: https://blog.jetbrains.com/phpstorm/2020/07/phpstan-and-psalm-support-coming-to-phpstorm/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-07-01
+    title: "What’s Coming in PhpStorm 2020.2 – EAP Video Series | Episode 3"
+    url: https://blog.jetbrains.com/phpstorm/2020/07/whats-coming-in-phpstorm-2020-2-eap-video-series-episode-3/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-06-24
+    title: "What’s Coming in PhpStorm 2020.2 – EAP Video Series | Episode 2"
+    url: https://blog.jetbrains.com/phpstorm/2020/06/whats-coming-in-phpstorm-2020-2-eap-video-series-episode-2/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-06-23
+    title: "PHP Annotated – June 2020"
+    url: https://blog.jetbrains.com/phpstorm/2020/06/php-annotated-june-2020/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-06-17
+    title: "What’s Coming in PhpStorm 2020.2 — EAP Video Series | Episode 1"
+    url: https://blog.jetbrains.com/phpstorm/2020/06/whats-coming-in-phpstorm-2020-2-eap-video-series-episode-1/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-06-08
+    title: "PHP Turns 25: A Short History of PHP and 50% PhpStorm Discount"
+    url: https://blog.jetbrains.com/phpstorm/2020/06/php-turns-25/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-04-22
+    title: "PHP Annotated – April 2020"
+    url: https://blog.jetbrains.com/phpstorm/2020/04/php-annotated-april-2020/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-04-10
+    title: "New Video Series: PhpStorm Tips with Christoph Rumpel"
+    url: https://blog.jetbrains.com/phpstorm/2020/04/new-video-series-phpstorm-tips-with-christoph-rumpel/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-03-25
+    title: "Episode 7 – What’s Coming in PhpStorm 2020.1 – EAP Video Series"
+    url: https://blog.jetbrains.com/phpstorm/2020/03/episode-7-whats-coming-in-phpstorm-2020-1-eap-video-series/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-03-20
+    title: "Episode 6 – What’s Coming in PhpStorm 2020.1 – EAP Video Series"
+    url: https://blog.jetbrains.com/phpstorm/2020/03/episode-6-whats-coming-in-phpstorm-2020-1-eap-video-series/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-03-16
+    title: "Episode 5 – What’s Coming in PhpStorm 2020.1 – EAP Video Series"
+    url: https://blog.jetbrains.com/phpstorm/2020/03/episode-5-whats-coming-in-phpstorm-2020-1-eap-video-series/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-03-10
+    title: "PHP Annotated – March 2020"
+    url: https://blog.jetbrains.com/phpstorm/2020/03/php-annotated-march-2020/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-03-04
+    title: "Episode 4 – What’s Coming in PhpStorm 2020.1 – EAP Video Series"
+    url: https://blog.jetbrains.com/phpstorm/2020/03/episode-4-whats-coming-in-phpstorm-2020-1-eap-video-series/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-02-27
+    title: "Episode 3 – What’s Coming in PhpStorm 2020.1 – EAP Video Series"
+    url: https://blog.jetbrains.com/phpstorm/2020/02/episode-3-whats-coming-in-phpstorm-2020-1-eap-video-series/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-02-18
+    title: "What’s Coming in PhpStorm 2020.1 – EAP Video Series | Season 2020.1 Episode 2"
+    url: https://blog.jetbrains.com/phpstorm/2020/02/whats-coming-in-phpstorm-2020-1-eap-video-series-season-2020-1-episode-2/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-02-11
+    title: "PHP Annotated – February 2020"
+    url: https://blog.jetbrains.com/phpstorm/2020/02/php-annotated-february-2020/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-02-10
+    title: "What’s Coming in PhpStorm 2020.1 – EAP Video Series | Season 2020.1 Episode 1"
+    url: https://blog.jetbrains.com/phpstorm/2020/02/whats-coming-in-phpstorm-2020-1-eap-video-series-season-2020-1-episode-1/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-01-24
+    title: "Our Pledge to Open Source"
+    url: https://blog.jetbrains.com/phpstorm/2020/01/our-pledge-to-open-source/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2020-01-14
+    title: "PHP Annotated – January 2020"
+    url: https://blog.jetbrains.com/phpstorm/2020/01/php-annotated-january-2020/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-12-20
+    title: "How to Upgrade to PHP 7.4 with PhpStorm"
+    url: https://blog.jetbrains.com/phpstorm/2019/12/how-to-upgrade-to-php-7-4-with-phpstorm/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-12-10
+    title: "PHP Annotated – December 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/12/php-annotated-december-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-11-04
+    title: "PHP Annotated – November 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/11/php-annotated-november-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-10-10
+    title: "php[world], Bulgaria PHP, PHP.BARCELONA, SymfonyCon – Cool Events to Go to This Fall"
+    url: https://blog.jetbrains.com/phpstorm/2019/10/phpworld-bulgaria-php-php-barcelona-symfonycon-cool-events-to-go-to-this-fall/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-10-08
+    title: "PHP Annotated – October 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/10/php-annotated-october-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-09-09
+    title: "PHP Annotated – September 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/09/php-annotated-september-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-08-12
+    title: "PHP Annotated – August 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/08/php-annotated-august-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-07-15
+    title: "PHP Annotated – July 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/07/php-annotated-july-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-06-17
+    title: "PHP Annotated Monthly – June 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/06/php-annotated-monthly-june-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-06-14
+    title: "PhpStorm and YouTrack: We Want Your Feedback"
+    url: https://blog.jetbrains.com/phpstorm/2019/06/phpstorm-and-youtrack-we-want-your-feedback/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-05-10
+    title: "PHP Annotated Monthly – May 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/05/php-annotated-monthly-may-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-04-26
+    title: "Reworked Imports & Code Cleanup"
+    url: https://blog.jetbrains.com/phpstorm/2019/04/reworked-imports-code-cleanup/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-03-15
+    title: "PHP Annotated Monthly – March 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/03/php-annotated-monthly-march-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-02-22
+    title: "New .phpstorm.meta.php features"
+    url: https://blog.jetbrains.com/phpstorm/2019/02/new-phpstorm-meta-php-features/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-02-15
+    title: "PHP Annotated Monthly – February 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/02/php-annotated-monthly-february-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-01-18
+    title: "PHP Annotated Monthly – January 2019"
+    url: https://blog.jetbrains.com/phpstorm/2019/01/php-annotated-monthly-january-2019/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2019-01-11
+    title: "Nikita Popov joins PhpStorm Team"
+    url: https://blog.jetbrains.com/phpstorm/2019/01/nikita-popov-joins-phpstorm-team/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2018-12-07
+    title: "PHP Annotated Monthly – December 2018"
+    url: https://blog.jetbrains.com/phpstorm/2018/12/php-annotated-monthly-december-2018/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2018-11-02
+    title: "PHP Annotated Monthly – November 2018"
+    url: https://blog.jetbrains.com/phpstorm/2018/11/php-annotated-monthly-november-2018/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2018-10-26
+    title: "Sharing Code Snippets in PhpStorm Easy Way"
+    url: https://blog.jetbrains.com/phpstorm/2018/10/sharing-code-snippets-in-phpstorm-easy-way/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2018-09-28
+    title: "PHP Annotated Monthly – September 2018"
+    url: https://blog.jetbrains.com/phpstorm/2018/09/php-annotated-monthly-september-2018/
+    venue: PhpStorm blog
+
+  - type: article
+    date: 2018-08-31
+    title: "PHP Annotated Monthly – August 2018"
+    url: https://blog.jetbrains.com/phpstorm/2018/08/php-annotated-monthly-august-2018/
+    venue: PhpStorm blog

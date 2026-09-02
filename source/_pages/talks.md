@@ -2,6 +2,7 @@
 layout: page
 permalink: videos
 title: Talks, Podcasts, Videos
+wide: true
 ---
 
 I regularly speak at tech conferences, participate in podcasts, and live streams about PHP, development tools, and open source.

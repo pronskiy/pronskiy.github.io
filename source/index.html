@@ -35,7 +35,7 @@ use:
     <p class="masthead-intro">
         I lead <a href="https://jetbrains.com/phpstorm/">PhpStorm</a> at JetBrains and founded
         <a href="https://thephp.foundation">The&nbsp;PHP Foundation</a>. Lately obsessed with what
-        happens when AI moves inside the IDE. Also: <a href="/music">music</a>.
+        happens when AI moves inside the IDE. Also: <a href="/articles">articles</a>, <a href="/music">music</a>.
     </p>
 
     <ul class="contacts">
@@ -85,6 +85,6 @@ use:
 </section>
 
 <section class="block" id="archive">
-    <h2 class="block-head">Everything <span class="block-count">{{ listed_posts + site.archive|length }}</span></h2>
+    <h2 class="block-head">Everything <span class="block-count">{{ listed_posts + site.archive|length + site.articles|default([])|length }}</span></h2>
     {% include 'archive-list.html' %}
 </section>

@@ -1,5 +1,5 @@
 {#
-    One reverse-chronological index built from Sculpin posts + site.archive.
+    One reverse-chronological index built from Sculpin posts + site.archive + site.articles.
 
     Params (all optional):
       types       list of type markers to keep. Default: everything.
@@ -10,7 +10,7 @@
     Sorting relies on both sides exposing `date` as a UNIX timestamp:
     Sculpin gives a DateTime-ish value, archive.yml dates are parsed to ints.
 #}
-{% set types      = types|default(['post', 'talk', 'podcast', 'video']) %}
+{% set types      = types|default(['post', 'talk', 'podcast', 'video', 'article']) %}
 {% set with_posts = with_posts is defined ? with_posts : true %}
 {% set minimal    = minimal|default(false) %}
 
@@ -26,7 +26,7 @@
       })
     : [] %}
 
-{% set archive_items = site.archive|default([])|map(e => {
+{% set archive_items = site.archive|default([])|merge(site.articles|default([]))|map(e => {
         type:     e.type,
         date:     e.date,
         display:  e.date_display|default(null),

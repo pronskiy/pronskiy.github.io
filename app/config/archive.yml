@@ -1,7 +1,8 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# Single source of truth for the homepage archive and the /videos page.
+# Talks, podcasts and videos for the homepage archive and the /videos page.
 # Rendered by source/_partials/archive-list.html, which merges these entries
-# with Sculpin's own posts (data.posts) into one reverse-chronological feed.
+# with Sculpin's own posts (data.posts) and the generated articles.yml into
+# one reverse-chronological feed.
 #
 # RULES — read before editing:
 #
@@ -23,7 +24,8 @@
 #   4. The dev server does NOT watch this file (Sculpin's config watcher looks
 #      at <project>/config, which doesn't exist here). Restart after editing.
 #
-# `type` is one of: talk · podcast · video
+# `type` is one of: talk · podcast · video. Articles (type `article`) live in
+# articles.yml, which is generated; read its header before editing it.
 #
 # `projects:` below is a separate, undated list rendered by the Projects block.
 # ─────────────────────────────────────────────────────────────────────────────

@@ -503,6 +503,18 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
 .blog-index .index { margin-top: 1.5rem; }
 .blog-index .index, .blog-index .blog-pagination { max-width: none; }
 .blog-index .page-header { margin-left: 0; }
+/* Pages with `wide: true` in their front matter (/videos, /articles): the header
+   and intro hang off the container edge like the blog listing, the index runs
+   full width, and prose paragraphs keep the reading measure. */
+.page--wide .page-header { margin-left: 0; }
+.page--wide > .prose { max-width: none; }
+.page--wide > .prose > p { max-width: var(--measure); }
+/* The archive index inside a page body: undo the prose list and link styling
+   (.prose ol / li / a all outrank the bare .index rules). */
+.prose .index { list-style: none; margin: 1.5rem 0 0; }
+.prose .index-row { margin-bottom: 0; }
+.prose .index-title { text-decoration: none; text-decoration-color: currentColor; }
+.prose .index-row:hover .index-title { text-decoration-color: currentColor; }
 .blog-pagination {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
