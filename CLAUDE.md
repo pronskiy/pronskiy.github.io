@@ -35,22 +35,34 @@ the previous output in place, so a broken build can look like a successful one.
 
 ## Design
 
-The site is a **dense archive**: a masthead, then a hairline-ruled index of
-everything Roman has made. It is deliberately **ink and paper — there is no
-accent colour.** Hierarchy comes from grid position, type scale and weight.
+The site is a **calm archive**: a compact profile header, then a hairline-ruled
+index of everything Roman has made. It is deliberately **ink and paper — there
+is no accent colour.** Hierarchy comes from grid position, type scale and weight.
+The surface treatment borrows from luma.com: one rule weight, soft corners,
+muted secondary text, a soft tint on hover.
 
 Rules worth keeping:
 
 - **No accent colour.** The only colour on the page comes from images: the YouTube
-  thumbnails in the contact-sheet strip and the project preview cards. That is why
-  they read as intentional.
-- **Mono (`--mono`) appears in exactly four places**: the year column, block
-  counts, thumbnail durations, and the phonetic tooltip. Every label is the sans
-  in sentence case with no tracking, and there is no `text-transform: uppercase`
-  anywhere in the stylesheet. Small tracked-out mono uppercase labels are the
-  single strongest "generated" tell; do not reintroduce them.
-- **Hover inverts a row** (`background: var(--ink); color: var(--paper)`). That is
-  the interaction vocabulary in place of colour.
+  thumbnails in the video strip and the project preview cards. That is why they
+  read as intentional.
+- **One typeface for the interface.** Mono (`--mono`) appears only inside code in
+  posts (`.prose code`, `.prose pre`) and in the wrap-shifter easter egg. Every
+  label is the sans in sentence case with no tracking, and there is no
+  `text-transform: uppercase` anywhere in the stylesheet. Small tracked-out
+  uppercase labels are the single strongest "generated" tell; do not reintroduce
+  them.
+- **One rule weight.** Every hairline is `1px solid var(--line)`; there are no
+  solid-ink rules. Each section opens with one rule on the text column (2.5rem
+  above, 2rem below). Index rows draw their separator with a `::before` on the
+  text column, and a list never opens with a line.
+- **Corners** are `--radius` (8px: thumbnails, row hover, code blocks) or
+  `--radius-lg` (12px: project cards). Inline code is pinned to 4px.
+- **Hover is a soft tint** (`background: var(--ink-06)` on a rounded box) for
+  index rows, project cards and post-nav links. Titles go to full ink, nothing
+  inverts and nothing gains an underline.
+- **Underlines only in running text** (the masthead intro and post prose). Nav,
+  contacts, profile lines and footer links are muted and go to ink on hover.
 - The homepage and the blog listing hang off one left edge: nav, masthead and
   index all align to the `--container` gutter. Article and page bodies are the
   exception: they read in a column capped at `--measure` and centred in the
