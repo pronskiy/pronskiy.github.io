@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/favicon.png"/>
     <link href="mailto:roman@pronskiy.com" rel="me">
+    <link href="https://phpc.social/@pronskiy" rel="me">
     <link rel="webmention" href="https://webmention.io/pronskiy.com/webmention" />
     <meta name="robots" content="index, follow">
 
@@ -47,9 +48,8 @@
 <nav class="site-nav">
     <div class="nav-inner">
 <a href="/" class="brand">Roman Pronskiy</a>        <ul>
-            <li><a href="/#video">Video</a></li>
+            <li><a href="/#video">Videos</a></li>
             <li><a href="/#projects">Projects</a></li>
-            <li><a href="/#writing">Writing</a></li>
             <li><a href="/#archive">Everything</a></li>
         </ul>
     </div>
@@ -166,8 +166,10 @@ Abort trap: 6
 </main>
 
 <footer class="site-footer">
-    <span>© Roman Pronskiy</span>
-    <span><a href="https://pronskiy.com/atom.xml">Feed</a></span>
+    <div class="site-footer-inner">
+        <span>© Roman Pronskiy</span>
+        <span><a href="https://pronskiy.com/atom.xml">Feed</a></span>
+    </div>
 </footer>
 
 <script>
@@ -185,21 +187,77 @@ Abort trap: 6
 
 <script>hljs.highlightAll();</script>
 <script>
+// Video strip: retract the edge fades at whichever end of the scroll you reach.
+(function() {
+  var strip = document.querySelector('.reel-strip');
+  if (!strip) return;
+  function update() {
+    strip.classList.toggle('is-scrolled', strip.scrollLeft > 4);
+    strip.classList.toggle('is-at-end', strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4);
+  }
+  strip.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+<script>
 (function() {
   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
   document.querySelectorAll('[data-scramble]').forEach(function(el) {
     var original = el.textContent.trim();
+    var box = el.closest('h1, h2, h3, p') || el.parentElement;
     var queue = [];
+    var cells = [];
     var frame = 0;
     var rafId = null;
 
+    // Random glyphs have random widths, so swapping them into the text used to
+    // re-wrap the heading mid-effect and shove the whole page up or down.
+    // freeze() rebuilds the text as fixed-width cells (one per glyph, sized
+    // from the original text, words unbreakable, whitespace untouched) and
+    // locks the heading's height; thaw() restores the plain text afterwards
+    // so the resting heading renders exactly as before, kerning included.
+    function freeze() {
+      el.textContent = original;
+      var node = el.firstChild, range = document.createRange(), widths = [];
+      for (var i = 0; i < original.length; i++) {
+        range.setStart(node, i);
+        range.setEnd(node, i + 1);
+        widths.push(range.getBoundingClientRect().width);
+      }
+      box.style.height = box.getBoundingClientRect().height + 'px';
+      var frag = document.createDocumentFragment(), word = null;
+      cells = [];
+      for (var j = 0; j < original.length; j++) {
+        var ch = original[j];
+        if (/\s/.test(ch)) { frag.appendChild(document.createTextNode(ch)); cells.push(null); word = null; continue; }
+        if (!word) { word = document.createElement('span'); word.style.whiteSpace = 'nowrap'; frag.appendChild(word); }
+        var cell = document.createElement('span');
+        cell.style.display = 'inline-block';
+        cell.style.width = widths[j] + 'px';
+        cell.style.textAlign = 'center';
+        cell.textContent = ch;
+        word.appendChild(cell);
+        cells.push(cell);
+      }
+      el.textContent = '';
+      el.appendChild(frag);
+    }
+
+    function thaw() {
+      el.textContent = original;
+      box.style.height = '';
+      cells = [];
+    }
+
     el.addEventListener('mouseenter', function() {
       if (rafId) cancelAnimationFrame(rafId);
+      freeze();
       queue = [];
       for (var i = 0; i < original.length; i++) {
         var start = Math.floor(Math.random() * 20);
         var end = start + Math.floor(Math.random() * 20) + 10;
-        queue.push({ from: original[i], to: original[i], start: start, end: end, char: null });
+        queue.push({ to: original[i], start: start, end: end, char: null });
       }
       frame = 0;
       update();
@@ -208,19 +266,18 @@ Abort trap: 6
     function randomChar() { return chars[Math.floor(Math.random() * chars.length)]; }
 
     function update() {
-      var output = '';
       var complete = 0;
       for (var i = 0; i < queue.length; i++) {
-        var item = queue[i];
-        if (frame >= item.end) { complete++; output += item.to; }
+        var item = queue[i], cell = cells[i];
+        if (!cell) { complete++; continue; }           // whitespace never scrambles
+        if (frame >= item.end) { complete++; cell.textContent = item.to; }
         else if (frame >= item.start) {
           if (!item.char || Math.random() < 0.28) item.char = randomChar();
-          output += item.char;
-        } else { output += item.from; }
+          cell.textContent = item.char;
+        }
       }
-      el.textContent = output;
       if (complete < queue.length) { frame++; rafId = requestAnimationFrame(update); }
-      else { rafId = null; }
+      else { rafId = null; thaw(); }
     }
   });
 })();
