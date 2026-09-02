@@ -26,7 +26,7 @@
     --body:    'Host Grotesk', system-ui, sans-serif;
     --mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-    --container: 1180px;   /* the index */
+    --container: 1040px;   /* the index */
     --measure:   680px;    /* anything you actually read */
     --gutter:    2rem;
     --radius:    2px;
@@ -253,7 +253,8 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
 }
 
 /* ---------- the index ---------- */
-.index { --cols: 4.5rem minmax(0, 1fr) 11rem 6.5rem; }
+/* .index-fold carries the same columns so its summary lays out as a row */
+.index, .index-fold { --cols: 4.5rem minmax(0, 1fr) 11rem 6.5rem; }
 .index--minimal { --cols: 4.5rem minmax(0, 1fr); }
 
 .index { list-style: none; }
@@ -299,6 +300,14 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
     white-space: nowrap;
 }
 .index-dur { font-family: var(--mono); font-size: 0.75rem; margin-left: 0.4em; }
+
+/* "See older" fold on the homepage: a native <details> whose summary is styled
+   as one more index row, so it inverts on hover like everything else. */
+.index-fold > summary { list-style: none; cursor: pointer; }
+.index-fold > summary::-webkit-details-marker { display: none; }
+.index-fold[open] .index-fold-closed,
+.index-fold:not([open]) .index-fold-open { display: none; }
+.index-fold > summary:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
 
 /* hover inverts the whole row — this replaces the deleted accent colour */
 .index-row:hover { background: var(--ink); color: var(--paper); }
@@ -503,6 +512,18 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
 .blog-index .index { margin-top: 1.5rem; }
 .blog-index .index, .blog-index .blog-pagination { max-width: none; }
 .blog-index .page-header { margin-left: 0; }
+/* Pages with `wide: true` in their front matter (/videos, /articles): the header
+   and intro hang off the container edge like the blog listing, the index runs
+   full width, and prose paragraphs keep the reading measure. */
+.page--wide .page-header { margin-left: 0; }
+.page--wide > .prose { max-width: none; }
+.page--wide > .prose > p { max-width: var(--measure); }
+/* The archive index inside a page body: undo the prose list and link styling
+   (.prose ol / li / a all outrank the bare .index rules). */
+.prose .index { list-style: none; margin: 1.5rem 0 0; }
+.prose .index-row { margin-bottom: 0; }
+.prose .index-title { text-decoration: none; text-decoration-color: currentColor; }
+.prose .index-row:hover .index-title { text-decoration-color: currentColor; }
 .blog-pagination {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
@@ -549,7 +570,7 @@ nav.site-nav a:hover { color: var(--ink); text-decoration: underline; text-under
 
 /* ---------- responsive ---------- */
 @media (max-width: 1024px) {
-    .index { --cols: 4rem minmax(0, 1fr) 9rem 5.5rem; }
+    .index, .index-fold { --cols: 4rem minmax(0, 1fr) 9rem 5.5rem; }
 }
 
 @media (max-width: 820px) {
