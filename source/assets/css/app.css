@@ -122,16 +122,6 @@ nav.site-nav a:hover { color: var(--ink); }
     letter-spacing: -0.02em;
     font-weight: 700;
 }
-.profile-line {
-    margin-top: 0.3rem;
-    font-size: 0.9375rem;
-    line-height: 1.5;
-    color: var(--ink-60);
-}
-.profile-line + .profile-line { margin-top: 0; }
-.profile-line a { color: inherit; text-decoration: none; transition: color .15s; }
-.profile-line a:hover { color: var(--ink); }
-
 /* tooltips: a dark pill centred above the element, text from data-tip.
    The pronunciation hint on the name and the contact icons share it. */
 [data-tip] { position: relative; }
@@ -189,7 +179,12 @@ nav.site-nav a:hover { color: var(--ink); }
     max-width: 56ch;
     font-size: 1.0625rem;
     line-height: 1.55;
+    text-wrap: pretty;
 }
+.masthead-intro + .masthead-intro { margin-top: 0.75rem; }
+/* A place in the intro: a Tabler map-pin riding the text, kept on one line with its name. */
+.place { white-space: nowrap; }
+.place svg { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; margin-right: 0.2em; }   /* the reset makes svg a block */
 .masthead-intro a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--ink-20); }
 .masthead-intro a:hover { text-decoration-color: var(--ink); }
 
