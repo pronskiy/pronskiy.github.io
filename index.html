@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <title>Roman Pronskiy</title>
-    <meta name="description" content="Roman Pronskiy">
+    <meta name="description" content="I lead PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta charset="utf-8">
     <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" content="#f5f2ec" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/favicon.png"/>
     <link href="mailto:roman@pronskiy.com" rel="me">
@@ -18,21 +18,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://pronskiy.com/assets/css/app.css">
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/base16/darcula.min.css">
+    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/github.min.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
     <script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
 
-    <meta property="og:url" content="https://pronskiy.com/.">
+    <meta property="og:url" content="https://pronskiy.com/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Roman Pronskiy">
-    <meta property="og:description" content="Roman Pronskiy &mdash;  ">
+    <meta property="og:description" content="Roman Pronskiy &mdash; I lead PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta property="og:image" content="https://pronskiy.com/assets/icons/share.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="https://pronskiy.com">
-    <meta property="twitter:url" content="https://pronskiy.com/.">
+    <meta property="twitter:url" content="https://pronskiy.com/">
     <meta name="twitter:title" content="Roman Pronskiy">
-    <meta name="twitter:description" content="Roman Pronskiy">
+    <meta name="twitter:description" content="I lead PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta name="twitter:image" content="https://pronskiy.com/assets/icons/share.png">
 
     <meta name="mobile-web-app-capable" content="yes">
@@ -45,145 +45,810 @@
 
 <nav class="site-nav">
     <div class="nav-inner">
-        <a href="/" class="brand">RP //</a>
         <ul>
-            <li><a href="/#projects">Projects</a></li>
-            <li><a href="/#writing">Writing</a></li>
-            <li><a href="/#videos">Videos</a></li>
-            <li><a href="/#talks">Talks</a></li>
+            <li><a href="#video">Video</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#writing">Writing</a></li>
+            <li><a href="#archive">Everything</a></li>
         </ul>
     </div>
 </nav>
 
 <main>
-<section class="hero">
-    <div class="hero-photo">
-        <img src="https://pronskiy.com/assets/img/roman_pronskiy.jpg" alt="Roman Pronskiy">
+
+<header class="masthead">
+    <div class="masthead-id">
+        <h1 class="masthead-name"><span class="pronskiy" data-scramble>Roman Pronskiy</span></h1>
+        <img class="masthead-photo" src="https://pronskiy.com/assets/img/roman_pronskiy.jpg" alt="Roman Pronskiy" width="96" height="96">
     </div>
-    <h1 class="hero-name">Hi, I'm <span class="pronskiy" data-scramble>Roman Pronskiy</span> 👋</h1>
-    <p class="hero-intro">I lead <a href="https://jetbrains.com/phpstorm/"><em>PhpStorm</em></a> at JetBrains and founded <a href="https://thephp.foundation"><em>The&nbsp;PHP Foundation</em></a>. Lately obsessed with what happens when AI moves inside the IDE. Also: <a href="/music">music</a>.</p>
 
-    <p class="hero-intro origin">Originally from <span class="place">Kharkov, Ukraine</span>, now based in <span class="place place--delayed">Amsterdam, NL</span>.</p>
-
-    <div class="hero-contacts">
-        <div class="section-label"><span>Contacts</span></div>
-        <a class="contacts-email" href="mailto:roman@pronskiy.com">roman@pronskiy.com</a>
-        <div class="contacts-row">
-            <a href="https://t.me/pronskiy">Telegram</a>
-            <a href="https://github.com/pronskiy" rel="me">GitHub</a>
-            <a href="https://twitter.com/pronskiy">X/Twitter</a>
-            <a href="https://www.linkedin.com/in/pronskiy/">LinkedIn</a>
-            <a href="https://phpc.social/@pronskiy" rel="me">Mastodon</a>
+    <dl class="facts">
+        <div class="fact">
+            <dt>Work</dt>
+            <dd><a href="https://jetbrains.com/phpstorm/">PhpStorm</a>, JetBrains</dd>
         </div>
-    </div>
-</section>
+        <div class="fact">
+            <dt>Founded</dt>
+            <dd><a href="https://thephp.foundation">The PHP Foundation</a></dd>
+        </div>
+        <div class="fact">
+            <dt>Based in</dt>
+            <dd>Amsterdam, NL</dd>
+        </div>
+        <div class="fact">
+            <dt>From</dt>
+            <dd>Kharkov, Ukraine</dd>
+        </div>
+    </dl>
 
-<section id="projects">
-    <div class="section-label"><span>Projects</span></div>
-    <ul class="past-list past-list--no-year">
-        <li>
-            <span class="past-body"><a href="https://jetbrains.com/phpstorm/" class="past-name">PhpStorm</a> <span class="past-desc">— the IDE for PHP developers. Leading the team at JetBrains.</span></span>
-            <span class="past-status">Active</span>
-        </li>
-        <li>
-            <span class="past-body"><a href="https://thephp.foundation" class="past-name">The PHP Foundation</a> <span class="past-desc">— funding the developers who keep PHP alive.</span></span>
-            <span class="past-status">Active</span>
-        </li>
+    <p class="masthead-intro">
+        I lead <a href="https://jetbrains.com/phpstorm/">PhpStorm</a> at JetBrains and founded
+        <a href="https://thephp.foundation">The&nbsp;PHP Foundation</a>. Lately obsessed with what
+        happens when AI moves inside the IDE. Also: <a href="/music">music</a>.
+    </p>
+
+    <ul class="contacts">
+        <li><a class="contacts-email" href="mailto:roman@pronskiy.com">roman@pronskiy.com</a></li>
+        <li><a href="https://t.me/pronskiy">Telegram</a></li>
+        <li><a href="https://github.com/pronskiy" rel="me">GitHub</a></li>
+        <li><a href="https://twitter.com/pronskiy">X/Twitter</a></li>
+        <li><a href="https://www.linkedin.com/in/pronskiy/">LinkedIn</a></li>
+        <li><a href="https://phpc.social/@pronskiy" rel="me">Mastodon</a></li>
     </ul>
+</header>
+
+<section class="reel" id="video" aria-label="Videos">
+    <ol class="reel-strip">
+                <li>
+            <a href="https://www.youtube.com/watch?v=F2oGNtRwPDQ" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/F2oGNtRwPDQ/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                <span class="reel-time">62:54</span>                <span class="reel-title">Lightweight PhpStorm? Yes please!</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=VbM_o0adyoc&amp;t=10770s" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/VbM_o0adyoc/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">What&#039;s Next for PHP | The PHP Foundation</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=nOCWaoqeBA0" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/nOCWaoqeBA0/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                <span class="reel-time">21:24</span>                <span class="reel-title">These AI Dev Tools Changed How I Code This Week</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=Rc-ttLlstC8" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/Rc-ttLlstC8/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                <span class="reel-time">24:34</span>                <span class="reel-title">Claude Code tricks, Wispr, Superpowers, PHP news — This Week&#039;s Dev Gems</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://youtu.be/2qTJgx2QF9M" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/2qTJgx2QF9M/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">The PHP Foundation and What’s Next for PHP</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=qPVtVulhFC4" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/qPVtVulhFC4/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                <span class="reel-time">3:27</span>                <span class="reel-title">MCP — What is that?</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://youtu.be/zxTMzygBt7s" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/zxTMzygBt7s/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Growing PHP for the Future</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=1AL2oDt9q38" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/1AL2oDt9q38/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Celebrating the PHP 8.4 release!</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=uWsGDUCxbT0" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/uWsGDUCxbT0/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Let&#039;s talk about Pecl</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=WDitiAjJg7g" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/WDitiAjJg7g/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Inside Laracon 2024: PHP&#039;s Festival of Innovation and Connection</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=uQmGkpWYvHM" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/uQmGkpWYvHM/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Celebrating 29 years of PHP, Elephpant giveaway!</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=XE4g1Tl6RQw" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/XE4g1Tl6RQw/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">The PHP Foundation</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=VWryF035B6U" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/VWryF035B6U/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Celebrating PHP 8.3 🥳</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=ZB129Tjkas8" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/ZB129Tjkas8/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                <span class="reel-time">8:49</span>                <span class="reel-title">Benchmarking Laravel with Swoole, FrankenPHP, RoadRunner, php-fpm, ngx-php</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=rp4y1oUGcKs" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/rp4y1oUGcKs/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Programming language as a product – How should PHP evolve?</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=NfcIWuF7YcM" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/NfcIWuF7YcM/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Foundation: The past, the present, and the future</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=10ZOpS68lls" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/10ZOpS68lls/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Annotated Monthly, June 2023</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=SlX-1XIUI90" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/SlX-1XIUI90/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Native PHP, PER 2.0, clone with RFC, and more: PHP Annotated Monthly, April 2023</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=v5VtCWgDebw" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/v5VtCWgDebw/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Laravel 10, PHPUnit 10, Readonly Properties, Hakana, and more: PHP Annotated Monthly, February</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=Dx4knBnuJaw" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/Dx4knBnuJaw/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP to WASM, Asymmetric Visibility, Async PHP, Transpiling and more: PHP Annotated Monthly, January</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=Nmb-_66RArs" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/Nmb-_66RArs/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">The New PHP Foundation: What Impact does it have?</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=JBPtPy9iSP0" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/JBPtPy9iSP0/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">The PHP Foundation: The past, the present, and the future</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=KZC4b5MqSTg" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/KZC4b5MqSTg/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP и Laravel дайджест январь 2022</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=n5b4EnFAxfE" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/n5b4EnFAxfE/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Digest Live #199</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=fR4YoyHjFwk" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/fR4YoyHjFwk/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP и Laravel дайджест декабрь 2021</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=5D337gaVPa4" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/5D337gaVPa4/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Релиз PHP 8.1, запуск PHP Foundation и истории переезда на 8.0</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=lDrTqbuIyGg" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/lDrTqbuIyGg/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Digest Live #198</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=6em31j_LrSo" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/6em31j_LrSo/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP и Laravel дайджест ноябрь 2021</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=3xhOWG8RzEY" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/3xhOWG8RzEY/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Digest Live #197</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=6JF2U39J4RY" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/6JF2U39J4RY/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Большой стрим PHP-сообщества — Никита Попов, Александр Макаров, Валентин Удальцов и много других</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=Y4KH_2TjRrE" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/Y4KH_2TjRrE/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Digest Live #200</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=HHyv4AObhm0" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/HHyv4AObhm0/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Digest Live #201</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=KvTQWv0phgE" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/KvTQWv0phgE/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">MoreView #11 | Роман Пронский - создатель PHP Digest и PMM в Jetbrains</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=QSszmWIrRyw" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/QSszmWIrRyw/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP 8: что нового, туда ли двигается, что будет дальше</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=FQNd9W3nb3A" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/FQNd9W3nb3A/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Открытое собеседование PHP Point #1</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=i9iC58z0yHE" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/i9iC58z0yHE/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Digest Live #194</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=mvjj_YX_BqQ" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/mvjj_YX_BqQ/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Digest Live #195</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=DEV3K_Tf5Do" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/DEV3K_Tf5Do/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Digest Live #196</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=ia1KSZCG2Bs" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/ia1KSZCG2Bs/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">How to upgrade to PHP 7.4 with PhpStorm</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=KEn6t3HJ5L4" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/KEn6t3HJ5L4/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP-Дайджест № 146</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=qnbn9RiOkuU" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/qnbn9RiOkuU/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP-Дайджест № 145</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=bWbXMy_mxxE" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/bWbXMy_mxxE/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Quickstart with Docker in PhpStorm</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=bjg5UWcl_oo" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/bjg5UWcl_oo/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">PHP Development in PhpStorm</span>
+            </a>
+        </li>
+                <li>
+            <a href="https://www.youtube.com/watch?v=n6Iasl6bx4M" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/n6Iasl6bx4M/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                                <span class="reel-title">Асинхронный PHP</span>
+            </a>
+        </li>
+            </ol>
 </section>
 
-<section id="writing">
-    <div class="section-label"><span>Writing</span></div>
-    <ul class="past-list">
-                <li>
-            <span class="past-year">2024 · 06</span>
-            <span class="past-body"><a class="past-name" href="https://pronskiy.com/blog/running-php-1-in-2024/">Running PHP 1.0 in 2024</a></span>
-            <span class="past-status">Post</span>
+<section class="block" id="projects">
+    <h2 class="block-head">Projects</h2>
+    <ul class="projects">
+                <li class="project">
+            <a class="project-card" href="https://phpstorm.dev/light-mode" target="_blank" rel="noopener">
+                                <img class="project-image" src="https://pronskiy.com/assets/img/projects/phpstorm-light.jpg" alt="" loading="lazy" width="960" height="504">
+                                <span class="project-name">PhpStorm Light</span>
+                <span class="project-desc">An experimental, trimmed-down PhpStorm build: faster startup, lower memory, fewer bundled features.</span>
+            </a>
         </li>
-                <li>
-            <span class="past-year">2023 · 10</span>
-            <span class="past-body"><a class="past-name" href="https://pronskiy.com/blog/php-script-as-binary/">Turn Any PHP Script into a Native Single-File Binary</a></span>
-            <span class="past-status">Post</span>
+                <li class="project">
+            <a class="project-card" href="https://github.com/php-debugger/php-debugger" target="_blank" rel="noopener">
+                                <img class="project-image" src="https://pronskiy.com/assets/img/projects/php-debugger.jpg" alt="" loading="lazy" width="960" height="504">
+                                <span class="project-name">php-debugger</span>
+                <span class="project-desc">A lightweight PHP debugger extension, forked from Xdebug and stripped down to debugging only.</span>
+            </a>
         </li>
-                <li>
-            <span class="past-year">2022 · 10</span>
-            <span class="past-body"><a class="past-name" href="https://pronskiy.com/blog/generics-via-attributes-in-php/">Generics via Attributes in PHP &mdash; Can We Have Them?</a></span>
-            <span class="past-status">Post</span>
+                <li class="project">
+            <a class="project-card" href="https://dawhub.app" target="_blank" rel="noopener">
+                                <img class="project-image" src="https://pronskiy.com/assets/img/projects/dawhub.jpg" alt="" loading="lazy" width="960" height="504">
+                                <span class="project-name">DAWhub</span>
+                <span class="project-desc">Diff and version control for FL Studio projects. A CLI today, a collaboration hub soon.</span>
+            </a>
+        </li>
+                <li class="project">
+            <a class="project-card" href="https://github.com/pronskiy/redpen" target="_blank" rel="noopener">
+                                <img class="project-image" src="https://pronskiy.com/assets/img/projects/redpen.jpg" alt="" loading="lazy" width="960" height="504">
+                                <span class="project-name">redpen</span>
+                <span class="project-desc">A macOS menu-bar app that critiques your English instead of correcting it.</span>
+            </a>
+        </li>
+                <li class="project">
+            <a class="project-card" href="https://github.com/pronskiy/redditify" target="_blank" rel="noopener">
+                                <img class="project-image" src="https://pronskiy.com/assets/img/projects/redditify.jpg" alt="" loading="lazy" width="960" height="504">
+                                <span class="project-name">redditify</span>
+                <span class="project-desc">Render Reddit threads on your own website.</span>
+            </a>
+        </li>
+                <li class="project">
+            <a class="project-card" href="https://github.com/pronskiy/php-src-developer" target="_blank" rel="noopener">
+                                <img class="project-image" src="https://pronskiy.com/assets/img/projects/php-src-developer.jpg" alt="" loading="lazy" width="960" height="504">
+                                <span class="project-name">php-src-developer</span>
+                <span class="project-desc">A Claude Code plugin for working on the PHP language core, php/php-src.</span>
+            </a>
         </li>
             </ul>
-    <a href="/blog" class="view-all">View all writing →</a>
 </section>
 
-<section id="videos">
-    <div class="section-label"><span>Videos</span></div>
-    <div class="videos">
-        <a class="video" href="https://www.youtube.com/watch?v=nOCWaoqeBA0" target="_blank" rel="noopener">
-            <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/nOCWaoqeBA0/hqdefault.jpg" alt="" loading="lazy">
-                <span class="video-duration">21:24</span>
-            </div>
-            <h3>These AI Dev Tools Changed How I Code This Week</h3>
-        </a>
-        <a class="video" href="https://www.youtube.com/watch?v=Rc-ttLlstC8" target="_blank" rel="noopener">
-            <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/Rc-ttLlstC8/hqdefault.jpg" alt="" loading="lazy">
-                <span class="video-duration">24:34</span>
-            </div>
-            <h3>Claude Code tricks, Wispr, Superpowers, PHP news — This Week's Dev Gems</h3>
-        </a>
-        <a class="video" href="https://www.youtube.com/watch?v=qPVtVulhFC4" target="_blank" rel="noopener">
-            <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/qPVtVulhFC4/hqdefault.jpg" alt="" loading="lazy">
-                <span class="video-duration">3:27</span>
-            </div>
-            <h3>MCP — What is that?</h3>
-        </a>
-        <a class="video" href="https://www.youtube.com/watch?v=ZB129Tjkas8" target="_blank" rel="noopener">
-            <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/ZB129Tjkas8/hqdefault.jpg" alt="" loading="lazy">
-                <span class="video-duration">8:49</span>
-            </div>
-            <h3>Benchmarking Laravel with Swoole, FrankenPHP, RoadRunner, php-fpm, ngx-php</h3>
-        </a>
-    </div>
-    <a href="https://www.youtube.com/@pronskiy" class="view-all" target="_blank" rel="noopener">View all videos →</a>
+<section class="block" id="writing">
+    <h2 class="block-head">Writing <span class="block-count">3</span></h2>
+    
+
+
+
+
+<ol class="index index--minimal">
+                                <li class="index-row index-row--post is-year-start">
+            <span class="index-year">2024</span>
+            <a class="index-title"
+               href="https://pronskiy.com/blog/running-php-1-in-2024/"
+               >Running PHP 1.0 in 2024</a>
+                    </li>
+                                    <li class="index-row index-row--post is-year-start">
+            <span class="index-year">2023</span>
+            <a class="index-title"
+               href="https://pronskiy.com/blog/php-script-as-binary/"
+               >Turn Any PHP Script into a Native Single-File Binary</a>
+                    </li>
+                                    <li class="index-row index-row--post is-year-start">
+            <span class="index-year">2022</span>
+            <a class="index-title"
+               href="https://pronskiy.com/blog/generics-via-attributes-in-php/"
+               >Generics via Attributes in PHP &mdash; Can We Have Them?</a>
+                    </li>
+            </ol>
 </section>
 
-<section id="talks">
-    <div class="section-label"><span>Talks</span></div>
-    <ul class="past-list">
-        <li>
-            <span class="past-year">2025</span>
-            <span class="past-body"><a href="https://youtu.be/2qTJgx2QF9M" class="past-name">The PHP Foundation and What's Next for PHP</a></span>
-            <span class="past-status">PHPTalks — Barcelona</span>
-        </li>
-        <li>
-            <span class="past-year">2025</span>
-            <span class="past-body"><a href="https://youtu.be/zxTMzygBt7s" class="past-name">Growing PHP for the Future</a></span>
-            <span class="past-status">PHPverse 2025</span>
-        </li>
-        <li>
-            <span class="past-year">2024</span>
-            <span class="past-body"><a href="https://www.youtube.com/watch?v=XE4g1Tl6RQw" class="past-name">The PHP Foundation</a></span>
-            <span class="past-status">Laracon EU — Amsterdam</span>
-        </li>
-        <li>
-            <span class="past-year">2023</span>
-            <span class="past-body"><a href="https://www.youtube.com/watch?v=rp4y1oUGcKs" class="past-name">Programming language as a product — how should PHP evolve?</a></span>
-            <span class="past-status">PHPCon — Poland</span>
-        </li>
-        <li>
-            <span class="past-year">2022</span>
-            <span class="past-body"><a href="https://www.youtube.com/watch?v=JBPtPy9iSP0" class="past-name">The PHP Foundation: past, present, future</a></span>
-            <span class="past-status">Forum PHP — France</span>
-        </li>
-    </ul>
-    <a href="/videos" class="view-all">View all talks →</a>
+<section class="block" id="archive">
+    <h2 class="block-head">Everything <span class="block-count">49</span></h2>
+    
+
+
+
+
+<ol class="index">
+                                <li class="index-row index-row--video is-year-start">
+            <span class="index-year">2026</span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=F2oGNtRwPDQ"
+               target="_blank" rel="noopener">Lightweight PhpStorm? Yes please!</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video<span class="index-dur">62:54</span></span>
+                    </li>
+                                    <li class="index-row index-row--talk">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=VbM_o0adyoc&amp;t=10770s"
+               target="_blank" rel="noopener">What's Next for PHP | The PHP Foundation</a>
+                            <span class="index-where">Laravel Live Japan, Tachikawa</span>
+                <span class="index-type">Talk</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=nOCWaoqeBA0"
+               target="_blank" rel="noopener">These AI Dev Tools Changed How I Code This Week</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video<span class="index-dur">21:24</span></span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=Rc-ttLlstC8"
+               target="_blank" rel="noopener">Claude Code tricks, Wispr, Superpowers, PHP news — This Week's Dev Gems</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video<span class="index-dur">24:34</span></span>
+                    </li>
+                                    <li class="index-row index-row--talk is-year-start">
+            <span class="index-year">2025</span>
+            <a class="index-title"
+               href="https://youtu.be/2qTJgx2QF9M"
+               target="_blank" rel="noopener">The PHP Foundation and What’s Next for PHP</a>
+                            <span class="index-where">PHPTalks, Barcelona</span>
+                <span class="index-type">Talk</span>
+                    </li>
+                                    <li class="index-row index-row--podcast">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://djangochat.com/episodes/php-web-frameworks-roman-pronskiy"
+               target="_blank" rel="noopener">PHP Web Frameworks | Django Chat Podcast</a>
+                            <span class="index-where">Django Chat</span>
+                <span class="index-type">Podcast</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=qPVtVulhFC4"
+               target="_blank" rel="noopener">MCP — What is that?</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video<span class="index-dur">3:27</span></span>
+                    </li>
+                                    <li class="index-row index-row--talk">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://youtu.be/zxTMzygBt7s"
+               target="_blank" rel="noopener">Growing PHP for the Future</a>
+                            <span class="index-where">PHPverse 2025</span>
+                <span class="index-type">Talk</span>
+                    </li>
+                                    <li class="index-row index-row--video is-year-start">
+            <span class="index-year">2024</span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=1AL2oDt9q38"
+               target="_blank" rel="noopener">Celebrating the PHP 8.4 release!</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=uWsGDUCxbT0"
+               target="_blank" rel="noopener">Let's talk about Pecl</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--talk">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=WDitiAjJg7g"
+               target="_blank" rel="noopener">Inside Laracon 2024: PHP's Festival of Innovation and Connection</a>
+                            <span class="index-where">Laracon US, Dallas</span>
+                <span class="index-type">Talk</span>
+                    </li>
+                                    <li class="index-row index-row--post">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://pronskiy.com/blog/running-php-1-in-2024/"
+               >Running PHP 1.0 in 2024</a>
+                            <span class="index-where"></span>
+                <span class="index-type">Essay</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=uQmGkpWYvHM"
+               target="_blank" rel="noopener">Celebrating 29 years of PHP, Elephpant giveaway!</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--talk">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=XE4g1Tl6RQw"
+               target="_blank" rel="noopener">The PHP Foundation</a>
+                            <span class="index-where">Laracon EU, Amsterdam</span>
+                <span class="index-type">Talk</span>
+                    </li>
+                                    <li class="index-row index-row--video is-year-start">
+            <span class="index-year">2023</span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=VWryF035B6U"
+               target="_blank" rel="noopener">Celebrating PHP 8.3 🥳</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--post">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://pronskiy.com/blog/php-script-as-binary/"
+               >Turn Any PHP Script into a Native Single-File Binary</a>
+                            <span class="index-where"></span>
+                <span class="index-type">Essay</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=ZB129Tjkas8"
+               target="_blank" rel="noopener">Benchmarking Laravel with Swoole, FrankenPHP, RoadRunner, php-fpm, ngx-php</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video<span class="index-dur">8:49</span></span>
+                    </li>
+                                    <li class="index-row index-row--talk">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=rp4y1oUGcKs"
+               target="_blank" rel="noopener">Programming language as a product – How should PHP evolve?</a>
+                            <span class="index-where">PHPCon, Poland</span>
+                <span class="index-type">Talk</span>
+                    </li>
+                                    <li class="index-row index-row--talk">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=NfcIWuF7YcM"
+               target="_blank" rel="noopener">PHP Foundation: The past, the present, and the future</a>
+                            <span class="index-where">PHPCon, Poland</span>
+                <span class="index-type">Talk</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=10ZOpS68lls"
+               target="_blank" rel="noopener">PHP Annotated Monthly, June 2023</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=SlX-1XIUI90"
+               target="_blank" rel="noopener">Native PHP, PER 2.0, clone with RFC, and more: PHP Annotated Monthly, April 2023</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=v5VtCWgDebw"
+               target="_blank" rel="noopener">Laravel 10, PHPUnit 10, Readonly Properties, Hakana, and more: PHP Annotated Monthly, February</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=Dx4knBnuJaw"
+               target="_blank" rel="noopener">PHP to WASM, Asymmetric Visibility, Async PHP, Transpiling and more: PHP Annotated Monthly, January</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--post is-year-start">
+            <span class="index-year">2022</span>
+            <a class="index-title"
+               href="https://pronskiy.com/blog/generics-via-attributes-in-php/"
+               >Generics via Attributes in PHP &mdash; Can We Have Them?</a>
+                            <span class="index-where"></span>
+                <span class="index-type">Essay</span>
+                    </li>
+                                    <li class="index-row index-row--talk">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=Nmb-_66RArs"
+               target="_blank" rel="noopener">The New PHP Foundation: What Impact does it have?</a>
+                            <span class="index-where">International PHP Conference, Munich</span>
+                <span class="index-type">Talk</span>
+                    </li>
+                                    <li class="index-row index-row--talk">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=JBPtPy9iSP0"
+               target="_blank" rel="noopener">The PHP Foundation: The past, the present, and the future</a>
+                            <span class="index-where">Forum PHP, France</span>
+                <span class="index-type">Talk</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=KZC4b5MqSTg"
+               target="_blank" rel="noopener">PHP и Laravel дайджест январь 2022</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video is-year-start">
+            <span class="index-year">2021</span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=n5b4EnFAxfE"
+               target="_blank" rel="noopener">PHP Digest Live #199</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=fR4YoyHjFwk"
+               target="_blank" rel="noopener">PHP и Laravel дайджест декабрь 2021</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=5D337gaVPa4"
+               target="_blank" rel="noopener">Релиз PHP 8.1, запуск PHP Foundation и истории переезда на 8.0</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=lDrTqbuIyGg"
+               target="_blank" rel="noopener">PHP Digest Live #198</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=6em31j_LrSo"
+               target="_blank" rel="noopener">PHP и Laravel дайджест ноябрь 2021</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=3xhOWG8RzEY"
+               target="_blank" rel="noopener">PHP Digest Live #197</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=6JF2U39J4RY"
+               target="_blank" rel="noopener">Большой стрим PHP-сообщества — Никита Попов, Александр Макаров, Валентин Удальцов и много других</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=Y4KH_2TjRrE"
+               target="_blank" rel="noopener">PHP Digest Live #200</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=HHyv4AObhm0"
+               target="_blank" rel="noopener">PHP Digest Live #201</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video is-year-start">
+            <span class="index-year">2020</span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=KvTQWv0phgE"
+               target="_blank" rel="noopener">MoreView #11 | Роман Пронский - создатель PHP Digest и PMM в Jetbrains</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=QSszmWIrRyw"
+               target="_blank" rel="noopener">PHP 8: что нового, туда ли двигается, что будет дальше</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=FQNd9W3nb3A"
+               target="_blank" rel="noopener">Открытое собеседование PHP Point #1</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=i9iC58z0yHE"
+               target="_blank" rel="noopener">PHP Digest Live #194</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=mvjj_YX_BqQ"
+               target="_blank" rel="noopener">PHP Digest Live #195</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=DEV3K_Tf5Do"
+               target="_blank" rel="noopener">PHP Digest Live #196</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--podcast">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://soundcloud.com/podlodka/podlodka-180-php"
+               target="_blank" rel="noopener">Podlodka Podcast #180 – PHP</a>
+                            <span class="index-where">Podlodka</span>
+                <span class="index-type">Podcast</span>
+                    </li>
+                                    <li class="index-row index-row--video is-year-start">
+            <span class="index-year">2019</span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=ia1KSZCG2Bs"
+               target="_blank" rel="noopener">How to upgrade to PHP 7.4 with PhpStorm</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video is-year-start">
+            <span class="index-year">2018</span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=KEn6t3HJ5L4"
+               target="_blank" rel="noopener">PHP-Дайджест № 146</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=qnbn9RiOkuU"
+               target="_blank" rel="noopener">PHP-Дайджест № 145</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=bWbXMy_mxxE"
+               target="_blank" rel="noopener">Quickstart with Docker in PhpStorm</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--video">
+            <span class="index-year"></span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=bjg5UWcl_oo"
+               target="_blank" rel="noopener">PHP Development in PhpStorm</a>
+                            <span class="index-where">YouTube</span>
+                <span class="index-type">Video</span>
+                    </li>
+                                    <li class="index-row index-row--talk is-year-start">
+            <span class="index-year">2017</span>
+            <a class="index-title"
+               href="https://www.youtube.com/watch?v=n6Iasl6bx4M"
+               target="_blank" rel="noopener">Асинхронный PHP</a>
+                            <span class="index-where">ThinkPHP, Ukraine</span>
+                <span class="index-type">Talk</span>
+                    </li>
+            </ol>
 </section></main>
 
 <footer class="site-footer">
     <span>© Roman Pronskiy</span>
-    <span class="version" id="version">v2026.1 — 💜</span>
+    <span><a href="https://pronskiy.com/atom.xml">Feed</a></span>
 </footer>
 
 
@@ -229,42 +894,14 @@
   });
 })();
 </script>
-<script>
-(function() {
-  var versions = [
-    'v2026.1 — built with coffee',
-    'v2026.1 — now with 30% more opinions',
-    'v2026.1 — no frameworks were harmed',
-    'v2026.1 — PHP was harmed, actually',
-    'v2026.1 — suspiciously fast',
-    'v2026.1 — powered by stroopwafels',
-    'v2026.1 — yes, it works on mobile',
-    'v2026.1 — hand-typed, slightly imperfect',
-    'v2026.1 — ships when it ships',
-    'v2026.1 — runs on good vibes',
-    'v2026.1 — one developer, no meetings',
-    'v2026.1 — deployed via vibes and git push',
-    'v2026.1 — tested in production, bravely',
-    'v2026.1 — fewer dependencies than your package.json has',
-    'v2026.1 — written between calls'
-  ];
-  var vi = 0;
-  var v = document.getElementById('version');
-  if (!v) return;
-  v.addEventListener('click', function() {
-    vi = (vi + 1) % versions.length;
-    v.textContent = versions[vi];
-  });
-})();
-</script>
 <script type="module">
-// Wrap-shifter: when the window resizes and the hero-intro paragraphs re-wrap,
+// Wrap-shifter: when the window resizes and the masthead intro paragraphs re-wrap,
 // the words that jump to a different line briefly glitch before settling.
 // pretext predicts the new line count without triggering a reflow, so we only
 // run the effect when the wrap actually changes.
 import { prepare, layout } from 'https://esm.sh/@chenglou/pretext@0.0.5';
 
-const intros = document.querySelectorAll('.hero-intro');
+const intros = document.querySelectorAll('.masthead-intro');
 if (intros.length) {
   const GLITCH_CHARS = '░▒▓█◆◇○●#@!*%&?+<>/\\';
   const state = new Map();
