@@ -4,125 +4,87 @@ layout: default
 use:
     - posts
 ---
-<section class="hero">
-    <div class="hero-photo">
-        <img src="{{ site.url }}/assets/img/roman_pronskiy.jpg" alt="Roman Pronskiy">
+{% set listed_posts = data.posts|filter(p => not p.unlisted)|length %}
+{% set reel = site.archive|filter(e => e.youtube is defined and e.youtube)|sort((a, b) => b.date <=> a.date) %}
+
+<header class="masthead">
+    <div class="masthead-id">
+        <h1 class="masthead-name"><span class="pronskiy" data-scramble>Roman Pronskiy</span></h1>
+        <img class="masthead-photo" src="{{ site.url }}/assets/img/roman_pronskiy.jpg" alt="Roman Pronskiy" width="96" height="96">
     </div>
-    <h1 class="hero-name">Hi, I'm <span class="pronskiy" data-scramble>Roman Pronskiy</span> 👋</h1>
-    <p class="hero-intro">I lead <a href="https://jetbrains.com/phpstorm/"><em>PhpStorm</em></a> at JetBrains and founded <a href="https://thephp.foundation"><em>The&nbsp;PHP Foundation</em></a>. Lately obsessed with what happens when AI moves inside the IDE. Also: <a href="/music">music</a>.</p>
 
-    <p class="hero-intro origin">Originally from <span class="place">Kharkov, Ukraine</span>, now based in <span class="place place--delayed">Amsterdam, NL</span>.</p>
-
-    <div class="hero-contacts">
-        <div class="section-label"><span>Contacts</span></div>
-        <a class="contacts-email" href="mailto:roman@pronskiy.com">roman@pronskiy.com</a>
-        <div class="contacts-row">
-            <a href="https://t.me/pronskiy">Telegram</a>
-            <a href="https://github.com/pronskiy" rel="me">GitHub</a>
-            <a href="https://twitter.com/pronskiy">X/Twitter</a>
-            <a href="https://www.linkedin.com/in/pronskiy/">LinkedIn</a>
-            <a href="https://phpc.social/@pronskiy" rel="me">Mastodon</a>
+    <dl class="facts">
+        <div class="fact">
+            <dt>Work</dt>
+            <dd><a href="https://jetbrains.com/phpstorm/">PhpStorm</a>, JetBrains</dd>
         </div>
-    </div>
-</section>
+        <div class="fact">
+            <dt>Founded</dt>
+            <dd><a href="https://thephp.foundation">The PHP Foundation</a></dd>
+        </div>
+        <div class="fact">
+            <dt>Based in</dt>
+            <dd>Amsterdam, NL</dd>
+        </div>
+        <div class="fact">
+            <dt>From</dt>
+            <dd>Kharkov, Ukraine</dd>
+        </div>
+    </dl>
 
-<section id="projects">
-    <div class="section-label"><span>Projects</span></div>
-    <ul class="past-list past-list--no-year">
-        <li>
-            <span class="past-body"><a href="https://jetbrains.com/phpstorm/" class="past-name">PhpStorm</a> <span class="past-desc">— the IDE for PHP developers. Leading the team at JetBrains.</span></span>
-            <span class="past-status">Active</span>
-        </li>
-        <li>
-            <span class="past-body"><a href="https://thephp.foundation" class="past-name">The PHP Foundation</a> <span class="past-desc">— funding the developers who keep PHP alive.</span></span>
-            <span class="past-status">Active</span>
-        </li>
+    <p class="masthead-intro">
+        I lead <a href="https://jetbrains.com/phpstorm/">PhpStorm</a> at JetBrains and founded
+        <a href="https://thephp.foundation">The&nbsp;PHP Foundation</a>. Lately obsessed with what
+        happens when AI moves inside the IDE. Also: <a href="/music">music</a>.
+    </p>
+
+    <ul class="contacts">
+        <li><a class="contacts-email" href="mailto:roman@pronskiy.com">roman@pronskiy.com</a></li>
+        <li><a href="https://t.me/pronskiy">Telegram</a></li>
+        <li><a href="https://github.com/pronskiy" rel="me">GitHub</a></li>
+        <li><a href="https://twitter.com/pronskiy">X/Twitter</a></li>
+        <li><a href="https://www.linkedin.com/in/pronskiy/">LinkedIn</a></li>
+        <li><a href="https://phpc.social/@pronskiy" rel="me">Mastodon</a></li>
     </ul>
+</header>
+
+<section class="reel" id="video" aria-label="Videos">
+    <ol class="reel-strip">
+        {% for v in reel %}
+        <li>
+            <a href="{{ v.url }}" target="_blank" rel="noopener">
+                <img src="https://i.ytimg.com/vi/{{ v.youtube }}/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                {% if v.duration is defined and v.duration %}<span class="reel-time">{{ v.duration }}</span>{% endif %}
+                <span class="reel-title">{{ v.title }}</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ol>
 </section>
 
-<section id="writing">
-    <div class="section-label"><span>Writing</span></div>
-    <ul class="past-list">
-        {% for post in data.posts|filter(p => not p.unlisted)|slice(0, 8) %}
-        <li>
-            <span class="past-year">{{ post.date|date('Y · m') }}</span>
-            <span class="past-body"><a class="past-name" href="{{ site.url }}{{ post.url }}">{{ post.title|raw }}</a></span>
-            <span class="past-status">
-                {%- if post.tags is defined and post.tags|length > 0 -%}
-                {{ constant('App\\Blog\\Tag::ALLOWED_TAGS')[post.tags[0]] ?? post.tags[0] }}
-                {%- else -%}
-                Post
-                {%- endif -%}
-            </span>
+<section class="block" id="projects">
+    <h2 class="block-head">Projects</h2>
+    <ul class="projects">
+        {% for pr in site.projects|default([]) %}
+        <li class="project">
+            <a class="project-card" href="{{ pr.url }}" target="_blank" rel="noopener">
+                {% if pr.image is defined %}
+                <img class="project-image" src="{{ site.url }}/assets/img/projects/{{ pr.image }}" alt="" loading="lazy" width="960" height="504">
+                {% endif %}
+                <span class="project-name">{{ pr.name }}</span>
+                <span class="project-desc">{{ pr.desc }}</span>
+            </a>
         </li>
         {% endfor %}
     </ul>
-    <a href="/blog" class="view-all">View all writing →</a>
 </section>
 
-<section id="videos">
-    <div class="section-label"><span>Videos</span></div>
-    <div class="videos">
-        <a class="video" href="https://www.youtube.com/watch?v=nOCWaoqeBA0" target="_blank" rel="noopener">
-            <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/nOCWaoqeBA0/hqdefault.jpg" alt="" loading="lazy">
-                <span class="video-duration">21:24</span>
-            </div>
-            <h3>These AI Dev Tools Changed How I Code This Week</h3>
-        </a>
-        <a class="video" href="https://www.youtube.com/watch?v=Rc-ttLlstC8" target="_blank" rel="noopener">
-            <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/Rc-ttLlstC8/hqdefault.jpg" alt="" loading="lazy">
-                <span class="video-duration">24:34</span>
-            </div>
-            <h3>Claude Code tricks, Wispr, Superpowers, PHP news — This Week's Dev Gems</h3>
-        </a>
-        <a class="video" href="https://www.youtube.com/watch?v=qPVtVulhFC4" target="_blank" rel="noopener">
-            <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/qPVtVulhFC4/hqdefault.jpg" alt="" loading="lazy">
-                <span class="video-duration">3:27</span>
-            </div>
-            <h3>MCP — What is that?</h3>
-        </a>
-        <a class="video" href="https://www.youtube.com/watch?v=ZB129Tjkas8" target="_blank" rel="noopener">
-            <div class="video-thumb">
-                <img src="https://i.ytimg.com/vi/ZB129Tjkas8/hqdefault.jpg" alt="" loading="lazy">
-                <span class="video-duration">8:49</span>
-            </div>
-            <h3>Benchmarking Laravel with Swoole, FrankenPHP, RoadRunner, php-fpm, ngx-php</h3>
-        </a>
-    </div>
-    <a href="https://www.youtube.com/@pronskiy" class="view-all" target="_blank" rel="noopener">View all videos →</a>
+<section class="block" id="writing">
+    <h2 class="block-head">Writing <span class="block-count">{{ listed_posts }}</span></h2>
+    {% include 'archive-list.html' with { types: ['post'], minimal: true } %}
 </section>
 
-<section id="talks">
-    <div class="section-label"><span>Talks</span></div>
-    <ul class="past-list">
-        <li>
-            <span class="past-year">2025</span>
-            <span class="past-body"><a href="https://youtu.be/2qTJgx2QF9M" class="past-name">The PHP Foundation and What's Next for PHP</a></span>
-            <span class="past-status">PHPTalks — Barcelona</span>
-        </li>
-        <li>
-            <span class="past-year">2025</span>
-            <span class="past-body"><a href="https://youtu.be/zxTMzygBt7s" class="past-name">Growing PHP for the Future</a></span>
-            <span class="past-status">PHPverse 2025</span>
-        </li>
-        <li>
-            <span class="past-year">2024</span>
-            <span class="past-body"><a href="https://www.youtube.com/watch?v=XE4g1Tl6RQw" class="past-name">The PHP Foundation</a></span>
-            <span class="past-status">Laracon EU — Amsterdam</span>
-        </li>
-        <li>
-            <span class="past-year">2023</span>
-            <span class="past-body"><a href="https://www.youtube.com/watch?v=rp4y1oUGcKs" class="past-name">Programming language as a product — how should PHP evolve?</a></span>
-            <span class="past-status">PHPCon — Poland</span>
-        </li>
-        <li>
-            <span class="past-year">2022</span>
-            <span class="past-body"><a href="https://www.youtube.com/watch?v=JBPtPy9iSP0" class="past-name">The PHP Foundation: past, present, future</a></span>
-            <span class="past-status">Forum PHP — France</span>
-        </li>
-    </ul>
-    <a href="/videos" class="view-all">View all talks →</a>
+<section class="block" id="archive">
+    <h2 class="block-head">Everything <span class="block-count">{{ listed_posts + site.archive|length }}</span></h2>
+    {% include 'archive-list.html' %}
 </section>

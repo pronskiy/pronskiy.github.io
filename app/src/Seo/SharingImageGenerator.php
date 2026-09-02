@@ -62,14 +62,15 @@ class SharingImageGenerator
     {
         $img = imagecreatetruecolor(self::IMAGE_WIDTH, self::IMAGE_HEIGHT);
 
-        $bg     = imagecolorallocate($img, 23, 20, 15);     // #17140f
-        $ink    = imagecolorallocate($img, 245, 242, 236);  // #f5f2ec
-        $muted  = imagecolorallocate($img, 138, 132, 124);  // #8a847c
-        $accent = imagecolorallocate($img, 255, 45, 143);   // #ff2d8f
+        // Ink and paper only — the site has no accent colour.
+        $bg    = imagecolorallocate($img, 18, 18, 18);     // #121212, matches dark --paper
+        $ink   = imagecolorallocate($img, 237, 237, 237);  // #ededed, matches dark --ink
+        $muted = imagecolorallocate($img, 140, 140, 140);
+        $rule  = imagecolorallocate($img, 58, 58, 58);     // hairline
 
         imagefilledrectangle($img, 0, 0, self::IMAGE_WIDTH, self::IMAGE_HEIGHT, $bg);
 
-        // top label row: accent dot + mono date · tag
+        // top label row: mono date · tag over a hairline, echoing the site's ruled index
         $labelParts = [];
         if ($this->date) {
             $labelParts[] = $this->date->format('Y-m-d');
@@ -79,22 +80,30 @@ class SharingImageGenerator
         }
         $label = implode('  ·  ', $labelParts);
 
-        $dotCx = self::PADDING + 8;
-        $dotCy = self::PADDING + 10;
-        imagefilledellipse($img, $dotCx, $dotCy, 14, 14, $accent);
+        $labelBaseline = self::PADDING + 18;
 
         if ($label !== '') {
             imagettftext(
                 $img,
                 self::LABEL_FONT_SIZE,
                 0,
-                $dotCx + 18,
-                $dotCy + 8,
+                self::PADDING,
+                $labelBaseline,
                 $muted,
                 self::FONT_MONO,
                 $label
             );
         }
+
+        $ruleY = $labelBaseline + 16;
+        imagefilledrectangle(
+            $img,
+            self::PADDING,
+            $ruleY,
+            self::IMAGE_WIDTH - self::PADDING,
+            $ruleY + 1,
+            $rule
+        );
 
         // title — pixel-aware wrap
         $maxWidth = self::IMAGE_WIDTH - (self::PADDING * 2);

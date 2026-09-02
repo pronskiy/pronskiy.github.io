@@ -14,31 +14,26 @@ use:
         <h1>{{ page.title }}</h1>
     </header>
 
-    <ul class="past-list">
-        {% for post in page.pagination.items %}
-        {% if not post.unlisted %}
-        <li>
-            <span class="past-year">{{ post.date|date('Y · m') }}</span>
-            <span class="past-body"><a class="past-name" href="{{ site.url }}{{ post.url }}">{{ post.title|raw }}</a></span>
-            <span class="past-status">
-                {%- if post.tags is defined and post.tags|length > 0 -%}
-                {{ constant('App\\Blog\\Tag::ALLOWED_TAGS')[post.tags[0]] ?? post.tags[0] }}
-                {%- else -%}
-                Post
-                {%- endif -%}
-            </span>
-        </li>
-        {% endif %}
+    {# Uses pagination items rather than the shared archive partial, so paging keeps working. #}
+    <ol class="index index--minimal">
+        {% set seen_year = null %}
+        {% for post in page.pagination.items|default([])|filter(p => not p.unlisted) %}
+            {% set year = post.date|date('Y') %}
+            <li class="index-row index-row--post{{ year != seen_year ? ' is-year-start' }}">
+                <span class="index-year">{{ year != seen_year ? year }}</span>
+                <a class="index-title" href="{{ site.url }}{{ post.url }}">{{ post.title|raw }}</a>
+            </li>
+            {% set seen_year = year %}
         {% endfor %}
-    </ul>
+    </ol>
 
     {% if page.pagination.previous_page or page.pagination.next_page %}
     <nav class="blog-pagination">
         {% if page.pagination.next_page %}
-        <a href="{{ site.url }}{{ page.pagination.next_page.url }}" class="view-all">← Older posts</a>
+        <a href="{{ site.url }}{{ page.pagination.next_page.url }}">← Older posts</a>
         {% endif %}
         {% if page.pagination.previous_page %}
-        <a href="{{ site.url }}{{ page.pagination.previous_page.url }}" class="view-all">Newer posts →</a>
+        <a href="{{ site.url }}{{ page.pagination.previous_page.url }}">Newer posts →</a>
         {% endif %}
     </nav>
     {% endif %}

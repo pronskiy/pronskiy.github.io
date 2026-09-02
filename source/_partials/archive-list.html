@@ -1,0 +1,65 @@
+{#
+    One reverse-chronological index built from Sculpin posts + site.archive.
+
+    Params (all optional):
+      types       list of type markers to keep. Default: everything.
+      with_posts  merge in data.posts. Requires `use: [posts]` on the page.
+      minimal     drop the "where" and "type" columns (used by the Writing block).
+      limit       cap the number of rows.
+
+    Sorting relies on both sides exposing `date` as a UNIX timestamp:
+    Sculpin gives a DateTime-ish value, archive.yml dates are parsed to ints.
+#}
+{% set types      = types|default(['post', 'talk', 'podcast', 'video']) %}
+{% set with_posts = with_posts is defined ? with_posts : true %}
+{% set minimal    = minimal|default(false) %}
+
+{% set post_items = (with_posts and data.posts is defined)
+    ? data.posts|filter(p => not p.unlisted)|map(p => {
+        type:  'post',
+        date:  p.date,
+        title: p.title,
+        url:   p.url,
+        where: p.tags|default([])|length
+                 ? (constant('App\\Blog\\Tag::ALLOWED_TAGS')[p.tags|first] ?? p.tags|first)
+                 : '',
+      })
+    : [] %}
+
+{% set archive_items = site.archive|default([])|map(e => {
+        type:     e.type,
+        date:     e.date,
+        display:  e.date_display|default(null),
+        title:    e.title,
+        url:      e.url,
+        youtube:  e.youtube|default(null),
+        duration: e.duration|default(null),
+        where:    e.venue|default(null)
+                    ? e.venue ~ (e.location|default(null) ? ', ' ~ e.location|split(',')|first : '')
+                    : (e.type == 'video' ? 'YouTube' : (e.url|split('/')[2]|default(''))|replace({'www.': ''})),
+    }) %}
+
+{% set feed = post_items|merge(archive_items)
+    |filter(i => i.type in types)
+    |sort((a, b) => b.date <=> a.date) %}
+
+{% if limit is defined %}{% set feed = feed|slice(0, limit) %}{% endif %}
+
+<ol class="index{{ minimal ? ' index--minimal' }}">
+    {% set seen_year = null %}
+    {% for item in feed %}
+        {% set year = item.date|date('Y') %}
+        {% set external = item.url starts with 'http' %}
+        <li class="index-row index-row--{{ item.type }}{{ year != seen_year ? ' is-year-start' }}">
+            <span class="index-year">{{ year != seen_year ? year }}</span>
+            <a class="index-title"
+               href="{{ external ? item.url : site.url ~ item.url }}"
+               {% if external %}target="_blank" rel="noopener"{% endif %}>{{ item.title|raw }}</a>
+            {% if not minimal %}
+                <span class="index-where">{{ item.where }}</span>
+                <span class="index-type">{{ item.type == 'post' ? 'Essay' : item.type|capitalize }}{% if item.duration %}<span class="index-dur">{{ item.duration }}</span>{% endif %}</span>
+            {% endif %}
+        </li>
+        {% set seen_year = year %}
+    {% endfor %}
+</ol>
