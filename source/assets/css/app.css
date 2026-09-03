@@ -12,6 +12,11 @@
    sentence case, no tracking. Small tracked-out uppercase is the single
    strongest "generated" tell and is banned here.
 
+   Type: three sizes carry the interface. 1rem for anything you act on
+   (nav, titles, names), 0.875rem for muted notes beside it, and running
+   text (the intro and post prose) at 1.0625rem. Nothing sits below
+   0.75rem, and that one size is only the duration pill on a thumbnail.
+
    Surfaces: one hairline weight (--line) for every rule, never a
    solid-ink rule, and rules only open sections: the index draws none.
    Corners are --radius / --radius-lg. Hover is a soft --ink-06 tint on
@@ -63,8 +68,8 @@ body {
     background: var(--paper);
     color: var(--ink);
     font-family: var(--body);
-    font-size: 15px;
-    line-height: 1.55;
+    font-size: 16px;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -132,7 +137,7 @@ nav.site-nav a:hover { color: var(--ink); }
     bottom: calc(100% + 6px);
     left: 50%;
     transform: translate(-50%, 4px);
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     font-weight: 400;
     letter-spacing: 0;
     line-height: 1.4;
@@ -157,7 +162,6 @@ nav.site-nav a:hover { color: var(--ink); }
     align-items: center;
     gap: 0.5rem 1.125rem;
     margin-top: 0.85rem;
-    font-size: 0.9375rem;
 }
 .contacts a {
     display: inline-flex;
@@ -174,12 +178,18 @@ nav.site-nav a:hover { color: var(--ink); }
    of the email (it is lowercase) rather than the box centre. */
 .contacts li { display: flex; align-items: center; }
 .contacts svg { width: 18px; height: 18px; transform: translateY(1px); }   /* stroke icons: colour comes from the svg attrs */
+/* The last contact sits at the right edge on a phone. Its tip hangs left from
+   the icon instead of centring on it: a hidden tip still takes up space, and a
+   centred one would poke past the viewport and widen the page by a few px. */
+.contacts li:last-child [data-tip]::after { left: auto; right: 0; transform: translate(0, 4px); }
+.contacts li:last-child [data-tip]:hover::after,
+.contacts li:last-child [data-tip]:focus-visible::after { transform: translate(0, 0); }
 
 .masthead-intro {
     margin-top: 2rem;
     max-width: 56ch;
     font-size: 1.0625rem;
-    line-height: 1.55;
+    line-height: 1.5;
     text-wrap: pretty;
 }
 .masthead-intro + .masthead-intro { margin-top: 0.75rem; }
@@ -240,7 +250,7 @@ nav.site-nav a:hover { color: var(--ink); }
     position: absolute;
     top: calc(94px + var(--inset)); right: calc(6px + var(--inset));   /* offsets are from the padded link */
     transform: translateY(-100%) translateY(-6px);
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.3;
     background: rgba(0, 0, 0, 0.72);
@@ -251,8 +261,8 @@ nav.site-nav a:hover { color: var(--ink); }
 .reel-title {
     display: block;
     margin-top: 0.5rem;
-    font-size: 0.8125rem;
-    line-height: 1.3;
+    font-size: 0.875rem;
+    line-height: 1.4;
     color: var(--ink-70);
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -364,14 +374,14 @@ nav.site-nav a:hover { color: var(--ink); }
     display: block;
     margin-top: 0.75rem;
     font-weight: 650;
-    font-size: 0.9375rem;
-    line-height: 1.35;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 .project-desc {
     display: block;
     margin-top: 0.2rem;
     font-size: 0.875rem;
-    line-height: 1.45;
+    line-height: 1.5;
     color: var(--ink-70);
 }
 
@@ -389,7 +399,7 @@ nav.site-nav a:hover { color: var(--ink); }
     align-items: baseline;
     flex-wrap: wrap;
     gap: 0.5rem 1.5rem;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     color: var(--ink-60);
 }
 .site-footer a { color: inherit; text-decoration: none; transition: color .15s; }
@@ -531,7 +541,7 @@ nav.site-nav a:hover { color: var(--ink); }
 }
 .post-nav-link:hover { background: var(--ink-06); }
 .post-nav-link--next { text-align: right; }
-.post-nav-label { font-size: 0.8125rem; color: var(--ink-60); }
+.post-nav-label { font-size: 0.875rem; color: var(--ink-60); }
 .post-nav-title { font-weight: 600; line-height: 1.35; }
 
 /* ---------- blog index ---------- */
@@ -568,7 +578,7 @@ nav.site-nav a:hover { color: var(--ink); }
     z-index: 30;
     background: var(--ink);
     color: var(--paper);
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     text-align: center;
     padding: 0.45rem 1rem;
 }
