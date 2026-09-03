@@ -107,8 +107,8 @@ nav.site-nav a:hover { color: var(--ink); }
     align-items: center;
     gap: 1.5rem;
 }
+.profile-photo-link { flex: 0 0 auto; display: block; border-radius: 50%; }   /* round, so a focus ring follows the photo */
 .profile-photo {
-    flex: 0 0 auto;
     width: 112px; height: 112px;
     border-radius: 50%;
     object-fit: cover;
