@@ -15,13 +15,15 @@ use:
     </header>
 
     {# Uses pagination items rather than the shared archive partial, so paging keeps working. #}
-    <ol class="index index--minimal">
+    <ol class="index">
         {% set seen_year = null %}
         {% for post in page.pagination.items|default([])|filter(p => not p.unlisted) %}
             {% set year = post.date|date('Y') %}
-            <li class="index-row index-row--post{{ year != seen_year ? ' is-year-start' }}">
-                <span class="index-year">{{ year != seen_year ? year }}</span>
-                <a class="index-title" href="{{ site.url }}{{ post.url }}">{{ post.title|raw }}</a>
+            <li>
+                <a class="index-row index-row--post{{ year != seen_year ? ' is-year-start' }}" href="{{ site.url }}{{ post.url }}">
+                    <span class="index-year">{{ year != seen_year ? year }}</span>
+                    <span class="index-title">{{ post.title|raw }}</span>
+                </a>
             </li>
             {% set seen_year = year %}
         {% endfor %}

@@ -4,17 +4,21 @@
     Params (all optional):
       types       list of type markers to keep. Default: everything.
       with_posts  merge in data.posts. Requires `use: [posts]` on the page.
-      minimal     drop the "where" and "type" columns.
       limit       cap the number of rows.
       fold_before hide rows dated before this year behind a "See older" row
                   (a native <details>, no JS). Used by the homepage only.
+
+    Each row is one link in two columns: the year (first row of a year only)
+    and the title, with a muted note riding the end of the title. Articles are
+    the bulk of the index and carry no note; every other kind names itself,
+    plus the venue for talks and podcasts and the running time for videos.
 
     Sorting relies on both sides exposing `date` as a UNIX timestamp:
     Sculpin gives a DateTime-ish value, archive.yml dates are parsed to ints.
 #}
 {% set types      = types|default(['post', 'talk', 'podcast', 'video', 'article']) %}
 {% set with_posts = with_posts is defined ? with_posts : true %}
-{% set minimal    = minimal|default(false) %}
+{% set labels     = { post: 'Essay', talk: 'Talk', podcast: 'Podcast', video: 'Video' } %}
 
 {% set post_items = (with_posts and data.posts is defined)
     ? data.posts|filter(p => not p.unlisted)|map(p => {
@@ -22,23 +26,19 @@
         date:  p.date,
         title: p.title,
         url:   p.url,
-        where: p.tags|default([])|length
-                 ? (constant('App\\Blog\\Tag::ALLOWED_TAGS')[p.tags|first] ?? p.tags|first)
-                 : '',
+        venue: '',
       })
     : [] %}
 
 {% set archive_items = site.archive|default([])|merge(site.articles|default([]))|map(e => {
         type:     e.type,
         date:     e.date,
-        display:  e.date_display|default(null),
         title:    e.title,
         url:      e.url,
-        youtube:  e.youtube|default(null),
         duration: e.duration|default(null),
-        where:    e.venue|default(null)
+        venue:    e.venue|default(null)
                     ? e.venue ~ (e.location|default(null) ? ', ' ~ e.location|split(',')|first : '')
-                    : (e.type == 'video' ? 'YouTube' : (e.url|split('/')[2]|default(''))|replace({'www.': ''})),
+                    : '',
     }) %}
 
 {% set feed = post_items|merge(archive_items)
@@ -51,35 +51,33 @@
 {% set older       = fold_before ? feed|filter(i => i.date|date('Y') < fold_before)|length : 0 %}
 {% set oldest_year = older ? (feed|last).date|date('Y') : null %}
 
-<ol class="index{{ minimal ? ' index--minimal' }}">
+<ol class="index">
     {% set seen_year = null %}
     {% set folded = false %}
     {% for item in feed %}
         {% set year = item.date|date('Y') %}
         {% set external = item.url starts with 'http' %}
+        {% set note = [] %}
+        {% if item.type != 'article' %}{% set note = note|merge([labels[item.type]]) %}{% endif %}
+        {% if item.venue and item.type in ['talk', 'podcast'] %}{% set note = note|merge([item.venue]) %}{% endif %}
+        {% if item.duration %}{% set note = note|merge([item.duration]) %}{% endif %}
         {% if older and not folded and year < fold_before %}
             {% set folded = true %}
 </ol>
-<details class="index-fold{{ minimal ? ' index--minimal' }}">
+<details class="index-fold">
     <summary class="index-row index-fold-summary">
         <span class="index-year"></span>
-        <span class="index-title"><span class="index-fold-closed">See older</span><span class="index-fold-open">Hide older</span></span>
-        {% if not minimal %}
-            <span class="index-where">{{ oldest_year }} to {{ fold_before - 1 }}</span>
-            <span class="index-type">{{ older }} entries</span>
-        {% endif %}
+        <span class="index-title"><span class="index-fold-closed">See older</span><span class="index-fold-open">Hide older</span> <span class="index-note">{{ oldest_year }} to {{ fold_before - 1 }}&nbsp;·&nbsp;{{ older }} entries</span></span>
     </summary>
-    <ol class="index{{ minimal ? ' index--minimal' }}">
+    <ol class="index">
         {% endif %}
-        <li class="index-row index-row--{{ item.type }}{{ year != seen_year ? ' is-year-start' }}">
-            <span class="index-year">{{ year != seen_year ? year }}</span>
-            <a class="index-title"
+        <li>
+            <a class="index-row index-row--{{ item.type }}{{ year != seen_year ? ' is-year-start' }}"
                href="{{ external ? item.url : site.url ~ item.url }}"
-               {% if external %}target="_blank" rel="noopener"{% endif %}>{{ item.title|raw }}</a>
-            {% if not minimal %}
-                <span class="index-where">{{ item.where }}</span>
-                <span class="index-type">{{ item.type == 'post' ? 'Essay' : item.type|capitalize }}{% if item.duration %}<span class="index-dur">{{ item.duration }}</span>{% endif %}</span>
-            {% endif %}
+               {% if external %}target="_blank" rel="noopener"{% endif %}>
+                <span class="index-year">{{ year != seen_year ? year }}</span>
+                <span class="index-title">{{ item.title|raw }}{% if note %} <span class="index-note">{{ note|map(n => n|e)|join('&nbsp;·&nbsp;')|raw }}</span>{% endif %}</span>
+            </a>
         </li>
         {% set seen_year = year %}
     {% endfor %}

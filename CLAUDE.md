@@ -54,8 +54,14 @@ Rules worth keeping:
   them.
 - **One rule weight.** Every hairline is `1px solid var(--line)`; there are no
   solid-ink rules. Each section opens with one rule on the text column (2.5rem
-  above, 2rem below). Index rows draw their separator with a `::before` on the
-  text column, and a list never opens with a line.
+  above, 2rem below) and that is the only line it draws: the index has no row
+  separators. Rows keep rhythm from line-height, and year groups from air.
+- **The index is two columns.** The year (first row of a year only) and the
+  title, and the whole row is the link. Articles are the bulk of the index and
+  carry no note; every other kind names itself in a muted note after the title,
+  plus the venue for talks and podcasts and the running time for videos. Do not
+  bring back a source or type column: the same three strings would fill it on
+  nine rows in ten.
 - **Corners** are `--radius` (8px: thumbnails, row hover, code blocks) or
   `--radius-lg` (12px: project cards). Inline code is pinned to 4px.
 - **Hover is a soft tint** (`background: var(--ink-06)` on a rounded box) for
@@ -86,7 +92,8 @@ Rules worth keeping:
   same date rule applies.
 - `source/_partials/archive-list.html` merges `data.posts`, `site.archive` and
   `site.articles` into one reverse-chronological feed. The homepage, `/videos` and
-  `/articles` all render through it.
+  `/articles` all render through it; `blog.html` mirrors its row markup by hand
+  so pagination keeps working, so change both when the row changes.
 - **Projects**: the `projects:` list in the same `archive.yml`. Each has an `image`
   that is a local snapshot of the project's own `og:image`, resized to 960px wide
   and saved as JPEG in `source/assets/img/projects/`. They are snapshots on purpose
