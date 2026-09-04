@@ -33,6 +33,8 @@
     --ink-12:  rgba(17, 17, 17, 0.12);
     --ink-06:  rgba(17, 17, 17, 0.06);
     --line:    var(--ink-12);   /* the only rule weight on the site */
+    --icon-sun:  block;         /* the footer toggle shows the current side */
+    --icon-moon: none;
 
     --display: 'Host Grotesk', system-ui, sans-serif;
     --body:    'Host Grotesk', system-ui, sans-serif;
@@ -45,8 +47,12 @@
     --radius-lg: 12px;     /* project cards */
 }
 
+/* Dark tokens live twice on purpose: once behind the OS preference, unless a
+   light theme is forced, and once behind a forced dark theme. Keep the two
+   blocks identical. The head script in the default layout sets data-theme;
+   color-scheme follows so scrollbars and form controls change sides too. */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --paper:  #121212;
         --ink:    #ededed;
         --ink-70: rgba(237, 237, 237, 0.70);
@@ -54,8 +60,23 @@
         --ink-20: rgba(237, 237, 237, 0.20);
         --ink-12: rgba(237, 237, 237, 0.14);
         --ink-06: rgba(237, 237, 237, 0.07);
+        --icon-sun:  none;
+        --icon-moon: block;
     }
 }
+:root[data-theme="dark"] {
+    --paper:  #121212;
+    --ink:    #ededed;
+    --ink-70: rgba(237, 237, 237, 0.70);
+    --ink-60: rgba(237, 237, 237, 0.60);
+    --ink-20: rgba(237, 237, 237, 0.20);
+    --ink-12: rgba(237, 237, 237, 0.14);
+    --ink-06: rgba(237, 237, 237, 0.07);
+    --icon-sun:  none;
+    --icon-moon: block;
+}
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"]  { color-scheme: dark; }
 
 /* ---------- reset ---------- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -178,12 +199,16 @@ nav.site-nav a:hover { color: var(--ink); }
    of the email (it is lowercase) rather than the box centre. */
 .contacts li { display: flex; align-items: center; }
 .contacts svg { width: 18px; height: 18px; transform: translateY(1px); }   /* stroke icons: colour comes from the svg attrs */
-/* The last contact sits at the right edge on a phone. Its tip hangs left from
-   the icon instead of centring on it: a hidden tip still takes up space, and a
-   centred one would poke past the viewport and widen the page by a few px. */
-.contacts li:last-child [data-tip]::after { left: auto; right: 0; transform: translate(0, 4px); }
+/* Tips on the last contact and the footer toggle hang left from the icon
+   instead of centring on it: both sit at the right edge on a phone, a hidden
+   tip still takes up space, and a centred one would poke past the viewport
+   and widen the page by a few px. */
+.contacts li:last-child [data-tip]::after,
+.theme-toggle[data-tip]::after { left: auto; right: 0; transform: translate(0, 4px); }
 .contacts li:last-child [data-tip]:hover::after,
-.contacts li:last-child [data-tip]:focus-visible::after { transform: translate(0, 0); }
+.contacts li:last-child [data-tip]:focus-visible::after,
+.theme-toggle[data-tip]:hover::after,
+.theme-toggle[data-tip]:focus-visible::after { transform: translate(0, 0); }
 
 .masthead-intro {
     margin-top: 2rem;
@@ -405,6 +430,26 @@ nav.site-nav a:hover { color: var(--ink); }
 }
 .site-footer a { color: inherit; text-decoration: none; transition: color .15s; }
 .site-footer a:hover { color: var(--ink); }
+/* Feed first so the group's baseline comes from text and lines up with the
+   copyright; the toggle icon then centres on that line. */
+.site-footer-right { display: flex; align-items: center; gap: 1.5rem; }
+/* Colour-scheme toggle: a Tabler sun or moon in the footer grey, ink on hover,
+   the same language as the contact icons. --icon-sun / --icon-moon pick one. */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+    transition: color .15s;
+}
+.theme-toggle:hover { color: var(--ink); }
+.theme-toggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .icon-sun  { display: var(--icon-sun); }
+.theme-toggle .icon-moon { display: var(--icon-moon); }
 
 /* ---------- pages & posts ---------- */
 /* Articles and pages read in a centred column capped at the measure. The

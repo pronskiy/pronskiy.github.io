@@ -104,6 +104,20 @@ Rules worth keeping:
   and saved as JPEG in `source/assets/img/projects/`. They are snapshots on purpose
   (no runtime dependency on GitHub); re-fetch one when a project's card changes.
 
+## Colour scheme
+
+The CSS follows the OS preference unless `<html data-theme="light|dark">` forces
+a side. An inline script in the head of `_layouts/default.html` reads the choice
+from `localStorage` (key `theme`) before first paint, sets the attribute, and
+flips the media of the two highlight.js `<link id="hljs-light|dark">` sheets and
+the `theme-color` metas, which otherwise pick a side by media query. The footer
+toggle (a Tabler sun or moon, chosen in CSS by the `--icon-sun` / `--icon-moon`
+tokens) flips between light and dark through `window.theme.set()`; picking the
+side the OS already prefers clears the override, so "follow the system" needs no
+third state. The dark tokens are defined twice in `app.css` (OS preference and
+forced) and must stay identical. The linktree layout has its own palette and no
+toggle.
+
 ## Gotchas
 
 - **`page.url` for the homepage is `/.`, not `/`.** Use the `is_home` variable set
