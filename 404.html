@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Page not found &mdash; Roman Pronskiy</title>
-    <meta name="description" content="I lead PhpStorm at JetBrains and founded The PHP Foundation.">
+    <meta name="description" content="I&#039;m passionate about tech, PHP, graphs, developer tools, AI, and music. In the past, I led PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta charset="utf-8">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -19,21 +19,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://pronskiy.com/assets/css/app.css">
-    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/github.min.css" media="(prefers-color-scheme: light)">
-    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
+    <link id="hljs-light" rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/github.min.css" media="(prefers-color-scheme: light)">
+    <link id="hljs-dark" rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
     <script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+    <script>
+    // Colour scheme. The CSS follows the OS unless <html data-theme> forces a
+    // side; a choice made in the footer is kept in localStorage and applied
+    // here, in the head, so a forced theme never flashes on load. The
+    // highlight.js sheets and the theme-color metas pick a side by media
+    // query, so they are switched by hand too.
+    (function () {
+      function apply(t) {
+        var root = document.documentElement;
+        if (t) root.setAttribute('data-theme', t); else root.removeAttribute('data-theme');
+        var light = document.getElementById('hljs-light'), dark = document.getElementById('hljs-dark');
+        if (light) light.media = t ? (t === 'light' ? 'all' : 'not all') : '(prefers-color-scheme: light)';
+        if (dark)  dark.media  = t ? (t === 'dark'  ? 'all' : 'not all') : '(prefers-color-scheme: dark)';
+        document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+          var side = t || (m.media.indexOf('dark') > -1 ? 'dark' : 'light');
+          m.content = side === 'dark' ? '#121212' : '#ffffff';
+        });
+      }
+      function saved() {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        return t === 'light' || t === 'dark' ? t : '';
+      }
+      window.theme = {
+        get: saved,
+        set: function (t) {
+          try { if (t) localStorage.setItem('theme', t); else localStorage.removeItem('theme'); } catch (e) {}
+          apply(t);
+        },
+        apply: apply
+      };
+      apply(saved());
+    })();
+    </script>
 
     <meta property="og:url" content="https://pronskiy.com/404.html">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Page not found">
-    <meta property="og:description" content="Roman Pronskiy &mdash; I lead PhpStorm at JetBrains and founded The PHP Foundation.">
+    <meta property="og:description" content="Roman Pronskiy &mdash; I&#039;m passionate about tech, PHP, graphs, developer tools, AI, and music. In the past, I led PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta property="og:image" content="https://pronskiy.com/assets/icons/share.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="https://pronskiy.com">
     <meta property="twitter:url" content="https://pronskiy.com/404.html">
     <meta name="twitter:title" content="Page not found">
-    <meta name="twitter:description" content="I lead PhpStorm at JetBrains and founded The PHP Foundation.">
+    <meta name="twitter:description" content="I&#039;m passionate about tech, PHP, graphs, developer tools, AI, and music. In the past, I led PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta name="twitter:image" content="https://pronskiy.com/assets/icons/share.png">
 
     <meta name="mobile-web-app-capable" content="yes">
@@ -68,12 +102,47 @@
 <footer class="site-footer">
     <div class="site-footer-inner">
         <span>© Roman Pronskiy</span>
-        <span><a href="https://pronskiy.com/atom.xml">Feed</a></span>
+        <span class="site-footer-right">
+            <a href="https://pronskiy.com/atom.xml">Feed</a>
+                        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" data-tip="Switch to dark mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
+            </button>
+        </span>
     </div>
 </footer>
 
 
 <script>hljs.highlightAll();</script>
+<script>
+// Footer colour-scheme toggle. It flips between light and dark; choosing the
+// side the OS already prefers clears the override, so "follow the system" is
+// reachable without a third state. Which icon shows is decided in CSS from the
+// same tokens as the colours. Another tab changing the choice arrives through
+// the storage event.
+(function () {
+  var btn = document.querySelector('.theme-toggle');
+  if (!btn || !window.theme) return;
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+  function os() { return mq.matches ? 'dark' : 'light'; }
+  function effective() { return window.theme.get() || os(); }
+  function sync() {
+    var label = 'Switch to ' + (effective() === 'dark' ? 'light' : 'dark') + ' mode';
+    btn.setAttribute('aria-label', label);
+    btn.setAttribute('data-tip', label);
+  }
+  btn.addEventListener('click', function () {
+    var next = effective() === 'dark' ? 'light' : 'dark';
+    window.theme.set(next === os() ? '' : next);
+    sync();
+  });
+  mq.addEventListener('change', sync);
+  window.addEventListener('storage', function (e) {
+    if (e.key === 'theme') { window.theme.apply(window.theme.get()); sync(); }
+  });
+  sync();
+})();
+</script>
 <script>
 // Video strip: retract the edge fades at whichever end of the scroll you reach.
 (function() {

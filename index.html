@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Roman Pronskiy</title>
-    <meta name="description" content="I lead PhpStorm at JetBrains and founded The PHP Foundation.">
+    <meta name="description" content="I&#039;m passionate about tech, PHP, graphs, developer tools, AI, and music. In the past, I led PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta charset="utf-8">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -19,21 +19,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://pronskiy.com/assets/css/app.css">
-    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/github.min.css" media="(prefers-color-scheme: light)">
-    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
+    <link id="hljs-light" rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/github.min.css" media="(prefers-color-scheme: light)">
+    <link id="hljs-dark" rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
     <script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+    <script>
+    // Colour scheme. The CSS follows the OS unless <html data-theme> forces a
+    // side; a choice made in the footer is kept in localStorage and applied
+    // here, in the head, so a forced theme never flashes on load. The
+    // highlight.js sheets and the theme-color metas pick a side by media
+    // query, so they are switched by hand too.
+    (function () {
+      function apply(t) {
+        var root = document.documentElement;
+        if (t) root.setAttribute('data-theme', t); else root.removeAttribute('data-theme');
+        var light = document.getElementById('hljs-light'), dark = document.getElementById('hljs-dark');
+        if (light) light.media = t ? (t === 'light' ? 'all' : 'not all') : '(prefers-color-scheme: light)';
+        if (dark)  dark.media  = t ? (t === 'dark'  ? 'all' : 'not all') : '(prefers-color-scheme: dark)';
+        document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+          var side = t || (m.media.indexOf('dark') > -1 ? 'dark' : 'light');
+          m.content = side === 'dark' ? '#121212' : '#ffffff';
+        });
+      }
+      function saved() {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        return t === 'light' || t === 'dark' ? t : '';
+      }
+      window.theme = {
+        get: saved,
+        set: function (t) {
+          try { if (t) localStorage.setItem('theme', t); else localStorage.removeItem('theme'); } catch (e) {}
+          apply(t);
+        },
+        apply: apply
+      };
+      apply(saved());
+    })();
+    </script>
 
     <meta property="og:url" content="https://pronskiy.com/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Roman Pronskiy">
-    <meta property="og:description" content="Roman Pronskiy &mdash; I lead PhpStorm at JetBrains and founded The PHP Foundation.">
+    <meta property="og:description" content="Roman Pronskiy &mdash; I&#039;m passionate about tech, PHP, graphs, developer tools, AI, and music. In the past, I led PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta property="og:image" content="https://pronskiy.com/assets/icons/share.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="https://pronskiy.com">
     <meta property="twitter:url" content="https://pronskiy.com/">
     <meta name="twitter:title" content="Roman Pronskiy">
-    <meta name="twitter:description" content="I lead PhpStorm at JetBrains and founded The PHP Foundation.">
+    <meta name="twitter:description" content="I&#039;m passionate about tech, PHP, graphs, developer tools, AI, and music. In the past, I led PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta name="twitter:image" content="https://pronskiy.com/assets/icons/share.png">
 
     <meta name="mobile-web-app-capable" content="yes">
@@ -58,11 +92,9 @@
 
 <header class="masthead">
     <div class="profile">
-        <img class="profile-photo" src="https://pronskiy.com/assets/img/roman_pronskiy.jpg" alt="Roman Pronskiy" width="112" height="112">
+        <a class="profile-photo-link" href="/"><img class="profile-photo" src="https://pronskiy.com/assets/img/roman_pronskiy.jpg" alt="Roman Pronskiy" width="112" height="112"></a>
         <div class="profile-body">
             <h1 class="profile-name"><span class="pronskiy" data-scramble data-tip="/prɔn-skee/">Roman Pronskiy</span></h1>
-            <p class="profile-line"><a href="https://jetbrains.com/phpstorm/">PhpStorm</a> at JetBrains · Founded <a href="https://thephp.foundation">The&nbsp;PHP Foundation</a></p>
-            <p class="profile-line">Amsterdam, NL · from Kharkov, Ukraine</p>
 
                         <ul class="contacts">
                 <li><a class="contacts-email" href="mailto:roman@pronskiy.com">roman@pronskiy.com</a></li>
@@ -75,14 +107,22 @@
     </div>
 
     <p class="masthead-intro">
-        I lead <a href="https://jetbrains.com/phpstorm/">PhpStorm</a> at JetBrains and founded
-        <a href="https://thephp.foundation">The&nbsp;PHP Foundation</a>. Lately obsessed with what
-        happens when AI moves inside the IDE. Also: <a href="/articles">articles</a>, <a href="/music">music</a>.
+        Hi 👋
+    </p>
+    <p class="masthead-intro">
+        I'm passionate about tech, PHP, graphs, developer tools, AI, and&nbsp;<a href="/music">music</a>.
+    </p>
+    <p class="masthead-intro">
+        In the past, I led <a href="https://jetbrains.com/phpstorm/">PhpStorm</a> at&nbsp;JetBrains and&nbsp;founded
+        <a href="https://thephp.foundation">The&nbsp;PHP&nbsp;Foundation</a>.
+    </p>
+    <p class="masthead-intro">
+        Originally from&nbsp;<a href="https://en.wikipedia.org/wiki/Kharkiv">Kharkiv, Ukraine</a>, now based in&nbsp;<span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg>Amsterdam, NL</span>.
     </p>
 </header>
 
 <section class="block" id="video">
-    <h2 class="block-head">Videos <span class="block-count">44</span></h2>
+    <h2 class="block-head">Videos</h2>
     <ol class="reel-strip">
                 <li>
             <a href="https://www.youtube.com/watch?v=F2oGNtRwPDQ" target="_blank" rel="noopener">
@@ -400,7 +440,7 @@
 </section>
 
 <section class="block" id="archive">
-    <h2 class="block-head">Everything <span class="block-count">176</span></h2>
+    <h2 class="block-head">Everything</h2>
     
 
 
@@ -408,1435 +448,1468 @@
 
 
 <ol class="index">
-                                            <li class="index-row index-row--video is-year-start">
-            <span class="index-year">2026</span>
-            <a class="index-title"
+                                                                            <li>
+            <a class="index-row index-row--video is-year-start"
                href="https://www.youtube.com/watch?v=F2oGNtRwPDQ"
-               target="_blank" rel="noopener">Lightweight PhpStorm? Yes please!</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video<span class="index-dur">62:54</span></span>
-                    </li>
-                                            <li class="index-row index-row--talk">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year">2026</span>
+                <span class="index-title">Lightweight PhpStorm? Yes please! <span class="index-note">Video&nbsp;·&nbsp;62:54</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--talk"
                href="https://www.youtube.com/watch?v=VbM_o0adyoc&amp;t=10770s"
-               target="_blank" rel="noopener">What's Next for PHP | The PHP Foundation</a>
-                            <span class="index-where">Laravel Live Japan, Tachikawa</span>
-                <span class="index-type">Talk</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">What's Next for PHP | The PHP Foundation <span class="index-note">Talk&nbsp;·&nbsp;Laravel Live Japan, Tachikawa</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=nOCWaoqeBA0"
-               target="_blank" rel="noopener">These AI Dev Tools Changed How I Code This Week</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video<span class="index-dur">21:24</span></span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">These AI Dev Tools Changed How I Code This Week <span class="index-note">Video&nbsp;·&nbsp;21:24</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=Rc-ttLlstC8"
-               target="_blank" rel="noopener">Claude Code tricks, Wispr, Superpowers, PHP news — This Week's Dev Gems</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video<span class="index-dur">24:34</span></span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Claude Code tricks, Wispr, Superpowers, PHP news — This Week's Dev Gems <span class="index-note">Video&nbsp;·&nbsp;24:34</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2026/01/26/meet-team-blue-php-foundation-sponsor/"
-               target="_blank" rel="noopener">Meet team.blue: A PHP Foundation Sponsor supporting the language at the core of its ecosystem</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--talk is-year-start">
-            <span class="index-year">2025</span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Meet team.blue: A PHP Foundation Sponsor supporting the language at the core of its ecosystem</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--talk is-year-start"
                href="https://youtu.be/2qTJgx2QF9M"
-               target="_blank" rel="noopener">The PHP Foundation and What’s Next for PHP</a>
-                            <span class="index-where">PHPTalks, Barcelona</span>
-                <span class="index-type">Talk</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year">2025</span>
+                <span class="index-title">The PHP Foundation and What’s Next for PHP <span class="index-note">Talk&nbsp;·&nbsp;PHPTalks, Barcelona</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/11/05/design-contest-results/"
-               target="_blank" rel="noopener">Design Contest Results and Lessons Learned</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Design Contest Results and Lessons Learned</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2025/11/phpstorm-plugins-you-might-not-know/"
-               target="_blank" rel="noopener">PhpStorm Plugins You Might Not Know About</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--podcast">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PhpStorm Plugins You Might Not Know About</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--podcast"
                href="https://djangochat.com/episodes/php-web-frameworks-roman-pronskiy"
-               target="_blank" rel="noopener">PHP Web Frameworks | Django Chat Podcast</a>
-                            <span class="index-where">Django Chat</span>
-                <span class="index-type">Podcast</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Web Frameworks | Django Chat Podcast <span class="index-note">Podcast&nbsp;·&nbsp;Django Chat</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/10/01/design-contest/"
-               target="_blank" rel="noopener">Call for Designs: Refresh the PHP 8.5 Release Page</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Call for Designs: Refresh the PHP 8.5 Release Page</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/09/30/application-form-2026/"
-               target="_blank" rel="noopener">The PHP Foundation application form for 2026 is now open</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The PHP Foundation application form for 2026 is now open</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/09/25/joe-watkins/"
-               target="_blank" rel="noopener">Welcoming Joe Watkins as a PHP Foundation Developer</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Welcoming Joe Watkins as a PHP Foundation Developer</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/09/05/php-mcp-sdk/"
-               target="_blank" rel="noopener">Announcing the Official PHP SDK for MCP</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Announcing the Official PHP SDK for MCP</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=qPVtVulhFC4"
-               target="_blank" rel="noopener">MCP — What is that?</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video<span class="index-dur">3:27</span></span>
-                    </li>
-                                            <li class="index-row index-row--talk">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">MCP — What is that? <span class="index-note">Video&nbsp;·&nbsp;3:27</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--talk"
                href="https://youtu.be/zxTMzygBt7s"
-               target="_blank" rel="noopener">Growing PHP for the Future</a>
-                            <span class="index-where">PHPverse 2025</span>
-                <span class="index-type">Talk</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Growing PHP for the Future <span class="index-note">Talk&nbsp;·&nbsp;PHPverse 2025</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/06/08/php-30/"
-               target="_blank" rel="noopener">30 years of PHP: FrankenPHP is now part of the PHP organisation</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">30 years of PHP: FrankenPHP is now part of the PHP organisation</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2025/05/php-annotated-may-2025/"
-               target="_blank" rel="noopener">PHP Annotated – May 2025</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – May 2025</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/05/15/frankenphp/"
-               target="_blank" rel="noopener">FrankenPHP Is Now Officially Supported by The PHP Foundation</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">FrankenPHP Is Now Officially Supported by The PHP Foundation</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/05/09/manychat-powered-by-php/"
-               target="_blank" rel="noopener">Meet Manychat: A PHP Foundation Sponsor Sharing Their PHP Scaling Journey</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Meet Manychat: A PHP Foundation Sponsor Sharing Their PHP Scaling Journey</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/04/10/php-core-security-audit-results/"
-               target="_blank" rel="noopener">PHP Core Security Audit Results</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Core Security Audit Results</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/04/03/welcoming-passbolt-to-the-php-foundation/"
-               target="_blank" rel="noopener">Welcoming Passbolt to the PHP Foundation</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Welcoming Passbolt to the PHP Foundation</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/03/31/transparency-and-impact-report-2024/"
-               target="_blank" rel="noopener">The PHP Foundation: Impact and Transparency Report 2024</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The PHP Foundation: Impact and Transparency Report 2024</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2025/01/31/laracons/"
-               target="_blank" rel="noopener">Proud to Be Community Sponsors of Laracon EU and Laracon India</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Proud to Be Community Sponsors of Laracon EU and Laracon India</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2025/01/php-annotated-january-2025/"
-               target="_blank" rel="noopener">PHP Annotated – January 2025</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article is-year-start">
-            <span class="index-year">2024</span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – January 2025</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article is-year-start"
                href="https://thephp.foundation/blog/2024/12/23/happy-holidays-from-the-php-foundation/"
-               target="_blank" rel="noopener">Happy Holidays from The PHP Foundation!</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year">2024</span>
+                <span class="index-title">Happy Holidays from The PHP Foundation!</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2024/11/22/php-foundation-turns-three/"
-               target="_blank" rel="noopener">The PHP Foundation Turns Three!</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The PHP Foundation Turns Three!</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=1AL2oDt9q38"
-               target="_blank" rel="noopener">Celebrating the PHP 8.4 release!</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Celebrating the PHP 8.4 release! <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=uWsGDUCxbT0"
-               target="_blank" rel="noopener">Let's talk about Pecl</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Let's talk about Pecl <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2024/10/php-annotated-october-2024/"
-               target="_blank" rel="noopener">PHP Annotated – October 2024</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – October 2024</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2024/10/08/open-source-pledge/"
-               target="_blank" rel="noopener">The PHP Foundation Supports The Open Source Pledge</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The PHP Foundation Supports The Open Source Pledge</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2024/09/12/php-foundation-update-september-2024/"
-               target="_blank" rel="noopener">PHP Foundation Update, September 2024</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Foundation Update, September 2024</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2024/09/php-annotated-september-2024/"
-               target="_blank" rel="noopener">PHP Annotated – September 2024</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--talk">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – September 2024</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--talk"
                href="https://www.youtube.com/watch?v=WDitiAjJg7g"
-               target="_blank" rel="noopener">Inside Laracon 2024: PHP's Festival of Innovation and Connection</a>
-                            <span class="index-where">Laracon US, Dallas</span>
-                <span class="index-type">Talk</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Inside Laracon 2024: PHP's Festival of Innovation and Connection <span class="index-note">Talk&nbsp;·&nbsp;Laracon US, Dallas</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2024/07/php-annotated-june-2024/"
-               target="_blank" rel="noopener">PHP Annotated – June 2024</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--post">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – June 2024</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--post"
                href="https://pronskiy.com/blog/running-php-1-in-2024/"
-               >Running PHP 1.0 in 2024</a>
-                            <span class="index-where"></span>
-                <span class="index-type">Essay</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               >
+                <span class="index-year"></span>
+                <span class="index-title">Running PHP 1.0 in 2024 <span class="index-note">Essay</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=uQmGkpWYvHM"
-               target="_blank" rel="noopener">Celebrating 29 years of PHP, Elephpant giveaway!</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Celebrating 29 years of PHP, Elephpant giveaway! <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2024/06/php-annotated-may-2024/"
-               target="_blank" rel="noopener">PHP Annotated – May 2024</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – May 2024</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2024/04/php-annotated-april-2024/"
-               target="_blank" rel="noopener">PHP Annotated – April 2024</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – April 2024</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2024/04/02/open-source-community-cra-compliance-initiative/"
-               target="_blank" rel="noopener">Joining Forces for Open Source Cybersecurity Standards</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Joining Forces for Open Source Cybersecurity Standards</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2024/03/php-annotated-february-march-2024/"
-               target="_blank" rel="noopener">PHP Annotated – February-March 2024</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – February-March 2024</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2024/02/26/transparency-and-impact-report-2023/"
-               target="_blank" rel="noopener">The PHP Foundation: Impact and Transparency Report 2023</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--talk">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The PHP Foundation: Impact and Transparency Report 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--talk"
                href="https://www.youtube.com/watch?v=XE4g1Tl6RQw"
-               target="_blank" rel="noopener">The PHP Foundation</a>
-                            <span class="index-where">Laracon EU, Amsterdam</span>
-                <span class="index-type">Talk</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The PHP Foundation <span class="index-note">Talk&nbsp;·&nbsp;Laracon EU, Amsterdam</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2024/01/php-annotated-january-2024/"
-               target="_blank" rel="noopener">PHP Annotated – January 2024</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – January 2024</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2024/01/03/the-php-foundation-team-update-2024/"
-               target="_blank" rel="noopener">The PHP Foundation Team Update 2024</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article is-year-start">
-            <span class="index-year">2023</span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The PHP Foundation Team Update 2024</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article is-year-start"
                href="https://blog.jetbrains.com/phpstorm/2023/12/php-annotated-december-2023/"
-               target="_blank" rel="noopener">PHP Annotated – December 2023</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year">2023</span>
+                <span class="index-title">PHP Annotated – December 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2023/12/php-annotated-november-2023/"
-               target="_blank" rel="noopener">PHP Annotated – November 2023</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – November 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2023/11/27/php-foundation-update-november-2023/"
-               target="_blank" rel="noopener">PHP Foundation Update, November 2023</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Foundation Update, November 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=VWryF035B6U"
-               target="_blank" rel="noopener">Celebrating PHP 8.3 🥳</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Celebrating PHP 8.3 🥳 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2023/10/php-annotated-october-2023/"
-               target="_blank" rel="noopener">PHP Annotated – October 2023</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--post">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – October 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--post"
                href="https://pronskiy.com/blog/php-script-as-binary/"
-               >Turn Any PHP Script into a Native Single-File Binary</a>
-                            <span class="index-where"></span>
-                <span class="index-type">Essay</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               >
+                <span class="index-year"></span>
+                <span class="index-title">Turn Any PHP Script into a Native Single-File Binary <span class="index-note">Essay</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2023/10/the-pest-plugin-is-now-maintained-by-jetbrains/"
-               target="_blank" rel="noopener">The Pest Plugin Is Now Maintained by JetBrains</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The Pest Plugin Is Now Maintained by JetBrains</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2023/09/php-annotated-september-2023/"
-               target="_blank" rel="noopener">PHP Annotated – September 2023</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – September 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=ZB129Tjkas8"
-               target="_blank" rel="noopener">Benchmarking Laravel with Swoole, FrankenPHP, RoadRunner, php-fpm, ngx-php</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video<span class="index-dur">8:49</span></span>
-                    </li>
-                                            <li class="index-row index-row--talk">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Benchmarking Laravel with Swoole, FrankenPHP, RoadRunner, php-fpm, ngx-php <span class="index-note">Video&nbsp;·&nbsp;8:49</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--talk"
                href="https://www.youtube.com/watch?v=rp4y1oUGcKs"
-               target="_blank" rel="noopener">Programming language as a product – How should PHP evolve?</a>
-                            <span class="index-where">PHPCon, Poland</span>
-                <span class="index-type">Talk</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Programming language as a product – How should PHP evolve? <span class="index-note">Talk&nbsp;·&nbsp;PHPCon, Poland</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2023/08/php-annotated-july-2023/"
-               target="_blank" rel="noopener">PHP Annotated – July 2023</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--talk">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – July 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--talk"
                href="https://www.youtube.com/watch?v=NfcIWuF7YcM"
-               target="_blank" rel="noopener">PHP Foundation: The past, the present, and the future</a>
-                            <span class="index-where">PHPCon, Poland</span>
-                <span class="index-type">Talk</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Foundation: The past, the present, and the future <span class="index-note">Talk&nbsp;·&nbsp;PHPCon, Poland</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=10ZOpS68lls"
-               target="_blank" rel="noopener">PHP Annotated Monthly, June 2023</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated Monthly, June 2023 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2023/06/php-annotated-june-2023/"
-               target="_blank" rel="noopener">PHP Annotated – June 2023</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – June 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2023/06/06/php-core-roundup-13/"
-               target="_blank" rel="noopener">PHP Core Roundup #13</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Core Roundup #13</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2023/04/php-annotated-april-2023/"
-               target="_blank" rel="noopener">PHP Annotated – April 2023</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – April 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=SlX-1XIUI90"
-               target="_blank" rel="noopener">Native PHP, PER 2.0, clone with RFC, and more: PHP Annotated Monthly, April 2023</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Native PHP, PER 2.0, clone with RFC, and more: PHP Annotated Monthly, April 2023 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2023/03/31/php-foundation-update-march-2023/"
-               target="_blank" rel="noopener">PHP Foundation Update, March 2023</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Foundation Update, March 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2023/02/php-annotated-february-2023/"
-               target="_blank" rel="noopener">PHP Annotated – February 2023</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – February 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=v5VtCWgDebw"
-               target="_blank" rel="noopener">Laravel 10, PHPUnit 10, Readonly Properties, Hakana, and more: PHP Annotated Monthly, February</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Laravel 10, PHPUnit 10, Readonly Properties, Hakana, and more: PHP Annotated Monthly, February <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2023/01/php-annotated-january-2023/"
-               target="_blank" rel="noopener">PHP Annotated – January 2023</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – January 2023</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=Dx4knBnuJaw"
-               target="_blank" rel="noopener">PHP to WASM, Asymmetric Visibility, Async PHP, Transpiling and more: PHP Annotated Monthly, January</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP to WASM, Asymmetric Visibility, Async PHP, Transpiling and more: PHP Annotated Monthly, January <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2023/01/what-s-next-in-phpstorm-the-2023-1-public-roadmap/"
-               target="_blank" rel="noopener">What’s Next in PhpStorm: The 2023.1 Public Roadmap</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article is-year-start">
-            <span class="index-year">2022</span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">What’s Next in PhpStorm: The 2023.1 Public Roadmap</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article is-year-start"
                href="https://blog.jetbrains.com/phpstorm/2022/12/php-annotated-december-2022/"
-               target="_blank" rel="noopener">PHP Annotated – December 2022</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year">2022</span>
+                <span class="index-title">PHP Annotated – December 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2022/11/php-annotated-october-2022/"
-               target="_blank" rel="noopener">PHP Annotated – October 2022</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--post">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – October 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--post"
                href="https://pronskiy.com/blog/generics-via-attributes-in-php/"
-               >Generics via Attributes in PHP &mdash; Can We Have Them?</a>
-                            <span class="index-where"></span>
-                <span class="index-type">Essay</span>
-                    </li>
-                                            <li class="index-row index-row--talk">
-            <span class="index-year"></span>
-            <a class="index-title"
+               >
+                <span class="index-year"></span>
+                <span class="index-title">Generics via Attributes in PHP &mdash; Can We Have Them? <span class="index-note">Essay</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--talk"
                href="https://www.youtube.com/watch?v=Nmb-_66RArs"
-               target="_blank" rel="noopener">The New PHP Foundation: What Impact does it have?</a>
-                            <span class="index-where">International PHP Conference, Munich</span>
-                <span class="index-type">Talk</span>
-                    </li>
-                                            <li class="index-row index-row--talk">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The New PHP Foundation: What Impact does it have? <span class="index-note">Talk&nbsp;·&nbsp;International PHP Conference, Munich</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--talk"
                href="https://www.youtube.com/watch?v=JBPtPy9iSP0"
-               target="_blank" rel="noopener">The PHP Foundation: The past, the present, and the future</a>
-                            <span class="index-where">Forum PHP, France</span>
-                <span class="index-type">Talk</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The PHP Foundation: The past, the present, and the future <span class="index-note">Talk&nbsp;·&nbsp;Forum PHP, France</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2022/10/php-annotated-september-2022/"
-               target="_blank" rel="noopener">PHP Annotated – September 2022</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – September 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2022/08/php-annotated-august-2022/"
-               target="_blank" rel="noopener">PHP Annotated – August 2022</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – August 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2022/08/what-s-next-phpstorm-2022-3-roadmap/"
-               target="_blank" rel="noopener">What’s Next: PhpStorm 2022.3 Roadmap</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">What’s Next: PhpStorm 2022.3 Roadmap</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2022/08/04/php-foundation-update-july-2022/"
-               target="_blank" rel="noopener">PHP Foundation Update, July 2022</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Foundation Update, July 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2022/07/php-annotated-july-2022/"
-               target="_blank" rel="noopener">PHP Annotated – July 2022</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – July 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2022/07/04/php-foundation-update-june-2022/"
-               target="_blank" rel="noopener">PHP Foundation Update, June 2022</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Foundation Update, June 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2022/06/php-annotated-june-2022/"
-               target="_blank" rel="noopener">PHP Annotated – June 2022</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – June 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2022/06/01/php-foundation-update-may-2022/"
-               target="_blank" rel="noopener">PHP Foundation Update, May 2022</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Foundation Update, May 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2022/05/php-annotated-may-2022/"
-               target="_blank" rel="noopener">PHP Annotated – May 2022</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – May 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2022/05/php-annotated-2022-spring-catch-up/"
-               target="_blank" rel="noopener">PHP Annotated — 2022 Spring Catch-up</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated — 2022 Spring Catch-up</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2022/05/02/the-php-foundation-update-april-2022/"
-               target="_blank" rel="noopener">PHP Foundation Update, April 2022</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Foundation Update, April 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2022/03/31/the-php-foundation-update-march-2022/"
-               target="_blank" rel="noopener">The PHP Foundation Update, March 2022</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The PHP Foundation Update, March 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2022/01/php-annotated-january-2022/"
-               target="_blank" rel="noopener">PHP Annotated — January 2022</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated — January 2022</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://thephp.foundation/blog/2022/01/21/the-php-foundation-update-january-2022/"
-               target="_blank" rel="noopener">The PHP Foundation Update, January 2022</a>
-                            <span class="index-where">The PHP Foundation</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                                </ol>
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The PHP Foundation Update, January 2022</span>
+            </a>
+        </li>
+                                                                                </ol>
 <details class="index-fold">
     <summary class="index-row index-fold-summary">
         <span class="index-year"></span>
-        <span class="index-title"><span class="index-fold-closed">See older</span><span class="index-fold-open">Hide older</span></span>
-                    <span class="index-where">2017 to 2021</span>
-            <span class="index-type">90 entries</span>
-            </summary>
+        <span class="index-title"><span class="index-fold-closed">See older</span><span class="index-fold-open">Hide older</span> <span class="index-note">2017 to 2021&nbsp;·&nbsp;90 entries</span></span>
+    </summary>
     <ol class="index">
-                <li class="index-row index-row--video is-year-start">
-            <span class="index-year">2021</span>
-            <a class="index-title"
+                <li>
+            <a class="index-row index-row--video is-year-start"
                href="https://www.youtube.com/watch?v=KZC4b5MqSTg"
-               target="_blank" rel="noopener">PHP и Laravel дайджест январь 2022</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year">2021</span>
+                <span class="index-title">PHP и Laravel дайджест январь 2022 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=n5b4EnFAxfE"
-               target="_blank" rel="noopener">PHP Digest Live #199</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Digest Live #199 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=fR4YoyHjFwk"
-               target="_blank" rel="noopener">PHP и Laravel дайджест декабрь 2021</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP и Laravel дайджест декабрь 2021 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=5D337gaVPa4"
-               target="_blank" rel="noopener">Релиз PHP 8.1, запуск PHP Foundation и истории переезда на 8.0</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Релиз PHP 8.1, запуск PHP Foundation и истории переезда на 8.0 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/11/new-video-what-s-new-in-php-8-1/"
-               target="_blank" rel="noopener">New Video: What’s New in PHP 8.1</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">New Video: What’s New in PHP 8.1</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/11/the-php-foundation/"
-               target="_blank" rel="noopener">The New Life of PHP – The PHP Foundation</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">The New Life of PHP – The PHP Foundation</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=lDrTqbuIyGg"
-               target="_blank" rel="noopener">PHP Digest Live #198</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Digest Live #198 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=6em31j_LrSo"
-               target="_blank" rel="noopener">PHP и Laravel дайджест ноябрь 2021</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP и Laravel дайджест ноябрь 2021 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=3xhOWG8RzEY"
-               target="_blank" rel="noopener">PHP Digest Live #197</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Digest Live #197 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/10/php-annotated-october-2021/"
-               target="_blank" rel="noopener">PHP Annotated — October 2021</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated — October 2021</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=6JF2U39J4RY"
-               target="_blank" rel="noopener">Большой стрим PHP-сообщества — Никита Попов, Александр Макаров, Валентин Удальцов и много других</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Большой стрим PHP-сообщества — Никита Попов, Александр Макаров, Валентин Удальцов и много других <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/09/php-annotated-september-2021/"
-               target="_blank" rel="noopener">PHP Annotated — September 2021</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated — September 2021</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/08/new-video-series-refactoring-with-phpstorm-by-matthew-setter/"
-               target="_blank" rel="noopener">New Video Series: Refactoring With PhpStorm by Matthew Setter</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">New Video Series: Refactoring With PhpStorm by Matthew Setter</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/08/php-annotated-august-2021/"
-               target="_blank" rel="noopener">PHP Annotated — August 2021</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated — August 2021</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=Y4KH_2TjRrE"
-               target="_blank" rel="noopener">PHP Digest Live #200</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Digest Live #200 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=HHyv4AObhm0"
-               target="_blank" rel="noopener">PHP Digest Live #201</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Digest Live #201 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/05/php-annotated-may-2021/"
-               target="_blank" rel="noopener">PHP Annotated — May 2021</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated — May 2021</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/03/video-what-s-coming-in-phpstorm-2021-1-episode-2/"
-               target="_blank" rel="noopener">Video: What’s Coming in PhpStorm 2021.1 – Episode 2</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Video: What’s Coming in PhpStorm 2021.1 – Episode 2</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/03/php-annotated-march-2021/"
-               target="_blank" rel="noopener">PHP Annotated – March 2021</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – March 2021</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/02/video-what-s-coming-in-phpstorm-2021-1-episode-1/"
-               target="_blank" rel="noopener">What’s Coming in PhpStorm 2021.1 – Episode 1</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">What’s Coming in PhpStorm 2021.1 – Episode 1</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/02/php-annotated-february-2021/"
-               target="_blank" rel="noopener">PHP Annotated – February 2021</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – February 2021</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/01/video-refactoring-code-with-phpstorm/"
-               target="_blank" rel="noopener">Video: Refactoring Code With PhpStorm</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Video: Refactoring Code With PhpStorm</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/01/video-using-the-terminal-in-nbsp-phpstorm/"
-               target="_blank" rel="noopener">Video: Using the Terminal in PhpStorm</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Video: Using the Terminal in PhpStorm</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2021/01/php-annotated-january-2021/"
-               target="_blank" rel="noopener">PHP Annotated – January 2021</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video is-year-start">
-            <span class="index-year">2020</span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – January 2021</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video is-year-start"
                href="https://www.youtube.com/watch?v=KvTQWv0phgE"
-               target="_blank" rel="noopener">MoreView #11 | Роман Пронский - создатель PHP Digest и PMM в Jetbrains</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year">2020</span>
+                <span class="index-title">MoreView #11 | Роман Пронский - создатель PHP Digest и PMM в Jetbrains <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/11/video-what-s-coming-in-phpstorm-2020-3-episode-3/"
-               target="_blank" rel="noopener">Video: What’s Coming in PhpStorm 2020.3 – Episode 3</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Video: What’s Coming in PhpStorm 2020.3 – Episode 3</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=QSszmWIrRyw"
-               target="_blank" rel="noopener">PHP 8: что нового, туда ли двигается, что будет дальше</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP 8: что нового, туда ли двигается, что будет дальше <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/11/video-what-s-coming-in-phpstorm-2020-3-episode-2/"
-               target="_blank" rel="noopener">Video: What’s Coming in PhpStorm 2020.3 – Episode 2</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Video: What’s Coming in PhpStorm 2020.3 – Episode 2</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/10/php-annotated-october-2020/"
-               target="_blank" rel="noopener">PHP Annotated – October 2020</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – October 2020</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/10/video-what-s-coming-in-phpstorm-2020-3-episode-1/"
-               target="_blank" rel="noopener">Video: What’s Coming in PhpStorm 2020.3 – Episode 1</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Video: What’s Coming in PhpStorm 2020.3 – Episode 1</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=FQNd9W3nb3A"
-               target="_blank" rel="noopener">Открытое собеседование PHP Point #1</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Открытое собеседование PHP Point #1 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/10/ask-me-anything-session-on-reddit-with-the-phpstorm-team/"
-               target="_blank" rel="noopener">Ask Me Anything Session on Reddit with the PhpStorm Team</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Ask Me Anything Session on Reddit with the PhpStorm Team</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/09/php-annotated-september-2020/"
-               target="_blank" rel="noopener">PHP Annotated – September 2020</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – September 2020</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=i9iC58z0yHE"
-               target="_blank" rel="noopener">PHP Digest Live #194</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Digest Live #194 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/09/new-video-from-christoph-rumpel-code-snippets-with-phpstorm-live-nbsp-templates/"
-               target="_blank" rel="noopener">New Video From Christoph Rumpel: Code Snippets with PhpStorm Live Templates</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">New Video From Christoph Rumpel: Code Snippets with PhpStorm Live Templates</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/09/video-nikita-popov-and-nikolas-grekas-on-symfony-php-8-compatibility/"
-               target="_blank" rel="noopener">Video: Nikita Popov and Nikolas Grekas on Symfony PHP 8 Compatibility</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Video: Nikita Popov and Nikolas Grekas on Symfony PHP 8 Compatibility</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/08/php-annotated-august-2020/"
-               target="_blank" rel="noopener">PHP Annotated – August 2020</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – August 2020</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=mvjj_YX_BqQ"
-               target="_blank" rel="noopener">PHP Digest Live #195</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Digest Live #195 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/07/episode-5-what-s-coming-in-phpstorm-2020-2-eap-video-series/"
-               target="_blank" rel="noopener">Episode 5 – What’s Coming in PhpStorm 2020.2 – EAP Video Series</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Episode 5 – What’s Coming in PhpStorm 2020.2 – EAP Video Series</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=DEV3K_Tf5Do"
-               target="_blank" rel="noopener">PHP Digest Live #196</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Digest Live #196 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/07/new-video-from-christoph-rumpel-phpstorm-plugins-for-laravel/"
-               target="_blank" rel="noopener">New Video From Christoph Rumpel: PhpStorm Plugins for Laravel</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">New Video From Christoph Rumpel: PhpStorm Plugins for Laravel</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/07/what-s-coming-in-phpstorm-2020-2-eap-video-series-episode-4/"
-               target="_blank" rel="noopener">What’s Coming in PhpStorm 2020.2 – EAP Video Series | Episode 4</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">What’s Coming in PhpStorm 2020.2 – EAP Video Series | Episode 4</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/07/phpstan-and-psalm-support-coming-to-phpstorm/"
-               target="_blank" rel="noopener">PHPStan and Psalm Support Coming to PhpStorm Soon</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHPStan and Psalm Support Coming to PhpStorm Soon</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/07/whats-coming-in-phpstorm-2020-2-eap-video-series-episode-3/"
-               target="_blank" rel="noopener">What’s Coming in PhpStorm 2020.2 – EAP Video Series | Episode 3</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">What’s Coming in PhpStorm 2020.2 – EAP Video Series | Episode 3</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/06/whats-coming-in-phpstorm-2020-2-eap-video-series-episode-2/"
-               target="_blank" rel="noopener">What’s Coming in PhpStorm 2020.2 – EAP Video Series | Episode 2</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">What’s Coming in PhpStorm 2020.2 – EAP Video Series | Episode 2</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/06/php-annotated-june-2020/"
-               target="_blank" rel="noopener">PHP Annotated – June 2020</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – June 2020</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/06/whats-coming-in-phpstorm-2020-2-eap-video-series-episode-1/"
-               target="_blank" rel="noopener">What’s Coming in PhpStorm 2020.2 — EAP Video Series | Episode 1</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--podcast">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">What’s Coming in PhpStorm 2020.2 — EAP Video Series | Episode 1</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--podcast"
                href="https://soundcloud.com/podlodka/podlodka-180-php"
-               target="_blank" rel="noopener">Podlodka Podcast #180 – PHP</a>
-                            <span class="index-where">Podlodka</span>
-                <span class="index-type">Podcast</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Podlodka Podcast #180 – PHP <span class="index-note">Podcast&nbsp;·&nbsp;Podlodka</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/06/php-turns-25/"
-               target="_blank" rel="noopener">PHP Turns 25: A Short History of PHP and 50% PhpStorm Discount</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Turns 25: A Short History of PHP and 50% PhpStorm Discount</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/04/php-annotated-april-2020/"
-               target="_blank" rel="noopener">PHP Annotated – April 2020</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – April 2020</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/04/new-video-series-phpstorm-tips-with-christoph-rumpel/"
-               target="_blank" rel="noopener">New Video Series: PhpStorm Tips with Christoph Rumpel</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">New Video Series: PhpStorm Tips with Christoph Rumpel</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/03/episode-7-whats-coming-in-phpstorm-2020-1-eap-video-series/"
-               target="_blank" rel="noopener">Episode 7 – What’s Coming in PhpStorm 2020.1 – EAP Video Series</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Episode 7 – What’s Coming in PhpStorm 2020.1 – EAP Video Series</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/03/episode-6-whats-coming-in-phpstorm-2020-1-eap-video-series/"
-               target="_blank" rel="noopener">Episode 6 – What’s Coming in PhpStorm 2020.1 – EAP Video Series</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Episode 6 – What’s Coming in PhpStorm 2020.1 – EAP Video Series</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/03/episode-5-whats-coming-in-phpstorm-2020-1-eap-video-series/"
-               target="_blank" rel="noopener">Episode 5 – What’s Coming in PhpStorm 2020.1 – EAP Video Series</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Episode 5 – What’s Coming in PhpStorm 2020.1 – EAP Video Series</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/03/php-annotated-march-2020/"
-               target="_blank" rel="noopener">PHP Annotated – March 2020</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – March 2020</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/03/episode-4-whats-coming-in-phpstorm-2020-1-eap-video-series/"
-               target="_blank" rel="noopener">Episode 4 – What’s Coming in PhpStorm 2020.1 – EAP Video Series</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Episode 4 – What’s Coming in PhpStorm 2020.1 – EAP Video Series</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/02/episode-3-whats-coming-in-phpstorm-2020-1-eap-video-series/"
-               target="_blank" rel="noopener">Episode 3 – What’s Coming in PhpStorm 2020.1 – EAP Video Series</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Episode 3 – What’s Coming in PhpStorm 2020.1 – EAP Video Series</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/02/whats-coming-in-phpstorm-2020-1-eap-video-series-season-2020-1-episode-2/"
-               target="_blank" rel="noopener">What’s Coming in PhpStorm 2020.1 – EAP Video Series | Season 2020.1 Episode 2</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">What’s Coming in PhpStorm 2020.1 – EAP Video Series | Season 2020.1 Episode 2</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/02/php-annotated-february-2020/"
-               target="_blank" rel="noopener">PHP Annotated – February 2020</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – February 2020</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/02/whats-coming-in-phpstorm-2020-1-eap-video-series-season-2020-1-episode-1/"
-               target="_blank" rel="noopener">What’s Coming in PhpStorm 2020.1 – EAP Video Series | Season 2020.1 Episode 1</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">What’s Coming in PhpStorm 2020.1 – EAP Video Series | Season 2020.1 Episode 1</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/01/our-pledge-to-open-source/"
-               target="_blank" rel="noopener">Our Pledge to Open Source</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Our Pledge to Open Source</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2020/01/php-annotated-january-2020/"
-               target="_blank" rel="noopener">PHP Annotated – January 2020</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article is-year-start">
-            <span class="index-year">2019</span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – January 2020</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article is-year-start"
                href="https://blog.jetbrains.com/phpstorm/2019/12/how-to-upgrade-to-php-7-4-with-phpstorm/"
-               target="_blank" rel="noopener">How to Upgrade to PHP 7.4 with PhpStorm</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year">2019</span>
+                <span class="index-title">How to Upgrade to PHP 7.4 with PhpStorm</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=ia1KSZCG2Bs"
-               target="_blank" rel="noopener">How to upgrade to PHP 7.4 with PhpStorm</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">How to upgrade to PHP 7.4 with PhpStorm <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/12/php-annotated-december-2019/"
-               target="_blank" rel="noopener">PHP Annotated – December 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – December 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/11/php-annotated-november-2019/"
-               target="_blank" rel="noopener">PHP Annotated – November 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – November 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/10/phpworld-bulgaria-php-php-barcelona-symfonycon-cool-events-to-go-to-this-fall/"
-               target="_blank" rel="noopener">php[world], Bulgaria PHP, PHP.BARCELONA, SymfonyCon – Cool Events to Go to This Fall</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">php[world], Bulgaria PHP, PHP.BARCELONA, SymfonyCon – Cool Events to Go to This Fall</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/10/php-annotated-october-2019/"
-               target="_blank" rel="noopener">PHP Annotated – October 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – October 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/09/php-annotated-september-2019/"
-               target="_blank" rel="noopener">PHP Annotated – September 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – September 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/08/php-annotated-august-2019/"
-               target="_blank" rel="noopener">PHP Annotated – August 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – August 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/07/php-annotated-july-2019/"
-               target="_blank" rel="noopener">PHP Annotated – July 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated – July 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/06/php-annotated-monthly-june-2019/"
-               target="_blank" rel="noopener">PHP Annotated Monthly – June 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated Monthly – June 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/06/phpstorm-and-youtrack-we-want-your-feedback/"
-               target="_blank" rel="noopener">PhpStorm and YouTrack: We Want Your Feedback</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PhpStorm and YouTrack: We Want Your Feedback</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/05/php-annotated-monthly-may-2019/"
-               target="_blank" rel="noopener">PHP Annotated Monthly – May 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated Monthly – May 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/04/reworked-imports-code-cleanup/"
-               target="_blank" rel="noopener">Reworked Imports & Code Cleanup</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Reworked Imports & Code Cleanup</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/03/php-annotated-monthly-march-2019/"
-               target="_blank" rel="noopener">PHP Annotated Monthly – March 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated Monthly – March 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/02/new-phpstorm-meta-php-features/"
-               target="_blank" rel="noopener">New .phpstorm.meta.php features</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">New .phpstorm.meta.php features</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/02/php-annotated-monthly-february-2019/"
-               target="_blank" rel="noopener">PHP Annotated Monthly – February 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated Monthly – February 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/01/php-annotated-monthly-january-2019/"
-               target="_blank" rel="noopener">PHP Annotated Monthly – January 2019</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated Monthly – January 2019</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2019/01/nikita-popov-joins-phpstorm-team/"
-               target="_blank" rel="noopener">Nikita Popov joins PhpStorm Team</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video is-year-start">
-            <span class="index-year">2018</span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Nikita Popov joins PhpStorm Team</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video is-year-start"
                href="https://www.youtube.com/watch?v=KEn6t3HJ5L4"
-               target="_blank" rel="noopener">PHP-Дайджест № 146</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year">2018</span>
+                <span class="index-title">PHP-Дайджест № 146 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2018/12/php-annotated-monthly-december-2018/"
-               target="_blank" rel="noopener">PHP Annotated Monthly – December 2018</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated Monthly – December 2018</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=qnbn9RiOkuU"
-               target="_blank" rel="noopener">PHP-Дайджест № 145</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP-Дайджест № 145 <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2018/11/php-annotated-monthly-november-2018/"
-               target="_blank" rel="noopener">PHP Annotated Monthly – November 2018</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated Monthly – November 2018</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2018/10/sharing-code-snippets-in-phpstorm-easy-way/"
-               target="_blank" rel="noopener">Sharing Code Snippets in PhpStorm Easy Way</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Sharing Code Snippets in PhpStorm Easy Way</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=bWbXMy_mxxE"
-               target="_blank" rel="noopener">Quickstart with Docker in PhpStorm</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">Quickstart with Docker in PhpStorm <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2018/09/php-annotated-monthly-september-2018/"
-               target="_blank" rel="noopener">PHP Annotated Monthly – September 2018</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--video">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated Monthly – September 2018</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--video"
                href="https://www.youtube.com/watch?v=bjg5UWcl_oo"
-               target="_blank" rel="noopener">PHP Development in PhpStorm</a>
-                            <span class="index-where">YouTube</span>
-                <span class="index-type">Video</span>
-                    </li>
-                                            <li class="index-row index-row--article">
-            <span class="index-year"></span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Development in PhpStorm <span class="index-note">Video</span></span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--article"
                href="https://blog.jetbrains.com/phpstorm/2018/08/php-annotated-monthly-august-2018/"
-               target="_blank" rel="noopener">PHP Annotated Monthly – August 2018</a>
-                            <span class="index-where">PhpStorm blog</span>
-                <span class="index-type">Article</span>
-                    </li>
-                                            <li class="index-row index-row--talk is-year-start">
-            <span class="index-year">2017</span>
-            <a class="index-title"
+               target="_blank" rel="noopener">
+                <span class="index-year"></span>
+                <span class="index-title">PHP Annotated Monthly – August 2018</span>
+            </a>
+        </li>
+                                                                            <li>
+            <a class="index-row index-row--talk is-year-start"
                href="https://www.youtube.com/watch?v=n6Iasl6bx4M"
-               target="_blank" rel="noopener">Асинхронный PHP</a>
-                            <span class="index-where">ThinkPHP, Ukraine</span>
-                <span class="index-type">Talk</span>
-                    </li>
+               target="_blank" rel="noopener">
+                <span class="index-year">2017</span>
+                <span class="index-title">Асинхронный PHP <span class="index-note">Talk&nbsp;·&nbsp;ThinkPHP, Ukraine</span></span>
+            </a>
+        </li>
             </ol>
 </details></section></main>
 
 <footer class="site-footer">
     <div class="site-footer-inner">
         <span>© Roman Pronskiy</span>
-        <span><a href="https://pronskiy.com/atom.xml">Feed</a></span>
+        <span class="site-footer-right">
+            <a href="https://pronskiy.com/atom.xml">Feed</a>
+                        <button type="button" class="theme-toggle" aria-label="Switch to dark mode" data-tip="Switch to dark mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/></svg>
+            </button>
+        </span>
     </div>
 </footer>
 
 
 <script>hljs.highlightAll();</script>
+<script>
+// Footer colour-scheme toggle. It flips between light and dark; choosing the
+// side the OS already prefers clears the override, so "follow the system" is
+// reachable without a third state. Which icon shows is decided in CSS from the
+// same tokens as the colours. Another tab changing the choice arrives through
+// the storage event.
+(function () {
+  var btn = document.querySelector('.theme-toggle');
+  if (!btn || !window.theme) return;
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+  function os() { return mq.matches ? 'dark' : 'light'; }
+  function effective() { return window.theme.get() || os(); }
+  function sync() {
+    var label = 'Switch to ' + (effective() === 'dark' ? 'light' : 'dark') + ' mode';
+    btn.setAttribute('aria-label', label);
+    btn.setAttribute('data-tip', label);
+  }
+  btn.addEventListener('click', function () {
+    var next = effective() === 'dark' ? 'light' : 'dark';
+    window.theme.set(next === os() ? '' : next);
+    sync();
+  });
+  mq.addEventListener('change', sync);
+  window.addEventListener('storage', function (e) {
+    if (e.key === 'theme') { window.theme.apply(window.theme.get()); sync(); }
+  });
+  sync();
+})();
+</script>
 <script>
 // Video strip: retract the edge fades at whichever end of the scroll you reach.
 (function() {
