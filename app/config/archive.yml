@@ -34,6 +34,8 @@
 # Keep the original website previews for PhpStorm Light and DAWhub.
 # `featured: true` selects the three homepage projects; the first featured entry
 # takes the lead spot with the big preview, the other two get compact rows.
+# `thumb:` is an optional square image for a compact row, for previews whose
+# centre crop reads badly (wide lettering, off-centre subjects).
 # Illustrations are intentionally legible at thumbnail size, without live statistics.
 # `status:` marks a project that is no longer active ("Archived", "Acquired by …"):
 # its text is a muted note after the name and the preview loses its colour.
@@ -55,6 +57,7 @@ projects:
     featured: true
     url: https://phpstorm.dev/light-mode
     image: phpstorm-light.jpg
+    thumb: phpstorm-light-square.jpg   # the compact row's square crop lost the lettering
     desc: "An experimental, trimmed-down PhpStorm build: faster startup, lower memory, fewer bundled features."
 
   - name: The PHP Foundation
@@ -66,11 +69,6 @@ projects:
     url: https://github.com/modelcontextprotocol/php-sdk
     image: mcp-php-sdk.svg
     desc: "The official PHP SDK for the Model Context Protocol, built by Symfony and The PHP Foundation. I initiated it with Anthropic and coordinated it through the Foundation."
-
-  - name: PHP Digest
-    url: https://t.me/phpdigest
-    image: php-digest.svg
-    desc: "A Russian-language PHP newsletter I started in 2012: 222 issues on Habr, now a monthly Telegram channel. PHP Annotated grew out of it."
 
   - name: redpen
     url: https://github.com/pronskiy/redpen
@@ -92,6 +90,11 @@ projects:
     url: https://plugins.jetbrains.com/plugin/32595-php-typehints-extra
     image: php-typehints-extra.svg
     desc: "A PhpStorm plugin that adds extra type-hinting capabilities to PHP code."
+
+  - name: PHP Digest
+    url: https://t.me/phpdigest
+    image: php-digest.svg
+    desc: "A Russian-language PHP newsletter I ran from 2012 to 2022: 222 issues on Habr. It lives on as a monthly Telegram channel maintained by the community. PHP Annotated grew out of it."
 
   - name: Elephpant Progress Bar
     url: https://plugins.jetbrains.com/plugin/15291-elephpant-progress-bar

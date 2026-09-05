@@ -106,7 +106,8 @@ Rules worth keeping:
   by Roman. The
   `project-list.html` partial renders both the homepage and `/projects/`.
   `featured: true` selects the three homepage projects; the first gets the lead
-  position. Previews avoid tiny repository statistics. The redpen screenshot
+  position, the other two compact rows with a square crop of the preview, and
+  `thumb:` supplies a purpose-made square when that crop reads badly. Previews avoid tiny repository statistics. The redpen screenshot
   comes from its repository's `docs/screenshot.png`. `status: "…"` marks a
   project that is no longer active ("Archived", "Acquired by …"): the text
   becomes a muted note after the name and the preview sits in greyscale until
