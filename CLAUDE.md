@@ -107,12 +107,14 @@ Rules worth keeping:
   `project-list.html` partial renders both the homepage and `/projects/`.
   `featured: true` selects the three homepage projects; the first gets the lead
   position. Previews avoid tiny repository statistics. The redpen screenshot
-  comes from its repository's `docs/screenshot.png`. `acquired: "…"` marks a
-  project that changed hands: the text becomes a muted note after the name and
-  the preview sits in greyscale until hovered. Keep those last in the list.
+  comes from its repository's `docs/screenshot.png`. `status: "…"` marks a
+  project that is no longer active ("Archived", "Acquired by …"): the text
+  becomes a muted note after the name and the preview sits in greyscale until
+  hovered. Keep those last in the list.
 - **Navigation**: Projects, Writing (`/blog/`), Talks & videos (`/videos/`), Archive.
   Pages set `nav_section` to mark the current section; post URLs select Writing.
-  The mobile brand has its own row. Music and contact links live in the footer.
+  The mobile brand has its own row. The footer holds the feed link and the theme toggle;
+  music is linked from the intro.
 - **Archive filters**: `archive-filters.html` and `assets/js/archive.js`, enabled
   by `archive_filters: true` in front matter. Rows expose `data-type` and
   `data-year`; filtering rebuilds visible year labels. Query parameters persist

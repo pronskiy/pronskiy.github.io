@@ -15,6 +15,14 @@
 #   PHP Foundation  https://github.com/ThePHPF/thephp.foundation, source/_posts/*.md
 #                   whose front matter lists `roman-pronskiy` under `author`. Date and
 #                   slug come from the filename; URL is /blog/YYYY/MM/DD/slug/.
+#                   Four posts carry Roman's byline on the live site but have an
+#                   EMPTY `author:` in front matter, so the filter misses them; they
+#                   are added by hand below (2022-11-22, 2023-09-06, 2024-09-17,
+#                   2024-09-30). Keep them when regenerating.
+#   Hand-curated    Habr, Medium and X entries (venue Habr / Medium / X) are not
+#                   generated. The PHP-Дайджест series on Habr (222 issues, 2012 to
+#                   2022) is represented by its final issue only; the run is
+#                   described on /articles and on the PHP Digest project card.
 #
 # Same rules as archive.yml: `date` MUST be a full YYYY-MM-DD (unquoted, so YAML
 # parses it to a timestamp that sorts against post dates), and `articles:` must
@@ -22,6 +30,12 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 articles:
+  - type: article
+    date: 2026-06-16
+    title: "Swoole AOT is officially becoming TypePHP"
+    url: https://x.com/pronskiy/article/2066920077115441183
+    venue: X
+
   - type: article
     date: 2026-01-26
     title: "Meet team.blue: A PHP Foundation Sponsor supporting the language at the core of its ecosystem"
@@ -143,6 +157,18 @@ articles:
     venue: The PHP Foundation
 
   - type: article
+    date: 2024-09-30
+    title: "The PHP Foundation Calls for Sponsors: Help Shape the Future of PHP"
+    url: https://thephp.foundation/blog/2024/09/30/call-fo-sponsors/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2024-09-17
+    title: "The PHP Foundation application form for 2025 is now open"
+    url: https://thephp.foundation/blog/2024/09/17/application-form-2025/
+    venue: The PHP Foundation
+
+  - type: article
     date: 2024-09-12
     title: "PHP Foundation Update, September 2024"
     url: https://thephp.foundation/blog/2024/09/12/php-foundation-update-september-2024/
@@ -239,6 +265,12 @@ articles:
     venue: PhpStorm blog
 
   - type: article
+    date: 2023-09-06
+    title: "We Are Looking for Developers to Join the PHP Foundation"
+    url: https://thephp.foundation/blog/2023/09/06/application-form-2023/
+    venue: The PHP Foundation
+
+  - type: article
     date: 2023-08-01
     title: "PHP Annotated – July 2023"
     url: https://blog.jetbrains.com/phpstorm/2023/08/php-annotated-july-2023/
@@ -291,6 +323,18 @@ articles:
     title: "PHP Annotated – December 2022"
     url: https://blog.jetbrains.com/phpstorm/2022/12/php-annotated-december-2022/
     venue: PhpStorm blog
+
+  - type: article
+    date: 2022-11-22
+    title: "The PHP Foundation: Impact and Transparency Report 2022"
+    url: https://thephp.foundation/blog/2022/11/22/transparency-and-impact-report-2022/
+    venue: The PHP Foundation
+
+  - type: article
+    date: 2022-02-21
+    title: "PHP-Дайджест № 222 — the last of 222 issues on Habr, 2012 to 2022"
+    url: https://habr.com/ru/articles/652753/
+    venue: Habr
 
   - type: article
     date: 2022-11-02
@@ -437,6 +481,12 @@ articles:
     venue: PhpStorm blog
 
   - type: article
+    date: 2021-02-24
+    title: "PHP 8 и развитие языка в 30 вопросах и ответах"
+    url: https://habr.com/ru/companies/skyeng/articles/543794/
+    venue: Habr
+
+  - type: article
     date: 2021-02-23
     title: "What’s Coming in PhpStorm 2021.1 – Episode 1"
     url: https://blog.jetbrains.com/phpstorm/2021/02/video-what-s-coming-in-phpstorm-2021-1-episode-1/
@@ -567,6 +617,12 @@ articles:
     title: "What’s Coming in PhpStorm 2020.2 — EAP Video Series | Episode 1"
     url: https://blog.jetbrains.com/phpstorm/2020/06/whats-coming-in-phpstorm-2020-2-eap-video-series-episode-1/
     venue: PhpStorm blog
+
+  - type: article
+    date: 2020-06-08
+    title: "PHP 25 лет: краткая история языка"
+    url: https://habr.com/ru/companies/JetBrains/articles/505798/
+    venue: Habr
 
   - type: article
     date: 2020-06-08
@@ -773,6 +829,18 @@ articles:
     venue: PhpStorm blog
 
   - type: article
+    date: 2018-10-17
+    title: "Зеев Сураски: Будущее Zend Engine и Zend Framework"
+    url: https://habr.com/ru/articles/426809/
+    venue: Habr
+
+  - type: article
+    date: 2018-03-13
+    title: "dev||bet – битва программистов и технологий"
+    url: https://habr.com/ru/articles/351096/
+    venue: Habr
+
+  - type: article
     date: 2018-09-28
     title: "PHP Annotated Monthly – September 2018"
     url: https://blog.jetbrains.com/phpstorm/2018/09/php-annotated-monthly-september-2018/
@@ -783,3 +851,9 @@ articles:
     title: "PHP Annotated Monthly – August 2018"
     url: https://blog.jetbrains.com/phpstorm/2018/08/php-annotated-monthly-august-2018/
     venue: PhpStorm blog
+  - type: article
+    date: 2017-09-01
+    title: "The Great Doctrine or 10 simple rules that any developer should follow"
+    url: https://medium.com/@pronskiy/the-great-doctrine-or-10-simple-rules-that-any-developer-should-follow-d0e4b92bd62a
+    venue: Medium
+

@@ -2,7 +2,7 @@
 layout: page
 permalink: projects
 title: Projects
-subtitle: "Tools and experiments for developers and music makers."
+subtitle: "Some of the things I've built that I'm proud of."
 nav_section: projects
 wide: true
 ---

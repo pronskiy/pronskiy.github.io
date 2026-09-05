@@ -14,8 +14,8 @@
 #
 #   2. When only the year is known, give a plausible full date anyway and set
 #      `date_display: "2025"` — that string is what actually renders, so the
-#      synthetic month/day never shows. Entries below carry synthetic months
-#      that preserve the order they had in the old talks.md.
+#      synthetic month/day never shows. As of September 2026 every entry has a
+#      real date (event date where known, otherwise the YouTube upload date).
 #
 #   3. `archive:` must be defined in THIS FILE ONLY. Site-config imports merge
 #      lists by numeric index, so a second file defining `archive:` would
@@ -34,8 +34,9 @@
 # Keep the original website previews for PhpStorm Light and DAWhub.
 # `featured: true` selects the three homepage projects; order puts the lead first.
 # Illustrations are intentionally legible at thumbnail size, without live statistics.
-# `acquired:` marks a project that changed hands: its text is a muted note after
-# the name and the preview loses its colour. Keep those last in the list.
+# `status:` marks a project that is no longer active ("Archived", "Acquired by …"):
+# its text is a muted note after the name and the preview loses its colour.
+# Keep those last in the list.
 projects:
   - name: PhpStorm Light
     featured: true
@@ -55,6 +56,21 @@ projects:
     image: dawhub.jpg
     desc: "Diff and version control for FL Studio projects. Starting with a CLI for tracking what changed."
 
+  - name: The PHP Foundation
+    url: https://thephp.foundation
+    image: thephp-foundation.jpg
+    desc: "The non-profit that funds PHP core development. I founded it in 2021 and led it as its first Executive Director until 2026."
+
+  - name: MCP PHP SDK
+    url: https://github.com/modelcontextprotocol/php-sdk
+    image: mcp-php-sdk.svg
+    desc: "The official PHP SDK for the Model Context Protocol, built by Symfony and The PHP Foundation. I initiated it with Anthropic and coordinated it through the Foundation."
+
+  - name: PHP Digest
+    url: https://t.me/phpdigest
+    image: php-digest.svg
+    desc: "A Russian-language PHP newsletter I started in 2012: 222 issues on Habr, now a monthly Telegram channel. PHP Annotated grew out of it."
+
   - name: redpen
     url: https://github.com/pronskiy/redpen
     image: redpen-preview.png
@@ -71,21 +87,48 @@ projects:
     image: php-src-developer.svg
     desc: "A Claude Code plugin for working on the PHP language core, php/php-src."
 
+  - name: PHP Typehints Extra
+    url: https://plugins.jetbrains.com/plugin/32595-php-typehints-extra
+    image: php-typehints-extra.svg
+    desc: "A PhpStorm plugin that adds extra type-hinting capabilities to PHP code."
+
+  - name: Elephpant Progress Bar
+    url: https://plugins.jetbrains.com/plugin/15291-elephpant-progress-bar
+    image: elephpant-progress-bar.svg
+    desc: "A PhpStorm plugin that replaces the progress bar with an elephpant."
+
+  - name: PHP 8.0 release page
+    url: https://www.php.net/releases/8.0/en.php
+    image: php-8-release-page.jpg
+    desc: "The php.net page that announced PHP 8.0. I proposed it, designed it with Alexander Makarov and Svetlana Belozerova, and shipped it; the template served every release through 8.4."
+
+  - name: 25 Years of PHP
+    url: https://www.jetbrains.com/lp/php-25/
+    image: php-25.jpg
+    desc: "A timeline of PHP's history for the language's 25th birthday in 2020, with the data open-sourced and reviewed by core contributors."
+
+  - name: mcp
+    url: https://github.com/pronskiy/mcp
+    image: mcp.svg
+    desc: "The fast, PHP way to build MCP servers: tools, resources and prompts in plain PHP."
+    status: Archived
+
+  - name: phpup
+    url: https://github.com/pronskiy/phpup
+    image: phpup.svg
+    desc: "A single-file PHP toolchain: Composer and other tools without PHP installed on the machine."
+    status: Archived
+
   - name: Search Exclude
     url: https://wordpress.org/plugins/search-exclude/
     image: search-exclude.svg
     desc: "A WordPress plugin that hides chosen pages and posts from search results."
-    acquired: Acquired by QuadLayers in 2023
-
+    status: Acquired by QuadLayers in 2023
 archive:
 
   # ── Recent YouTube videos ───────────────────────────────────────────────
-  # NOTE: these four dates are ESTIMATES — they were hardcoded into
-  # source/index.html without dates. Correct them and drop `date_display`
-  # once the real publication dates are known.
   - type: video
-    date: 2026-04-20
-    date_display: "2026"
+    date: 2026-02-11
     title: "These AI Dev Tools Changed How I Code This Week"
     url: https://www.youtube.com/watch?v=nOCWaoqeBA0
     youtube: nOCWaoqeBA0
@@ -93,8 +136,7 @@ archive:
     featured: true
 
   - type: video
-    date: 2026-03-16
-    date_display: "2026"
+    date: 2026-01-29
     title: "Claude Code tricks, Wispr, Superpowers, PHP news — This Week's Dev Gems"
     url: https://www.youtube.com/watch?v=Rc-ttLlstC8
     youtube: Rc-ttLlstC8
@@ -102,8 +144,7 @@ archive:
     featured: true
 
   - type: video
-    date: 2025-07-08
-    date_display: "2025"
+    date: 2025-04-03
     title: "MCP — What is that?"
     url: https://www.youtube.com/watch?v=qPVtVulhFC4
     youtube: qPVtVulhFC4
@@ -111,8 +152,7 @@ archive:
     featured: true
 
   - type: video
-    date: 2023-09-12
-    date_display: "2023"
+    date: 2024-08-06
     title: "Benchmarking Laravel with Swoole, FrankenPHP, RoadRunner, php-fpm, ngx-php"
     url: https://www.youtube.com/watch?v=ZB129Tjkas8
     youtube: ZB129Tjkas8
@@ -134,34 +174,32 @@ archive:
     venue: "Laravel Live Japan"
     location: "Tachikawa, Tokyo"
 
-  # ── Talks, podcasts and streams (migrated from _pages/talks.md) ─────────
+  # ── Talks, podcasts and streams ─────────────────────────────────────────
   - type: talk
-    date: 2025-12-15
-    date_display: 2025
+    date: 2025-06-26
     title: "The PHP Foundation and What’s Next for PHP"
     url: https://youtu.be/2qTJgx2QF9M
     youtube: 2qTJgx2QF9M
-    venue: "PHPTalks"
+    venue: "Barcelona PHP Talks"
     location: "Barcelona, Spain"
 
   - type: talk
-    date: 2025-06-11
-    date_display: 2025
+    date: 2025-06-17
     title: "Growing PHP for the Future"
     url: https://youtu.be/zxTMzygBt7s
     youtube: zxTMzygBt7s
     venue: "PHPverse 2025"
 
   - type: podcast
-    date: 2025-10-15
-    date_display: 2025
+    date: 2025-06-06
     title: "PHP Web Frameworks | Django Chat Podcast"
     url: https://djangochat.com/episodes/php-web-frameworks-roman-pronskiy
+    youtube: bJxH5Se0z-k
+    duration: "65:03"
     venue: "Django Chat"
 
   - type: talk
-    date: 2024-02-06
-    date_display: 2024
+    date: 2024-02-05
     title: "The PHP Foundation"
     url: https://www.youtube.com/watch?v=XE4g1Tl6RQw
     youtube: XE4g1Tl6RQw
@@ -169,22 +207,19 @@ archive:
     location: "Amsterdam, Netherlands"
 
   - type: video
-    date: 2024-11-15
-    date_display: 2024
+    date: 2024-03-08
     title: "Let's talk about Pecl"
     url: https://www.youtube.com/watch?v=uWsGDUCxbT0
     youtube: uWsGDUCxbT0
 
   - type: video
-    date: 2024-06-08
-    date_display: 2024
+    date: 2024-06-13
     title: "Celebrating 29 years of PHP, Elephpant giveaway!"
     url: https://www.youtube.com/watch?v=uQmGkpWYvHM
     youtube: uQmGkpWYvHM
 
   - type: talk
-    date: 2024-08-28
-    date_display: 2024
+    date: 2024-09-19
     title: "Inside Laracon 2024: PHP's Festival of Innovation and Connection"
     url: https://www.youtube.com/watch?v=WDitiAjJg7g
     youtube: WDitiAjJg7g
@@ -192,76 +227,66 @@ archive:
     location: "Dallas, TX"
 
   - type: video
-    date: 2024-11-21
-    date_display: 2024
+    date: 2024-11-22
     title: "Celebrating the PHP 8.4 release!"
     url: https://www.youtube.com/watch?v=1AL2oDt9q38
     youtube: 1AL2oDt9q38
 
   - type: video
-    date: 2023-01-15
-    date_display: 2023
+    date: 2023-01-25
     title: "PHP to WASM, Asymmetric Visibility, Async PHP, Transpiling and more: PHP Annotated Monthly, January"
     url: https://www.youtube.com/watch?v=Dx4knBnuJaw
     youtube: Dx4knBnuJaw
 
   - type: video
-    date: 2023-02-15
-    date_display: 2023
+    date: 2023-03-27
     title: "Laravel 10, PHPUnit 10, Readonly Properties, Hakana, and more: PHP Annotated Monthly, February"
     url: https://www.youtube.com/watch?v=v5VtCWgDebw
     youtube: v5VtCWgDebw
 
   - type: video
-    date: 2023-04-15
-    date_display: 2023
+    date: 2023-04-28
     title: "Native PHP, PER 2.0, clone with RFC, and more: PHP Annotated Monthly, April 2023"
     url: https://www.youtube.com/watch?v=SlX-1XIUI90
     youtube: SlX-1XIUI90
 
   - type: video
-    date: 2023-06-15
-    date_display: 2023
+    date: 2023-06-19
     title: "PHP Annotated Monthly, June 2023"
     url: https://www.youtube.com/watch?v=10ZOpS68lls
     youtube: 10ZOpS68lls
 
   - type: talk
-    date: 2023-08-15
-    date_display: 2023
+    date: 2023-11-16
     title: "Programming language as a product – How should PHP evolve?"
     url: https://www.youtube.com/watch?v=rp4y1oUGcKs
     youtube: rp4y1oUGcKs
-    venue: "PHPCon"
-    location: "Poland"
+    venue: "PHPCon Poland"
+    location: "Zawiercie, Poland"
 
   - type: talk
-    date: 2023-07-15
-    date_display: 2023
+    date: 2023-11-16
     title: "PHP Foundation: The past, the present, and the future"
     url: https://www.youtube.com/watch?v=NfcIWuF7YcM
     youtube: NfcIWuF7YcM
-    venue: "PHPCon"
-    location: "Poland"
+    venue: "PHPCon Poland"
+    location: "Zawiercie, Poland"
 
   - type: video
     date: 2023-11-23
-    date_display: 2023
     title: "Celebrating PHP 8.3 🥳"
     url: https://www.youtube.com/watch?v=VWryF035B6U
     youtube: VWryF035B6U
 
   - type: video
     date: 2021-12-31   # YouTube says 2022-01-31; filed under 2021 on purpose
-    date_display: 2021
     title: "PHP и Laravel дайджест январь 2022"
     url: https://www.youtube.com/watch?v=KZC4b5MqSTg
     youtube: KZC4b5MqSTg
     note: "PHP Digest, January 2022"
 
   - type: talk
-    date: 2022-10-14
-    date_display: 2022
+    date: 2022-10-13
     title: "The PHP Foundation: The past, the present, and the future"
     url: https://www.youtube.com/watch?v=JBPtPy9iSP0
     youtube: JBPtPy9iSP0
@@ -270,7 +295,6 @@ archive:
 
   - type: talk
     date: 2022-10-26
-    date_display: 2022
     title: "The New PHP Foundation: What Impact does it have?"
     url: https://www.youtube.com/watch?v=Nmb-_66RArs
     youtube: Nmb-_66RArs
@@ -278,164 +302,262 @@ archive:
     location: "Munich"
 
   - type: video
-    date: 2021-12-15
-    date_display: 2021
+    date: 2021-02-22
     title: "PHP Digest Live #199"
     url: https://www.youtube.com/watch?v=n5b4EnFAxfE
     youtube: n5b4EnFAxfE
 
   - type: video
-    date: 2021-11-15
-    date_display: 2021
+    date: 2021-02-08
     title: "PHP Digest Live #198"
     url: https://www.youtube.com/watch?v=lDrTqbuIyGg
     youtube: lDrTqbuIyGg
 
   - type: video
-    date: 2021-10-15
-    date_display: 2021
+    date: 2021-01-25
     title: "PHP Digest Live #197"
     url: https://www.youtube.com/watch?v=3xhOWG8RzEY
     youtube: 3xhOWG8RzEY
 
   - type: video
-    date: 2021-09-15
-    date_display: 2021
+    date: 2021-02-27
     title: "Большой стрим PHP-сообщества — Никита Попов, Александр Макаров, Валентин Удальцов и много других"
     url: https://www.youtube.com/watch?v=6JF2U39J4RY
     youtube: 6JF2U39J4RY
     note: "Big PHP community stream - Nikita Popov, Alexander Makarov, Valentin Udaltsov and many others"
 
   - type: video
-    date: 2021-08-15
-    date_display: 2021
+    date: 2021-03-15
     title: "PHP Digest Live #200"
     url: https://www.youtube.com/watch?v=Y4KH_2TjRrE
     youtube: Y4KH_2TjRrE
 
   - type: video
-    date: 2021-07-15
-    date_display: 2021
+    date: 2021-03-29
     title: "PHP Digest Live #201"
     url: https://www.youtube.com/watch?v=HHyv4AObhm0
     youtube: HHyv4AObhm0
 
   - type: video
-    date: 2021-11-26
-    date_display: 2021
+    date: 2021-11-25
     title: "Релиз PHP 8.1, запуск PHP Foundation и истории переезда на 8.0"
     url: https://www.youtube.com/watch?v=5D337gaVPa4
     youtube: 5D337gaVPa4
     note: "PHP 8.1 release, PHP Foundation launch and stories of moving to 8.0"
 
   - type: video
-    date: 2021-12-15
-    date_display: 2021
+    date: 2021-12-30
     title: "PHP и Laravel дайджест декабрь 2021"
     url: https://www.youtube.com/watch?v=fR4YoyHjFwk
     youtube: fR4YoyHjFwk
     note: "PHP Digest, December 2021"
 
   - type: video
-    date: 2021-11-15
-    date_display: 2021
+    date: 2021-12-02
     title: "PHP и Laravel дайджест ноябрь 2021"
     url: https://www.youtube.com/watch?v=6em31j_LrSo
     youtube: 6em31j_LrSo
     note: "PHP Digest, November 2021"
 
   - type: video
-    date: 2020-12-15
-    date_display: 2020
+    date: 2020-06-27
     title: "MoreView #11 | Роман Пронский - создатель PHP Digest и PMM в Jetbrains"
     url: https://www.youtube.com/watch?v=KvTQWv0phgE
     youtube: KvTQWv0phgE
 
   - type: video
-    date: 2020-11-15
-    date_display: 2020
+    date: 2020-11-25
     title: "PHP 8: что нового, туда ли двигается, что будет дальше"
     url: https://www.youtube.com/watch?v=QSszmWIrRyw
     youtube: QSszmWIrRyw
     note: "PHP 8: what's new, where it's going, what's next"
 
   - type: video
-    date: 2020-10-15
-    date_display: 2020
+    date: 2020-07-17
     title: "Открытое собеседование PHP Point #1"
     url: https://www.youtube.com/watch?v=FQNd9W3nb3A
     youtube: FQNd9W3nb3A
     note: "Public Mock Interview"
 
   - type: video
-    date: 2020-09-15
-    date_display: 2020
+    date: 2020-12-14
     title: "PHP Digest Live #194"
     url: https://www.youtube.com/watch?v=i9iC58z0yHE
     youtube: i9iC58z0yHE
 
   - type: video
-    date: 2020-08-15
-    date_display: 2020
+    date: 2020-12-28
     title: "PHP Digest Live #195"
     url: https://www.youtube.com/watch?v=mvjj_YX_BqQ
     youtube: mvjj_YX_BqQ
 
   - type: video
-    date: 2020-07-15
-    date_display: 2020
+    date: 2021-01-11
     title: "PHP Digest Live #196"
     url: https://www.youtube.com/watch?v=DEV3K_Tf5Do
     youtube: DEV3K_Tf5Do
 
   - type: podcast
-    date: 2020-06-15
-    date_display: 2020
+    date: 2020-09-07
     title: "Podlodka Podcast #180 – PHP"
     url: https://soundcloud.com/podlodka/podlodka-180-php
+    youtube: 7KRqAfEGTxA
+    duration: "101:36"
     venue: "Podlodka"
 
   - type: video
-    date: 2019-12-15
-    date_display: 2019
+    date: 2019-12-20
     title: "How to upgrade to PHP 7.4 with PhpStorm"
     url: https://www.youtube.com/watch?v=ia1KSZCG2Bs
     youtube: ia1KSZCG2Bs
 
-  - type: video
-    date: 2018-12-15
-    date_display: 2018
-    title: "PHP-Дайджест № 146"
+  - type: podcast
+    date: 2018-11-26
+    title: "PHP-Дайджест № 144"
     url: https://www.youtube.com/watch?v=KEn6t3HJ5L4
     youtube: KEn6t3HJ5L4
+    venue: "Пятиминутка PHP"
 
-  - type: video
-    date: 2018-11-15
-    date_display: 2018
+  - type: podcast
+    date: 2018-12-10
     title: "PHP-Дайджест № 145"
     url: https://www.youtube.com/watch?v=qnbn9RiOkuU
     youtube: qnbn9RiOkuU
+    venue: "Пятиминутка PHP"
 
   - type: video
-    date: 2018-10-15
-    date_display: 2018
+    date: 2018-08-28
     title: "Quickstart with Docker in PhpStorm"
     url: https://www.youtube.com/watch?v=bWbXMy_mxxE
     youtube: bWbXMy_mxxE
 
   - type: video
-    date: 2018-09-15
-    date_display: 2018
-    title: "PHP Development in PhpStorm"
+    date: 2018-02-28
+    title: "dev||bet: Python vs. JS"
     url: https://www.youtube.com/watch?v=bjg5UWcl_oo
     youtube: bjg5UWcl_oo
+    note: "Pilot of the dev battle format I launched in 2018"
 
   - type: talk
-    date: 2017-12-15
-    date_display: 2017
+    date: 2017-12-06
     title: "Асинхронный PHP"
     url: https://www.youtube.com/watch?v=n6Iasl6bx4M
     youtube: n6Iasl6bx4M
     venue: "ThinkPHP"
     location: "Ukraine"
     note: "Async PHP"
+
+  # ── Added September 2026 ────────────────────────────────────────────────
+  - type: talk
+    date: 2025-05-16
+    title: "The PHP Foundation: Three Years After"
+    url: https://www.youtube.com/watch?v=txtT4rd8IJk
+    youtube: txtT4rd8IJk
+    duration: "30:06"
+    venue: "phpday 2025"
+    location: "Verona, Italy"
+    note: "Keynote"
+
+  - type: video
+    date: 2025-12-08
+    title: "Built-in Laravel Support: A New Era for PhpStorm Developers"
+    url: https://www.youtube.com/watch?v=AZoOX6_mcZw
+    youtube: AZoOX6_mcZw
+    duration: "3:09"
+
+  - type: video
+    date: 2026-06-12
+    title: "The Story of PHP (teaser)"
+    url: https://www.youtube.com/watch?v=4W4y46WVdCU
+    youtube: 4W4y46WVdCU
+    duration: "2:29"
+    note: "CultRepo documentary; the full film is due later in 2026"
+
+  - type: video
+    date: 2025-06-08
+    title: "Happy Birthday PHP! I'm building LEGO elephpant!"
+    url: https://www.youtube.com/watch?v=mmsKDVAvrbw
+    youtube: mmsKDVAvrbw
+    duration: "1:23"
+
+  - type: video
+    date: 2024-06-10
+    title: "Running PHP 1.0 in 2024"
+    url: https://www.youtube.com/watch?v=0BPExYh5Anw
+    youtube: 0BPExYh5Anw
+    duration: "7:04"
+
+  - type: video
+    date: 2024-04-15
+    title: "A new tool for managing PHP extensions"
+    url: https://www.youtube.com/watch?v=W_09wf-JcLs
+    youtube: W_09wf-JcLs
+    duration: "6:14"
+    note: "Stream highlight from \"Let's talk about Pecl\""
+
+  - type: video
+    date: 2021-06-09
+    title: "PHP Digest Live #202–204"
+    url: https://www.youtube.com/watch?v=DYNbjSTjwPk
+    youtube: DYNbjSTjwPk
+    duration: "87:43"
+    note: "First-class callable syntax and other PHP 8.1 news, Symfony 5.3"
+
+  - type: talk
+    date: 2018-11-29
+    title: "PhpStorm: трюки и советы"
+    url: https://www.youtube.com/watch?v=eOZztpnIBh4
+    youtube: eOZztpnIBh4
+    duration: "122:07"
+    venue: "ZDay by Zfort"
+    location: "Kharkiv, Ukraine"
+    note: "PhpStorm: tricks and tips"
+
+  - type: podcast
+    date: 2019-08-12
+    title: "PHP-Дайджест № 162"
+    url: https://www.youtube.com/watch?v=X4B8bMcZ1-s
+    youtube: X4B8bMcZ1-s
+    duration: "5:49"
+    venue: "Пятиминутка PHP"
+
+  - type: podcast
+    date: 2019-07-29
+    title: "PHP-Дайджест № 161"
+    url: https://www.youtube.com/watch?v=GlK67VZXllk
+    youtube: GlK67VZXllk
+    duration: "9:03"
+    venue: "Пятиминутка PHP"
+
+  - type: podcast
+    date: 2019-07-15
+    title: "PHP-Дайджест № 160"
+    url: https://www.youtube.com/watch?v=Z0kj9wubml4
+    youtube: Z0kj9wubml4
+    duration: "3:28"
+    venue: "Пятиминутка PHP"
+
+  - type: podcast
+    date: 2019-02-11
+    title: "PHP-Дайджест № 149"
+    url: https://www.youtube.com/watch?v=E32asaN5K04
+    youtube: E32asaN5K04
+    duration: "4:47"
+    venue: "Пятиминутка PHP"
+
+  - type: podcast
+    date: 2019-01-14
+    title: "PHP-Дайджест № 147"
+    url: https://www.youtube.com/watch?v=jk0RYsDwVwI
+    youtube: jk0RYsDwVwI
+    duration: "5:01"
+    venue: "Пятиминутка PHP"
+
+  - type: podcast
+    date: 2018-12-31
+    title: "PHP-Дайджест № 146 — итоги 2018 года"
+    url: https://www.youtube.com/watch?v=0SP54AqOI5c
+    youtube: 0SP54AqOI5c
+    duration: "5:19"
+    venue: "Пятиминутка PHP"
+    note: "Year in review"
