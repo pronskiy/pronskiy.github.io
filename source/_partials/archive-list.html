@@ -11,7 +11,7 @@
     Each row is one link in two columns: the year (first row of a year only)
     and the title, with a muted note riding the end of the title. Articles are
     the bulk of the index and carry no note; every other kind names itself,
-    plus the venue for talks and podcasts and the running time for videos.
+    plus the venue for talks and podcasts.
 
     Sorting relies on both sides exposing `date` as a UNIX timestamp:
     Sculpin gives a DateTime-ish value, archive.yml dates are parsed to ints.
@@ -35,7 +35,6 @@
         date:     e.date,
         title:    e.title,
         url:      e.url,
-        duration: e.duration|default(null),
         venue:    e.venue|default(null)
                     ? e.venue ~ (e.location|default(null) ? ', ' ~ e.location|split(',')|first : '')
                     : '',
@@ -60,7 +59,6 @@
         {% set note = [] %}
         {% if item.type != 'article' %}{% set note = note|merge([labels[item.type]]) %}{% endif %}
         {% if item.venue and item.type in ['talk', 'podcast'] %}{% set note = note|merge([item.venue]) %}{% endif %}
-        {% if item.duration %}{% set note = note|merge([item.duration]) %}{% endif %}
         {% if older and not folded and year < fold_before %}
             {% set folded = true %}
 </ol>

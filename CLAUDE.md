@@ -64,9 +64,10 @@ Rules worth keeping:
 - **The index is two columns.** The year (first row of a year only) and the
   title, and the whole row is the link. Articles are the bulk of the index and
   carry no note; every other kind names itself in a muted note after the title,
-  plus the venue for talks and podcasts and the running time for videos. Do not
-  bring back a source or type column: the same three strings would fill it on
-  nine rows in ten.
+  plus the venue for talks and podcasts. Video rows carry no running time; the
+  duration pill lives on the thumbnail in the video strip only. Do not bring
+  back a source or type column: the same three strings would fill it on nine
+  rows in ten.
 - **Corners** are `--radius` (8px: thumbnails, row hover, code blocks) or
   `--radius-lg` (12px: project cards). Inline code is pinned to 4px.
 - **Hover is a soft tint** (`background: var(--ink-06)` on a rounded box) for
