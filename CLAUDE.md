@@ -35,8 +35,8 @@ the previous output in place, so a broken build can look like a successful one.
 
 ## Design
 
-The site is a **calm archive**: a compact profile header, then a hairline-ruled
-index of everything Roman has made. It is deliberately **ink and paper — there
+The site is a **calm archive**: a compact profile header, selected projects and writing, recent videos, and
+a short activity list. The full history lives at `/archive/`. It is deliberately **ink and paper — there
 is no accent colour.** Hierarchy comes from grid position, type scale and weight.
 The surface treatment borrows from luma.com: one rule weight, soft corners,
 muted secondary text, a soft tint on hover.
@@ -75,7 +75,7 @@ Rules worth keeping:
   inverts and nothing gains an underline.
 - **Underlines only in running text** (the masthead intro and post prose). Nav,
   contacts, profile lines and footer links are muted and go to ink on hover.
-- The homepage and the blog listing hang off one left edge: nav, masthead and
+- The homepage and the Writing listing hang off one left edge: nav, masthead and
   index all align to the `--container` gutter. Article and page bodies are the
   exception: they read in a column capped at `--measure` and centred in the
   container, with the nav and footer still on the container grid.
@@ -87,7 +87,7 @@ Rules worth keeping:
   and adds a `noindex` banner. Files prefixed `draft-` are ignored entirely.
 - **Pages**: `source/_pages/` (talks.md, articles.md, music.md, larajp.html). `wide: true`
   in a page's front matter lets its index run the full container width; `talks.md`
-  and `articles.md` use it.
+  and `articles.md` use it, as do `archive.md` and `projects.md`.
 - **Archive**: `app/config/archive.yml` — talks, podcasts and videos. Imported into
   `sculpin_site.yml` and exposed to Twig as `site.archive`. **Read the rules at the
   top of that file before editing it**; in particular a `date:` must be a full
@@ -97,13 +97,31 @@ Rules worth keeping:
   header records both sources, the selection regexes and how to regenerate it. The
   same date rule applies.
 - `source/_partials/archive-list.html` merges `data.posts`, `site.archive` and
-  `site.articles` into one reverse-chronological feed. The homepage, `/videos` and
+  `site.articles` into one reverse-chronological feed. The homepage, `/archive`, `/videos` and
   `/articles` all render through it; `blog.html` mirrors its row markup by hand
   so pagination keeps working, so change both when the row changes.
-- **Projects**: the `projects:` list in the same `archive.yml`. Each has an `image`
-  that is a local snapshot of the project's own `og:image`, resized to 960px wide
-  and saved as JPEG in `source/assets/img/projects/`. They are snapshots on purpose
-  (no runtime dependency on GitHub); re-fetch one when a project's card changes.
+- **Projects**: the `projects:` list in `archive.yml`. Each `image` is a local SVG
+  illustration, website preview, or product screenshot in `source/assets/img/projects/`.
+  Keep the original website previews for PhpStorm Light and DAWhub, as requested
+  by Roman. The
+  `project-list.html` partial renders both the homepage and `/projects/`.
+  `featured: true` selects the three homepage projects; the first gets the lead
+  position. Previews avoid tiny repository statistics. The redpen screenshot
+  comes from its repository's `docs/screenshot.png`.
+- **Navigation**: Projects, Writing (`/blog/`), Talks & videos (`/videos/`), Archive.
+  Pages set `nav_section` to mark the current section; post URLs select Writing.
+  The mobile brand has its own row. Music and contact links live in the footer.
+- **Archive filters**: `archive-filters.html` and `assets/js/archive.js`, enabled
+  by `archive_filters: true` in front matter. Rows expose `data-type` and
+  `data-year`; filtering rebuilds visible year labels. Query parameters persist
+  the selection and browser Back restores it. Without JS all rows stay visible.
+- **Homepage selection**: three public essays, six recent videos, and eight
+  activity entries. Unlisted posts remain excluded from every public listing.
+- **Music**: a responsive gallery with local video posters, direct listening
+  links, and native `<details>` for optional third-party players. YouTube embeds
+  in posts use `.video-embed` for a responsive 16:9 frame.
+- **Accessibility**: keep the skip link, visible keyboard focus, 44px icon hit
+  areas, and reduced-motion guards in both JavaScript text effects.
 
 ## Colour scheme
 

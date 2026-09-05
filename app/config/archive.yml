@@ -30,37 +30,43 @@
 # `projects:` below is a separate, undated list rendered by the Projects block.
 # ─────────────────────────────────────────────────────────────────────────────
 
-# `image` is a local snapshot of the project's own og:image, resized to 960px
-# wide, in source/assets/img/projects/. Re-snapshot when a project's card changes.
+# `image` is a local illustration, website preview, or screenshot in assets/img/projects/.
+# Keep the original website previews for PhpStorm Light and DAWhub.
+# `featured: true` selects the three homepage projects; order puts the lead first.
+# Illustrations are intentionally legible at thumbnail size, without live statistics.
 projects:
   - name: PhpStorm Light
+    featured: true
     url: https://phpstorm.dev/light-mode
     image: phpstorm-light.jpg
     desc: "An experimental, trimmed-down PhpStorm build: faster startup, lower memory, fewer bundled features."
 
   - name: php-debugger
+    featured: true
     url: https://github.com/php-debugger/php-debugger
-    image: php-debugger.jpg
+    image: php-debugger.svg
     desc: "A lightweight PHP debugger extension, forked from Xdebug and stripped down to debugging only."
 
   - name: DAWhub
+    featured: true
     url: https://dawhub.app
     image: dawhub.jpg
-    desc: "Diff and version control for FL Studio projects. A CLI today, a collaboration hub soon."
+    desc: "Diff and version control for FL Studio projects. Starting with a CLI for tracking what changed."
 
   - name: redpen
     url: https://github.com/pronskiy/redpen
-    image: redpen.jpg
+    image: redpen-preview.png
+    image_fit: contain
     desc: "A macOS menu-bar app that critiques your English instead of correcting it."
 
   - name: redditify
     url: https://github.com/pronskiy/redditify
-    image: redditify.jpg
+    image: redditify.svg
     desc: "Render Reddit threads on your own website."
 
   - name: php-src-developer
     url: https://github.com/pronskiy/php-src-developer
-    image: php-src-developer.jpg
+    image: php-src-developer.svg
     desc: "A Claude Code plugin for working on the PHP language core, php/php-src."
 
 archive:

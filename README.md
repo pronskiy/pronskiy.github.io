@@ -30,7 +30,7 @@ This launches the Sculpin dev server at <http://localhost:8000>.
 
 ### CSS / design
 
-All styles live in `source/assets/css/app.css`. It defines the design tokens (cream/ink palette, pink accent, dark-mode override), a small reset, and semantic component classes used by the templates (`.hero`, `.past-list`, `.video`, `.prose`, etc.). Edit and refresh — no compilation involved.
+All styles live in `source/assets/css/app.css`. It defines the design tokens (paper/ink palette, dark-mode override), a small reset, and semantic component classes used by the templates (`.masthead`, `.projects`, `.index`, `.prose`, etc.). Edit and refresh — no compilation involved.
 
 ### Content types
 
@@ -39,8 +39,15 @@ All styles live in `source/assets/css/app.css`. It defines the design tokens (cr
 
 ### Top-level pages
 
-- `source/index.html` — landing page (hero, Projects, Writing, Videos, Talks).
-- `source/blog.html` — blog index.
+- `source/index.html` — introduction, three selected projects, three essays, six recent videos, and eight recent activity entries.
+- `source/blog.html` — Writing: personal posts plus recent articles published elsewhere.
+- `source/_pages/projects.md` — all projects; `featured: true` in `app/config/archive.yml` selects homepage projects.
+- `source/_pages/archive.md` — complete archive with type filters. Filters use `?type=writing|talk|podcast|video`; all entries remain available without JavaScript.
+- `source/_pages/talks.md` — talks, podcasts, and videos, with the same filters.
+- `source/_pages/articles.md` — the complete list of external articles.
+- `source/_pages/music.md` — photo/video gallery, direct listening links, and expandable players.
+
+Project previews are local SVG illustrations, original website previews (PhpStorm Light and DAWhub), and a product screenshot in `source/assets/img/projects/`, rendered by `source/_partials/project-list.html`. The redpen screenshot comes from its repository's `docs/screenshot.png`. Music video posters are frames extracted from the corresponding local videos.
 
 ## Deployment
 

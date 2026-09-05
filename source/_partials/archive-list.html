@@ -6,7 +6,7 @@
       with_posts  merge in data.posts. Requires `use: [posts]` on the page.
       limit       cap the number of rows.
       fold_before hide rows dated before this year behind a "See older" row
-                  (a native <details>, no JS). Used by the homepage only.
+                  (a native <details>, no JS). Optional on long listings.
 
     Each row is one link in two columns: the year (first row of a year only)
     and the title, with a muted note riding the end of the title. Articles are
@@ -69,7 +69,7 @@
     </summary>
     <ol class="index">
         {% endif %}
-        <li>
+        <li data-type="{{ item.type }}" data-year="{{ year }}">
             <a class="index-row index-row--{{ item.type }}{{ year != seen_year ? ' is-year-start' }}"
                href="{{ external ? item.url : site.url ~ item.url }}"
                {% if external %}target="_blank" rel="noopener"{% endif %}>

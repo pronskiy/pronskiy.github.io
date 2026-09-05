@@ -4,7 +4,7 @@ layout: default
 use:
     - posts
 ---
-{% set reel = site.archive|filter(e => e.youtube is defined and e.youtube)|sort((a, b) => b.date <=> a.date) %}
+{% set reel = site.archive|filter(e => e.youtube is defined and e.youtube)|sort((a, b) => b.date <=> a.date)|slice(0, 6) %}
 
 <header class="masthead">
     <div class="profile">
@@ -24,53 +24,46 @@ use:
     </div>
 
     <p class="masthead-intro">
-        Hi 👋
-    </p>
-    <p class="masthead-intro">
-        I'm passionate about tech, PHP, graphs, developer tools, AI, and&nbsp;<a href="/music">music</a>.
-    </p>
-    <p class="masthead-intro">
-        In the past, I led <a href="https://jetbrains.com/phpstorm/">PhpStorm</a> at&nbsp;JetBrains and&nbsp;founded
+        I build tools for developers and music makers. Previously, I led
+        <a href="https://jetbrains.com/phpstorm/">PhpStorm</a> at&nbsp;JetBrains and&nbsp;founded
         <a href="https://thephp.foundation">The&nbsp;PHP&nbsp;Foundation</a>.
     </p>
     <p class="masthead-intro">
-        Originally from&nbsp;<a href="https://en.wikipedia.org/wiki/Kharkiv">Kharkiv, Ukraine</a>, now based in&nbsp;<span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg>Amsterdam, NL</span>.
+        From&nbsp;<a href="https://en.wikipedia.org/wiki/Kharkiv">Kharkiv, Ukraine</a>, based in&nbsp;<span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"/></svg>Amsterdam</span>.
+        I also&nbsp;<a href="/music">DJ and make music</a>.
     </p>
 </header>
 
-<section class="block" id="video">
-    <h2 class="block-head">Videos</h2>
-    <ol class="reel-strip">
+<section class="block" id="projects" aria-labelledby="projects-title">
+    <h2 class="block-head" id="projects-title">Selected projects</h2>
+    {% include 'project-list.html' with { featured: true } %}
+    <a class="section-link" href="/projects/">All projects <span aria-hidden="true">→</span></a>
+</section>
+
+<section class="block" id="writing" aria-labelledby="writing-title">
+    <h2 class="block-head" id="writing-title">Selected writing</h2>
+    {% include 'archive-list.html' with { types: ['post'], limit: 3 } %}
+    <a class="section-link" href="/blog/">All writing <span aria-hidden="true">→</span></a>
+</section>
+
+<section class="block" id="video" aria-labelledby="video-title">
+    <h2 class="block-head" id="video-title">Recent videos</h2>
+    <ol class="reel-strip" aria-label="Recent videos">
         {% for v in reel %}
         <li>
             <a href="{{ v.url }}" target="_blank" rel="noopener">
-                <img src="https://i.ytimg.com/vi/{{ v.youtube }}/mqdefault.jpg" alt="" loading="lazy" width="160" height="90">
+                <img src="https://i.ytimg.com/vi/{{ v.youtube }}/mqdefault.jpg" alt="" loading="lazy" width="168" height="94">
                 {% if v.duration is defined and v.duration %}<span class="reel-time">{{ v.duration }}</span>{% endif %}
                 <span class="reel-title">{{ v.title }}</span>
             </a>
         </li>
         {% endfor %}
     </ol>
+    <a class="section-link" href="/videos/">All talks &amp; videos <span aria-hidden="true">→</span></a>
 </section>
 
-<section class="block" id="projects">
-    <h2 class="block-head">Projects</h2>
-    <ul class="projects">
-        {% for pr in site.projects|default([]) %}
-        <li class="project">
-            <a class="project-card" href="{{ pr.url }}" target="_blank" rel="noopener">
-                {% if pr.image is defined %}
-                <img class="project-image" src="{{ site.url }}/assets/img/projects/{{ pr.image }}" alt="" loading="lazy" width="960" height="504">
-                {% endif %}
-                <span class="project-name">{{ pr.name }}</span>
-                <span class="project-desc">{{ pr.desc }}</span>
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-</section>
-
-<section class="block" id="archive">
-    <h2 class="block-head">Everything</h2>
-    {% include 'archive-list.html' with { fold_before: 2022 } %}
+<section class="block" id="archive" aria-labelledby="activity-title">
+    <h2 class="block-head" id="activity-title">Recent activity</h2>
+    {% include 'archive-list.html' with { limit: 8 } %}
+    <a class="section-link" href="/archive/">Explore the archive <span aria-hidden="true">→</span></a>
 </section>

@@ -1,12 +1,16 @@
 ---
 layout: page
 permalink: videos
-title: Talks, Podcasts, Videos
+title: Talks & videos
+nav_section: videos
+archive_filters: true
 wide: true
 ---
 
 I regularly speak at tech conferences, participate in podcasts, and live streams about PHP, development tools, and open source.
 
-{{ include('archive-list.html', { types: ['talk', 'podcast', 'video'], with_posts: false }) }}
+For speaking invitations, [get in touch](mailto:roman@pronskiy.com).
 
-Happy to speak at conferences or podcasts — just drop [me](mailto:roman@pronskiy.com) a line.
+{{ include('archive-filters.html', { with_writing: false }) }}
+
+{{ include('archive-list.html', { types: ['talk', 'podcast', 'video'], with_posts: false }) }}

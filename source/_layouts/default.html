@@ -83,6 +83,7 @@
     {% block head_scripts %}{% endblock %}
 </head>
 <body{% if page.unlisted %} class="has-unlisted-banner"{% endif %}>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 {% if page.unlisted %}
 <div class="unlisted-banner" role="note">
@@ -90,19 +91,21 @@
 </div>
 {% endif %}
 
-{% set nav_prefix = is_home ? '' : '/' %}
-<nav class="site-nav">
+{% set nav_section = page.nav_section|default('') %}
+{% if not nav_section and page.url starts with '/blog' %}{% set nav_section = 'writing' %}{% endif %}
+<nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-{% if not is_home %}<a href="/" class="brand">Roman Pronskiy</a>{% endif %}
+        {% if not is_home %}<a href="/" class="brand">Roman Pronskiy</a>{% endif %}
         <ul>
-            <li><a href="{{ nav_prefix }}#video">Videos</a></li>
-            <li><a href="{{ nav_prefix }}#projects">Projects</a></li>
-            <li><a href="{{ nav_prefix }}#archive">Everything</a></li>
+            <li><a href="/projects/"{% if nav_section == 'projects' %} aria-current="page"{% endif %}>Projects</a></li>
+            <li><a href="/blog/"{% if nav_section == 'writing' %} aria-current="{{ page.url in ['/blog', '/blog/'] ? 'page' : 'true' }}"{% endif %}>Writing</a></li>
+            <li><a href="/videos/"{% if nav_section == 'videos' %} aria-current="page"{% endif %}>Talks &amp; videos</a></li>
+            <li><a href="/archive/"{% if nav_section == 'archive' %} aria-current="page"{% endif %}>Archive</a></li>
         </ul>
     </div>
 </nav>
 
-<main>
+<main id="main-content" tabindex="-1">
 {% block content_wrapper %}{% block content %}{% endblock %}{% endblock %}
 </main>
 
@@ -110,6 +113,8 @@
     <div class="site-footer-inner">
         <span>© Roman Pronskiy</span>
         <span class="site-footer-right">
+            <a href="/music/">Music</a>
+            <a href="mailto:roman@pronskiy.com">Contact</a>
             <a href="{{ site.url }}/atom.xml">Feed</a>
             {# Tabler sun and moon (MIT), inlined like the contact icons. CSS shows one of the two. #}
             <button type="button" class="theme-toggle" aria-label="Switch to dark mode" data-tip="Switch to dark mode">
@@ -120,6 +125,7 @@
     </div>
 </footer>
 
+{% if page.archive_filters %}<script src="{{ site.url }}/assets/js/archive.js" defer></script>{% endif %}
 {% block scripts %}{% endblock %}
 {% block scripts_after %}{% endblock %}
 
@@ -169,6 +175,7 @@
 </script>
 <script>
 (function() {
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
   document.querySelectorAll('[data-scramble]').forEach(function(el) {
     var original = el.textContent.trim();
@@ -218,6 +225,7 @@
     }
 
     el.addEventListener('mouseenter', function() {
+      if (reducedMotion.matches) return;
       if (rafId) cancelAnimationFrame(rafId);
       freeze();
       queue = [];
@@ -228,6 +236,10 @@
       }
       frame = 0;
       update();
+    });
+
+    reducedMotion.addEventListener('change', function () {
+      if (reducedMotion.matches && rafId) { cancelAnimationFrame(rafId); rafId = null; thaw(); }
     });
 
     function randomChar() { return chars[Math.floor(Math.random() * chars.length)]; }
@@ -256,6 +268,7 @@
 // run the effect when the wrap actually changes.
 import { prepare, layout } from 'https://esm.sh/@chenglou/pretext@0.0.5';
 
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const intros = document.querySelectorAll('.masthead-intro');
 if (intros.length) {
   const GLITCH_CHARS = '░▒▓█◆◇○●#@!*%&?+<>/\\';
@@ -309,13 +322,14 @@ if (intros.length) {
   }
 
   function glitch(span) {
+    if (reducedMotion.matches) return;
     const original = span.dataset.original || span.textContent;
     if (span._glitchRaf) cancelAnimationFrame(span._glitchRaf);
     span.classList.add('ws-glitch');
     let frame = 0;
     const duration = 18 + Math.floor(Math.random() * 8);
     const tick = () => {
-      if (frame >= duration) {
+      if (reducedMotion.matches || frame >= duration) {
         span.textContent = original;
         span.classList.remove('ws-glitch');
         span._glitchRaf = null;

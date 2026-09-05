@@ -2,43 +2,71 @@
 layout: page
 permalink: music
 title: Music
+subtitle: "DJ sets, electronic music, and a few things from the archive."
 ---
 
-I'm passionate about electronic music. And I occasionally do DJ sets at my friends' parties, corporate events, and other gigs. I just enjoy making people dance and creating awesome mood with the music.
+I DJ at friends' parties, corporate events, and other gigs. I enjoy finding the next track that gets people dancing.
 
-<img src="/assets/img/music/sugar_factory_1.jpg" alt="" width="375" style="float: left; margin-right: 10px;"/> <img src="/assets/img/music/klara_1.jpg" alt="" width="300"/>
+<div class="music-gallery">
+    <figure>
+        <img src="/assets/img/music/sugar_factory_1.jpg" alt="Roman DJing at Sugar Factory, lit from behind in a dark room" width="1440" height="1440" loading="lazy">
+        <figcaption>Sugar Factory</figcaption>
+    </figure>
+    <figure>
+        <img src="/assets/img/music/klara_1.jpg" alt="Roman playing a DJ set at Klara" width="1080" height="1350" loading="lazy">
+        <figcaption>Klara</figcaption>
+    </figure>
+    <figure>
+        <video controls preload="none" poster="/assets/img/music/jetbrains_kingsday-poster.jpg" playsinline aria-label="DJ set at JetBrains King's Day">
+            <source src="/assets/img/music/jetbrains_kingsday.mp4" type="video/mp4">
+            <a href="/assets/img/music/jetbrains_kingsday.mp4">Watch the King's Day set</a>
+        </video>
+        <figcaption>King's Day at JetBrains</figcaption>
+    </figure>
+    <figure>
+        <video controls preload="none" poster="/assets/img/music/jetbrains_summerfest-poster.jpg" playsinline aria-label="DJ set at JetBrains Summerfest">
+            <source src="/assets/img/music/jetbrains_summerfest.mp4" type="video/mp4">
+            <a href="/assets/img/music/jetbrains_summerfest.mp4">Watch the Summerfest set</a>
+        </video>
+        <figcaption>JetBrains Summerfest</figcaption>
+    </figure>
+</div>
 
-<video width="300" controls  style="float: left; margin-right: 10px;">
-  <source src="/assets/img/music/jetbrains_kingsday.mp4" type="video/mp4">
-</video>
+## DJ sets
 
-<video width="300" controls  style=" margin-right: 10px;">
-  <source src="/assets/img/music/jetbrains_summerfest.mp4" type="video/mp4">
-</video>
+[Live at Kultura Zvuka — May 9, 2019](https://soundcloud.com/pronskiy/live-kultura-zvuka-may-9-2019). More mixes on [SoundCloud](https://soundcloud.com/pronskiy).
 
---- 
-<br>
+<details class="music-embed">
+    <summary>Play the set here</summary>
+    <iframe title="Live at Kultura Zvuka on SoundCloud" width="100%" height="166" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633060930&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false"></iframe>
+</details>
 
-Check out my mixes from various parties below:
-
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/633060930&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-
----
-<br>
-
-These are my old projects if you would like to check my background.
 ## Bitches And Nike Shoes
 
-In 2010, my mates and I started an electronic band and we even had an official release on Subtribe Records in 2011.
+In 2010, my mates and I started an electronic band. We released a record on Subtribe Records in 2011.
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/7u6CEMQeuHo8Bk2fDJPnII?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+[Listen on Spotify](https://open.spotify.com/artist/7u6CEMQeuHo8Bk2fDJPnII).
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/11743782&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+<details class="music-embed">
+    <summary>Open the Spotify player</summary>
+    <iframe title="Bitches And Nike Shoes on Spotify" src="https://open.spotify.com/embed/artist/7u6CEMQeuHo8Bk2fDJPnII?theme=0" width="100%" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</details>
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/92179223&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+On SoundCloud: [Bitches And Nike Shoes - Silly to Disguise](https://soundcloud.com/bitchesandnikeshoes/silly-to-disguise), [Bitches And Nike Shoes - Hip Action [demo]](https://soundcloud.com/bitchesandnikeshoes/hip-action-demo).
+
+<details class="music-embed">
+    <summary>Play the tracks here</summary>
+    <iframe title="First Bitches And Nike Shoes track on SoundCloud" width="100%" height="166" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/11743782&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false"></iframe>
+    <iframe title="Second Bitches And Nike Shoes track on SoundCloud" width="100%" height="166" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/92179223&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false"></iframe>
+</details>
 
 ## Let's Panic
 
-In 2007–2010 I played guitar in a ska-punk band Let's Panic. 
+I played guitar in the ska-punk band Let's Panic from 2007 to 2010.
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/7kAIYbQ5i9JhRTDe3a79wh?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+[Listen on Spotify](https://open.spotify.com/artist/7kAIYbQ5i9JhRTDe3a79wh).
+
+<details class="music-embed">
+    <summary>Open the Spotify player</summary>
+    <iframe title="Let's Panic on Spotify" src="https://open.spotify.com/embed/artist/7kAIYbQ5i9JhRTDe3a79wh" width="100%" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</details>

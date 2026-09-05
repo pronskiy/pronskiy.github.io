@@ -1,5 +1,7 @@
 ---
-title: Blog
+title: Writing
+subtitle: "Essays and experiments in PHP and developer tools, plus writing for JetBrains and The PHP Foundation."
+nav_section: writing
 layout: default
 permalink: blog
 generator: pagination
@@ -13,6 +15,9 @@ use:
     <header class="page-header">
         <h1>{{ page.title }}</h1>
     </header>
+
+    <p class="listing-intro">Essays and experiments in PHP and developer tools. I also write for the PhpStorm and PHP Foundation blogs.</p>
+    <h2 class="listing-heading">On this site</h2>
 
     {# Uses pagination items rather than the shared archive partial, so paging keeps working. #}
     <ol class="index">
@@ -39,4 +44,10 @@ use:
         {% endif %}
     </nav>
     {% endif %}
+    <section class="writing-elsewhere" aria-labelledby="elsewhere-title">
+        <h2 class="listing-heading" id="elsewhere-title">Elsewhere</h2>
+        <p class="listing-intro">Recent articles for JetBrains and The PHP Foundation.</p>
+        {% include 'archive-list.html' with { types: ['article'], with_posts: false, limit: 8 } %}
+        <a class="section-link" href="/articles/">All articles elsewhere <span aria-hidden="true">→</span></a>
+    </section>
 </article>
