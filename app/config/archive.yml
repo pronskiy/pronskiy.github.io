@@ -34,6 +34,8 @@
 # Keep the original website previews for PhpStorm Light and DAWhub.
 # `featured: true` selects the three homepage projects; order puts the lead first.
 # Illustrations are intentionally legible at thumbnail size, without live statistics.
+# `acquired:` marks a project that changed hands: its text is a muted note after
+# the name and the preview loses its colour. Keep those last in the list.
 projects:
   - name: PhpStorm Light
     featured: true
@@ -68,6 +70,12 @@ projects:
     url: https://github.com/pronskiy/php-src-developer
     image: php-src-developer.svg
     desc: "A Claude Code plugin for working on the PHP language core, php/php-src."
+
+  - name: Search Exclude
+    url: https://wordpress.org/plugins/search-exclude/
+    image: search-exclude.svg
+    desc: "A WordPress plugin that hides chosen pages and posts from search results."
+    acquired: Acquired by QuadLayers in 2023
 
 archive:
 

@@ -2,13 +2,13 @@
 {% if featured|default(false) %}{% set projects = projects|filter(p => p.featured|default(false))|slice(0, 3) %}{% endif %}
 <ul class="projects{{ featured|default(false) ? ' projects--featured' }}">
     {% for pr in projects %}
-    <li class="project">
+    <li class="project{{ pr.acquired|default(false) ? ' project--acquired' }}">
         <a class="project-card" href="{{ pr.url }}" target="_blank" rel="noopener">
             {% if pr.image is defined %}
             <img class="project-image{{ pr.image_fit|default('') == 'contain' ? ' project-image--contain' }}" src="{{ site.url }}/assets/img/projects/{{ pr.image }}" alt="" loading="lazy" width="960" height="504">
             {% endif %}
             <span class="project-copy">
-                <span class="project-name">{{ pr.name }}</span>
+                <span class="project-name">{{ pr.name }}{% if pr.acquired|default(false) %} <span class="project-note">{{ pr.acquired }}</span>{% endif %}</span>
                 <span class="project-desc">{{ pr.desc }}</span>
             </span>
         </a>
