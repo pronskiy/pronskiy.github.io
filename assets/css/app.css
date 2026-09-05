@@ -33,7 +33,7 @@
     --ink-12:  rgba(17, 17, 17, 0.12);
     --ink-06:  rgba(17, 17, 17, 0.06);
     --line:    var(--ink-12);   /* the only rule weight on the site */
-    --icon-sun:  block;         /* the footer toggle shows the current side */
+    --icon-sun:  block;         /* the nav toggle shows the current side */
     --icon-moon: none;
 
     --display: 'Host Grotesk', system-ui, sans-serif;
@@ -220,16 +220,18 @@ nav.site-nav a { display: inline-flex; align-items: center; min-height: 44px; }
    optically with the lowercase email. */
 .contacts li { display: flex; align-items: center; }
 .contacts svg { width: 18px; height: 18px; transform: translateY(1px); }   /* stroke icons: colour comes from the svg attrs */
-/* Tips on the last contact and the footer toggle hang left from the icon
+/* Tips on the last contact and the nav toggle hang left from the icon
    instead of centring on it: both sit at the right edge on a phone, a hidden
    tip still takes up space, and a centred one would poke past the viewport
-   and widen the page by a few px. */
+   and widen the page by a few px. The toggle's tip also drops below the icon,
+   since there is no room above it at the top of the page. */
 .contacts li:last-child [data-tip]::after,
 .theme-toggle[data-tip]::after { left: auto; right: 0; transform: translate(0, 4px); }
 .contacts li:last-child [data-tip]:hover::after,
 .contacts li:last-child [data-tip]:focus-visible::after,
 .theme-toggle[data-tip]:hover::after,
 .theme-toggle[data-tip]:focus-visible::after { transform: translate(0, 0); }
+.theme-toggle[data-tip]::after { bottom: auto; top: calc(100% + 2px); transform: translate(0, -4px); }
 
 .masthead-intro {
     margin-top: 2rem;
@@ -493,12 +495,12 @@ nav.site-nav a { display: inline-flex; align-items: center; min-height: 44px; }
 }
 .site-footer a { color: inherit; text-decoration: none; transition: color .15s; }
 .site-footer a:hover { color: var(--ink); }
-/* Feed first so the group's baseline comes from text and lines up with the
-   copyright; the toggle icon then centres on that line. */
 .site-footer-right { display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem 1rem; }
 .site-footer-right a { display: inline-flex; align-items: center; min-height: 44px; }
-/* Colour-scheme toggle: a Tabler sun or moon in the footer grey, ink on hover,
-   the same language as the contact icons. --icon-sun / --icon-moon pick one. */
+/* Colour-scheme toggle: a Tabler sun or moon at the end of the nav, in the nav
+   grey and ink on hover, the same language as the contact icons. --icon-sun /
+   --icon-moon pick one. The 44px hit area overhangs the container by the
+   icon's own inset so the icon, not the box, aligns with the right edge. */
 .theme-toggle {
     display: inline-flex;
     align-items: center;
@@ -508,10 +510,11 @@ nav.site-nav a { display: inline-flex; align-items: center; min-height: 44px; }
     min-width: 44px;
     min-height: 44px;
     justify-content: center;
-    color: inherit;
+    color: var(--ink-70);
     cursor: pointer;
     transition: color .15s;
 }
+nav.site-nav .nav-toggle { display: flex; align-items: center; margin-right: -13px; }
 .theme-toggle:hover { color: var(--ink); }
 .theme-toggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
 .theme-toggle svg { width: 18px; height: 18px; }
