@@ -32,17 +32,18 @@
 
 # `image` is a local illustration, website preview, or screenshot in assets/img/projects/.
 # Keep the original website previews for PhpStorm Light and DAWhub.
-# `featured: true` selects the three homepage projects; order puts the lead first.
+# `featured: true` selects the three homepage projects; the first featured entry
+# takes the lead spot with the big preview, the other two get compact rows.
 # Illustrations are intentionally legible at thumbnail size, without live statistics.
 # `status:` marks a project that is no longer active ("Archived", "Acquired by …"):
 # its text is a muted note after the name and the preview loses its colour.
 # Keep those last in the list.
 projects:
-  - name: PhpStorm Light
+  - name: DAWhub
     featured: true
-    url: https://phpstorm.dev/light-mode
-    image: phpstorm-light.jpg
-    desc: "An experimental, trimmed-down PhpStorm build: faster startup, lower memory, fewer bundled features."
+    url: https://dawhub.app
+    image: dawhub.jpg
+    desc: "Diff and version control for FL Studio projects. Starting with a CLI for tracking what changed."
 
   - name: php-debugger
     featured: true
@@ -50,11 +51,11 @@ projects:
     image: php-debugger.svg
     desc: "A lightweight PHP debugger extension, forked from Xdebug and stripped down to debugging only."
 
-  - name: DAWhub
+  - name: PhpStorm Light
     featured: true
-    url: https://dawhub.app
-    image: dawhub.jpg
-    desc: "Diff and version control for FL Studio projects. Starting with a CLI for tracking what changed."
+    url: https://phpstorm.dev/light-mode
+    image: phpstorm-light.jpg
+    desc: "An experimental, trimmed-down PhpStorm build: faster startup, lower memory, fewer bundled features."
 
   - name: The PHP Foundation
     url: https://thephp.foundation
