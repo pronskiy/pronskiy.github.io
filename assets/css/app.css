@@ -97,6 +97,24 @@ body {
 }
 
 a { color: inherit; }
+[hidden] { display: none !important; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+.skip-link {
+    position: absolute;
+    top: 0.5rem;
+    left: var(--gutter);
+    z-index: 40;
+    padding: 0.75rem 1rem;
+    background: var(--paper);
+    color: var(--ink);
+    transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+#main-content:focus { outline: none; }
 
 /* ---------- nav ---------- */
 .nav-inner {
@@ -108,7 +126,7 @@ a { color: inherit; }
     align-items: baseline;
     gap: 1rem;
 }
-nav.site-nav .brand { font-weight: 600; text-decoration: none; }
+nav.site-nav .brand { font-weight: 600; text-decoration: none; white-space: nowrap; }
 nav.site-nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -121,7 +139,9 @@ nav.site-nav a {
     text-decoration: none;
     transition: color .15s;
 }
-nav.site-nav a:hover { color: var(--ink); }
+nav.site-nav a:hover, nav.site-nav a[aria-current] { color: var(--ink); }
+nav.site-nav a[aria-current] { font-weight: 600; }
+nav.site-nav a { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* ---------- masthead: profile header ---------- */
 .masthead {
@@ -181,22 +201,23 @@ nav.site-nav a:hover { color: var(--ink); }
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem 1.125rem;
-    margin-top: 0.85rem;
+    gap: 0 0.125rem;
+    margin-top: 0.5rem;
 }
 .contacts a {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
     color: var(--ink-60);
     text-decoration: none;
     transition: color .15s;
 }
 .contacts a:hover { color: var(--ink); }
-.contacts .contacts-email { color: var(--ink); font-weight: 600; }
-/* Each item is a flex box so an icon's box is just the icon: as an inline
-   box it would carry the strut's descender space beneath it and centre
-   3px too high. The 1px nudge then puts the icon on the x-height centre
-   of the email (it is lowercase) rather than the box centre. */
+.contacts .contacts-email { color: var(--ink); font-weight: 600; margin-right: 0.5rem; }
+/* The 18px icons sit inside 44px hit areas; the small nudge aligns them
+   optically with the lowercase email. */
 .contacts li { display: flex; align-items: center; }
 .contacts svg { width: 18px; height: 18px; transform: translateY(1px); }   /* stroke icons: colour comes from the svg attrs */
 /* Tips on the last contact and the footer toggle hang left from the icon
@@ -372,7 +393,7 @@ nav.site-nav a:hover { color: var(--ink); }
 .projects {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem 1.5rem;
     padding-top: 1.25rem;
 }
@@ -411,6 +432,36 @@ nav.site-nav a:hover { color: var(--ink); }
     color: var(--ink-70);
 }
 
+/* The homepage leads with one project; the other two use compact rows. */
+.projects--featured { grid-template-columns: 1.1fr 1fr; gap: 1.5rem 2rem; }
+.projects--featured .project:first-child { grid-row: span 2; }
+.projects--featured .project:not(:first-child) .project-card {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+.projects--featured .project:not(:first-child) .project-image {
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.projects--featured .project:not(:first-child) .project-name { margin-top: 0; }
+.project-copy { display: block; min-width: 0; }
+.project-image--contain { object-fit: contain; background: #e5e5e3; }
+
+.section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--ink-70);
+    text-decoration: none;
+    transition: color .15s;
+}
+.section-link:hover { color: var(--ink); }
+
 /* ---------- footer ---------- */
 .site-footer {
     max-width: var(--container);
@@ -432,7 +483,8 @@ nav.site-nav a:hover { color: var(--ink); }
 .site-footer a:hover { color: var(--ink); }
 /* Feed first so the group's baseline comes from text and lines up with the
    copyright; the toggle icon then centres on that line. */
-.site-footer-right { display: flex; align-items: center; gap: 1.5rem; }
+.site-footer-right { display: flex; align-items: center; flex-wrap: wrap; gap: 0.25rem 1rem; }
+.site-footer-right a { display: inline-flex; align-items: center; min-height: 44px; }
 /* Colour-scheme toggle: a Tabler sun or moon in the footer grey, ink on hover,
    the same language as the contact icons. --icon-sun / --icon-moon pick one. */
 .theme-toggle {
@@ -441,6 +493,9 @@ nav.site-nav a:hover { color: var(--ink); }
     background: none;
     border: 0;
     padding: 0;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
     color: inherit;
     cursor: pointer;
     transition: color .15s;
@@ -562,6 +617,7 @@ nav.site-nav a:hover { color: var(--ink); }
 .prose h2:hover .anchorjs-link,
 .prose h3:hover .anchorjs-link,
 .prose h4:hover .anchorjs-link { opacity: 0.7; }
+.prose .anchorjs-link:focus-visible { opacity: 1; }
 .prose .anchorjs-link:hover { color: var(--ink); opacity: 1 !important; }
 
 /* ---------- prev / next post nav ---------- */
@@ -617,6 +673,44 @@ nav.site-nav a:hover { color: var(--ink); }
 .blog-pagination a { color: var(--ink-70); text-decoration: underline; text-underline-offset: 3px; }
 .blog-pagination a:hover { color: var(--ink); }
 
+/* ---------- writing and archive browsing ---------- */
+.listing-intro { max-width: var(--measure); font-size: 1.0625rem; color: var(--ink-70); }
+.listing-heading { font-size: 1rem; font-weight: 500; color: var(--ink-60); margin-top: 2rem; }
+.writing-elsewhere { margin-top: 2.5rem; padding-top: 0.25rem; border-top: 1px solid var(--line); }
+.writing-elsewhere .listing-intro { margin-top: 0.75rem; }
+.blog-index .writing-elsewhere .index { margin-top: 0.5rem; }
+.archive-tools { margin: 1.5rem 0 0; }
+.archive-filters { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.archive-filters button {
+    border: 0;
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--ink-70);
+    min-height: 44px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color .15s, color .15s;
+}
+.archive-filters button:hover { background: var(--ink-06); color: var(--ink); }
+.archive-filters button[aria-pressed="true"] { background: var(--ink-06); color: var(--ink); font-weight: 600; }
+.prose .archive-count { font-size: 0.875rem; color: var(--ink-60); margin: 0.75rem 0 0; }
+.prose .section-link { text-decoration: none; }
+.prose .projects { list-style: none; margin: 0; }
+.prose .projects li { margin: 0; }
+.prose .project-card { text-decoration: none; }
+.prose .project-image { border-radius: var(--radius-lg); }
+
+/* ---------- responsive media ---------- */
+.prose iframe.video-embed { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.music-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin: 1.75rem 0; }
+.prose .music-gallery figure { margin: 0; text-align: left; }
+.music-gallery img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.music-gallery video { width: 100%; aspect-ratio: 9 / 16; background: var(--ink-06); border-radius: var(--radius); }
+.prose .music-gallery figcaption { margin-top: 0.5rem; }
+.music-embed { margin: 1.5rem 0; }
+.music-embed summary { cursor: pointer; color: var(--ink-70); padding: 0.65rem 0; font-size: 0.875rem; }
+.music-embed iframe { width: 100%; border: 0; }
+
 /* ---------- unlisted banner ---------- */
 .unlisted-banner {
     position: sticky;
@@ -657,7 +751,15 @@ nav.site-nav a:hover { color: var(--ink); }
 @media (max-width: 680px) {
     :root { --gutter: 1.25rem; }
 
-    .masthead { padding-top: 2.5rem; }
+    .nav-inner { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding-top: 0.75rem; }
+    nav.site-nav ul { margin-left: 0; gap: 0 0.5rem; width: 100%; justify-content: space-between; }
+    .masthead { padding-top: 2rem; }
+    .page { padding-top: 2rem; }
+    .site-footer-right { gap: 0.25rem 0.75rem; }
+    .projects--featured .project:first-child { grid-row: auto; }
+    .projects--featured .project:first-child .project-image { max-height: 176px; object-fit: cover; }
+    .projects--featured .project:not(:first-child) .project-card { grid-template-columns: 80px minmax(0, 1fr); }
+    .music-gallery { gap: 1rem; }
 
     /* index stacks: the year (first row of a year only) above the title. */
     .index, .index-fold { --cols: 1fr; }
@@ -670,7 +772,16 @@ nav.site-nav a:hover { color: var(--ink); }
 /* phones: the profile stacks, portrait above the name */
 @media (max-width: 560px) {
     .profile { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    .profile-photo { width: 88px; height: 88px; }
+    .profile-photo { width: 72px; height: 72px; }
+    .profile-body { width: 100%; }
+    .contacts { column-gap: 0; }
+    .contacts li:first-child { flex-basis: 100%; }
+    .contacts li:nth-child(2) { margin-left: -13px; }
+    .masthead-intro { margin-top: 1.25rem; }
+}
+
+@media (max-width: 380px) {
+    nav.site-nav ul { gap: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

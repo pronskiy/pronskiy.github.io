@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>The IDE Is Becoming a Token Machine &mdash; Roman Pronskiy</title>
-    <meta name="description" content="I&#039;m passionate about tech, PHP, graphs, developer tools, AI, and music. In the past, I led PhpStorm at JetBrains and founded The PHP Foundation.">
+    <meta name="description" content="I build tools for developers and music makers. Previously, I led PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta charset="utf-8">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -60,14 +60,14 @@
     <meta property="og:url" content="https://pronskiy.com/blog/ide-becoming-token-machine/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="The IDE Is Becoming a Token Machine">
-    <meta property="og:description" content="Roman Pronskiy &mdash; I&#039;m passionate about tech, PHP, graphs, developer tools, AI, and music. In the past, I led PhpStorm at JetBrains and founded The PHP Foundation.">
+    <meta property="og:description" content="Roman Pronskiy &mdash; I build tools for developers and music makers. Previously, I led PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta property="og:image" content="https://pronskiy.com/assets/share/2026-05-18-ide-becoming-token-machine.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="https://pronskiy.com">
     <meta property="twitter:url" content="https://pronskiy.com/blog/ide-becoming-token-machine/">
     <meta name="twitter:title" content="The IDE Is Becoming a Token Machine">
-    <meta name="twitter:description" content="I&#039;m passionate about tech, PHP, graphs, developer tools, AI, and music. In the past, I led PhpStorm at JetBrains and founded The PHP Foundation.">
+    <meta name="twitter:description" content="I build tools for developers and music makers. Previously, I led PhpStorm at JetBrains and founded The PHP Foundation.">
     <meta name="twitter:image" content="https://pronskiy.com/assets/share/2026-05-18-ide-becoming-token-machine.jpg">
 
     <meta name="mobile-web-app-capable" content="yes">
@@ -77,22 +77,24 @@
         <script src="//cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
 </head>
 <body class="has-unlisted-banner">
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <div class="unlisted-banner" role="note">
     <span>Unlisted post — accessible only by direct link</span>
 </div>
 
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
-<a href="/" class="brand">Roman Pronskiy</a>        <ul>
-            <li><a href="/#video">Videos</a></li>
-            <li><a href="/#projects">Projects</a></li>
-            <li><a href="/#archive">Everything</a></li>
+        <a href="/" class="brand">Roman Pronskiy</a>        <ul>
+            <li><a href="/projects/">Projects</a></li>
+            <li><a href="/blog/" aria-current="true">Writing</a></li>
+            <li><a href="/videos/">Talks &amp; videos</a></li>
+            <li><a href="/archive/">Archive</a></li>
         </ul>
     </div>
 </nav>
 
-<main>
+<main id="main-content" tabindex="-1">
 <article class="page">
     <header class="page-header">
         <h1>
@@ -477,6 +479,8 @@ More execution.</p>
     <div class="site-footer-inner">
         <span>© Roman Pronskiy</span>
         <span class="site-footer-right">
+            <a href="/music/">Music</a>
+            <a href="mailto:roman@pronskiy.com">Contact</a>
             <a href="https://pronskiy.com/atom.xml">Feed</a>
                         <button type="button" class="theme-toggle" aria-label="Switch to dark mode" data-tip="Switch to dark mode">
                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z"/><path d="M6.343 17.657l-1.414 1.414"/><path d="M6.343 6.343l-1.414 -1.414"/><path d="M17.657 6.343l1.414 -1.414"/><path d="M17.657 17.657l1.414 1.414"/><path d="M4 12h-2"/><path d="M12 4v-2"/><path d="M20 12h2"/><path d="M12 20v2"/></svg>
@@ -545,6 +549,7 @@ More execution.</p>
 </script>
 <script>
 (function() {
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
   document.querySelectorAll('[data-scramble]').forEach(function(el) {
     var original = el.textContent.trim();
@@ -594,6 +599,7 @@ More execution.</p>
     }
 
     el.addEventListener('mouseenter', function() {
+      if (reducedMotion.matches) return;
       if (rafId) cancelAnimationFrame(rafId);
       freeze();
       queue = [];
@@ -604,6 +610,10 @@ More execution.</p>
       }
       frame = 0;
       update();
+    });
+
+    reducedMotion.addEventListener('change', function () {
+      if (reducedMotion.matches && rafId) { cancelAnimationFrame(rafId); rafId = null; thaw(); }
     });
 
     function randomChar() { return chars[Math.floor(Math.random() * chars.length)]; }
@@ -632,6 +642,7 @@ More execution.</p>
 // run the effect when the wrap actually changes.
 import { prepare, layout } from 'https://esm.sh/@chenglou/pretext@0.0.5';
 
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const intros = document.querySelectorAll('.masthead-intro');
 if (intros.length) {
   const GLITCH_CHARS = '░▒▓█◆◇○●#@!*%&?+<>/\\';
@@ -685,13 +696,14 @@ if (intros.length) {
   }
 
   function glitch(span) {
+    if (reducedMotion.matches) return;
     const original = span.dataset.original || span.textContent;
     if (span._glitchRaf) cancelAnimationFrame(span._glitchRaf);
     span.classList.add('ws-glitch');
     let frame = 0;
     const duration = 18 + Math.floor(Math.random() * 8);
     const tick = () => {
-      if (frame >= duration) {
+      if (reducedMotion.matches || frame >= duration) {
         span.textContent = original;
         span.classList.remove('ws-glitch');
         span._glitchRaf = null;
