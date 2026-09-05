@@ -113,8 +113,8 @@ Rules worth keeping:
   hovered. Keep those last in the list.
 - **Navigation**: Projects, Writing (`/blog/`), Talks & videos (`/videos/`), Archive.
   Pages set `nav_section` to mark the current section; post URLs select Writing.
-  The mobile brand has its own row. The footer holds the feed link and the theme toggle;
-  music is linked from the intro.
+  The mobile brand has its own row. The theme toggle is the last nav item, after
+  Archive; the footer holds only the feed link. Music is linked from the intro.
 - **Archive filters**: `archive-filters.html` and `assets/js/archive.js`, enabled
   by `archive_filters: true` in front matter. Rows expose `data-type` and
   `data-year`; filtering rebuilds visible year labels. Query parameters persist
@@ -133,7 +133,7 @@ The CSS follows the OS preference unless `<html data-theme="light|dark">` forces
 a side. An inline script in the head of `_layouts/default.html` reads the choice
 from `localStorage` (key `theme`) before first paint, sets the attribute, and
 flips the media of the two highlight.js `<link id="hljs-light|dark">` sheets and
-the `theme-color` metas, which otherwise pick a side by media query. The footer
+the `theme-color` metas, which otherwise pick a side by media query. The nav
 toggle (a Tabler sun or moon, chosen in CSS by the `--icon-sun` / `--icon-moon`
 tokens) flips between light and dark through `window.theme.set()`; picking the
 side the OS already prefers clears the override, so "follow the system" needs no
