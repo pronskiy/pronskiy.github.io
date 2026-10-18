@@ -47,7 +47,7 @@ All styles live in `source/assets/css/app.css`. It defines the design tokens (pa
 - `source/_pages/articles.md` — the complete list of external articles.
 - `source/_pages/music.md` — photo/video gallery, direct listening links, and expandable players.
 
-Project previews are local SVG illustrations, original website previews (PhpStorm Light and DAWhub), and a product screenshot in `source/assets/img/projects/`, rendered by `source/_partials/project-list.html`. The redpen screenshot comes from its repository's `docs/screenshot.png`. Music video posters are frames extracted from the corresponding local videos.
+Project previews are local SVG illustrations, original website previews (PhpStorm Light and DAWhub), and product screenshots in `source/assets/img/projects/`, rendered by `source/_partials/project-list.html`. The redpen screenshot comes from its repository's `docs/screenshot.png`. Music video posters are frames extracted from the corresponding local videos.
 
 ## Deployment
 

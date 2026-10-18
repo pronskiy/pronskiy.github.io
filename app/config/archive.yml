@@ -53,8 +53,14 @@ projects:
     image: php-debugger.svg
     desc: "A lightweight PHP debugger extension, forked from Xdebug and stripped down to debugging only."
 
-  - name: PhpStorm Light
+  - name: Agenstorm
     featured: true
+    url: https://github.com/pronskiy/agenstorm
+    image: agenstorm.jpg
+    thumb: agenstorm-square.jpg   # the plugin icon; the screenshot is illegible at 96px
+    desc: "A JetBrains IDE plugin for agent-heavy work: every Claude Code session in one sidebar, worktree tabs, live Markdown."
+
+  - name: PhpStorm Light
     url: https://phpstorm.dev/light-mode
     image: phpstorm-light.jpg
     thumb: phpstorm-light-square.jpg   # the compact row's square crop lost the lettering
