@@ -3,9 +3,225 @@
     <title><![CDATA[Roman Pronskiy]]></title>
     <link href="https://pronskiy.com/atom.xml" rel="self"/>
     <link href="https://pronskiy.com/"/>
-    <updated>2026-09-05T20:59:45+00:00</updated>
+    <updated>2026-10-18T18:45:02+00:00</updated>
     <id>https://pronskiy.com/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
+            <entry>
+            <title type="html"><![CDATA[The IDE Is Becoming a Token Machine]]></title>
+            <link href="https://pronskiy.com/blog/ide-becoming-token-machine/"/>
+            <updated>2026-05-18T00:00:00+00:00</updated>
+            <id>https://pronskiy.com/blog/ide-becoming-token-machine/</id>
+            <content type="html"><![CDATA[<p>Or: what software development looks like after coding stops being the bottleneck.</p>
+
+<hr />
+
+<p>For most of software history, programming looked something like this:</p>
+
+<p>Tiny human.<br />
+Big keyboard.<br />
+Millions of tiny painful decisions.</p>
+
+<p>You sat in front of a glowing rectangle for eight hours and slowly converted caffeine into syntax.</p>
+
+<p><img src="/assets/img/blog/2026-token-machine/tiny-human-big-keyboard.png" alt="Tiny human, big keyboard" /></p>
+
+<p>And because of this, the IDE evolved around one core assumption:</p>
+
+<blockquote>
+  <p>Humans manually produce code.</p>
+</blockquote>
+
+<p>Everything made sense around that assumption.</p>
+
+<p>Autocomplete helped humans type faster.<br />
+Refactorings helped humans avoid mistakes.<br />
+Navigation helped humans understand giant codebases.<br />
+Syntax highlighting prevented humans from accidentally destroying production with one missing bracket.</p>
+
+<p>The editor was the center of gravity because the editor was where the work happened.</p>
+
+<p>And honestly?<br />
+It worked pretty well.</p>
+
+<pre><code> Human brain -&gt; Keyboard -&gt; Code
+</code></pre>
+
+<h2 id="%2A%2Athen-ai-happened%2A%2A"><strong>Then AI happened</strong></h2>
+
+<p>And suddenly the entire equation broke.</p>
+
+<p>Not because AI became “pretty good”.</p>
+
+<p>But because tokens became cheap.</p>
+
+<p>Historically, tokens were expensive. Every line of code required: attention, memory, effort, frustration, context switching, debugging, emotional damage, 14 Stack Overflow tabs.</p>
+
+<p>Generating 1000 lines of code used to cost actual human life force. Now it costs approximately 42 cents and one prompt.</p>
+
+<p>And I think most people still underestimate how fundamental this shift is.</p>
+
+<p>Because the important thing is not:</p>
+
+<blockquote>
+  <p>“AI can code”</p>
+</blockquote>
+
+<p>That’s the shallow version.</p>
+
+<p>The real thing is:</p>
+
+<blockquote>
+  <p><strong>Software development is becoming a token allocation problem.</strong></p>
+</blockquote>
+
+<p>That’s the actual earthquake.</p>
+
+<h2 id="%2A%2Anew-world%2A%2A"><strong>New world</strong></h2>
+
+<pre><code>Human → infinite tokens → slop
+</code></pre>
+
+<p>The bottleneck moved. That’s the whole story.</p>
+
+<p>For decades, the bottleneck was “token generation”.</p>
+
+<p>Now the bottleneck is:</p>
+
+<ul>
+<li>intent</li>
+<li>taste</li>
+<li>...</li>
+<li><strong>knowing what not to build</strong></li>
+</ul>
+
+<p>In other words: Code is no longer scarce.</p>
+
+<h2 id="%2A%2Athe-economics-changed%2A%2A"><strong>The Economics Changed</strong></h2>
+
+<p>Every generation of developer tooling optimized around the scarcest resource. 
+Early programming optimized around hardware scarcity. 
+Later IDEs optimized around human productivity.</p>
+
+<p>AI-era tooling optimizes around <strong>intelligence throughput</strong>.</p>
+
+<p>And when tokens become abundant, the winning systems are the ones that <strong>help humans consume and direct more of them</strong>.</p>
+
+<p>This is important because many people still think AI tooling is fundamentally about replacing developers. I don’t think that’s quite right.</p>
+
+<p>The more interesting thing is that software development itself changes shape once intelligence becomes cheap.</p>
+
+<p>And once you realize this, another strange thing becomes obvious.</p>
+
+<h2 id="%2A%2Amaybe-ides-are-not-about-correctness-either%2A%2A"><strong>Maybe IDEs Are Not About Correctness Either</strong></h2>
+
+<p>A lot of people assume the future IDE exists to keep AI under control. Like a giant safety harness: the IDE verifies things. Checks AI. Protects humans. Guarantees correctness.</p>
+
+<p>Maybe temporarily. But long term? Probably not.</p>
+
+<p>Humans currently verify AI because humans are still more reliable in certain domains. That advantage may not survive.</p>
+
+<p>Eventually AI systems will likely:</p>
+
+<ul>
+<li>write code better than humans</li>
+<li>test code better than humans</li>
+<li>review code better than humans</li>
+<li>benchmark code better than humans</li>
+<li>debug code better than humans</li>
+<li>reason across giant systems better than humans</li>
+</ul>
+
+<p>Which creates a very uncomfortable question: if IDEs are no longer fundamentally about writing, navigating, debugging code…
+…then what are they?</p>
+
+<h2 id="%2A%2Athe-ide-becomes-a-token-machine%2A%2A"><strong>The IDE Becomes a Token Machine</strong></h2>
+
+<p>I think the answer is surprisingly simple. The IDE becomes <strong>a medium for spending intelligence</strong>.</p>
+
+<p>Or more specifically:</p>
+
+<blockquote>
+  <p>A machine for converting human intention into deployed reality through massive token consumption.</p>
+</blockquote>
+
+<p>Which sounds ridiculous. Until it doesn't.</p>
+
+<p><strong>The future IDE probably looks more like… TikTok.</strong></p>
+
+<h2 id="%2A%2Await-what%3F%2A%2A"><strong>Wait what?</strong></h2>
+
+<p>The point is that products increasingly optimize for:</p>
+
+<ul>
+<li>immediacy</li>
+<li>low friction</li>
+<li>instant feedback</li>
+<li>infinite interaction loops</li>
+</ul>
+
+<p>And AI development tools are drifting in the same direction.</p>
+
+<p>The interaction loop becomes optimized for throughput and continuous generation.</p>
+
+<p><strong>Old IDEs were books.</strong></p>
+
+<p>You sat quietly.<br />
+You concentrated deeply.<br />
+You manually traversed systems.</p>
+
+<p>The interaction loop was slow.</p>
+
+<p><strong>Modern AI tools feel closer to TikTok.</strong></p>
+
+<p>Fast.<br />
+Addictive.<br />
+High-frequency.<br />
+Infinite feed of generated possibilities.</p>
+
+<p><strong>Because the economics and latency changed.</strong></p>
+
+<p>Once software generation becomes nearly instant, the interaction model changes too.</p>
+
+<p>Eat.<br />
+Sleep.<br />
+Claude.<br />
+Repeat.</p>
+
+<p>The feedback loop compresses so aggressively that software creation starts resembling a continuous stream rather than a careful drafting process.</p>
+
+<h2 id="%2A%2Amaybe-we-misunderstood-programming%2A%2A"><strong>Maybe We Misunderstood Programming</strong></h2>
+
+<p>Maybe programming was never fundamentally about writing code.<br />
+Maybe code was just the temporary compression format for human intent.<br />
+Maybe code was always just a side effect.<br />
+A weird bridge language between: <code>imagination &lt;-&gt; logic &lt;-&gt; machines</code></p>
+
+<p>And now we are building a much better compiler for intent itself. Which means the IDE of the AI era is probably not really an Integrated Development Environment anymore.</p>
+
+<p>It’s something stranger: an intelligence consumption mechanism.</p>
+
+<p>A system designed to maximize the conversion rate between:<br />
+<code>human intention → machine execution</code></p>
+
+<p>Because once intelligence becomes infrastructure, the most important software category is no longer the one that helps humans write code. It’s the one that helps humans direct enormous amounts of machine cognition.</p>
+
+<p>And economically, the incentives are obvious:</p>
+
+<p>Cloud companies wanted more compute.<br />
+Social networks wanted more engagement.<br />
+Streaming companies wanted more watch time.</p>
+
+<h2 id="%2A%2Aand-llm-providers%3F%2A%2A"><strong>And LLM providers?</strong></h2>
+
+<p>They want more token flow.</p>
+
+<p>Not necessarily maliciously.</p>
+
+<p>Economically.</p>
+
+<p><strong>IDE will follow.</strong></p>
+]]></content>
+        </entry>
             <entry>
             <title type="html"><![CDATA[Turn Any PHP Script into a Native Single-File Binary]]></title>
             <link href="https://pronskiy.com/blog/php-script-as-binary/"/>

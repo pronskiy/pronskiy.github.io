@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[I build tools for developers and music makers. Previously, I led PhpStorm at JetBrains and founded The PHP Foundation.]]></description><updated>2026-09-05T20:59:45+00:00</updated><entry><title type="html"><![CDATA[Generics via Attributes in PHP &mdash; Can We Have Them?]]></title><content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[I build tools for developers and music makers. Previously, I led PhpStorm at JetBrains and founded The PHP Foundation.]]></description><updated>2026-10-18T18:45:02+00:00</updated><entry><title type="html"><![CDATA[Generics via Attributes in PHP &mdash; Can We Have Them?]]></title><content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
 
 <pre><code class="php">#[&lt;T&gt;]
 class Stack
@@ -297,15 +297,9 @@ It worked pretty well.</p>
 
 <p>But because tokens became cheap.</p>
 
-<p>Historically, tokens were expensive.</p>
+<p>Historically, tokens were expensive. Every line of code required: attention, memory, effort, frustration, context switching, debugging, emotional damage, 14 Stack Overflow tabs.</p>
 
-<p>Every line of code required: attention, memory, effort, frustration, context switching, debugging, emotional damage, 14 Stack Overflow tabs.</p>
-
-<p>Generating 1000 lines of code used to cost actual human life force.</p>
-
-<p>Now it costs approximately: 14 cents, one prompt, and a bit of confidence.</p>
-
-<p>This changes everything.</p>
+<p>Generating 1000 lines of code used to cost actual human life force. Now it costs approximately 42 cents and one prompt.</p>
 
 <p>And I think most people still underestimate how fundamental this shift is.</p>
 
@@ -327,12 +321,10 @@ It worked pretty well.</p>
 
 <h2 id="%2A%2Anew-world%2A%2A"><strong>New world</strong></h2>
 
-<pre><code>Human → AI swarm → infinite tokens → code
+<pre><code>Human → infinite tokens → slop
 </code></pre>
 
-<p>The bottleneck moved.</p>
-
-<p>That’s the whole story.</p>
+<p>The bottleneck moved. That’s the whole story.</p>
 
 <p>For decades, the bottleneck was “token generation”.</p>
 
@@ -345,106 +337,31 @@ It worked pretty well.</p>
 <li><strong>knowing what not to build</strong></li>
 </ul>
 
-<p>In other words:
-Code is no longer scarce.</p>
+<p>In other words: Code is no longer scarce.</p>
 
 <h2 id="%2A%2Athe-economics-changed%2A%2A"><strong>The Economics Changed</strong></h2>
 
-<p>Every generation of developer tooling optimized around the scarcest resource.</p>
-
-<p>Early programming optimized around hardware scarcity.</p>
-
-<p>Later IDEs optimized around human productivity.</p>
+<p>Every generation of developer tooling optimized around the scarcest resource. 
+Early programming optimized around hardware scarcity. 
+Later IDEs optimized around human productivity.</p>
 
 <p>AI-era tooling optimizes around <strong>intelligence throughput</strong>.</p>
 
 <p>And when tokens become abundant, the winning systems are the ones that <strong>help humans consume and direct more of them</strong>.</p>
 
-<p>This is important because many people still think AI tooling is fundamentally about replacing developers.</p>
-
-<p>I don’t think that’s quite right.</p>
+<p>This is important because many people still think AI tooling is fundamentally about replacing developers. I don’t think that’s quite right.</p>
 
 <p>The more interesting thing is that software development itself changes shape once intelligence becomes cheap.</p>
-
-<h2 id="%2A%2A%E2%80%9Cwill-ai-replace-software-engineers%3F%E2%80%9D%2A%2A"><strong>“Will AI Replace Software Engineers?”</strong></h2>
-
-<p>This is where discussions usually become weird.</p>
-
-<p>One side says:</p>
-
-<blockquote>
-  <p>“AI will replace all programmers”</p>
-</blockquote>
-
-<p>The other side says:</p>
-
-<blockquote>
-  <p>“AI is just a tool”</p>
-</blockquote>
-
-<p>Both are missing what’s actually happening.</p>
-
-<p>Developers are not disappearing.</p>
-
-<p>But the nature of development is changing.</p>
-
-<p>A lot.</p>
-
-<p><img src="/assets/img/blog/2026-token-machine/hackers-vs-foremen.png" alt="From hackers to foremen" /></p>
-
-<p>Historically, programmers looked like hackers.</p>
-
-<p>People who manually manipulated systems at a low level.</p>
-
-<p>Modern software engineers increasingly look less like hackers and more like construction foremen. Or renovation specialists.</p>
-
-<p>The best builders are not the people who can personally manufacture every brick.</p>
-
-<p>They’re the people who know:</p>
-
-<ul>
-<li>where walls should go</li>
-<li>which shortcuts become disasters later</li>
-<li>which foundations are unsafe</li>
-<li>how to coordinate ten specialists simultaneously</li>
-<li>what “good” looks like before it exists</li>
-</ul>
-
-<p>AI can generate a house.</p>
-
-<p>Experienced engineers know whether the house collapses six months later.</p>
-
-<h2 id="%2A%2Athe-new-developer%2A%2A"><strong>The New Developer</strong></h2>
-
-<pre><code>Old:
-human writes software
-
-New:
-human directs intelligence
-</code></pre>
 
 <p>And once you realize this, another strange thing becomes obvious.</p>
 
 <h2 id="%2A%2Amaybe-ides-are-not-about-correctness-either%2A%2A"><strong>Maybe IDEs Are Not About Correctness Either</strong></h2>
 
-<p>A lot of people assume the future IDE exists to keep AI under control.</p>
+<p>A lot of people assume the future IDE exists to keep AI under control. Like a giant safety harness: the IDE verifies things. Checks AI. Protects humans. Guarantees correctness.</p>
 
-<p>Like a giant safety harness.</p>
+<p>Maybe temporarily. But long term? Probably not.</p>
 
-<p>The IDE verifies things.<br />
-Checks AI.<br />
-Protects humans.<br />
-Guarantees correctness.</p>
-
-<p>Maybe temporarily.</p>
-
-<p>But long term?</p>
-
-<p>Probably not.</p>
-
-<p>Humans currently verify AI because humans are still more reliable in certain domains.</p>
-
-<p>That advantage may not survive.</p>
+<p>Humans currently verify AI because humans are still more reliable in certain domains. That advantage may not survive.</p>
 
 <p>Eventually AI systems will likely:</p>
 
@@ -457,17 +374,12 @@ Guarantees correctness.</p>
 <li>reason across giant systems better than humans</li>
 </ul>
 
-<p>Which creates a very uncomfortable question.</p>
-
-<p>If IDEs are no longer fundamentally about writing, navigating, debugging code.</p>
-
-<p>…then what are they?</p>
+<p>Which creates a very uncomfortable question: if IDEs are no longer fundamentally about writing, navigating, debugging code…
+…then what are they?</p>
 
 <h2 id="%2A%2Athe-ide-becomes-a-token-machine%2A%2A"><strong>The IDE Becomes a Token Machine</strong></h2>
 
-<p>I think the answer is surprisingly simple.</p>
-
-<p>The IDE becomes <strong>a medium for spending intelligence</strong>.</p>
+<p>I think the answer is surprisingly simple. The IDE becomes <strong>a medium for spending intelligence</strong>.</p>
 
 <p>Or more specifically:</p>
 
@@ -475,30 +387,7 @@ Guarantees correctness.</p>
   <p>A machine for converting human intention into deployed reality through massive token consumption.</p>
 </blockquote>
 
-<p>Which sounds ridiculous.</p>
-
-<p>Until it doesn't.</p>
-
-<h2 id="%2A%2Athe-editor-stops-being-the-center%2A%2A"><strong>The Editor Stops Being the Center</strong></h2>
-
-<p>For 30 years, the editor was the center of software creation.</p>
-
-<p>Everything revolved around manipulating text.</p>
-
-<p>Now, the center of gravity shifts.</p>
-
-<p>The editor does not disappear.</p>
-
-<p>It just stops being the sun around which everything else rotates.</p>
-
-<p>Many AI IDEs today still look like:</p>
-
-<ul>
-<li>traditional IDE</li>
-<li>plus sidebar chatbot</li>
-</ul>
-
-<p>But that may eventually feel as outdated as attaching a jet engine to a horse carriage.</p>
+<p>Which sounds ridiculous. Until it doesn't.</p>
 
 <p><strong>The future IDE probably looks more like… TikTok.</strong></p>
 
@@ -532,12 +421,6 @@ Addictive.<br />
 High-frequency.<br />
 Infinite feed of generated possibilities.</p>
 
-<p>You no longer slowly carve software from stone.</p>
-
-<p>You steer an avalanche.</p>
-
-<p>Not because software engineering becomes stupid.</p>
-
 <p><strong>Because the economics and latency changed.</strong></p>
 
 <p>Once software generation becomes nearly instant, the interaction model changes too.</p>
@@ -549,44 +432,27 @@ Repeat.</p>
 
 <p>The feedback loop compresses so aggressively that software creation starts resembling a continuous stream rather than a careful drafting process.</p>
 
-<p><img src="/assets/img/blog/2026-token-machine/tiktok-feed.png" alt="TikTok-style feed" />
-<a href="https://www.tiktok.com/@openai/video/7636197889714244877">https://www.tiktok.com/@openai/video/7636197889714244877</a></p>
-
 <h2 id="%2A%2Amaybe-we-misunderstood-programming%2A%2A"><strong>Maybe We Misunderstood Programming</strong></h2>
 
-<p>Maybe programming was never fundamentally about writing code.</p>
+<p>Maybe programming was never fundamentally about writing code.<br />
+Maybe code was just the temporary compression format for human intent.<br />
+Maybe code was always just a side effect.<br />
+A weird bridge language between: <code>imagination &lt;-&gt; logic &lt;-&gt; machines</code></p>
 
-<p>Maybe code was just the temporary compression format for human intent.</p>
+<p>And now we are building a much better compiler for intent itself. Which means the IDE of the AI era is probably not really an Integrated Development Environment anymore.</p>
 
-<p>Maybe code was always just a side effect.</p>
+<p>It’s something stranger: an intelligence consumption mechanism.</p>
 
-<p>A weird bridge language between:
-<code>imagination &lt;-&gt; logic &lt;-&gt; machines</code></p>
+<p>A system designed to maximize the conversion rate between:<br />
+<code>human intention → machine execution</code></p>
 
-<p>And now we are building a much better compiler for intent itself.</p>
+<p>Because once intelligence becomes infrastructure, the most important software category is no longer the one that helps humans write code. It’s the one that helps humans direct enormous amounts of machine cognition.</p>
 
-<p>Which means the IDE of the AI era is probably not really an Integrated Development Environment anymore.</p>
+<p>And economically, the incentives are obvious:</p>
 
-<p>It’s something stranger.</p>
-
-<p>An intelligence consumption mechanism.</p>
-
-<p>A system designed to maximize the conversion rate between:
-human intention → machine execution</p>
-
-<p>Because once intelligence becomes infrastructure, the most important software category is no longer the one that helps humans write code.</p>
-
-<p>It’s the one that helps humans direct enormous amounts of machine cognition.</p>
-
-<p>And economically, the incentives are obvious.</p>
-
-<p>Cloud companies wanted more compute.</p>
-
-<p>Social networks wanted more engagement.</p>
-
-<p>Streaming companies wanted more watch time.</p>
-
-<p><img src="/assets/img/blog/2026-token-machine/token-flow.png" alt="Token flow" /></p>
+<p>Cloud companies wanted more compute.<br />
+Social networks wanted more engagement.<br />
+Streaming companies wanted more watch time.</p>
 
 <h2 id="%2A%2Aand-llm-providers%3F%2A%2A"><strong>And LLM providers?</strong></h2>
 
@@ -595,19 +461,6 @@ human intention → machine execution</p>
 <p>Not necessarily maliciously.</p>
 
 <p>Economically.</p>
-
-<p>Once intelligence becomes metered infrastructure, the ecosystem naturally evolves toward tools optimized for continuous intelligence consumption.</p>
-
-<p>More generation.
-More iteration.
-More retries.
-More autonomous loops.
-More context.
-More execution.</p>
-
-<p>Not because developers became shallow.</p>
-
-<p>Because the economics changed.</p>
 
 <p><strong>IDE will follow.</strong></p>
 ]]></content><link href="https://pronskiy.com/blog/ide-becoming-token-machine/"/><id>https://pronskiy.com/blog/ide-becoming-token-machine/</id><pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry></feed>
