@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[I build tools for developers and music makers. Previously, I led PhpStorm at JetBrains and founded The PHP Foundation.]]></description><updated>2026-10-18T18:45:02+00:00</updated><entry><title type="html"><![CDATA[Generics via Attributes in PHP &mdash; Can We Have Them?]]></title><content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[I build tools for developers and music makers. Previously, I led PhpStorm at JetBrains and founded The PHP Foundation.]]></description><updated>2026-10-18T20:40:10+00:00</updated><entry><title type="html"><![CDATA[Generics via Attributes in PHP &mdash; Can We Have Them?]]></title><content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
 
 <pre><code class="php">#[&lt;T&gt;]
 class Stack
@@ -281,172 +281,84 @@ Refactorings helped humans avoid mistakes.<br />
 Navigation helped humans understand giant codebases.<br />
 Syntax highlighting prevented humans from accidentally destroying production with one missing bracket.</p>
 
-<p>The editor was the center of gravity because the editor was where the work happened.</p>
+<p>The editor was the center of gravity because the editor was where the work happened. And it worked pretty well.</p>
 
-<p>And honestly?<br />
-It worked pretty well.</p>
-
-<pre><code> Human brain -&gt; Keyboard -&gt; Code
+<pre><code>Human brain → Keyboard → Code
 </code></pre>
 
-<h2 id="%2A%2Athen-ai-happened%2A%2A"><strong>Then AI happened</strong></h2>
+<h2 id="then-ai-happened">Then AI happened</h2>
 
-<p>And suddenly the entire equation broke.</p>
+<p>And suddenly the entire equation broke, because tokens became cheap.</p>
 
-<p>Not because AI became “pretty good”.</p>
-
-<p>But because tokens became cheap.</p>
-
-<p>Historically, tokens were expensive. Every line of code required: attention, memory, effort, frustration, context switching, debugging, emotional damage, 14 Stack Overflow tabs.</p>
+<p>Historically, tokens were expensive. Every line of code required attention, memory, effort, frustration, context switching, debugging, emotional damage, 14 Stack Overflow tabs.</p>
 
 <p>Generating 1000 lines of code used to cost actual human life force. Now it costs approximately 42 cents and one prompt.</p>
 
-<p>And I think most people still underestimate how fundamental this shift is.</p>
-
-<p>Because the important thing is not:</p>
-
-<blockquote>
-  <p>“AI can code”</p>
-</blockquote>
-
-<p>That’s the shallow version.</p>
-
-<p>The real thing is:</p>
+<p>So the way I see it:</p>
 
 <blockquote>
   <p><strong>Software development is becoming a token allocation problem.</strong></p>
 </blockquote>
 
-<p>That’s the actual earthquake.</p>
-
-<h2 id="%2A%2Anew-world%2A%2A"><strong>New world</strong></h2>
+<h2 id="new-world">New world</h2>
 
 <pre><code>Human → infinite tokens → slop
 </code></pre>
 
-<p>The bottleneck moved. That’s the whole story.</p>
-
-<p>For decades, the bottleneck was “token generation”.</p>
-
-<p>Now the bottleneck is:</p>
+<p>The bottleneck moved. For decades, the bottleneck was token generation. Now it is:</p>
 
 <ul>
 <li>intent</li>
 <li>taste</li>
-<li>...</li>
-<li><strong>knowing what not to build</strong></li>
+<li>knowing what <em>not</em> to build</li>
 </ul>
 
-<p>In other words: Code is no longer scarce.</p>
+<p>Code is no longer scarce.</p>
 
-<h2 id="%2A%2Athe-economics-changed%2A%2A"><strong>The Economics Changed</strong></h2>
+<h2 id="the-economics-changed">The economics changed</h2>
 
-<p>Every generation of developer tooling optimized around the scarcest resource. 
-Early programming optimized around hardware scarcity. 
-Later IDEs optimized around human productivity.</p>
+<p>Every generation of developer tooling optimized around the scarcest resource. Early programming optimized around hardware. Later IDEs optimized around human productivity. AI-era tooling optimizes around tokens: the winning systems are the ones that help humans spend and direct more of them.</p>
 
-<p>AI-era tooling optimizes around <strong>intelligence throughput</strong>.</p>
+<p>Most of the debate is about whether AI replaces developers. I find a different question more interesting: what happens to software development itself once intelligence becomes cheap?</p>
 
-<p>And when tokens become abundant, the winning systems are the ones that <strong>help humans consume and direct more of them</strong>.</p>
+<h2 id="maybe-ides-are-not-about-correctness-either">Maybe IDEs are not about correctness either</h2>
 
-<p>This is important because many people still think AI tooling is fundamentally about replacing developers. I don’t think that’s quite right.</p>
-
-<p>The more interesting thing is that software development itself changes shape once intelligence becomes cheap.</p>
-
-<p>And once you realize this, another strange thing becomes obvious.</p>
-
-<h2 id="%2A%2Amaybe-ides-are-not-about-correctness-either%2A%2A"><strong>Maybe IDEs Are Not About Correctness Either</strong></h2>
-
-<p>A lot of people assume the future IDE exists to keep AI under control. Like a giant safety harness: the IDE verifies things. Checks AI. Protects humans. Guarantees correctness.</p>
+<p>The comfortable answer is that the future IDE exists to keep AI under control. Like a giant safety harness that verifies things, checks the AI and guarantees correctness.</p>
 
 <p>Maybe temporarily. But long term? Probably not.</p>
 
-<p>Humans currently verify AI because humans are still more reliable in certain domains. That advantage may not survive.</p>
+<p>Humans currently verify AI because humans are still more reliable in certain domains. That advantage may not survive. Eventually AI systems will likely write, test, review and debug code better than humans, and reason across giant systems better than we can.</p>
 
-<p>Eventually AI systems will likely:</p>
+<p>That leaves an uncomfortable question: if IDEs are no longer about writing, navigating and debugging code, then what are they?</p>
 
-<ul>
-<li>write code better than humans</li>
-<li>test code better than humans</li>
-<li>review code better than humans</li>
-<li>benchmark code better than humans</li>
-<li>debug code better than humans</li>
-<li>reason across giant systems better than humans</li>
-</ul>
+<h2 id="the-ide-becomes-a-token-machine">The IDE becomes a token machine</h2>
 
-<p>Which creates a very uncomfortable question: if IDEs are no longer fundamentally about writing, navigating, debugging code…
-…then what are they?</p>
+<p>The IDE becomes a machine for converting human intention into deployed software by burning through tokens.</p>
 
-<h2 id="%2A%2Athe-ide-becomes-a-token-machine%2A%2A"><strong>The IDE Becomes a Token Machine</strong></h2>
+<p>The future IDE probably looks more like <strong>TikTok</strong>.</p>
 
-<p>I think the answer is surprisingly simple. The IDE becomes <strong>a medium for spending intelligence</strong>.</p>
+<h2 id="wait-what%3F">Wait what?</h2>
 
-<p>Or more specifically:</p>
+<p>Consumer products keep optimizing for immediacy, low friction, instant feedback and infinite interaction loops. AI development tools are drifting the same way, toward throughput and continuous generation.</p>
 
-<blockquote>
-  <p>A machine for converting human intention into deployed reality through massive token consumption.</p>
-</blockquote>
+<p>Old IDEs were books. You sat quietly, concentrated deeply and traversed systems by hand. The loop was slow.</p>
 
-<p>Which sounds ridiculous. Until it doesn't.</p>
-
-<p><strong>The future IDE probably looks more like… TikTok.</strong></p>
-
-<h2 id="%2A%2Await-what%3F%2A%2A"><strong>Wait what?</strong></h2>
-
-<p>The point is that products increasingly optimize for:</p>
-
-<ul>
-<li>immediacy</li>
-<li>low friction</li>
-<li>instant feedback</li>
-<li>infinite interaction loops</li>
-</ul>
-
-<p>And AI development tools are drifting in the same direction.</p>
-
-<p>The interaction loop becomes optimized for throughput and continuous generation.</p>
-
-<p><strong>Old IDEs were books.</strong></p>
-
-<p>You sat quietly.<br />
-You concentrated deeply.<br />
-You manually traversed systems.</p>
-
-<p>The interaction loop was slow.</p>
-
-<p><strong>Modern AI tools feel closer to TikTok.</strong></p>
-
-<p>Fast.<br />
-Addictive.<br />
-High-frequency.<br />
-Infinite feed of generated possibilities.</p>
-
-<p><strong>Because the economics and latency changed.</strong></p>
-
-<p>Once software generation becomes nearly instant, the interaction model changes too.</p>
+<p>Modern AI tools feel closer to TikTok: fast, addictive, an infinite feed of generated possibilities. Once generating software is nearly instant, the interaction model changes with it.</p>
 
 <p>Eat.<br />
 Sleep.<br />
 Claude.<br />
 Repeat.</p>
 
-<p>The feedback loop compresses so aggressively that software creation starts resembling a continuous stream rather than a careful drafting process.</p>
+<p>The feedback loop compresses so much that building software starts to look like a continuous stream rather than careful drafting.</p>
 
-<h2 id="%2A%2Amaybe-we-misunderstood-programming%2A%2A"><strong>Maybe We Misunderstood Programming</strong></h2>
+<h2 id="maybe-we-misunderstood-programming">Maybe we misunderstood programming</h2>
 
-<p>Maybe programming was never fundamentally about writing code.<br />
-Maybe code was just the temporary compression format for human intent.<br />
-Maybe code was always just a side effect.<br />
-A weird bridge language between: <code>imagination &lt;-&gt; logic &lt;-&gt; machines</code></p>
+<p>Maybe programming was never about writing code. Maybe code was a temporary compression format for human intent, a weird bridge language between <code>imagination ↔ logic ↔ machines</code>.</p>
 
-<p>And now we are building a much better compiler for intent itself. Which means the IDE of the AI era is probably not really an Integrated Development Environment anymore.</p>
+<p>If so, we are now building a much better compiler for intent itself, and the IDE's job becomes turning human intention into machine execution, as fast and as often as possible.</p>
 
-<p>It’s something stranger: an intelligence consumption mechanism.</p>
-
-<p>A system designed to maximize the conversion rate between:<br />
-<code>human intention → machine execution</code></p>
-
-<p>Because once intelligence becomes infrastructure, the most important software category is no longer the one that helps humans write code. It’s the one that helps humans direct enormous amounts of machine cognition.</p>
+<p>Once intelligence becomes infrastructure, the most important developer tool is whichever one helps humans direct the most of it.</p>
 
 <p>And economically, the incentives are obvious:</p>
 
@@ -454,7 +366,7 @@ A weird bridge language between: <code>imagination &lt;-&gt; logic &lt;-&gt; mac
 Social networks wanted more engagement.<br />
 Streaming companies wanted more watch time.</p>
 
-<h2 id="%2A%2Aand-llm-providers%3F%2A%2A"><strong>And LLM providers?</strong></h2>
+<h2 id="and-llm-providers%3F">And LLM providers?</h2>
 
 <p>They want more token flow.</p>
 
@@ -462,5 +374,5 @@ Streaming companies wanted more watch time.</p>
 
 <p>Economically.</p>
 
-<p><strong>IDE will follow.</strong></p>
+<p>IDE will follow.</p>
 ]]></content><link href="https://pronskiy.com/blog/ide-becoming-token-machine/"/><id>https://pronskiy.com/blog/ide-becoming-token-machine/</id><pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry></feed>
