@@ -731,7 +731,7 @@ nav.site-nav .nav-toggle { display: flex; align-items: center; margin-right: -13
     position: sticky;
     top: 0;
     z-index: 30;
-    background: var(--ink);
+    background: red;
     color: var(--paper);
     font-size: 0.875rem;
     text-align: center;
