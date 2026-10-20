@@ -5,9 +5,10 @@
    everything. Hierarchy comes from grid position, type scale and
    weight — never from colour.
 
-   There is deliberately NO accent colour. The only colour on the
-   page is the video thumbnails and project cards, so they read as
-   intentional. One typeface for the interface; mono appears only
+   There is one accent colour, --link, and it is spent only on links
+   in post and page prose so they can be found in running text.
+   Everywhere else the only colour is the video thumbnails and project cards, so
+   they read as intentional. One typeface for the interface; mono appears only
    inside code blocks (and the wrap-shifter easter egg). Every label is
    sentence case, no tracking. Small tracked-out uppercase is the single
    strongest "generated" tell and is banned here.
@@ -33,7 +34,9 @@
     --ink-12:  rgba(17, 17, 17, 0.12);
     --ink-06:  rgba(17, 17, 17, 0.06);
     --line:    var(--ink-12);   /* the only rule weight on the site */
-    --icon-sun:  block;         /* the nav toggle shows the current side */
+    --link:    #205ea6;         /* links in .prose only */
+    --link-30: rgba(32, 94, 166, 0.30);
+    --icon-sun:  block;        /* the nav toggle shows the current side */
     --icon-moon: none;
 
     --display: 'Host Grotesk', system-ui, sans-serif;
@@ -60,6 +63,8 @@
         --ink-20: rgba(237, 237, 237, 0.20);
         --ink-12: rgba(237, 237, 237, 0.14);
         --ink-06: rgba(237, 237, 237, 0.07);
+        --link:    #66a0c8;
+        --link-30: rgba(102, 160, 200, 0.30);
         --icon-sun:  none;
         --icon-moon: block;
     }
@@ -72,6 +77,8 @@
     --ink-20: rgba(237, 237, 237, 0.20);
     --ink-12: rgba(237, 237, 237, 0.14);
     --ink-06: rgba(237, 237, 237, 0.07);
+    --link:    #66a0c8;
+    --link-30: rgba(102, 160, 200, 0.30);
     --icon-sun:  none;
     --icon-moon: block;
 }
@@ -581,13 +588,14 @@ nav.site-nav .nav-toggle { display: flex; align-items: center; margin-right: -13
 .prose ol { list-style: decimal outside; margin-left: 1.5rem; }
 .prose li { margin-bottom: 0.35em; }
 .prose a {
+    color: var(--link);
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
-    text-decoration-color: var(--ink-20);
+    text-decoration-color: var(--link-30);
     transition: text-decoration-color .15s;
 }
-.prose a:hover { text-decoration-color: var(--ink); }
+.prose a:hover { text-decoration-color: var(--link); }
 .prose code {
     font-family: var(--mono);
     background: var(--ink-06);
@@ -675,7 +683,7 @@ nav.site-nav .nav-toggle { display: flex; align-items: center; margin-right: -13
    (.prose ol / li / a all outrank the bare .index rules). */
 .prose .index { list-style: none; margin: 1.5rem 0 0; }
 .prose .index li { margin-bottom: 0; }
-.prose .index-row { text-decoration: none; }
+.prose .index-row { text-decoration: none; color: inherit; }
 .blog-pagination {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
@@ -709,10 +717,11 @@ nav.site-nav .nav-toggle { display: flex; align-items: center; margin-right: -13
 .archive-filters button:hover { background: var(--ink-06); color: var(--ink); }
 .archive-filters button[aria-pressed="true"] { background: var(--ink-06); color: var(--ink); font-weight: 600; }
 .prose .archive-count { font-size: 0.875rem; color: var(--ink-60); margin: 0.75rem 0 0; }
-.prose .section-link { text-decoration: none; }
+.prose .section-link { text-decoration: none; color: var(--ink-70); }
+.prose .section-link:hover { color: var(--ink); }
 .prose .projects { list-style: none; margin: 0; }
 .prose .projects li { margin: 0; }
-.prose .project-card { text-decoration: none; }
+.prose .project-card { text-decoration: none; color: inherit; }
 .prose .project-image { border-radius: var(--radius-lg); }
 
 /* ---------- responsive media ---------- */

@@ -62,7 +62,7 @@ class SharingImageGenerator
     {
         $img = imagecreatetruecolor(self::IMAGE_WIDTH, self::IMAGE_HEIGHT);
 
-        // Ink and paper only — the site has no accent colour.
+        // Ink and paper only, like the site chrome.
         $bg    = imagecolorallocate($img, 18, 18, 18);     // #121212, matches dark --paper
         $ink   = imagecolorallocate($img, 237, 237, 237);  // #ededed, matches dark --ink
         $muted = imagecolorallocate($img, 140, 140, 140);

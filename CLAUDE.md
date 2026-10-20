@@ -43,9 +43,14 @@ muted secondary text, a soft tint on hover.
 
 Rules worth keeping:
 
-- **No accent colour.** The only colour on the page comes from images: the YouTube
-  thumbnails in the video strip and the project preview cards. That is why they
-  read as intentional.
+- **One accent colour, for links in running text only.** `--link` (a calm blue,
+  defined in all three token blocks) colours `.prose a` in posts and pages (Music,
+  404 and the rest) so links can be found in running text. The
+  index rows, project cards and section links that pages render inside `.prose`
+  reset it to ink; add the same reset for any new linked component there. Nav,
+  the homepage intro and chrome stay ink. Otherwise the only colour on the
+  page comes from images: the YouTube thumbnails in the video strip and the
+  project preview cards. That is why they read as intentional.
 - **Three text sizes carry the interface.** Body is 16px with 1.5 line-height.
   Anything you act on (nav, index titles, project names) is `1rem`; muted notes
   beside it are `0.875rem`; running text (the intro, post prose) is `1.0625rem`.
