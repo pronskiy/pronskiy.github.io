@@ -6,7 +6,7 @@
    weight — never from colour.
 
    There is one accent colour, --link, and it is spent only on links
-   in post and page prose so they can be found in running text.
+   in running text (post and page prose, the homepage intro).
    Everywhere else the only colour is the video thumbnails and project cards, so
    they read as intentional. One typeface for the interface; mono appears only
    inside code blocks (and the wrap-shifter easter egg). Every label is
@@ -34,7 +34,7 @@
     --ink-12:  rgba(17, 17, 17, 0.12);
     --ink-06:  rgba(17, 17, 17, 0.06);
     --line:    var(--ink-12);   /* the only rule weight on the site */
-    --link:    #205ea6;         /* links in .prose only */
+    --link:    #205ea6;         /* links in running text only */
     --link-30: rgba(32, 94, 166, 0.30);
     --icon-sun:  block;        /* the nav toggle shows the current side */
     --icon-moon: none;
@@ -251,8 +251,8 @@ nav.site-nav a { display: inline-flex; align-items: center; min-height: 44px; }
 /* A place in the intro: a Tabler map-pin riding the text, kept on one line with its name. */
 .place { white-space: nowrap; }
 .place svg { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; margin-right: 0.2em; }   /* the reset makes svg a block */
-.masthead-intro a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--ink-20); }
-.masthead-intro a:hover { text-decoration-color: var(--ink); }
+.masthead-intro a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--link-30); }
+.masthead-intro a:hover { text-decoration-color: var(--link); }
 
 /* ---------- section rhythm ----------
    Every section is a .block: 2.5rem of air, then one hairline on the text
