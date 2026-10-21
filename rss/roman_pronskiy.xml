@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[I build tools for developers and music makers. Previously, I led PhpStorm at JetBrains and founded The PHP Foundation.]]></description><updated>2026-10-21T09:08:38+00:00</updated><entry><title type="html"><![CDATA[Generics via Attributes in PHP &mdash; Can We Have Them?]]></title><content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[Roman Pronskiy]]></title><description><![CDATA[I build tools for developers and music makers. Previously, I led PhpStorm at JetBrains and founded The PHP Foundation.]]></description><updated>2026-10-21T09:48:54+00:00</updated><entry><title type="html"><![CDATA[Generics via Attributes in PHP &mdash; Can We Have Them?]]></title><content type="html"><![CDATA[<p><strong>tl;dr:</strong> How about using generics in PHP attributes?</p>
 
 <pre><code class="php">#[&lt;T&gt;]
 class Stack
@@ -1899,4 +1899,4 @@ them.”</title></circle></a>
 </ul>
 
 <p>While I do have a pool of my own questions for it, I'm also curious about yours. If something comes to mind, write me on <a href="https://x.com/pronskiy">X</a>, <a href="https://www.linkedin.com/in/pronskiy/">LinkedIn</a> or by <a href="mailto:roman@pronskiy.com">email</a> and I'll try it.</p>
-]]></content><link href="https://pronskiy.com/blog/php-internals-arguments/"/><id>https://pronskiy.com/blog/php-internals-arguments/</id><pubDate>Mon, 19 Oct 2026 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry></feed>
+]]></content><link href="https://pronskiy.com/blog/php-internals-arguments/"/><id>https://pronskiy.com/blog/php-internals-arguments/</id><pubDate>Wed, 21 Oct 2026 00:00:00 +0000</pubDate><author><name>Roman Pronskiy</name><uri>https://twitter.com/pronskiy</uri></author></entry></feed>
